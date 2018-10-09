@@ -37,5 +37,6 @@ extension LoginViewController: ZCycleViewProtocol {
     }
     
     func cycleViewDidSelectedIndex(_ index: Int) {
+        print("select index = \(index)")
     }
 }
