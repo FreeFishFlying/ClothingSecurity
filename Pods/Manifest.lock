@@ -1,0 +1,33 @@
+PODS:
+  - Kingfisher (4.8.1)
+  - ReactiveSwift (4.0.0):
+    - Result (~> 4.0)
+  - Result (4.0.0)
+  - SnapKit (4.0.0)
+  - ZCycleView (0.0.8):
+    - Kingfisher (>= 4.3.1)
+
+DEPENDENCIES:
+  - Kingfisher
+  - ReactiveSwift
+  - SnapKit
+  - ZCycleView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs:
+    - Kingfisher
+    - ReactiveSwift
+    - Result
+    - SnapKit
+    - ZCycleView
+
+SPEC CHECKSUMS:
+  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
+  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  ZCycleView: 9a1c3cd643295f3fb39a24137e39ff68c7007dc3
+
+PODFILE CHECKSUM: 8360d89a7e8eafceb6c84a285eabed9d5252cb5d
+
+COCOAPODS: 1.5.3
