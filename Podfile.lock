@@ -1,33 +1,105 @@
 PODS:
-  - Kingfisher (4.8.1)
+  - Core (0.0.1):
+    - Mesh
+    - pop
+    - ReactiveCocoa
+    - ReactiveSwift
+    - SnapKit
+  - ESTabBarController (2.6.2)
+  - Eureka (4.2.0)
+  - HUD (0.1.0)
+  - Kingfisher (4.10.0)
+  - Mesh (0.0.1):
+    - ReactiveSwift
+    - XCGLogger
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
+  - pop (1.0.10)
+  - ReactiveCocoa (8.0.0):
+    - ReactiveSwift (~> 4.0)
+  - ReactiveObjC (3.1.0)
   - ReactiveSwift (4.0.0):
     - Result (~> 4.0)
   - Result (4.0.0)
   - SnapKit (4.0.0)
+  - SwiftyJSON (4.1.0)
+  - XCGLogger (6.0.4):
+    - XCGLogger/Core (= 6.0.4)
+  - XCGLogger/Core (6.0.4):
+    - ObjcExceptionBridging
   - ZCycleView (0.0.8):
     - Kingfisher (>= 4.3.1)
 
 DEPENDENCIES:
-  - Kingfisher
-  - ReactiveSwift
-  - SnapKit
-  - ZCycleView
+  - Core (from `submodules/Core/`)
+  - ESTabBarController (from `submodules/ESTabBarController/`)
+  - Eureka (from `submodules/Eureka/`)
+  - HUD (from `submodules/HUD/`)
+  - Kingfisher (from `submodules/Kingfisher/`)
+  - Mesh (from `submodules/Mesh/`)
+  - ReactiveCocoa (from `submodules/ReactiveCocoa/`)
+  - ReactiveObjC (from `submodules/ReactiveObjC/`)
+  - ReactiveSwift (from `submodules/ReactiveSwift/`)
+  - Result (from `submodules/Result/`)
+  - SnapKit (from `submodules/SnapKit/`)
+  - SwiftyJSON (from `submodules/SwiftyJSON/`)
+  - XCGLogger (from `submodules/XCGLogger/`)
+  - ZCycleView (from `submodules/ZCycleView/`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs:
-    - Kingfisher
-    - ReactiveSwift
-    - Result
-    - SnapKit
-    - ZCycleView
+    - ObjcExceptionBridging
+    - pop
+
+EXTERNAL SOURCES:
+  Core:
+    :path: submodules/Core/
+  ESTabBarController:
+    :path: submodules/ESTabBarController/
+  Eureka:
+    :path: submodules/Eureka/
+  HUD:
+    :path: submodules/HUD/
+  Kingfisher:
+    :path: submodules/Kingfisher/
+  Mesh:
+    :path: submodules/Mesh/
+  ReactiveCocoa:
+    :path: submodules/ReactiveCocoa/
+  ReactiveObjC:
+    :path: submodules/ReactiveObjC/
+  ReactiveSwift:
+    :path: submodules/ReactiveSwift/
+  Result:
+    :path: submodules/Result/
+  SnapKit:
+    :path: submodules/SnapKit/
+  SwiftyJSON:
+    :path: submodules/SwiftyJSON/
+  XCGLogger:
+    :path: submodules/XCGLogger/
+  ZCycleView:
+    :path: submodules/ZCycleView/
 
 SPEC CHECKSUMS:
-  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
-  ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
-  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  ZCycleView: 9a1c3cd643295f3fb39a24137e39ff68c7007dc3
+  Core: 2fbd9d0be76ed231f520bd2db4a45a75b07b8c51
+  ESTabBarController: 8db71cb7f648747a11f25ede0f91195cb0394c27
+  Eureka: 246b17918da454e3b38cc64aea23af2d3463fd81
+  HUD: a0622060114bf7b9d75896184789ee16551d8a1e
+  Kingfisher: f203ba1af5d63c8dfc94d5e5ff7879a97193cdb6
+  Mesh: be6d14eec362b07655249ad7c4dde5e9f5f2cf7f
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  ReactiveCocoa: bec7898df69c7d2b2b2f26ed1677a87cb599c147
+  ReactiveObjC: d136aca40062171b3c550a772b154f9f5e9bdfd0
+  ReactiveSwift: 3f8af1faebcc4492726abb5fdfd9197e5566e006
+  Result: 9fb2387ec0702a13f0d56353815635aa431eaf81
+  SnapKit: feb331006d7f8c05828bf5ecda16611ed144a947
+  SwiftyJSON: e58a312a0274068d4444ee06dc73202a516754fc
+  XCGLogger: 5a21c8be020a21d0b798937f85c1cdb61a288422
+  ZCycleView: 54ce6804ca7b743f426d102cc26432e28127ad7f
 
-PODFILE CHECKSUM: 8360d89a7e8eafceb6c84a285eabed9d5252cb5d
+PODFILE CHECKSUM: 99a29830f45d9b0bf4e055cb269350e9adc3eb76
 
 COCOAPODS: 1.5.3

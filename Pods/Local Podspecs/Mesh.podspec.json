@@ -1,0 +1,29 @@
+{
+  "name": "Mesh",
+  "version": "0.0.1",
+  "summary": "Mesh. universal network access combined with file and images",
+  "description": "Mesh",
+  "homepage": "http://kingxt.me",
+  "license": "MIT",
+  "authors": {
+    "kingxt": "kingxt4job@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "http://180.166.126.162:9000/components/Mesh.git"
+  },
+  "preserve_paths": "Mesh/Webp/module.modulemap",
+  "vendored_frameworks": "Mesh/Webp/WebP.framework",
+  "source_files": "Mesh/**/*.{swift, h, m}",
+  "dependencies": {
+    "ReactiveSwift": [
+
+    ],
+    "XCGLogger": [
+
+    ]
+  },
+  "frameworks": "CFNetwork"
+}

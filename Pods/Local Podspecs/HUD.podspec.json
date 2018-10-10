@@ -1,0 +1,27 @@
+{
+  "name": "HUD",
+  "version": "0.1.0",
+  "summary": "A short description of HUD.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "http://gitlab.xiaoheiban.cn/components/HUD",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "kingxt": "kim@liao.com"
+  },
+  "source": {
+    "git": "http://gitlab.xiaoheiban.cn/components/HUD.git"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "resources": "HUD/*.xcassets",
+  "source_files": "HUD/Classes/**/*",
+  "resource_bundles": {
+    "HUD": [
+      "HUD/Assets/*"
+    ]
+  }
+}

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EE46006A652948E4D0E40076D6840324"
+               BlueprintIdentifier = "F9F739C8458B38CE419BCE59083B08B6"
                BlueprintName = "ZCycleView"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "ZCycleView.framework">

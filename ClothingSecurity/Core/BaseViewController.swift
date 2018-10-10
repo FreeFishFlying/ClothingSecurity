@@ -17,7 +17,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isTranslucent = false
+        view.backgroundColor = UIColor.white
         automaticallyAdjustsScrollViewInsets = false
     }
 
