@@ -7,6 +7,16 @@
 //
 
 import Foundation
-
+import UIKit
 class ClothingSecurityViewController: BaseViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(whiteTitle: "扫描", target: self, action: #selector(scanning))
+    }
+    
+    @objc private func scanning() {
+        let controller = ScanningViewController()
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }

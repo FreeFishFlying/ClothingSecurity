@@ -55,4 +55,11 @@ class Entrance: NSObject {
         item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(hexString: "#AAAAAA")], for: .normal)
         item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(hexString: "#7499FF")], for: .selected)
     }
+    
+    class func styleNavgationBar() {
+        UINavigationBar.appearance().barTintColor = UIColor(hexString: "#7499FF")
+        UINavigationBar.appearance().barStyle = UIBarStyle.black
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+    }
 }

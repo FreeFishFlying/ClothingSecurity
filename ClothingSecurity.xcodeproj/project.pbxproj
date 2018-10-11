@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		88EE5A3AA490E6322713B5EE /* Pods_ClothingSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5E3672609F3A30D8D342B5 /* Pods_ClothingSecurity.framework */; };
+		B322EFE5216F1C8E0077EE02 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFE4216F1C8E0077EE02 /* CommonUtil.swift */; };
+		B322EFE7216F1F7E0077EE02 /* ScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFE6216F1F7E0077EE02 /* ScanningViewController.swift */; };
+		B322EFEC216F2CAF0077EE02 /* SLQRCodeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFEB216F2CAF0077EE02 /* SLQRCodeConfig.swift */; };
+		B322EFEE216F2D0B0077EE02 /* SLQRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFED216F2D0B0077EE02 /* SLQRCodeHelper.swift */; };
+		B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFEF216F2EFA0077EE02 /* SLScannerView.swift */; };
+		B322EFF2216F31800077EE02 /* SWQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B322EFF1216F31800077EE02 /* SWQRCode.bundle */; };
 		B344CEC6216D9969005CA9B3 /* HttpRequestPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B344CEC5216D9969005CA9B3 /* HttpRequestPacket.swift */; };
 		B35DBB0E216C783A00CAFDAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB0D216C783A00CAFDAD /* AppDelegate.swift */; };
 		B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB0F216C783A00CAFDAD /* ViewController.swift */; };
@@ -47,6 +53,12 @@
 
 /* Begin PBXFileReference section */
 		79412579966D478ECC29DCD8 /* Pods-ClothingSecurity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.release.xcconfig"; sourceTree = "<group>"; };
+		B322EFE4216F1C8E0077EE02 /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
+		B322EFE6216F1F7E0077EE02 /* ScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewController.swift; sourceTree = "<group>"; };
+		B322EFEB216F2CAF0077EE02 /* SLQRCodeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLQRCodeConfig.swift; sourceTree = "<group>"; };
+		B322EFED216F2D0B0077EE02 /* SLQRCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLQRCodeHelper.swift; sourceTree = "<group>"; };
+		B322EFEF216F2EFA0077EE02 /* SLScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLScannerView.swift; sourceTree = "<group>"; };
+		B322EFF1216F31800077EE02 /* SWQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SWQRCode.bundle; sourceTree = "<group>"; };
 		B344CEC5216D9969005CA9B3 /* HttpRequestPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestPacket.swift; sourceTree = "<group>"; };
 		B35DBB0A216C783A00CAFDAD /* ClothingSecurity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothingSecurity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B35DBB0D216C783A00CAFDAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +130,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B322EFE8216F2C7C0077EE02 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				B322EFF1216F31800077EE02 /* SWQRCode.bundle */,
+				B322EFE9216F2C7C0077EE02 /* Config */,
+				B322EFEA216F2C7C0077EE02 /* View */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		B322EFE9216F2C7C0077EE02 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B322EFEB216F2CAF0077EE02 /* SLQRCodeConfig.swift */,
+				B322EFED216F2D0B0077EE02 /* SLQRCodeHelper.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		B322EFEA216F2C7C0077EE02 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B322EFEF216F2EFA0077EE02 /* SLScannerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B344CEC0216D96B0005CA9B3 /* PersonalCenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +168,9 @@
 		B344CEC1216D96B1005CA9B3 /* ClothingSecurity */ = {
 			isa = PBXGroup;
 			children = (
+				B322EFE8216F2C7C0077EE02 /* Scan */,
 				B3B62FC1216DCBE30006A39E /* ClothingSecurityViewController.swift */,
+				B322EFE6216F1F7E0077EE02 /* ScanningViewController.swift */,
 			);
 			path = ClothingSecurity;
 			sourceTree = "<group>";
@@ -250,6 +291,7 @@
 				B35DBB49216CA7AE00CAFDAD /* BaseViewController.swift */,
 				B3B62FC9216DDDB70006A39E /* ThemeNavigationController.swift */,
 				B3B62FCB216DE2C90006A39E /* Entrance.swift */,
+				B322EFE4216F1C8E0077EE02 /* CommonUtil.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -364,6 +406,7 @@
 				B35DBB18216C783D00CAFDAD /* LaunchScreen.storyboard in Resources */,
 				B35DBB15216C783D00CAFDAD /* Assets.xcassets in Resources */,
 				B35DBB13216C783A00CAFDAD /* Main.storyboard in Resources */,
+				B322EFF2216F31800077EE02 /* SWQRCode.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,16 +513,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B35DBB4A216CA7AE00CAFDAD /* BaseViewController.swift in Sources */,
+				B322EFE7216F1F7E0077EE02 /* ScanningViewController.swift in Sources */,
+				B322EFEC216F2CAF0077EE02 /* SLQRCodeConfig.swift in Sources */,
 				B3B62FC0216DCBB10006A39E /* MainContentViewController.swift in Sources */,
 				B344CEC6216D9969005CA9B3 /* HttpRequestPacket.swift in Sources */,
 				B3B62FC6216DCC370006A39E /* PersonalCenterViewController.swift in Sources */,
 				B35DBB46216C9A6D00CAFDAD /* LoginViewController.swift in Sources */,
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
+				B322EFE5216F1C8E0077EE02 /* CommonUtil.swift in Sources */,
 				B35DBB48216C9FA800CAFDAD /* Apperance.swift in Sources */,
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
 				B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */,
 				B35DBB4C216CAAC600CAFDAD /* UIKit+extension.swift in Sources */,
+				B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */,
+				B322EFEE216F2D0B0077EE02 /* SLQRCodeHelper.swift in Sources */,
 				B35DBB0E216C783A00CAFDAD /* AppDelegate.swift in Sources */,
 				B3B62FC4216DCC1B0006A39E /* DiscoverViewController.swift in Sources */,
 			);
