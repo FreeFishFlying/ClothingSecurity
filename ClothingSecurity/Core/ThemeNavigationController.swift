@@ -40,16 +40,20 @@ class ThemeNavigationController: UINavigationController, UINavigationControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.isTranslucent = true
-        //navigationBar.tintColor = Apperance.color(path: "@navigationbar_text_btn_color")
+        navigationBar.tintColor = UIColor.black
         delegate = self
     }
     
     @objc var defaultBackItem: UIBarButtonItem {
-        let customView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        let customView = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: 44))
         let editButton = UIButton()
-        editButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        editButton.frame = CGRect(x: 0, y: 0, width: 55, height: 44)
         editButton.setImage(imageNamed("ic_app_back_nor")?.withRenderingMode(.alwaysOriginal) ?? UIImage(), for: .normal)
-        editButton.imageEdgeInsets = UIEdgeInsets(top: 6, left: -12, bottom: 6, right: 12)
+        editButton.setTitle("返回", for: .normal)
+        editButton.setTitleColor(UIColor.black, for: .normal)
+        editButton.titleLabel?.font = systemFontSize(fontSize: 15)
+        editButton.imageEdgeInsets = UIEdgeInsets(top: 6, left: -5, bottom: 6, right: 30)
+        editButton.titleEdgeInsets = UIEdgeInsets(top: 6, left: -8, bottom: 6, right: 0)
         editButton.addTarget(self, action: #selector(popTopViewController), for: .touchUpInside)
         customView.addSubview(editButton)
         let editItem = UIBarButtonItem(customView: customView)

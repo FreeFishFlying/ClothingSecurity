@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Entrance.styleNavgationBar()
         window?.rootViewController = Entrance.entrance()
+        applyStyle(change: false)
         return true
     }
 

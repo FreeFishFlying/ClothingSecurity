@@ -12,19 +12,19 @@ import ESTabBarController
 class Entrance: NSObject {
     @objc class func entrance() -> ESTabBarController{
         let contentController = MainContentViewController()
-        contentController.tabBarItem = ESTabBarItem(title: "主页", image: imageNamed("ic_bottom_message_nor"), selectedImage: imageNamed("ic_bottom_message_sel"))
+        contentController.tabBarItem = ESTabBarItem(title: "主页", image: imageNamed("ic_firstPage"), selectedImage: imageNamed("ic_firstPage_select"))
         styleTabbar(contentController.tabBarItem)
         let contentNav = ThemeNavigationController(rootViewController: contentController)
         let discoverController = DiscoverViewController()
-        discoverController.tabBarItem = ESTabBarItem(title: "发现", image: imageNamed("ic_bottom_growth_nor"), selectedImage: imageNamed("ic_bottom_growth_sel"))
+        discoverController.tabBarItem = ESTabBarItem(title: "发现", image: imageNamed("ic_discover"), selectedImage: imageNamed("ic_discover_select"))
         styleTabbar(discoverController.tabBarItem)
         let discoverNav = ThemeNavigationController(rootViewController: discoverController)
         let clothController = ClothingSecurityViewController()
-        clothController.tabBarItem = ESTabBarItem(title: "防伪", image: imageNamed("ic_bottom_slip_nor"), selectedImage: imageNamed("ic_bottom_slip_sel"))
+        clothController.tabBarItem = ESTabBarItem(title: "防伪检测", image: imageNamed("ic_security"), selectedImage: imageNamed("ic_security_select"))
         styleTabbar(clothController.tabBarItem)
         let clothNav = ThemeNavigationController(rootViewController: clothController)
         let personalController = PersonalCenterViewController()
-        personalController.tabBarItem = ESTabBarItem(title: "我", image: imageNamed("ic_bottom_me_nor"), selectedImage: imageNamed("ic_bottom_me_sel"))
+        personalController.tabBarItem = ESTabBarItem(title: "我", image: imageNamed("ic_personal"), selectedImage: imageNamed("ic_personal_select"))
         styleTabbar(personalController.tabBarItem)
         let personNav = ThemeNavigationController(rootViewController: personalController)
         let tabBarController = ESTabBarController()
@@ -45,19 +45,20 @@ class Entrance: NSObject {
         if let esItem = item as? ESTabBarItem {
             esItem.contentView?.image = esItem.contentView?.image?.withRenderingMode(.alwaysOriginal)
             esItem.contentView?.selectedImage = esItem.contentView?.selectedImage?.withRenderingMode(.alwaysOriginal)
-            esItem.contentView?.iconColor = UIColor(hexString: "#AAAAAA")
-            esItem.contentView?.highlightIconColor = UIColor(hexString: "#7499FF")
-            esItem.contentView?.textColor = UIColor(hexString: "#AAAAAA")
+            esItem.contentView?.iconColor = UIColor(hexString: "#A9AAAB")
+            esItem.contentView?.highlightIconColor = UIColor.black
+            esItem.contentView?.textColor = UIColor(hexString: "#A9AAAB")
             esItem.contentView?.titleLabel.font = systemFontSize(fontSize: 10)
-            esItem.contentView?.highlightTextColor = UIColor(hexString: "#7499FF")
+            esItem.contentView?.highlightTextColor = UIColor.black
             esItem.badgeColor = UIColor(hexString: "#FF6688")
+
         }
-        item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(hexString: "#AAAAAA")], for: .normal)
-        item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(hexString: "#7499FF")], for: .selected)
+        item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(hexString: "#A9AAAB")], for: .normal)
+        item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
     }
     
     class func styleNavgationBar() {
-        UINavigationBar.appearance().barTintColor = UIColor(hexString: "#7499FF")
+        UINavigationBar.appearance().barTintColor = UIColor(hexString: "#FEFFFF")
         UINavigationBar.appearance().barStyle = UIBarStyle.black
         UINavigationBar.appearance().shadowImage = UIImage()
         UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)

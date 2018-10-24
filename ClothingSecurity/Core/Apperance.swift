@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ESTabBarController
 
 func imageNamed(_ name: String) -> UIImage? {
     return UIImage(named: name)
@@ -43,5 +44,21 @@ extension UIColor {
     
     func getNSForegroundColorAttribute() -> [String: UIColor] {
         return [NSAttributedString.Key.foregroundColor.rawValue: self]
+    }
+}
+
+func applyStyle(change: Bool = false) {
+    let attrs = [
+        NSAttributedString.Key.foregroundColor: change ? UIColor.white : UIColor.black,
+        NSAttributedString.Key.font: systemFontSize(fontSize: 18)
+    ]
+    UINavigationBar.appearance().titleTextAttributes = attrs
+    UINavigationBar.appearance().barTintColor = change ? UIColor.black : UIColor.white
+    UINavigationBar.appearance().barStyle = change ? UIBarStyle.black : UIBarStyle.default
+    UINavigationBar.appearance().shadowImage = UIImage()
+    UIApplication.shared.setStatusBarStyle(change ? UIStatusBarStyle.default : UIStatusBarStyle.lightContent, animated: true)
+    
+    if let esTabVc = UIApplication.shared.keyWindow?.rootViewController as? ESTabBarController {
+        esTabVc.view.backgroundColor = UIColor.white
     }
 }
