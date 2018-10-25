@@ -49,7 +49,7 @@ extension UIColor {
 
 func applyStyle(change: Bool = false) {
     let attrs = [
-        NSAttributedString.Key.foregroundColor: change ? UIColor.white : UIColor.black,
+        NSAttributedString.Key.foregroundColor: change ? UIColor.white : UIColor(red: 50.0 / 255.0, green: 50.0 / 255.0, blue: 52.0 / 255.0, alpha: 1.0),
         NSAttributedString.Key.font: systemFontSize(fontSize: 18)
     ]
     UINavigationBar.appearance().titleTextAttributes = attrs
@@ -61,4 +61,17 @@ func applyStyle(change: Bool = false) {
     if let esTabVc = UIApplication.shared.keyWindow?.rootViewController as? ESTabBarController {
         esTabVc.view.backgroundColor = UIColor.white
     }
+}
+
+
+
+func normalHeaderView(title: String) -> UILabel {
+    let label = UILabel()
+    let attributedString = NSMutableAttributedString(string: title)
+    attributedString.addAttributes([
+        NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Bold", size: 18.0)!,
+        NSAttributedString.Key.foregroundColor:UIColor(red: 50.0 / 255.0, green: 50.0 / 255.0, blue: 52.0 / 255.0, alpha: 1.0)
+    ], range: NSRange(location: 0, length: title.length))
+    label.attributedText = attributedString
+    return label
 }

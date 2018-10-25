@@ -48,7 +48,7 @@ DEPENDENCIES:
   - ZCycleView (from `submodules/ZCycleView/`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs:
+  https://github.com/cocoapods/specs.git:
     - ObjcExceptionBridging
     - pop
 
@@ -102,4 +102,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 99a29830f45d9b0bf4e055cb269350e9adc3eb76
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2
