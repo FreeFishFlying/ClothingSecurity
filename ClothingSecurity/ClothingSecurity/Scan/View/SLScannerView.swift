@@ -12,7 +12,7 @@ import UIKit
 private let scanner_borderWidth: CGFloat = 1.0  /** 扫描器边框宽度 */
 private let scanner_cornerWidth: CGFloat = 3.0  /** 扫描器棱角宽度 */
 private let scanner_cornerLength: CGFloat = 20.0    /** 扫描器棱角长度 */
-private let scanner_lineHeight: CGFloat = 10.0   /** 扫描器线条高度 */
+private let scanner_lineHeight: CGFloat = 2.0   /** 扫描器线条高度 */
 private let flashlightBtn_width: CGFloat = 20.0  /** 手电筒按钮宽度 */
 private let flashlightLab_height: CGFloat = 15.0 /** 手电筒提示文字高度 */
 private let tipLab_height: CGFloat = 50.0    /** 扫描器下方提示文字高度 */

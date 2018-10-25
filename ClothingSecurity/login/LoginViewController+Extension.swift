@@ -1,0 +1,162 @@
+//
+//  LoginViewController+Extension.swift
+//  ClothingSecurity
+//
+//  Created by 宋昌鹏 on 2018/10/25.
+//  Copyright © 2018 scpUpCloud. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class ThirdParterView: UIView {
+    
+    var onQQClick: (() -> Void)?
+    var onWXClick: (() -> Void)?
+    var onWBClick: (() -> Void)?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configUI() {
+        addSubview(qqButton)
+        qqButton.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.height.equalTo(40)
+        }
+        qqButton.addTarget(self, action: #selector(qqClick), for: .touchUpInside)
+        addSubview(wxButton)
+        wxButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.equalTo(qqButton.snp.left).offset(-43)
+            make.width.height.equalTo(40)
+        }
+        wxButton.addTarget(self, action: #selector(wxClick), for: .touchUpInside)
+        addSubview(wbButton)
+        wbButton.snp.makeConstraints { make in
+            make.left.equalTo(qqButton.snp.right).offset(43)
+            make.centerY.equalToSuperview()
+            make.width.height.equalTo(40)
+        }
+        wbButton.addTarget(self, action: #selector(wbClick), for: .touchUpInside)
+    }
+    
+    @objc func qqClick() {
+        onQQClick?()
+    }
+    
+    @objc func wxClick() {
+        onWXClick?()
+    }
+    
+    @objc func wbClick() {
+        onWBClick?()
+    }
+    let qqButton: UIButton = {
+        let button = UIButton()
+        button.setImage(imageNamed("login_qq"), for: .normal)
+        return button
+    }()
+    
+    let wxButton: UIButton = {
+        let button = UIButton()
+        button.setImage(imageNamed("login_wx"), for: .normal)
+        return button
+    }()
+    
+    let wbButton: UIButton = {
+        let button = UIButton()
+        button.setImage(imageNamed("login_wb"), for: .normal)
+        return button
+    }()
+}
+
+class HeaderView: UIView {
+    
+    var onBackButtonClick: (() -> Void)?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configUI() {
+        addSubview(backgroundView)
+        backgroundView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(178)
+        }
+        addSubview(backButton)
+        backButton.snp.makeConstraints { make in
+            make.left.equalTo(10)
+            make.width.equalTo(44)
+            if #available(iOS 11, *) {
+                let safeAreaTop = UIApplication.shared.keyWindow!.safeAreaInsets.top
+                if safeAreaTop > 0 {
+                    make.top.equalTo(8 + safeAreaTop)
+                } else {
+                    make.top.equalTo(30)
+                }
+            } else {
+                make.top.equalTo(45)
+            }
+        }
+        addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(backButton)
+            make.centerX.equalToSuperview()
+        }
+        addSubview(logo)
+        logo.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalTo(backgroundView.snp.bottom)
+            make.height.width.equalTo(105)
+        }
+        backButton.addTarget(self, action: #selector(backButtonClick), for: .touchUpInside)
+    }
+    
+    @objc func backButtonClick() {
+        onBackButtonClick?()
+    }
+    
+    private let backButton: UIButton = {
+        let button = UIButton()
+        button.frame = CGRect(x: 0, y: 0, width: 55, height: 44)
+        button.setImage(imageNamed("back_white"), for: .normal)
+        button.setTitle("返回", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = systemFontSize(fontSize: 15)
+        button.imageEdgeInsets = UIEdgeInsets(top: 6, left: -5, bottom: 6, right: 30)
+        button.titleEdgeInsets = UIEdgeInsets(top: 6, left: -8, bottom: 6, right: 0)
+        return button
+    }()
+    
+    public let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "PingFangSC-Semibold", size: 18)!
+        label.textColor = UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
+        return label
+    }()
+    
+    private let logo: UIImageView = {
+        let logo = UIImageView()
+        logo.image = imageNamed("login_logo")
+        return logo
+    }()
+    
+    private let backgroundView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = imageNamed("backdrop")
+        return imageView
+    }()
+}

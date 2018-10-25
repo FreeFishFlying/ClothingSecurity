@@ -16,4 +16,5 @@ target 'ClothingSecurity' do
     pod 'ReactiveObjC', :path =>'submodules/ReactiveObjC/'
     pod 'ReactiveCocoa', :path =>'submodules/ReactiveCocoa/'
     pod 'Result', :path =>'submodules/Result/'
+    pod 'FDFullscreenPopGesture', :path =>'submodules/FDFullscreenPopGesture/'
 end
