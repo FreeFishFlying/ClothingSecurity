@@ -47,16 +47,16 @@ extension UIColor {
     }
 }
 
-func applyStyle(change: Bool = false) {
+func applyStyle() {
     let attrs = [
-        NSAttributedString.Key.foregroundColor: change ? UIColor.white : UIColor(red: 50.0 / 255.0, green: 50.0 / 255.0, blue: 52.0 / 255.0, alpha: 1.0),
-        NSAttributedString.Key.font: systemFontSize(fontSize: 18)
+        NSAttributedString.Key.foregroundColor: UIColor(red: 50.0 / 255.0, green: 50.0 / 255.0, blue: 52.0 / 255.0, alpha: 1.0),
+        NSAttributedString.Key.font: UIFont(name: "PingFangSC-Semibold", size: 18)!
     ]
     UINavigationBar.appearance().titleTextAttributes = attrs
-    UINavigationBar.appearance().barTintColor = change ? UIColor.black : UIColor.white
-    UINavigationBar.appearance().barStyle = change ? UIBarStyle.black : UIBarStyle.default
+    UINavigationBar.appearance().barTintColor = UIColor.white
+    UINavigationBar.appearance().barStyle =  UIBarStyle.default
     UINavigationBar.appearance().shadowImage = UIImage()
-    UIApplication.shared.setStatusBarStyle(change ? UIStatusBarStyle.default : UIStatusBarStyle.lightContent, animated: true)
+    UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
     
     if let esTabVc = UIApplication.shared.keyWindow?.rootViewController as? ESTabBarController {
         esTabVc.view.backgroundColor = UIColor.white
@@ -74,4 +74,30 @@ func normalHeaderView(title: String) -> UILabel {
     ], range: NSRange(location: 0, length: title.length))
     label.attributedText = attributedString
     return label
+}
+
+func zd_image(with color: UIColor, size: CGSize, text: String, textAttributes: [AnyHashable : Any]?, circular isCircular: Bool) -> UIImage? {
+    if  size.width <= 0 || size.height <= 0 {
+        return nil
+    }
+    let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+    UIGraphicsBeginImageContextWithOptions(rect.size, _: false, _: 0)
+    let context = UIGraphicsGetCurrentContext()
+    
+    // circular
+    if isCircular {
+        let path = CGPath(ellipseIn: rect, transform: nil)
+        context?.addPath(path)
+        context?.clip()
+    }
+    // color
+    context?.setFillColor(color.cgColor)
+    context?.fill(rect)
+    
+    // text
+    let textSize: CGSize? = text.size(withAttributes: textAttributes as? [NSAttributedString.Key : Any])
+    text.draw(in: CGRect(x: (size.width - (textSize?.width ?? 0.0)) / 2, y: (size.height - (textSize?.height ?? 0.0)) / 2, width: textSize?.width ?? 0.0, height: textSize?.height ?? 0.0), withAttributes: textAttributes as? [NSAttributedString.Key : Any])
+    let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return image
 }

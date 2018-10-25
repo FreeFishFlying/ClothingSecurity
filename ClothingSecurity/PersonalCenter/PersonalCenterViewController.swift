@@ -23,6 +23,11 @@ class PersonalCenterViewController: GroupedFormViewController {
         configTabViewCell()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
+    }
+    
     private func configTableView() {
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
@@ -45,7 +50,12 @@ class PersonalCenterViewController: GroupedFormViewController {
             make.height.equalTo(120)
         }
         header.title = "登录/注册"
-        header.onLoginClick = {
+        header.onLoginClick = { [weak self] in
+            guard let `self` = self else { return }
+            let controller = LoginViewController()
+            controller.hidesBottomBarWhenPushed = true
+            controller.fd_interactivePopDisabled = true
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
     

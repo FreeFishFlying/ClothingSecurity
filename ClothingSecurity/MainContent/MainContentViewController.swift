@@ -15,7 +15,7 @@ class MainContentViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.titleView = titleHeader
+        navigationItem.titleView = imageHeader
         navigationItem.titleView?.addSubview(titleView)
         view.addSubview(cycleView)
         cycleView.snp.makeConstraints { make in
@@ -30,11 +30,6 @@ class MainContentViewController: BaseViewController {
     private let cycleView: ZCycleView = {
         let view = ZCycleView(frame: .zero)
         view.placeholderImage = imageNamed("boart")
-        return view
-    }()
-
-    private let titleHeader: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 109, height: 20))
         return view
     }()
     

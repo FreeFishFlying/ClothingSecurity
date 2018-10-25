@@ -44,4 +44,14 @@ class BaseViewController: UIViewController {
         super.viewDidDisappear(animated)
         isAppear.value = false
     }
+    
+    let imageHeader: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 109, height: 20))
+        return view
+    }()
+    
+    let titleHeader: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 20))
+        return view
+    }()
 }

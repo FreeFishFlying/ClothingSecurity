@@ -26,12 +26,23 @@
 		B35DBB48216C9FA800CAFDAD /* Apperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB47216C9FA800CAFDAD /* Apperance.swift */; };
 		B35DBB4A216CA7AE00CAFDAD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB49216CA7AE00CAFDAD /* BaseViewController.swift */; };
 		B35DBB4C216CAAC600CAFDAD /* UIKit+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB4B216CAAC600CAFDAD /* UIKit+extension.swift */; };
+		B364D76821819CD50081593D /* ClothingSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364D75F21819CD50081593D /* ClothingSecurityViewController.swift */; };
+		B364D76921819CD50081593D /* ScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364D76021819CD50081593D /* ScanningViewController.swift */; };
+		B364D76A21819CD50081593D /* SLQRCodeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364D76321819CD50081593D /* SLQRCodeConfig.swift */; };
+		B364D76B21819CD50081593D /* SLQRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364D76421819CD50081593D /* SLQRCodeHelper.swift */; };
+		B364D76C21819CD50081593D /* SWQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B364D76521819CD50081593D /* SWQRCode.bundle */; };
+		B364D76D21819CD50081593D /* SLScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364D76721819CD50081593D /* SLScannerView.swift */; };
 		B3B62FC0216DCBB10006A39E /* MainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62FBF216DCBB10006A39E /* MainContentViewController.swift */; };
 		B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62FC1216DCBE30006A39E /* ClothingSecurityViewController.swift */; };
 		B3B62FC4216DCC1B0006A39E /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62FC3216DCC1B0006A39E /* DiscoverViewController.swift */; };
 		B3B62FC6216DCC370006A39E /* PersonalCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62FC5216DCC370006A39E /* PersonalCenterViewController.swift */; };
 		B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62FC9216DDDB70006A39E /* ThemeNavigationController.swift */; };
 		B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62FCB216DE2C90006A39E /* Entrance.swift */; };
+		B3BBEE682181B7BB00F5FA47 /* ParallaxHeaderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE642181B7BB00F5FA47 /* ParallaxHeaderMode.swift */; };
+		B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE652181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift */; };
+		B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE662181B7BB00F5FA47 /* UIView+Blur.swift */; };
+		B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */; };
+		B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */; };
 		B3F2B3B82180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */; };
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
 		B3F2B3BC2180E7350055DC0E /* AccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3BB2180E7350055DC0E /* AccountSafeViewController.swift */; };
@@ -81,12 +92,24 @@
 		B35DBB47216C9FA800CAFDAD /* Apperance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apperance.swift; sourceTree = "<group>"; };
 		B35DBB49216CA7AE00CAFDAD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B35DBB4B216CAAC600CAFDAD /* UIKit+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+extension.swift"; sourceTree = "<group>"; };
+		B364D75F21819CD50081593D /* ClothingSecurityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothingSecurityViewController.swift; sourceTree = "<group>"; };
+		B364D76021819CD50081593D /* ScanningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanningViewController.swift; sourceTree = "<group>"; };
+		B364D76321819CD50081593D /* SLQRCodeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLQRCodeConfig.swift; sourceTree = "<group>"; };
+		B364D76421819CD50081593D /* SLQRCodeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLQRCodeHelper.swift; sourceTree = "<group>"; };
+		B364D76521819CD50081593D /* SWQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SWQRCode.bundle; sourceTree = "<group>"; };
+		B364D76721819CD50081593D /* SLScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLScannerView.swift; sourceTree = "<group>"; };
+		B364D76E2181A1420081593D /* ClothingSecurity-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClothingSecurity-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3B62FBF216DCBB10006A39E /* MainContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentViewController.swift; sourceTree = "<group>"; };
 		B3B62FC1216DCBE30006A39E /* ClothingSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingSecurityViewController.swift; sourceTree = "<group>"; };
 		B3B62FC3216DCC1B0006A39E /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		B3B62FC5216DCC370006A39E /* PersonalCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCenterViewController.swift; sourceTree = "<group>"; };
 		B3B62FC9216DDDB70006A39E /* ThemeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNavigationController.swift; sourceTree = "<group>"; };
 		B3B62FCB216DE2C90006A39E /* Entrance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entrance.swift; sourceTree = "<group>"; };
+		B3BBEE642181B7BB00F5FA47 /* ParallaxHeaderMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderMode.swift; sourceTree = "<group>"; };
+		B3BBEE652181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ParallaxHeader.swift"; sourceTree = "<group>"; };
+		B3BBEE662181B7BB00F5FA47 /* UIView+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
+		B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeader.swift; sourceTree = "<group>"; };
+		B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalCenterViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
 		B3F2B3BB2180E7350055DC0E /* AccountSafeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSafeViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +258,8 @@
 		B35DBB0C216C783A00CAFDAD /* ClothingSecurity */ = {
 			isa = PBXGroup;
 			children = (
+				B3BBEE622181B7BB00F5FA47 /* Widget */,
+				B364D75E21819CD50081593D /* ClothingSecurity */,
 				B35DBB41216C9A6C00CAFDAD /* login */,
 				B344CEC3216D96B1005CA9B3 /* MainContent */,
 				B344CEC1216D96B1005CA9B3 /* ClothingSecurity */,
@@ -248,6 +273,7 @@
 				B35DBB14216C783D00CAFDAD /* Assets.xcassets */,
 				B35DBB16216C783D00CAFDAD /* LaunchScreen.storyboard */,
 				B35DBB19216C783D00CAFDAD /* Info.plist */,
+				B364D76E2181A1420081593D /* ClothingSecurity-Bridging-Header.h */,
 			);
 			path = ClothingSecurity;
 			sourceTree = "<group>";
@@ -274,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				B35DBB42216C9A6C00CAFDAD /* LoginViewController.swift */,
+				B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -298,6 +325,62 @@
 				B322EFE4216F1C8E0077EE02 /* CommonUtil.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		B364D75E21819CD50081593D /* ClothingSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				B364D75F21819CD50081593D /* ClothingSecurityViewController.swift */,
+				B364D76021819CD50081593D /* ScanningViewController.swift */,
+				B364D76121819CD50081593D /* Scan */,
+			);
+			path = ClothingSecurity;
+			sourceTree = "<group>";
+		};
+		B364D76121819CD50081593D /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				B364D76221819CD50081593D /* Config */,
+				B364D76521819CD50081593D /* SWQRCode.bundle */,
+				B364D76621819CD50081593D /* View */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		B364D76221819CD50081593D /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B364D76321819CD50081593D /* SLQRCodeConfig.swift */,
+				B364D76421819CD50081593D /* SLQRCodeHelper.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		B364D76621819CD50081593D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B364D76721819CD50081593D /* SLScannerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B3BBEE622181B7BB00F5FA47 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				B3BBEE632181B7BB00F5FA47 /* ParallaxHeader */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		B3BBEE632181B7BB00F5FA47 /* ParallaxHeader */ = {
+			isa = PBXGroup;
+			children = (
+				B3BBEE642181B7BB00F5FA47 /* ParallaxHeaderMode.swift */,
+				B3BBEE652181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift */,
+				B3BBEE662181B7BB00F5FA47 /* UIView+Blur.swift */,
+				B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */,
+			);
+			path = ParallaxHeader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +490,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B364D76C21819CD50081593D /* SWQRCode.bundle in Resources */,
 				B35DBB18216C783D00CAFDAD /* LaunchScreen.storyboard in Resources */,
 				B35DBB15216C783D00CAFDAD /* Assets.xcassets in Resources */,
 				B35DBB13216C783A00CAFDAD /* Main.storyboard in Resources */,
@@ -522,21 +606,31 @@
 				B3B62FC0216DCBB10006A39E /* MainContentViewController.swift in Sources */,
 				B344CEC6216D9969005CA9B3 /* HttpRequestPacket.swift in Sources */,
 				B3B62FC6216DCC370006A39E /* PersonalCenterViewController.swift in Sources */,
+				B364D76B21819CD50081593D /* SLQRCodeHelper.swift in Sources */,
+				B364D76A21819CD50081593D /* SLQRCodeConfig.swift in Sources */,
 				B35DBB46216C9A6D00CAFDAD /* LoginViewController.swift in Sources */,
+				B364D76921819CD50081593D /* ScanningViewController.swift in Sources */,
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
 				B3F2B3B82180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift in Sources */,
 				B322EFE5216F1C8E0077EE02 /* CommonUtil.swift in Sources */,
 				B3F2B3BC2180E7350055DC0E /* AccountSafeViewController.swift in Sources */,
+				B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */,
 				B35DBB48216C9FA800CAFDAD /* Apperance.swift in Sources */,
 				B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */,
+				B364D76821819CD50081593D /* ClothingSecurityViewController.swift in Sources */,
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
 				B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */,
 				B35DBB4C216CAAC600CAFDAD /* UIKit+extension.swift in Sources */,
+				B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */,
+				B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */,
+				B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */,
 				B3F2B3BE2180E7F00055DC0E /* AccountSafeViewController+Extension.swift in Sources */,
 				B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */,
+				B364D76D21819CD50081593D /* SLScannerView.swift in Sources */,
 				B322EFEE216F2D0B0077EE02 /* SLQRCodeHelper.swift in Sources */,
 				B35DBB0E216C783A00CAFDAD /* AppDelegate.swift in Sources */,
+				B3BBEE682181B7BB00F5FA47 /* ParallaxHeaderMode.swift in Sources */,
 				B3B62FC4216DCC1B0006A39E /* DiscoverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -720,6 +814,49 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Core\"",
+					"-framework",
+					"\"ESTabBarController\"",
+					"-framework",
+					"\"Eureka\"",
+					"-framework",
+					"\"FDFullscreenPopGesture\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"HUD\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"Mesh\"",
+					"-framework",
+					"\"ObjcExceptionBridging\"",
+					"-framework",
+					"\"ReactiveCocoa\"",
+					"-framework",
+					"\"ReactiveObjC\"",
+					"-framework",
+					"\"ReactiveSwift\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"XCGLogger\"",
+					"-framework",
+					"\"ZCycleView\"",
+					"-framework",
+					"\"pop\"",
+					"-ObjC",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = org.scp.clothingsecurity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
@@ -740,6 +877,49 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Core\"",
+					"-framework",
+					"\"ESTabBarController\"",
+					"-framework",
+					"\"Eureka\"",
+					"-framework",
+					"\"FDFullscreenPopGesture\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"HUD\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"Mesh\"",
+					"-framework",
+					"\"ObjcExceptionBridging\"",
+					"-framework",
+					"\"ReactiveCocoa\"",
+					"-framework",
+					"\"ReactiveObjC\"",
+					"-framework",
+					"\"ReactiveSwift\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"XCGLogger\"",
+					"-framework",
+					"\"ZCycleView\"",
+					"-framework",
+					"\"pop\"",
+					"-ObjC",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = org.scp.clothingsecurity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";

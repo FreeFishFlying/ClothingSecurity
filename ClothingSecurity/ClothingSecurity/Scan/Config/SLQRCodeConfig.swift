@@ -35,7 +35,7 @@ struct SLQRCodeCompat {
     var scannerArea: SLScannerArea = .def
     
     /// 棱角颜色 默认RGB色值 r:63 g:187 b:54 a:1.0
-    var scannerCornerColor: UIColor = UIColor(red: 63/255.0, green: 187/255.0, blue: 54/255.0, alpha: 1.0)
+    var scannerCornerColor: UIColor = UIColor(hexString: "#FFEF04")
     
     /// 边框颜色 默认白色
     var scannerBorderColor: UIColor = .white

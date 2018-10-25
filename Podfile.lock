@@ -7,6 +7,7 @@ PODS:
     - SnapKit
   - ESTabBarController (2.6.2)
   - Eureka (4.2.0)
+  - FDFullscreenPopGesture (1.1)
   - HUD (0.1.0)
   - Kingfisher (4.10.0)
   - Mesh (0.0.1):
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - Core (from `submodules/Core/`)
   - ESTabBarController (from `submodules/ESTabBarController/`)
   - Eureka (from `submodules/Eureka/`)
+  - FDFullscreenPopGesture (from `submodules/FDFullscreenPopGesture/`)
   - HUD (from `submodules/HUD/`)
   - Kingfisher (from `submodules/Kingfisher/`)
   - Mesh (from `submodules/Mesh/`)
@@ -48,7 +50,7 @@ DEPENDENCIES:
   - ZCycleView (from `submodules/ZCycleView/`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/cocoapods/specs:
     - ObjcExceptionBridging
     - pop
 
@@ -59,6 +61,8 @@ EXTERNAL SOURCES:
     :path: submodules/ESTabBarController/
   Eureka:
     :path: submodules/Eureka/
+  FDFullscreenPopGesture:
+    :path: submodules/FDFullscreenPopGesture/
   HUD:
     :path: submodules/HUD/
   Kingfisher:
@@ -86,6 +90,7 @@ SPEC CHECKSUMS:
   Core: 2fbd9d0be76ed231f520bd2db4a45a75b07b8c51
   ESTabBarController: 8db71cb7f648747a11f25ede0f91195cb0394c27
   Eureka: 246b17918da454e3b38cc64aea23af2d3463fd81
+  FDFullscreenPopGesture: 7e81964528cd8f9419b2ea07189b4d05929b9f22
   HUD: a0622060114bf7b9d75896184789ee16551d8a1e
   Kingfisher: f203ba1af5d63c8dfc94d5e5ff7879a97193cdb6
   Mesh: be6d14eec362b07655249ad7c4dde5e9f5f2cf7f
@@ -100,6 +105,6 @@ SPEC CHECKSUMS:
   XCGLogger: 5a21c8be020a21d0b798937f85c1cdb61a288422
   ZCycleView: 54ce6804ca7b743f426d102cc26432e28127ad7f
 
-PODFILE CHECKSUM: 99a29830f45d9b0bf4e055cb269350e9adc3eb76
+PODFILE CHECKSUM: 471fb4a735d5013b35c891fae2bddab2065978ff
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3
