@@ -25,7 +25,7 @@ class PersonalCenterViewController: GroupedFormViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
     }
     
     private func configTableView() {

@@ -160,3 +160,69 @@ class HeaderView: UIView {
         return imageView
     }()
 }
+
+class LoginHelpView: UIView {
+    
+    var onForgetButtonClick: (() -> Void)?
+    var onRegisterButtonClick: (() ->Void)?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configUI() {
+        addSubview(line)
+        line.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(0.5)
+            make.height.equalTo(11)
+        }
+        addSubview(forgetButton)
+        forgetButton.snp.makeConstraints { make in
+            make.right.equalTo(line.snp.left).offset(-16)
+            make.centerY.equalToSuperview()
+        }
+        forgetButton.addTarget(self, action: #selector(forget), for: .touchUpInside)
+        addSubview(registerButton)
+        registerButton.snp.makeConstraints { make in
+            make.left.equalTo(line.snp.right).offset(16)
+            make.centerY.equalToSuperview()
+        }
+        registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+    }
+    
+    @objc func forget() {
+        onForgetButtonClick?()
+    }
+    
+    @objc func register() {
+        onRegisterButtonClick?()
+    }
+    
+    private let forgetButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(UIColor(hexString: "#353535"), for: .normal)
+        button.titleLabel?.font = UIFont(name: "PingFang-SC-Medium", size: 15.0) ?? systemFontSize(fontSize: 15)
+        button.setTitle("忘记密码？", for: .normal)
+        return button
+    }()
+    
+    private let registerButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(UIColor(hexString: "#353535"), for: .normal)
+        button.titleLabel?.font = UIFont(name: "PingFang-SC-Medium", size: 15.0) ?? systemFontSize(fontSize: 15)
+        button.setTitle("新用户注册", for: .normal)
+        return button
+    }()
+    
+    private let line: UIView = {
+        let line = UIView()
+        line.backgroundColor =  UIColor(red: 119.0 / 255.0, green: 119.0 / 255.0, blue: 126.0 / 255.0, alpha: 1.0)
+        return line
+    }()
+}

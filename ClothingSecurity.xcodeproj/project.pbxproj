@@ -47,6 +47,8 @@
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
 		B3F2B3BC2180E7350055DC0E /* AccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3BB2180E7350055DC0E /* AccountSafeViewController.swift */; };
 		B3F2B3BE2180E7F00055DC0E /* AccountSafeViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3BD2180E7F00055DC0E /* AccountSafeViewController+Extension.swift */; };
+		B3FCEEC62182091200DA52E2 /* LoginViewController+cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCEEC52182091200DA52E2 /* LoginViewController+cell.swift */; };
+		B3FCEEC821821FFD00DA52E2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
 		B3F2B3BB2180E7350055DC0E /* AccountSafeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSafeViewController.swift; sourceTree = "<group>"; };
 		B3F2B3BD2180E7F00055DC0E /* AccountSafeViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountSafeViewController+Extension.swift"; sourceTree = "<group>"; };
+		B3FCEEC52182091200DA52E2 /* LoginViewController+cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+cell.swift"; sourceTree = "<group>"; };
+		B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BE5E3672609F3A30D8D342B5 /* Pods_ClothingSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30CE68C5F56CC51B02A91F5 /* Pods-ClothingSecurity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -301,6 +305,8 @@
 			children = (
 				B35DBB42216C9A6C00CAFDAD /* LoginViewController.swift */,
 				B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */,
+				B3FCEEC52182091200DA52E2 /* LoginViewController+cell.swift */,
+				B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -613,6 +619,7 @@
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
 				B3F2B3B82180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift in Sources */,
 				B322EFE5216F1C8E0077EE02 /* CommonUtil.swift in Sources */,
+				B3FCEEC821821FFD00DA52E2 /* RegisterViewController.swift in Sources */,
 				B3F2B3BC2180E7350055DC0E /* AccountSafeViewController.swift in Sources */,
 				B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */,
 				B35DBB48216C9FA800CAFDAD /* Apperance.swift in Sources */,
@@ -626,6 +633,7 @@
 				B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */,
 				B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */,
 				B3F2B3BE2180E7F00055DC0E /* AccountSafeViewController+Extension.swift in Sources */,
+				B3FCEEC62182091200DA52E2 /* LoginViewController+cell.swift in Sources */,
 				B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */,
 				B364D76D21819CD50081593D /* SLScannerView.swift in Sources */,
 				B322EFEE216F2D0B0077EE02 /* SLQRCodeHelper.swift in Sources */,
@@ -855,6 +863,7 @@
 					"-framework",
 					"\"pop\"",
 					"-ObjC",
+					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = org.scp.clothingsecurity;
@@ -918,6 +927,7 @@
 					"-framework",
 					"\"pop\"",
 					"-ObjC",
+					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = org.scp.clothingsecurity;
