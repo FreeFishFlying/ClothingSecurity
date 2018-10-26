@@ -63,19 +63,6 @@ func applyStyle() {
     }
 }
 
-
-
-func normalHeaderView(title: String) -> UILabel {
-    let label = UILabel()
-    let attributedString = NSMutableAttributedString(string: title)
-    attributedString.addAttributes([
-        NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Bold", size: 18.0)!,
-        NSAttributedString.Key.foregroundColor:UIColor(red: 50.0 / 255.0, green: 50.0 / 255.0, blue: 52.0 / 255.0, alpha: 1.0)
-    ], range: NSRange(location: 0, length: title.length))
-    label.attributedText = attributedString
-    return label
-}
-
 func zd_image(with color: UIColor, size: CGSize, text: String, textAttributes: [AnyHashable : Any]?, circular isCircular: Bool) -> UIImage? {
     if  size.width <= 0 || size.height <= 0 {
         return nil

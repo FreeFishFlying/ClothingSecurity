@@ -34,42 +34,18 @@ extension UIBarButtonItem {
     }
 }
 
-class NormalHeader: UIView {
+class DarkKeyButton: UIButton {
     
-    class func create(title: String) -> NormalHeader {
-        let header = NormalHeader(frame:  CGRect(x: 0, y: 0, width: 120, height: 20))
-        header.title = title
-        return header
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame:frame)
-        addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-    }
-    
-    var title: String? {
-        didSet {
-            if let title = title {
-                if let image = zd_image(with: UIColor.white, size: CGSize(width: 120, height: 20), text: title, textAttributes: [
-                    NSAttributedString.Key.font: UIFont(name: "PingFangSC-Semibold", size: 18)!,
-                    NSAttributedString.Key.foregroundColor:UIColor(red: 50.0 / 255.0, green: 50.0 / 255.0, blue: 52.0 / 255.0, alpha: 1.0)
-                    ], circular: false) {
-                    imageView.image = image
-                }
-            }
-        }
+    init(title: String) {
+        super.init(frame: .zero)
+        backgroundColor = UIColor.black
+        setTitleColor(UIColor(hexString: "#ffef04"), for: .normal)
+        layer.cornerRadius = 22
+        layer.masksToBounds = true
+        setTitle(title, for: .normal)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
-        return imageView
-    }()
 }

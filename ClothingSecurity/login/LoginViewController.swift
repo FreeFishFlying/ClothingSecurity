@@ -16,23 +16,15 @@ import Eureka
 
 let headerHeight: CGFloat = 223
 
-class LoginViewController: GroupedFormViewController {
-    var safeBottom: CGFloat = 0
+class LoginViewController: BaseLoginViewController {
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        autoHideKeyboard = true
-        if #available(iOS 11.0, *) {
-            safeBottom = UIApplication.shared.keyWindow!.safeAreaInsets.bottom
-        }
-        view.backgroundColor = UIColor(hexString: "#EBEBEB")
-        fd_prefersNavigationBarHidden = true
-        fd_interactivePopDisabled = true
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
-        configHeaderView()
         configTableView()
         configFooter()
         configTableViewCell()
         configAnother()
+        headerTitle = "登录"
     }
     
     private func configTableView() {
@@ -44,26 +36,6 @@ class LoginViewController: GroupedFormViewController {
             make.top.equalTo(headerView.snp.bottom).offset(value)
             make.left.right.equalToSuperview()
             make.height.equalTo(112)
-        }
-        tableView.backgroundColor = .clear
-        tableView.isScrollEnabled = false
-        tableView.separatorColor = .clear
-        tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 56
-        tableView.estimatedSectionHeaderHeight = 0
-        tableView.estimatedSectionFooterHeight = 0
-    }
-    
-    private func configHeaderView() {
-        headerView.onBackButtonClick = { [weak self] in
-            guard let `self` = self else { return }
-            self.navigationController?.popViewController(animated: true)
-        }
-        view.addSubview(headerView)
-        headerView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
-            make.height.equalTo(headerHeight)
         }
     }
     
@@ -131,7 +103,10 @@ class LoginViewController: GroupedFormViewController {
             make.left.right.equalToSuperview()
             make.height.equalTo(30)
         }
-        helpView.onForgetButtonClick = {
+        helpView.onForgetButtonClick = { [weak self] in
+            guard let `self` = self  else { return }
+            let controller = ForgetPasswordViewController()
+            self.navigationController?.pushViewController(controller, animated: true)
         }
         helpView.onRegisterButtonClick = { [weak self] in
             guard let `self` = self else { return }
@@ -143,15 +118,6 @@ class LoginViewController: GroupedFormViewController {
     @objc func login() {
         
     }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.001
-    }
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.001
-    }
-    
-    private let headerView: HeaderView = HeaderView()
     
     private let thirdView: ThirdParterView = ThirdParterView()
     
@@ -167,16 +133,7 @@ class LoginViewController: GroupedFormViewController {
         return label
     }()
     
-    private let loginButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.black
-        button.layer.cornerRadius = 22
-        button.layer.masksToBounds = true
-        button.titleLabel?.font = UIFont(name: "PingFangSC-Regular", size: 18.0)
-        button.setTitle("登录", for: .normal)
-        button.setTitleColor(UIColor(red: 255.0 / 255.0, green: 239.0 / 255.0, blue: 4.0 / 255.0, alpha: 1.0), for: .normal)
-        return button
-    }()
+    private let loginButton: DarkKeyButton = DarkKeyButton(title: "登录")
     
     private let helpView: LoginHelpView = LoginHelpView()
 }

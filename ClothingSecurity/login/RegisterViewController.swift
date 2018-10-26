@@ -9,34 +9,14 @@
 import Foundation
 import Core
 import Eureka
-class RegisterViewController: GroupedFormViewController {
-    var safeBottom: CGFloat = 0
+class RegisterViewController: BaseLoginViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        autoHideKeyboard = true
-        if #available(iOS 11.0, *) {
-            safeBottom = UIApplication.shared.keyWindow!.safeAreaInsets.bottom
-        }
-        view.backgroundColor = UIColor(hexString: "#EBEBEB")
-        fd_prefersNavigationBarHidden = true
-        fd_interactivePopDisabled = true
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
-        configHeaderView()
         configTableView()
         configTableViewCell()
-    }
-    
-    private func configHeaderView() {
-        headerView.onBackButtonClick = { [weak self] in
-            guard let `self` = self else { return }
-            self.navigationController?.popViewController(animated: true)
-        }
-        view.addSubview(headerView)
-        headerView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
-            make.height.equalTo(headerHeight)
-        }
+        configAgreement()
+        configNextButton()
+        headerTitle = "注册"
     }
     
     private func configTableView() {
@@ -47,15 +27,8 @@ class RegisterViewController: GroupedFormViewController {
             }
             make.top.equalTo(headerView.snp.bottom).offset(value)
             make.left.right.equalToSuperview()
-            make.height.equalTo(224)
+            make.height.equalTo(112)
         }
-        tableView.backgroundColor = .clear
-        tableView.isScrollEnabled = false
-        tableView.separatorColor = .clear
-        tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = 56
-        tableView.estimatedSectionHeaderHeight = 0
-        tableView.estimatedSectionFooterHeight = 0
     }
     
     private func configTableViewCell() {
@@ -66,55 +39,88 @@ class RegisterViewController: GroupedFormViewController {
                 row.tag = "phoneCell"
                 row.cell.height = { 56 }
                 row.cell.sectury = false
-                row.onCellSelection({ (_, _) in
-                })
         }
         form +++ fixHeightHeaderSection(height: 0)
-            <<< TextfieldInputCellRow { row in
+            <<< InputRenderCellRow { row in
                 row.cell.imageName = "icon_sectury"
                 row.cell.placeHolder = "请输入验证码"
+                row.cell.title = "获取验证码"
                 row.tag = "secturyCell"
                 row.cell.height = { 56 }
-                row.onCellSelection({ (_, _) in
+                row.cellUpdate({ (_, _) in
                 })
-        }
-        form +++ fixHeightHeaderSection(height: 0)
-            <<< TextfieldInputCellRow { row in
-                row.cell.imageName = "icon_nickname"
-                row.cell.placeHolder = "请输入昵称"
-                row.tag = "nicknameCell"
-                row.cell.height = { 56 }
-                row.onCellSelection({ (_, _) in
-                })
-        }
-        form +++ fixHeightHeaderSection(height: 0)
-            <<< TextfieldInputCellRow { row in
-                row.cell.imageName = "icon_password"
-                row.cell.placeHolder = "请输入密码"
-                row.cell.sectury = true
-                row.tag = "passwordCell"
-                row.cell.height = { 56 }
-                row.onCellSelection({ (_, _) in
-                })
-        }
-        form +++ fixHeightHeaderSection(height: 0)
-            <<< TextfieldInputCellRow { row in
-                row.cell.imageName = "icon_password"
-                row.cell.placeHolder = "请确认输入密码"
-                row.cell.sectury = true
-                row.tag = "passwordAgainCell"
-                row.cell.height = { 56 }
-                row.onCellSelection({ (_, _) in
-                })
+                row.cell.onGetCode = { [weak self] in
+                    guard let `self` = self else { return }
+                    self.getCode()
+                }
         }
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.001
-    }
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.001
+    private func configAgreement() {
+        view.addSubview(userAgreement)
+        userAgreement.snp.makeConstraints { make in
+            make.top.equalTo(tableView.snp.bottom).offset(20)
+            make.right.equalToSuperview().offset(-15)
+        }
+        userAgreement.addTarget(self, action: #selector(readUserAgreement), for: .touchUpInside)
+        view.addSubview(userAgreementHeader)
+        userAgreementHeader.snp.makeConstraints { make in
+            make.right.equalTo(userAgreement.snp.left)
+            make.centerY.equalTo(userAgreement)
+        }
+        view.addSubview(agreeButton)
+        agreeButton.snp.makeConstraints { make in
+            make.right.equalTo(userAgreementHeader.snp.left).offset(-5)
+            make.centerY.equalTo(userAgreementHeader)
+        }
     }
     
-    private let headerView: HeaderView = HeaderView()
+    private func configNextButton() {
+        view.addSubview(nextButton)
+        nextButton.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(48)
+            make.right.equalToSuperview().offset(-48)
+            make.height.equalTo(44)
+            make.top.equalTo(agreeButton.snp.bottom).offset(40)
+        }
+        nextButton.addTarget(self, action: #selector(nextClick), for: .touchUpInside)
+    }
+    
+    private func getCode() {
+        
+    }
+    
+    @objc private func readUserAgreement() {
+        
+    }
+    
+    @objc private func nextClick() {
+        let controller = CompleteMaterialViewController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    private let nextButton: DarkKeyButton = DarkKeyButton(title: "下一步")
+    
+    private let userAgreement: UIButton = {
+        let button = UIButton()
+        let title = "《用户使用协议》"
+        let attributeTitle = NSMutableAttributedString(string: title)
+        attributeTitle.addAttributes([NSAttributedString.Key.foregroundColor: UIColor(hexString: "#666666"), NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 14.0)!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue], range: NSRange(location: 0, length: title.length))
+        button.setAttributedTitle(attributeTitle, for: .normal)
+        return button
+    }()
+    
+    private let userAgreementHeader: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "PingFangSC-Regular", size: 14.0)
+        label.textColor = UIColor(hexString: "#666666")
+        label.text = "我已阅读并同意"
+        return label
+    }()
+    
+    private let agreeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(imageNamed("ic_agreement_select"), for: .normal)
+        return button
+    }()
 }
