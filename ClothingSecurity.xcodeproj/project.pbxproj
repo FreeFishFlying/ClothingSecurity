@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		88EE5A3AA490E6322713B5EE /* Pods_ClothingSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5E3672609F3A30D8D342B5 /* Pods_ClothingSecurity.framework */; };
+		B30FD84D21860B9E0004BABB /* AccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84921860B9E0004BABB /* AccountSafeViewController.swift */; };
+		B30FD84E21860B9E0004BABB /* AccountSafeViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84A21860B9E0004BABB /* AccountSafeViewController+Cell.swift */; };
+		B30FD84F21860B9E0004BABB /* ChangeUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */; };
+		B30FD85021860B9E0004BABB /* AccountSafeViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84C21860B9E0004BABB /* AccountSafeViewController+Extension.swift */; };
+		B30FD8522186117C0004BABB /* ChangeMobileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD8512186117C0004BABB /* ChangeMobileViewController.swift */; };
 		B322EFE5216F1C8E0077EE02 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFE4216F1C8E0077EE02 /* CommonUtil.swift */; };
 		B322EFE7216F1F7E0077EE02 /* ScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFE6216F1F7E0077EE02 /* ScanningViewController.swift */; };
 		B322EFEC216F2CAF0077EE02 /* SLQRCodeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFEB216F2CAF0077EE02 /* SLQRCodeConfig.swift */; };
@@ -48,11 +53,8 @@
 		B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */; };
 		B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */; };
 		B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6E2182E32200F5FA47 /* InputRender.swift */; };
-		B3E81E622183808A00C48124 /* ChangeUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E81E612183808A00C48124 /* ChangeUserNameViewController.swift */; };
 		B3F2B3B82180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */; };
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
-		B3F2B3BC2180E7350055DC0E /* AccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3BB2180E7350055DC0E /* AccountSafeViewController.swift */; };
-		B3F2B3BE2180E7F00055DC0E /* AccountSafeViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3BD2180E7F00055DC0E /* AccountSafeViewController+Extension.swift */; };
 		B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCEEC52182091200DA52E2 /* LoginViewController+Cell.swift */; };
 		B3FCEEC821821FFD00DA52E2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,11 @@
 
 /* Begin PBXFileReference section */
 		79412579966D478ECC29DCD8 /* Pods-ClothingSecurity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.release.xcconfig"; sourceTree = "<group>"; };
+		B30FD84921860B9E0004BABB /* AccountSafeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSafeViewController.swift; sourceTree = "<group>"; };
+		B30FD84A21860B9E0004BABB /* AccountSafeViewController+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountSafeViewController+Cell.swift"; sourceTree = "<group>"; };
+		B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserNameViewController.swift; sourceTree = "<group>"; };
+		B30FD84C21860B9E0004BABB /* AccountSafeViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountSafeViewController+Extension.swift"; sourceTree = "<group>"; };
+		B30FD8512186117C0004BABB /* ChangeMobileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMobileViewController.swift; sourceTree = "<group>"; };
 		B322EFE4216F1C8E0077EE02 /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		B322EFE6216F1F7E0077EE02 /* ScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewController.swift; sourceTree = "<group>"; };
 		B322EFEB216F2CAF0077EE02 /* SLQRCodeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLQRCodeConfig.swift; sourceTree = "<group>"; };
@@ -123,11 +130,8 @@
 		B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeader.swift; sourceTree = "<group>"; };
 		B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3BBEE6E2182E32200F5FA47 /* InputRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRender.swift; sourceTree = "<group>"; };
-		B3E81E612183808A00C48124 /* ChangeUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserNameViewController.swift; sourceTree = "<group>"; };
 		B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalCenterViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
-		B3F2B3BB2180E7350055DC0E /* AccountSafeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSafeViewController.swift; sourceTree = "<group>"; };
-		B3F2B3BD2180E7F00055DC0E /* AccountSafeViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountSafeViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3FCEEC52182091200DA52E2 /* LoginViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Cell.swift"; sourceTree = "<group>"; };
 		B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BE5E3672609F3A30D8D342B5 /* Pods_ClothingSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +181,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B30FD84821860B9E0004BABB /* AccountSafe */ = {
+			isa = PBXGroup;
+			children = (
+				B30FD84921860B9E0004BABB /* AccountSafeViewController.swift */,
+				B30FD84C21860B9E0004BABB /* AccountSafeViewController+Extension.swift */,
+				B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */,
+				B30FD8512186117C0004BABB /* ChangeMobileViewController.swift */,
+				B30FD84A21860B9E0004BABB /* AccountSafeViewController+Cell.swift */,
+			);
+			path = AccountSafe;
+			sourceTree = "<group>";
+		};
 		B322EFE8216F2C7C0077EE02 /* Scan */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,11 +223,9 @@
 		B344CEC0216D96B0005CA9B3 /* PersonalCenter */ = {
 			isa = PBXGroup;
 			children = (
+				B30FD84821860B9E0004BABB /* AccountSafe */,
 				B3B62FC5216DCC370006A39E /* PersonalCenterViewController.swift */,
 				B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */,
-				B3F2B3BB2180E7350055DC0E /* AccountSafeViewController.swift */,
-				B3F2B3BD2180E7F00055DC0E /* AccountSafeViewController+Extension.swift */,
-				B3E81E612183808A00C48124 /* ChangeUserNameViewController.swift */,
 			);
 			path = PersonalCenter;
 			sourceTree = "<group>";
@@ -626,8 +640,9 @@
 			files = (
 				B35DBB4A216CA7AE00CAFDAD /* BaseViewController.swift in Sources */,
 				B322EFE7216F1F7E0077EE02 /* ScanningViewController.swift in Sources */,
-				B3E81E622183808A00C48124 /* ChangeUserNameViewController.swift in Sources */,
+				B30FD84F21860B9E0004BABB /* ChangeUserNameViewController.swift in Sources */,
 				B322EFEC216F2CAF0077EE02 /* SLQRCodeConfig.swift in Sources */,
+				B30FD85021860B9E0004BABB /* AccountSafeViewController+Extension.swift in Sources */,
 				B3B62FC0216DCBB10006A39E /* MainContentViewController.swift in Sources */,
 				B344CEC6216D9969005CA9B3 /* HttpRequestPacket.swift in Sources */,
 				B3B62FC6216DCC370006A39E /* PersonalCenterViewController.swift in Sources */,
@@ -635,6 +650,7 @@
 				B34638B221837286002B1CF3 /* ForgetPasswordViewController.swift in Sources */,
 				B364D76A21819CD50081593D /* SLQRCodeConfig.swift in Sources */,
 				B35DBB46216C9A6D00CAFDAD /* LoginViewController.swift in Sources */,
+				B30FD8522186117C0004BABB /* ChangeMobileViewController.swift in Sources */,
 				B364D76921819CD50081593D /* ScanningViewController.swift in Sources */,
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
 				B34638AE21835C0F002B1CF3 /* BaseLoginViewController.swift in Sources */,
@@ -642,7 +658,6 @@
 				B322EFE5216F1C8E0077EE02 /* CommonUtil.swift in Sources */,
 				B3FCEEC821821FFD00DA52E2 /* RegisterViewController.swift in Sources */,
 				B34638AC21835AFC002B1CF3 /* CompleteMaterialViewController.swift in Sources */,
-				B3F2B3BC2180E7350055DC0E /* AccountSafeViewController.swift in Sources */,
 				B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */,
 				B35DBB48216C9FA800CAFDAD /* Apperance.swift in Sources */,
 				B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */,
@@ -654,9 +669,10 @@
 				B35DBB4C216CAAC600CAFDAD /* UIKit+extension.swift in Sources */,
 				B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */,
 				B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */,
+				B30FD84E21860B9E0004BABB /* AccountSafeViewController+Cell.swift in Sources */,
 				B34638B0218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift in Sources */,
+				B30FD84D21860B9E0004BABB /* AccountSafeViewController.swift in Sources */,
 				B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */,
-				B3F2B3BE2180E7F00055DC0E /* AccountSafeViewController+Extension.swift in Sources */,
 				B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */,
 				B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */,
 				B364D76D21819CD50081593D /* SLScannerView.swift in Sources */,

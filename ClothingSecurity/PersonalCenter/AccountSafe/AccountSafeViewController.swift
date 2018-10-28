@@ -40,14 +40,20 @@ class AccountSafeViewController: GroupedFormViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "昵称"
-                row.onCellSelection({ (_, _) in
+                row.onCellSelection({ [weak self] (_, _) in
+                    guard let `self` = self else { return }
+                    let controller = ChangeUserNameViewController()
+                    self.navigationController?.pushViewController(controller, animated: true)
                 })
                 row.cell.height = { 67 }
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "绑定手机号"
-                row.onCellSelection({ (_, _) in
+                row.onCellSelection({ [weak self] (_, _) in
+                    guard let `self` = self else { return }
+                    let controller = ChangeMobileViewController()
+                    self.navigationController?.pushViewController(controller, animated: true)
                 })
                 row.cell.height = { 67 }
         }
