@@ -49,6 +49,7 @@ class ChooseSexCell: Cell<String>, CellType {
             make.bottom.equalToSuperview().offset(-0.5)
             make.height.equalTo(0.5)
         }
+        layoutIfNeeded()
     }
     
     @objc private func chooseSex(sender: UIButton) {

@@ -48,6 +48,7 @@
 		B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */; };
 		B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */; };
 		B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6E2182E32200F5FA47 /* InputRender.swift */; };
+		B3E81E622183808A00C48124 /* ChangeUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E81E612183808A00C48124 /* ChangeUserNameViewController.swift */; };
 		B3F2B3B82180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */; };
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
 		B3F2B3BC2180E7350055DC0E /* AccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3BB2180E7350055DC0E /* AccountSafeViewController.swift */; };
@@ -122,6 +123,7 @@
 		B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeader.swift; sourceTree = "<group>"; };
 		B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3BBEE6E2182E32200F5FA47 /* InputRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRender.swift; sourceTree = "<group>"; };
+		B3E81E612183808A00C48124 /* ChangeUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserNameViewController.swift; sourceTree = "<group>"; };
 		B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalCenterViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
 		B3F2B3BB2180E7350055DC0E /* AccountSafeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSafeViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */,
 				B3F2B3BB2180E7350055DC0E /* AccountSafeViewController.swift */,
 				B3F2B3BD2180E7F00055DC0E /* AccountSafeViewController+Extension.swift */,
+				B3E81E612183808A00C48124 /* ChangeUserNameViewController.swift */,
 			);
 			path = PersonalCenter;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 			files = (
 				B35DBB4A216CA7AE00CAFDAD /* BaseViewController.swift in Sources */,
 				B322EFE7216F1F7E0077EE02 /* ScanningViewController.swift in Sources */,
+				B3E81E622183808A00C48124 /* ChangeUserNameViewController.swift in Sources */,
 				B322EFEC216F2CAF0077EE02 /* SLQRCodeConfig.swift in Sources */,
 				B3B62FC0216DCBB10006A39E /* MainContentViewController.swift in Sources */,
 				B344CEC6216D9969005CA9B3 /* HttpRequestPacket.swift in Sources */,
