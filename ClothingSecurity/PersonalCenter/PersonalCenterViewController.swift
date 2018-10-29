@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
-import Core
 import Eureka
-import Mesh
 
 class PersonalCenterViewController: GroupedFormViewController {
     override func viewDidLoad() {
@@ -142,6 +140,9 @@ fileprivate class LoginHeaderView: UIView {
                 nameLabel.snp.remakeConstraints { make in
                     make.left.equalTo(icon.snp.right).offset(12)
                     make.bottom.equalTo(icon.snp.centerY)
+                }
+                if let url = URL(string: item.url) {
+                   // icon.kf.setImage(with: url, placeholder: imageNamed("defaultLogo"), options: nil, progressBlock: nil, completionHandler: nil)
                 }
             }
         }

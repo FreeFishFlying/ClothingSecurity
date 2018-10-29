@@ -2,7 +2,6 @@
 platform :ios, '9.0'
 use_frameworks!
 target 'ClothingSecurity' do
-    pod 'Kingfisher', :path => 'submodules/Kingfisher/'
     pod 'ZCycleView', :path => 'submodules/ZCycleView/'
     pod 'SnapKit', :path => 'submodules/SnapKit/'
     pod 'ReactiveSwift', :path => 'submodules/ReactiveSwift/'

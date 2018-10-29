@@ -9,8 +9,9 @@ PODS:
   - Eureka (4.2.0)
   - FDFullscreenPopGesture (1.1)
   - HUD (0.1.0)
-  - Kingfisher (4.10.0)
+  - Kingfisher (4.8.1)
   - Mesh (0.0.1):
+    - Kingfisher (>= 4.3.1)
     - ReactiveSwift
     - XCGLogger
   - ObjcExceptionBridging (1.0.1):
@@ -38,7 +39,6 @@ DEPENDENCIES:
   - Eureka (from `submodules/Eureka/`)
   - FDFullscreenPopGesture (from `submodules/FDFullscreenPopGesture/`)
   - HUD (from `submodules/HUD/`)
-  - Kingfisher (from `submodules/Kingfisher/`)
   - Mesh (from `submodules/Mesh/`)
   - ReactiveCocoa (from `submodules/ReactiveCocoa/`)
   - ReactiveObjC (from `submodules/ReactiveObjC/`)
@@ -50,7 +50,8 @@ DEPENDENCIES:
   - ZCycleView (from `submodules/ZCycleView/`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/cocoapods/specs:
+    - Kingfisher
     - ObjcExceptionBridging
     - pop
 
@@ -65,8 +66,6 @@ EXTERNAL SOURCES:
     :path: submodules/FDFullscreenPopGesture/
   HUD:
     :path: submodules/HUD/
-  Kingfisher:
-    :path: submodules/Kingfisher/
   Mesh:
     :path: submodules/Mesh/
   ReactiveCocoa:
@@ -92,8 +91,8 @@ SPEC CHECKSUMS:
   Eureka: 246b17918da454e3b38cc64aea23af2d3463fd81
   FDFullscreenPopGesture: 7e81964528cd8f9419b2ea07189b4d05929b9f22
   HUD: a0622060114bf7b9d75896184789ee16551d8a1e
-  Kingfisher: f203ba1af5d63c8dfc94d5e5ff7879a97193cdb6
-  Mesh: be6d14eec362b07655249ad7c4dde5e9f5f2cf7f
+  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  Mesh: ec4968934d47ec22782ec23eeb1cbaa39c3a4848
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   ReactiveCocoa: bec7898df69c7d2b2b2f26ed1677a87cb599c147
@@ -103,8 +102,8 @@ SPEC CHECKSUMS:
   SnapKit: feb331006d7f8c05828bf5ecda16611ed144a947
   SwiftyJSON: e58a312a0274068d4444ee06dc73202a516754fc
   XCGLogger: 5a21c8be020a21d0b798937f85c1cdb61a288422
-  ZCycleView: 54ce6804ca7b743f426d102cc26432e28127ad7f
+  ZCycleView: e1f805e55b27997dc2c196d2fea6330fb3cdf7c5
 
-PODFILE CHECKSUM: 471fb4a735d5013b35c891fae2bddab2065978ff
+PODFILE CHECKSUM: 83567b341a5214ecbe487b96e1fd8fda35bb2113
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

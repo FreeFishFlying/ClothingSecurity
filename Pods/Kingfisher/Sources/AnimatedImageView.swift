@@ -105,7 +105,7 @@ open class AnimatedImageView: UIImageView {
     public var needsPrescaling = true
     
     /// The animation timer's run loop mode. Default is `NSRunLoopCommonModes`. Set this property to `NSDefaultRunLoopMode` will make the animation pause during UIScrollView scrolling.
-    public var runLoopMode = RunLoop.Mode.commonModes {
+    public var runLoopMode = RunLoopMode.commonModes {
         willSet {
             if runLoopMode == newValue {
                 return
