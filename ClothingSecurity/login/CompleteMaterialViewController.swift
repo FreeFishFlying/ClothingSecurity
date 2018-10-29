@@ -9,6 +9,7 @@
 import Foundation
 import Core
 import Eureka
+import HUD
 
 class CompleteMaterialViewController: BaseLoginViewController {
     override func viewDidLoad() {
@@ -43,7 +44,41 @@ class CompleteMaterialViewController: BaseLoginViewController {
     }
     
     @objc func complete() {
-        
+        if let value = configData() {
+            let info = ["nickName": value.nickname, "gender": value.sexType, "password": value.pd]
+            LoginAndRegisterFacade.shared.updateUserInfo(value: info).startWithResult { [weak self] result in
+                guard let `self` = self else { return }
+                guard let value = result.value else { return }
+                if value.isSuccess() {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            }
+        }
+    }
+    
+    func configData() -> (nickname: String, sexType: String, pd: String)? {
+        guard let nickRow: TextfieldInputCellRow = form.rowBy(tag: "nicknameCell") else { return nil }
+        guard let sexRow: ChooseSexCellRow = form.rowBy(tag: "sexCell") else { return nil }
+        guard let passwordRow: TextfieldInputCellRow = form.rowBy(tag: "secturyCell") else { return nil }
+        guard let passwordAgainRow: TextfieldInputCellRow = form.rowBy(tag: "secturyAgainCell") else { return nil }
+        if let nickName = nickRow.cell.textFieldText, let sexType = sexRow.cell.sexType, let pd = passwordRow.cell.textFieldText, let pdAgain = passwordAgainRow.cell.textFieldText {
+            if pd == pdAgain {
+                return (nickname: nickName, sexType: sexType, pd: pd)
+            } else {
+                HUD.flashError(title: "两次密码输入不一致")
+                return nil
+            }
+        }
+        if nickRow.cell.textFieldText == nil {
+            HUD.flashError(title: "请输入昵称")
+            return nil
+        } else if passwordRow.cell.textFieldText == nil {
+            HUD.flashError(title: "请输入密码")
+            return nil
+        } else {
+            HUD.flashError(title: "请确认密码")
+            return nil
+        }
     }
     
     private func configTableViewCell() {
@@ -57,6 +92,7 @@ class CompleteMaterialViewController: BaseLoginViewController {
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< ChooseSexCellRow { row in
+                row.tag = "sexCell"
                 row.cell.sex = HumanSex.man
                 row.cell.onSexChoose = { _ in
                 }

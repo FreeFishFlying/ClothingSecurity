@@ -71,6 +71,17 @@ class ChooseSexCell: Cell<String>, CellType {
         }
     }
     
+    var sexType: String? {
+        if let sex = sex {
+            if sex == .man {
+                return "MALE"
+            } else {
+                return "FEMALE"
+            }
+        }
+        return nil
+    }
+    
     private let icon: UIImageView = {
         let icon = UIImageView()
         icon.image = imageNamed("icon_sex")

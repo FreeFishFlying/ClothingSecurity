@@ -9,7 +9,12 @@
 import Foundation
 import Core
 import Eureka
+import HUD
 class RegisterViewController: BaseLoginViewController {
+    var isEnable: Bool = true
+    var buttonTitle: String = "获取验证码"
+    var countDown: Int = 60
+    var countdownTimer: TimerProxy?
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
@@ -47,12 +52,15 @@ class RegisterViewController: BaseLoginViewController {
                 row.cell.title = "获取验证码"
                 row.tag = "secturyCell"
                 row.cell.height = { 56 }
-                row.cellUpdate({ (_, _) in
-                })
                 row.cell.onGetCode = { [weak self] in
                     guard let `self` = self else { return }
                     self.getCode()
                 }
+                row.cellUpdate({ [weak self] (cell, _) in
+                    guard let `self` = self else { return }
+                    cell.title = self.buttonTitle
+                    cell.buttonEnable = self.isEnable
+                })
         }
     }
     
@@ -87,16 +95,76 @@ class RegisterViewController: BaseLoginViewController {
     }
     
     private func getCode() {
-        
+        guard let mobileRow: TextfieldInputCellRow = form.rowBy(tag: "phoneCell") as? TextfieldInputCellRow else { return }
+        if let text = mobileRow.cell.textFieldText, !text.isEmpty {
+            LoginAndRegisterFacade.shared.requetAuthcode(mobile: text).startWithResult { [weak self] result in
+                guard let `self` = self else { return }
+                guard let value = result.value else { return }
+                if value.isSuccess() {
+                    self.isEnable = false
+                    self.countdownTimer = TimerProxy(withInterval: 1.0, repeats: true, timerHandler: { [weak self] in
+                        self?.doCountDown()
+                    })
+                } else {
+                    HUD.tip(text: value.tipMesage())
+                }
+            }
+        } else {
+            HUD.tip(text: "请输入手机号")
+        }
     }
     
     @objc private func readUserAgreement() {
         
     }
     
+    private func doCountDown() {
+        countDown -= 1
+        buttonTitle = "\(countDown)s"
+        if countDown == 0 {
+            countdownTimer?.invalidate()
+            countdownTimer = nil
+            buttonTitle = "获取验证码"
+            isEnable = true
+            countDown = 60
+        }
+        if let row: InputRenderCellRow = form.rowBy(tag: "secturyCell") as? InputRenderCellRow {
+            row.updateCell()
+        }
+    }
+    
     @objc private func nextClick() {
-        let controller = CompleteMaterialViewController()
-        navigationController?.pushViewController(controller, animated: true)
+        guard let phoneRow: TextfieldInputCellRow = form.rowBy(tag: "phoneCell") as? TextfieldInputCellRow else { return }
+        guard let codeRow: InputRenderCellRow = form.rowBy(tag: "secturyCell")  as? InputRenderCellRow else { return }
+        if let phone = phoneRow.cell.textFieldText, let code = codeRow.cell.code {
+            if !phone.isEmpty && !code.isEmpty {
+                LoginAndRegisterFacade.shared.register(mobile: phone, code: code).startWithResult { [weak self] result in
+                    guard let `self` = self else { return }
+                    guard let value = result.value else { return }
+                    if value.isSuccess() {
+                        let controller = CompleteMaterialViewController()
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    } else {
+                        if let message = value.tipMesage() {
+                            HUD.flashError(title: message)
+                        } else {
+                            HUD.flashError(title: "注册失败,请稍后再试")
+                        }
+                    }
+                }
+            } else {
+                if phone.isEmpty {
+                    HUD.flashError(title: "手机号不能为空")
+                    return
+                }
+                if code.isEmpty {
+                    HUD.flashError(title: "验证码不能为空")
+                    return
+                }
+            }
+        }
+        
+        
     }
     
     private let nextButton: DarkKeyButton = DarkKeyButton(title: "下一步")

@@ -53,6 +53,10 @@ class TextfieldInputCell: Cell<String>, CellType {
         }
     }
     
+    var textFieldText: String? {
+        return textField.text
+    }
+    
     var sectury: Bool = false {
         didSet {
             textField.isSecureTextEntry = sectury

@@ -13,6 +13,7 @@ import SnapKit
 import Core
 import FDFullscreenPopGesture
 import Eureka
+import HUD
 
 let headerHeight: CGFloat = 223
 
@@ -116,6 +117,21 @@ class LoginViewController: BaseLoginViewController {
     }
     
     @objc func login() {
+        guard let mobileRow: TextfieldInputCellRow = form.rowBy(tag: "phoneCell") as? TextfieldInputCellRow else { return }
+        guard let pdRow: TextfieldInputCellRow = form.rowBy(tag: "passwordCell") as? TextfieldInputCellRow else { return }
+        if mobileRow.cell.textFieldText == nil {
+            HUD.flashError(title: "手机号不能为空")
+            return
+        }
+        if pdRow.cell.textFieldText == nil {
+            HUD.flashError(title: "密码不能为空")
+        }
+        if let mobile = mobileRow.cell.textFieldText, let pd = pdRow.cell.textFieldText {
+            LoginAndRegisterFacade.shared.login(mobile: mobile, password: pd).startWithResult { [weak self] result in
+                guard let `self` = self else { return }
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
         
     }
     

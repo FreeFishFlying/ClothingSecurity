@@ -11,6 +11,7 @@ import UIKit
 import SnapKit
 import Core
 import Eureka
+import Mesh
 
 class PersonalCenterViewController: GroupedFormViewController {
     override func viewDidLoad() {
@@ -21,6 +22,26 @@ class PersonalCenterViewController: GroupedFormViewController {
         configHeader()
         configTableView()
         configTabViewCell()
+        registerEvent()
+        currentUser = UserItem.current()
+    }
+    
+    var currentUser: UserItem? {
+        didSet {
+            if let user = currentUser {
+                header.title = user.username
+                
+            }
+        }
+    }
+    
+    private func registerEvent() {
+        LoginAndRegisterFacade.shared.appWillLoginOut().take(during: reactive.lifetime).observeValues { [weak self] value in
+            if value {
+                let controller = LoginViewController()
+                self?.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

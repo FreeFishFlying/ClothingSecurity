@@ -17,7 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Entrance.styleNavgationBar()
         window?.rootViewController = Entrance.entrance()
         applyStyle()
+        updateAuthInfo()
         return true
+    }
+    
+    private func updateAuthInfo() {
+        if UserItem.current() != nil {
+            LoginAndRegisterFacade.shared.updateAuthInfo()
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

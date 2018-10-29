@@ -11,6 +11,29 @@ import UIKit
 import SnapKit
 import Core
 
+class TimerProxy {
+    
+    var timer: Timer!
+    var timerHandler: (() -> Void)?
+    
+    init(withInterval interval: TimeInterval, repeats: Bool, timerHandler: (() -> Void)?) {
+        self.timerHandler = timerHandler
+        timer = Timer.scheduledTimer(timeInterval: interval,
+                                     target: self,
+                                     selector: #selector(timerDidFire(_:)),
+                                     userInfo: nil,
+                                     repeats: repeats)
+    }
+    
+    @objc func timerDidFire(_: Timer) {
+        timerHandler?()
+    }
+    
+    func invalidate() {
+        timer.invalidate()
+    }
+}
+
 extension UIBarButtonItem {
     convenience init(image: UIImage?, higlightedImage: UIImage?, target: Any, action: Selector) {
         let button = UIButton()

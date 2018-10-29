@@ -38,6 +38,25 @@ class InputRenderCell: Cell<String>, CellType {
         }
     }
     
+    var code: String? {
+        return textField.text
+    }
+    
+    var buttonEnable: Bool? {
+        didSet {
+            if let enalbe = buttonEnable {
+                verifyButton.isEnabled = enalbe
+                if enalbe {
+                    verifyButton.backgroundColor = UIColor.black
+                    verifyButton.setTitleColor(UIColor(red: 255.0 / 255.0, green: 239.0 / 255.0, blue: 4.0 / 255.0, alpha: 1.0), for: .normal)
+                } else {
+                    verifyButton.backgroundColor = UIColor(hexString: "#d9d9d9")
+                    verifyButton.setTitleColor(UIColor.white, for: .normal)
+                }
+            }
+        }
+    }
+    
     override func setup() {
         super.setup()
         backgroundColor = .clear

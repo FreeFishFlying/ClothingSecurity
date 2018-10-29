@@ -30,6 +30,13 @@ open class HttpResponseData: NSObject {
     public func tipMesage() -> String? {
         return json?["message"].string
     }
+    
+    public func isSuccess() -> Bool {
+        if let code = json?["code"], code >= 200, code < 300 {
+            return true
+        }
+        return false
+    }
 }
 
 let logger = XCGLogger.default
@@ -60,7 +67,7 @@ open class HttpRequestPacket<T: HttpResponseData> {
     }
     
     var rootUrl: String {
-        return "https://baidu.com"
+        return "https://api.beedee.yituizhineng.top"
     }
 
     open func requestParameter() -> [String: Any]? {
@@ -79,16 +86,15 @@ open class HttpRequestPacket<T: HttpResponseData> {
         // TODO: config base server url
         var systemInfo = utsname()
         uname(&systemInfo)
-        let machineMirror = Mirror(reflecting: systemInfo.machine)
-        let identifier = machineMirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8, value != 0 else { return identifier }
-            return identifier + String(UnicodeScalar(UInt8(value)))
+        var headers: [String: String] = ["X-App-Version": "BeeDee/\(appVersion)" + " " + "iOS/\(sysVersion)"]
+        if let authorization = authorization() {
+            headers["authorization"] = authorization
         }
         request = Mesh.request(URL(string: rootUrl + requestUrl().absoluteString)!,
                                method: httpMethod(),
                                parameters: requestParameter(),
                                encoding: parameterEncoding(),
-                               headers: ["os": "iOS", "app-version": appVersion, "os-version": sysVersion, "device-model": identifier])
+                               headers: headers)
         let manager = Mesh.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 30
         return request
@@ -112,9 +118,17 @@ open class HttpRequestPacket<T: HttpResponseData> {
                     do {
                         let json = try JSON(data: data)
                         logger.info("[Http][In] \((request.request?.url?.absoluteString ?? "")) " + (json.rawString(options: []) ?? ""))
+                        if let code = response.response?.statusCode, code == 401 {
+                            LoginAndRegisterFacade.shared.changeLoginState(value: true)
+                        }
                         if response.response?.statusCode ?? 200 >= 400 {
                             observer.send(error: NSError(domain: internalErrorDomain, code: json["code"].intValue, userInfo: ["message" : json["message"].stringValue]))
                         } else {
+                            if let allHeader = response.response?.allHeaderFields {
+                                if let authorization: String = allHeader["Authorization"] as? String {
+                                    UserDefaults.standard.set(authorization, forKey: "authorization")
+                                }
+                            }
                             observer.send(value: T(json: json))
                             observer.sendCompleted()
                         }
