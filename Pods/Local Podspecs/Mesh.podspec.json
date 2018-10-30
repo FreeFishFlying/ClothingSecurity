@@ -25,7 +25,7 @@
 
     ],
     "Kingfisher": [
-      ">= 4.3.1"
+
     ]
   },
   "frameworks": "CFNetwork"

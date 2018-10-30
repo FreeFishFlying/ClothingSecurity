@@ -12,6 +12,7 @@ import SnapKit
 import Eureka
 
 class PersonalCenterViewController: GroupedFormViewController {
+    var hasLogin: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -30,10 +31,16 @@ class PersonalCenterViewController: GroupedFormViewController {
     var currentUser: UserItem? {
         didSet {
             if let user = currentUser {
+                hasLogin = true
                 header.item = (url: user.avatar, name: user.nickName, account: user.mobile)
+                header.canLogin = false
+                LoginState.shared.hasLogin = true
             } else {
                 header.item = nil
                 header.title = "登录/注册"
+                hasLogin = false
+                header.canLogin = true
+                LoginState.shared.hasLogin = false
             }
         }
     }
@@ -137,6 +144,8 @@ fileprivate class LoginHeaderView: UIView {
     
     var onLoginClick: (() -> Void)?
     
+    var canLogin: Bool = true
+    
     var item: (url: String?, name: String?, account: String?)? {
         didSet {
             if let item = item {
@@ -147,9 +156,9 @@ fileprivate class LoginHeaderView: UIView {
                     make.bottom.equalTo(icon.snp.centerY)
                 }
                 if let url = item.url, let path = URL(string: url) {
-                    icon.kf.setImage(with: path, placeholder: imageNamed("defaultLogo"), options: nil, progressBlock: nil, completionHandler: nil)
+                    icon.kf.setImage(with: path, placeholder: imageNamed("ic_defalult_logo"), options: nil, progressBlock: nil, completionHandler: nil)
                 } else {
-                    icon.image = imageNamed("defaultLogo")
+                    icon.image = imageNamed("ic_defalult_logo")
                 }
             } else {
                 nameLabel.snp.makeConstraints { make in
@@ -157,7 +166,7 @@ fileprivate class LoginHeaderView: UIView {
                     make.centerY.equalTo(icon.snp.centerY)
                     make.right.equalToSuperview().offset(-15)
                 }
-                icon.image = imageNamed("defaultLogo")
+                icon.image = imageNamed("ic_defalult_logo")
                 accountLabel.text = nil
             }
         }
@@ -200,7 +209,9 @@ fileprivate class LoginHeaderView: UIView {
     }
     
     @objc func loginClick() {
-        onLoginClick?()
+        if canLogin {
+            onLoginClick?()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -38,6 +38,7 @@ class AccountSafeViewController: GroupedFormViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "头像"
+                row.cell.showIcon = true 
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
                     self.uploadImage()
@@ -47,6 +48,7 @@ class AccountSafeViewController: GroupedFormViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "昵称"
+                row.cell.showIcon = false
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
                     let controller = ChangeUserNameViewController()
@@ -57,6 +59,7 @@ class AccountSafeViewController: GroupedFormViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "绑定手机号"
+                row.cell.showIcon = false
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
                     let controller = ChangeMobileViewController()
@@ -67,6 +70,7 @@ class AccountSafeViewController: GroupedFormViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "修改密码"
+                row.cell.showIcon = false
                 row.onCellSelection({ (_, _) in
                 })
                 row.cell.height = { 67 }

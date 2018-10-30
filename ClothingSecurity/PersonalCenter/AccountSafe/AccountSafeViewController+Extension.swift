@@ -11,6 +11,12 @@ import Eureka
 import Core
 class SafeAccountCell: Cell<String>, CellType {
     
+    var showIcon: Bool = false {
+        didSet {
+            icon.isHidden = !showIcon
+        }
+    }
+    
     var title: String? {
         didSet {
             if let title = title {

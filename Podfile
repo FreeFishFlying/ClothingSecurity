@@ -20,4 +20,5 @@ target 'ClothingSecurity' do
     pod 'AlertController', :path =>'submodules/AlertController/'
     pod 'PopoverImagePicker', :path =>'submodules/PopoverImagePicker/'
     pod 'ActionSheet', :path =>'submodules/ActionSheet/'
+    pod 'PinLayout', :path => 'submodules/PinLayout/'
 end

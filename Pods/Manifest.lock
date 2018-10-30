@@ -24,17 +24,17 @@ PODS:
   - Eureka (4.2.0)
   - FDFullscreenPopGesture (1.1)
   - HUD (0.1.0)
-  - Kingfisher (4.8.1)
+  - Kingfisher (4.10.0)
   - MediaEditorKit (0.1.0):
     - pop
   - Mesh (0.0.1):
-    - Kingfisher (>= 4.3.1)
+    - Kingfisher
     - ReactiveSwift
     - XCGLogger
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
-  - PinLayout (1.7.10)
+  - PinLayout (1.5.9)
   - pop (1.0.10)
   - PopoverImagePicker (0.1.0):
     - ActionSheet
@@ -67,6 +67,7 @@ DEPENDENCIES:
   - HUD (from `submodules/HUD/`)
   - MediaEditorKit (from `submodules/MediaEditorKit/`)
   - Mesh (from `submodules/Mesh/`)
+  - PinLayout (from `submodules/PinLayout/`)
   - PopoverImagePicker (from `submodules/PopoverImagePicker/`)
   - ReactiveCocoa (from `submodules/ReactiveCocoa/`)
   - ReactiveObjC (from `submodules/ReactiveObjC/`)
@@ -77,10 +78,9 @@ DEPENDENCIES:
   - XCGLogger (from `submodules/XCGLogger/`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs:
+  https://github.com/cocoapods/specs.git:
     - Kingfisher
     - ObjcExceptionBridging
-    - PinLayout
     - pop
 
 EXTERNAL SOURCES:
@@ -104,6 +104,8 @@ EXTERNAL SOURCES:
     :path: submodules/MediaEditorKit/
   Mesh:
     :path: submodules/Mesh/
+  PinLayout:
+    :path: submodules/PinLayout/
   PopoverImagePicker:
     :path: submodules/PopoverImagePicker/
   ReactiveCocoa:
@@ -130,11 +132,11 @@ SPEC CHECKSUMS:
   Eureka: 246b17918da454e3b38cc64aea23af2d3463fd81
   FDFullscreenPopGesture: 7e81964528cd8f9419b2ea07189b4d05929b9f22
   HUD: a0622060114bf7b9d75896184789ee16551d8a1e
-  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   MediaEditorKit: 90ef5430b2eb065b783cccceef6f787eec1ea081
-  Mesh: ec4968934d47ec22782ec23eeb1cbaa39c3a4848
+  Mesh: d7dca107b41d6636aa334f2e475f9d0881dad70e
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  PinLayout: e8e74faf770501bd6c29cad14db52acd8b2994e6
+  PinLayout: c1476693fc284c78b297d8319b727ed2e237fcb5
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   PopoverImagePicker: 39ebd94fed622f2a939eec1374a2453c3feb0aed
   ReactiveCocoa: bec7898df69c7d2b2b2f26ed1677a87cb599c147
@@ -145,6 +147,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: e58a312a0274068d4444ee06dc73202a516754fc
   XCGLogger: 5a21c8be020a21d0b798937f85c1cdb61a288422
 
-PODFILE CHECKSUM: 45ed2c2f47a0408fd0b1cba9750e901a43619890
+PODFILE CHECKSUM: 6487b613f49cacfd805634bd50d6f4aecef72041
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2

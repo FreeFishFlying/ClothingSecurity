@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source_files  = "Mesh/**/*.{swift, h, m}"
   s.dependency "ReactiveSwift"
   s.dependency "XCGLogger"
-  s.dependency 'Kingfisher', '>= 4.3.1'
+  s.dependency 'Kingfisher'
   s.framework = "CFNetwork"
 end

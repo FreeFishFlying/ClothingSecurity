@@ -8,6 +8,12 @@
 
 import Foundation
 import SwiftyJSON
+
+class LoginState: NSObject {
+    @objc public static let shared = LoginState()
+    public var hasLogin: Bool = false
+}
+
 class UserItem: NSObject, NSCoding {
     
     override init() {
