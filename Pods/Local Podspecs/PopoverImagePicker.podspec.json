@@ -1,0 +1,46 @@
+{
+  "name": "PopoverImagePicker",
+  "version": "0.1.0",
+  "summary": "A short description of PopoverImagePicker.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Dylan Wang/PopoverImagePicker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Dylan Wang": "dylan@liao.com"
+  },
+  "source": {
+    "git": "http://180.166.126.162:9000/components/PopoverImagePicker.git"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "PopoverImagePicker/Classes/**/*.swift",
+  "resource_bundles": {
+    "PopoverImagePicker": [
+      "PopoverImagePicker/Assets/*"
+    ]
+  },
+  "dependencies": {
+    "ReactiveSwift": [
+
+    ],
+    "PinLayout": [
+
+    ],
+    "Core": [
+
+    ],
+    "ActionSheet": [
+
+    ],
+    "Album": [
+
+    ],
+    "AlertController": [
+
+    ]
+  }
+}

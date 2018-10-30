@@ -1,0 +1,26 @@
+{
+  "name": "ActionSheet",
+  "version": "0.1.0",
+  "summary": "A short description of ActionSheet.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "http://180.166.126.162:9000/components/ActionSheet",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "kingxt": "kim@liao.com"
+  },
+  "source": {
+    "git": "http://180.166.126.162:9000/components/ActionSheet.git"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ActionSheet/Classes/**/*",
+  "dependencies": {
+    "Core": [
+
+    ]
+  }
+}

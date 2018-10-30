@@ -9,6 +9,11 @@
 import Foundation
 import Core
 import Eureka
+import Album
+import HUD
+import PopoverImagePicker
+import Mesh
+import SwiftyJSON
 
 class AccountSafeViewController: GroupedFormViewController {
     override func viewDidLoad() {
@@ -33,7 +38,9 @@ class AccountSafeViewController: GroupedFormViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "头像"
-                row.onCellSelection({ (_, _) in
+                row.onCellSelection({ [weak self] (_, _) in
+                    guard let `self` = self else { return }
+                    self.uploadImage()
                 })
                 row.cell.height = { 67 }
         }
@@ -64,6 +71,23 @@ class AccountSafeViewController: GroupedFormViewController {
                 })
                 row.cell.height = { 67 }
         }
+    }
+    
+    private func uploadImage() {
+        AppAuthorizationUtil.checkPhoto({ () in
+            PopoverImagePicker.choosePhoto(actionSheetActions: [], navigationControllerClass: ThemeNavigationController.self) { image -> Void in
+                if let image = image {
+                    if let data = image.pngData(){
+                        LoginAndRegisterFacade.shared.uploadHeaderImage(value: data).observe({ [weak self] result in
+                            guard let `self` = self else { return }
+                            guard let value = result.value else { return }
+                            guard let model = value.imageModel else { return }
+                            print("url = \(model.url)")
+                        })
+                    }
+                }
+            }
+        })
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

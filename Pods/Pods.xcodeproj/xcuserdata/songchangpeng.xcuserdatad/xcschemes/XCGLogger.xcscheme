@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AE67F4223215145264762EBB1B11B69F"
+               BlueprintIdentifier = "27C2D18356CC48D0F6C8C9BFB1BF7430"
                BlueprintName = "XCGLogger"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "XCGLogger.framework">

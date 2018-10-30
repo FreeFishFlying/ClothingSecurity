@@ -24,18 +24,28 @@ class UserItem: NSObject, NSCoding {
         aCoder.encode(mobile, forKey: "mobile")
         aCoder.encode(email, forKey: "email")
         aCoder.encode(role, forKey: "role")
+        aCoder.encode(nickName, forKey: "nickName")
+    }
+    
+    private func chanegeDecodeTypeToString(key: String, aDecode: NSCoder) -> String {
+        if let object = aDecode.decodeObject(forKey: key) as? String {
+            return object
+        }
+        return ""
     }
     
     required init?(coder aDecoder: NSCoder) {
-        id = aDecoder.decodeObject(forKey: "id") as! String
+        super.init()
+        id = chanegeDecodeTypeToString(key: "id", aDecode: aDecoder)
         createTime = aDecoder.decodeDouble(forKey: "createTime")
         updateTime = aDecoder.decodeDouble(forKey: "createTime")
-        username = aDecoder.decodeObject(forKey: "username") as! String
-        gender = aDecoder.decodeObject(forKey: "gender") as! String
-        avatar = aDecoder.decodeObject(forKey: "avatar") as! String
-        mobile = aDecoder.decodeObject(forKey: "mobile") as! String
-        email = aDecoder.decodeObject(forKey: "email") as! String
-        role = aDecoder.decodeObject(forKey: "role") as! String
+        username = chanegeDecodeTypeToString(key: "username", aDecode: aDecoder)
+        gender = chanegeDecodeTypeToString(key: "gender", aDecode: aDecoder)
+        avatar = chanegeDecodeTypeToString(key: "avatar", aDecode: aDecoder)
+        mobile = chanegeDecodeTypeToString(key: "mobile", aDecode: aDecoder)
+        email = chanegeDecodeTypeToString(key: "email", aDecode: aDecoder)
+        role = chanegeDecodeTypeToString(key: "role", aDecode: aDecoder)
+        nickName = chanegeDecodeTypeToString(key: "nickName", aDecode: aDecoder)
     }
     
     var id: String = ""
@@ -47,10 +57,11 @@ class UserItem: NSObject, NSCoding {
     var mobile: String = ""
     var email: String = ""
     var role: String = ""
+    var nickName: String = ""
     
     
     
-    class func create(json: JSON) -> UserItem{
+    class func create(json: JSON) -> UserItem {
         let userItem = UserItem()
         if let id = json["id"].string {
             userItem.id = id
@@ -63,6 +74,9 @@ class UserItem: NSObject, NSCoding {
         }
         if let username = json["username"].string {
             userItem.username = username
+        }
+        if let nickName = json["nickName"].string {
+            userItem.nickName = nickName
         }
         if let gender = json["gender"].string {
             userItem.gender = gender

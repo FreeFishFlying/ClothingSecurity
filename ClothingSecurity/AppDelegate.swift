@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Entrance.styleNavgationBar()
         window?.rootViewController = Entrance.entrance()
         applyStyle()
-        updateAuthInfo()
+        //updateAuthInfo()
         return true
     }
     

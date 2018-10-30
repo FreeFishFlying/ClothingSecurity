@@ -2,7 +2,8 @@
 platform :ios, '9.0'
 use_frameworks!
 target 'ClothingSecurity' do
-    pod 'ZCycleView', :path => 'submodules/ZCycleView/'
+    pod 'Album', :path => 'submodules/Album/'
+    pod 'MediaEditorKit', :path => 'submodules/MediaEditorKit/'
     pod 'SnapKit', :path => 'submodules/SnapKit/'
     pod 'ReactiveSwift', :path => 'submodules/ReactiveSwift/'
     pod 'HUD', :path =>'submodules/HUD/'
@@ -16,4 +17,7 @@ target 'ClothingSecurity' do
     pod 'ReactiveCocoa', :path =>'submodules/ReactiveCocoa/'
     pod 'Result', :path =>'submodules/Result/'
     pod 'FDFullscreenPopGesture', :path =>'submodules/FDFullscreenPopGesture/'
+    pod 'AlertController', :path =>'submodules/AlertController/'
+    pod 'PopoverImagePicker', :path =>'submodules/PopoverImagePicker/'
+    pod 'ActionSheet', :path =>'submodules/ActionSheet/'
 end

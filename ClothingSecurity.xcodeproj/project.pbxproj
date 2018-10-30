@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		88EE5A3AA490E6322713B5EE /* Pods_ClothingSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5E3672609F3A30D8D342B5 /* Pods_ClothingSecurity.framework */; };
+		B28F06007EA7C0E9C33C8058 /* Pods_ClothingSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46ABE2E877479909907E94E /* Pods_ClothingSecurity.framework */; };
 		B30FD84D21860B9E0004BABB /* AccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84921860B9E0004BABB /* AccountSafeViewController.swift */; };
 		B30FD84E21860B9E0004BABB /* AccountSafeViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84A21860B9E0004BABB /* AccountSafeViewController+Cell.swift */; };
 		B30FD84F21860B9E0004BABB /* ChangeUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */; };
@@ -19,6 +19,13 @@
 		B322EFEE216F2D0B0077EE02 /* SLQRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFED216F2D0B0077EE02 /* SLQRCodeHelper.swift */; };
 		B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFEF216F2EFA0077EE02 /* SLScannerView.swift */; };
 		B322EFF2216F31800077EE02 /* SWQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B322EFF1216F31800077EE02 /* SWQRCode.bundle */; };
+		B3248D2721880A6A00BF7485 /* ZCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3248D2321880A6A00BF7485 /* ZCycleView.swift */; };
+		B3248D2821880A6A00BF7485 /* ZCycleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3248D2421880A6A00BF7485 /* ZCycleViewCell.swift */; };
+		B3248D2921880A6A00BF7485 /* ZCycleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3248D2521880A6A00BF7485 /* ZCycleLayout.swift */; };
+		B3248D2A21880A6A00BF7485 /* ZPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3248D2621880A6A00BF7485 /* ZPageControl.swift */; };
+		B3248D2E21880D9200BF7485 /* AlbumHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3248D2D21880D9200BF7485 /* AlbumHelper.swift */; };
+		B3248D3021880E6F00BF7485 /* AppAuthorizationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3248D2F21880E6F00BF7485 /* AppAuthorizationUtil.swift */; };
+		B3248D342188322000BF7485 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3248D332188322000BF7485 /* ImageModel.swift */; };
 		B32612422186B0E4002A2E51 /* HttpRequestPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32612412186B0E4002A2E51 /* HttpRequestPacket.swift */; };
 		B32612492186B1E8002A2E51 /* GetAuthCodePacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32612482186B1E8002A2E51 /* GetAuthCodePacket.swift */; };
 		B326124B2186B1F6002A2E51 /* LoginPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326124A2186B1F6002A2E51 /* LoginPacket.swift */; };
@@ -83,7 +90,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		79412579966D478ECC29DCD8 /* Pods-ClothingSecurity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.release.xcconfig"; sourceTree = "<group>"; };
+		2E1F02F363D9AC4716C70A67 /* Pods-ClothingSecurity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.release.xcconfig"; sourceTree = "<group>"; };
+		5C96C59233EE40489AFE0B89 /* Pods-ClothingSecurity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.debug.xcconfig"; sourceTree = "<group>"; };
 		B30FD84921860B9E0004BABB /* AccountSafeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSafeViewController.swift; sourceTree = "<group>"; };
 		B30FD84A21860B9E0004BABB /* AccountSafeViewController+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountSafeViewController+Cell.swift"; sourceTree = "<group>"; };
 		B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserNameViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +103,13 @@
 		B322EFED216F2D0B0077EE02 /* SLQRCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLQRCodeHelper.swift; sourceTree = "<group>"; };
 		B322EFEF216F2EFA0077EE02 /* SLScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLScannerView.swift; sourceTree = "<group>"; };
 		B322EFF1216F31800077EE02 /* SWQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SWQRCode.bundle; sourceTree = "<group>"; };
+		B3248D2321880A6A00BF7485 /* ZCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCycleView.swift; sourceTree = "<group>"; };
+		B3248D2421880A6A00BF7485 /* ZCycleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCycleViewCell.swift; sourceTree = "<group>"; };
+		B3248D2521880A6A00BF7485 /* ZCycleLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCycleLayout.swift; sourceTree = "<group>"; };
+		B3248D2621880A6A00BF7485 /* ZPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPageControl.swift; sourceTree = "<group>"; };
+		B3248D2D21880D9200BF7485 /* AlbumHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumHelper.swift; sourceTree = "<group>"; };
+		B3248D2F21880E6F00BF7485 /* AppAuthorizationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAuthorizationUtil.swift; sourceTree = "<group>"; };
+		B3248D332188322000BF7485 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		B32612412186B0E4002A2E51 /* HttpRequestPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestPacket.swift; sourceTree = "<group>"; };
 		B32612482186B1E8002A2E51 /* GetAuthCodePacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuthCodePacket.swift; sourceTree = "<group>"; };
 		B326124A2186B1F6002A2E51 /* LoginPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPacket.swift; sourceTree = "<group>"; };
@@ -146,8 +161,7 @@
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
 		B3FCEEC52182091200DA52E2 /* LoginViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Cell.swift"; sourceTree = "<group>"; };
 		B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		BE5E3672609F3A30D8D342B5 /* Pods_ClothingSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C30CE68C5F56CC51B02A91F5 /* Pods-ClothingSecurity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.debug.xcconfig"; sourceTree = "<group>"; };
+		B46ABE2E877479909907E94E /* Pods_ClothingSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88EE5A3AA490E6322713B5EE /* Pods_ClothingSecurity.framework in Frameworks */,
+				B28F06007EA7C0E9C33C8058 /* Pods_ClothingSecurity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,21 +190,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D84A469B893E5A0945313C6 /* Pods */ = {
+		5C9F622D2B30BE58E781194D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C30CE68C5F56CC51B02A91F5 /* Pods-ClothingSecurity.debug.xcconfig */,
-				79412579966D478ECC29DCD8 /* Pods-ClothingSecurity.release.xcconfig */,
+				5C96C59233EE40489AFE0B89 /* Pods-ClothingSecurity.debug.xcconfig */,
+				2E1F02F363D9AC4716C70A67 /* Pods-ClothingSecurity.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		522CBEE2D8292AE998E3EBD7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BE5E3672609F3A30D8D342B5 /* Pods_ClothingSecurity.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B30FD84821860B9E0004BABB /* AccountSafe */ = {
@@ -232,6 +238,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B3248D2221880A6A00BF7485 /* ZCycleView */ = {
+			isa = PBXGroup;
+			children = (
+				B3248D2321880A6A00BF7485 /* ZCycleView.swift */,
+				B3248D2421880A6A00BF7485 /* ZCycleViewCell.swift */,
+				B3248D2521880A6A00BF7485 /* ZCycleLayout.swift */,
+				B3248D2621880A6A00BF7485 /* ZPageControl.swift */,
+			);
+			path = ZCycleView;
+			sourceTree = "<group>";
+		};
 		B326123D2186B0C5002A2E51 /* logicbehind */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				B32612522186DFD1002A2E51 /* UserItem.swift */,
+				B3248D332188322000BF7485 /* ImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,8 +347,8 @@
 				B35DBB21216C783D00CAFDAD /* ClothingSecurityTests */,
 				B35DBB2C216C783D00CAFDAD /* ClothingSecurityUITests */,
 				B35DBB0B216C783A00CAFDAD /* Products */,
-				2D84A469B893E5A0945313C6 /* Pods */,
-				522CBEE2D8292AE998E3EBD7 /* Frameworks */,
+				5C9F622D2B30BE58E781194D /* Pods */,
+				F1F1A134462388183135CDA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -404,6 +422,7 @@
 		B35DBB45216C9A6D00CAFDAD /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B3248D2F21880E6F00BF7485 /* AppAuthorizationUtil.swift */,
 				B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */,
 				B35DBB4B216CAAC600CAFDAD /* UIKit+extension.swift */,
 				B35DBB47216C9FA800CAFDAD /* Apperance.swift */,
@@ -411,6 +430,7 @@
 				B3B62FC9216DDDB70006A39E /* ThemeNavigationController.swift */,
 				B3B62FCB216DE2C90006A39E /* Entrance.swift */,
 				B322EFE4216F1C8E0077EE02 /* CommonUtil.swift */,
+				B3248D2D21880D9200BF7485 /* AlbumHelper.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -455,6 +475,7 @@
 		B3BBEE622181B7BB00F5FA47 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				B3248D2221880A6A00BF7485 /* ZCycleView */,
 				B3BBEE632181B7BB00F5FA47 /* ParallaxHeader */,
 			);
 			path = Widget;
@@ -471,6 +492,14 @@
 			path = ParallaxHeader;
 			sourceTree = "<group>";
 		};
+		F1F1A134462388183135CDA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B46ABE2E877479909907E94E /* Pods_ClothingSecurity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -478,12 +507,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B35DBB32216C783D00CAFDAD /* Build configuration list for PBXNativeTarget "ClothingSecurity" */;
 			buildPhases = (
-				1FF074E0695DA1F2CB6AC890 /* [CP] Check Pods Manifest.lock */,
+				3E000A38063A4AA2ED7B3706 /* [CP] Check Pods Manifest.lock */,
 				B35DBB06216C783A00CAFDAD /* Sources */,
 				B35DBB07216C783A00CAFDAD /* Frameworks */,
 				B35DBB08216C783A00CAFDAD /* Resources */,
-				761A7F2800D2AE3228FC7A41 /* [CP] Embed Pods Frameworks */,
-				BB4E07763BDD03C1848CB7C1 /* [CP] Copy Pods Resources */,
+				7E5E4583928CE2DF547DAE23 /* [CP] Embed Pods Frameworks */,
+				5296025A72796C8BCFCA78C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -603,7 +632,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1FF074E0695DA1F2CB6AC890 /* [CP] Check Pods Manifest.lock */ = {
+		3E000A38063A4AA2ED7B3706 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -621,47 +650,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		761A7F2800D2AE3228FC7A41 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Core/Core.framework",
-				"${BUILT_PRODUCTS_DIR}/HUD/HUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Mesh/Mesh.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
-				"${BUILT_PRODUCTS_DIR}/ZCycleView/ZCycleView.framework",
-				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Core.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mesh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZCycleView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BB4E07763BDD03C1848CB7C1 /* [CP] Copy Pods Resources */ = {
+		5296025A72796C8BCFCA78C0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -681,6 +670,56 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7E5E4583928CE2DF547DAE23 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActionSheet/ActionSheet.framework",
+				"${BUILT_PRODUCTS_DIR}/Album/Album.framework",
+				"${BUILT_PRODUCTS_DIR}/AlertController/AlertController.framework",
+				"${BUILT_PRODUCTS_DIR}/Core/Core.framework",
+				"${BUILT_PRODUCTS_DIR}/HUD/HUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MediaEditorKit/MediaEditorKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Mesh/Mesh.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
+				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/PopoverImagePicker/PopoverImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Album.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlertController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Core.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MediaEditorKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mesh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopoverImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -698,10 +737,12 @@
 				B3B62FC0216DCBB10006A39E /* MainContentViewController.swift in Sources */,
 				B3B62FC6216DCC370006A39E /* PersonalCenterViewController.swift in Sources */,
 				B364D76B21819CD50081593D /* SLQRCodeHelper.swift in Sources */,
+				B3248D2821880A6A00BF7485 /* ZCycleViewCell.swift in Sources */,
 				B34638B221837286002B1CF3 /* ForgetPasswordViewController.swift in Sources */,
 				B364D76A21819CD50081593D /* SLQRCodeConfig.swift in Sources */,
 				B35DBB46216C9A6D00CAFDAD /* LoginViewController.swift in Sources */,
 				B30FD8522186117C0004BABB /* ChangeMobileViewController.swift in Sources */,
+				B3248D3021880E6F00BF7485 /* AppAuthorizationUtil.swift in Sources */,
 				B364D76921819CD50081593D /* ScanningViewController.swift in Sources */,
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
 				B34638AE21835C0F002B1CF3 /* BaseLoginViewController.swift in Sources */,
@@ -721,10 +762,12 @@
 				B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */,
 				B32612492186B1E8002A2E51 /* GetAuthCodePacket.swift in Sources */,
 				B35DBB4C216CAAC600CAFDAD /* UIKit+extension.swift in Sources */,
+				B3248D2921880A6A00BF7485 /* ZCycleLayout.swift in Sources */,
 				B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */,
 				B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */,
 				B30FD84E21860B9E0004BABB /* AccountSafeViewController+Cell.swift in Sources */,
 				B34638B0218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift in Sources */,
+				B3248D2E21880D9200BF7485 /* AlbumHelper.swift in Sources */,
 				B30FD84D21860B9E0004BABB /* AccountSafeViewController.swift in Sources */,
 				B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */,
 				B326124D2186B5CE002A2E51 /* LoginAndRegisterFacade.swift in Sources */,
@@ -733,9 +776,12 @@
 				B364D76D21819CD50081593D /* SLScannerView.swift in Sources */,
 				B322EFEE216F2D0B0077EE02 /* SLQRCodeHelper.swift in Sources */,
 				B35DBB0E216C783A00CAFDAD /* AppDelegate.swift in Sources */,
+				B3248D2721880A6A00BF7485 /* ZCycleView.swift in Sources */,
 				B3BBEE682181B7BB00F5FA47 /* ParallaxHeaderMode.swift in Sources */,
+				B3248D2A21880A6A00BF7485 /* ZPageControl.swift in Sources */,
 				B3B62FC4216DCC1B0006A39E /* DiscoverViewController.swift in Sources */,
 				B32612572186F30E002A2E51 /* UpdateUserPacket.swift in Sources */,
+				B3248D342188322000BF7485 /* ImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,7 +954,7 @@
 		};
 		B35DBB33216C783D00CAFDAD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C30CE68C5F56CC51B02A91F5 /* Pods-ClothingSecurity.debug.xcconfig */;
+			baseConfigurationReference = 5C96C59233EE40489AFE0B89 /* Pods-ClothingSecurity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -954,8 +1000,6 @@
 					"\"UIKit\"",
 					"-framework",
 					"\"XCGLogger\"",
-					"-framework",
-					"\"ZCycleView\"",
 					"-framework",
 					"\"pop\"",
 					"-ObjC",
@@ -972,7 +1016,7 @@
 		};
 		B35DBB34216C783D00CAFDAD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 79412579966D478ECC29DCD8 /* Pods-ClothingSecurity.release.xcconfig */;
+			baseConfigurationReference = 2E1F02F363D9AC4716C70A67 /* Pods-ClothingSecurity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1018,8 +1062,6 @@
 					"\"UIKit\"",
 					"-framework",
 					"\"XCGLogger\"",
-					"-framework",
-					"\"ZCycleView\"",
 					"-framework",
 					"\"pop\"",
 					"-ObjC",

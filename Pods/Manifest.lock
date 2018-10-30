@@ -1,4 +1,19 @@
 PODS:
+  - ActionSheet (0.1.0):
+    - Core
+  - Album (0.1.0):
+    - AlertController
+    - Core
+    - HUD
+    - MediaEditorKit
+    - Mesh
+    - PinLayout
+    - pop
+    - ReactiveCocoa
+    - ReactiveSwift
+    - SnapKit
+  - AlertController (0.1):
+    - SnapKit
   - Core (0.0.1):
     - Mesh
     - pop
@@ -10,6 +25,8 @@ PODS:
   - FDFullscreenPopGesture (1.1)
   - HUD (0.1.0)
   - Kingfisher (4.8.1)
+  - MediaEditorKit (0.1.0):
+    - pop
   - Mesh (0.0.1):
     - Kingfisher (>= 4.3.1)
     - ReactiveSwift
@@ -17,7 +34,15 @@ PODS:
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
+  - PinLayout (1.7.10)
   - pop (1.0.10)
+  - PopoverImagePicker (0.1.0):
+    - ActionSheet
+    - Album
+    - AlertController
+    - Core
+    - PinLayout
+    - ReactiveSwift
   - ReactiveCocoa (8.0.0):
     - ReactiveSwift (~> 4.0)
   - ReactiveObjC (3.1.0)
@@ -30,16 +55,19 @@ PODS:
     - XCGLogger/Core (= 6.0.4)
   - XCGLogger/Core (6.0.4):
     - ObjcExceptionBridging
-  - ZCycleView (0.0.8):
-    - Kingfisher (>= 4.3.1)
 
 DEPENDENCIES:
+  - ActionSheet (from `submodules/ActionSheet/`)
+  - Album (from `submodules/Album/`)
+  - AlertController (from `submodules/AlertController/`)
   - Core (from `submodules/Core/`)
   - ESTabBarController (from `submodules/ESTabBarController/`)
   - Eureka (from `submodules/Eureka/`)
   - FDFullscreenPopGesture (from `submodules/FDFullscreenPopGesture/`)
   - HUD (from `submodules/HUD/`)
+  - MediaEditorKit (from `submodules/MediaEditorKit/`)
   - Mesh (from `submodules/Mesh/`)
+  - PopoverImagePicker (from `submodules/PopoverImagePicker/`)
   - ReactiveCocoa (from `submodules/ReactiveCocoa/`)
   - ReactiveObjC (from `submodules/ReactiveObjC/`)
   - ReactiveSwift (from `submodules/ReactiveSwift/`)
@@ -47,15 +75,21 @@ DEPENDENCIES:
   - SnapKit (from `submodules/SnapKit/`)
   - SwiftyJSON (from `submodules/SwiftyJSON/`)
   - XCGLogger (from `submodules/XCGLogger/`)
-  - ZCycleView (from `submodules/ZCycleView/`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs:
     - Kingfisher
     - ObjcExceptionBridging
+    - PinLayout
     - pop
 
 EXTERNAL SOURCES:
+  ActionSheet:
+    :path: submodules/ActionSheet/
+  Album:
+    :path: submodules/Album/
+  AlertController:
+    :path: submodules/AlertController/
   Core:
     :path: submodules/Core/
   ESTabBarController:
@@ -66,8 +100,12 @@ EXTERNAL SOURCES:
     :path: submodules/FDFullscreenPopGesture/
   HUD:
     :path: submodules/HUD/
+  MediaEditorKit:
+    :path: submodules/MediaEditorKit/
   Mesh:
     :path: submodules/Mesh/
+  PopoverImagePicker:
+    :path: submodules/PopoverImagePicker/
   ReactiveCocoa:
     :path: submodules/ReactiveCocoa/
   ReactiveObjC:
@@ -82,19 +120,23 @@ EXTERNAL SOURCES:
     :path: submodules/SwiftyJSON/
   XCGLogger:
     :path: submodules/XCGLogger/
-  ZCycleView:
-    :path: submodules/ZCycleView/
 
 SPEC CHECKSUMS:
+  ActionSheet: 481c7b0b90691c4882cdc915b3c144df3e93ef5b
+  Album: 49b56b2a29b28222668384e02a77e406d8fa0547
+  AlertController: 428d46ec2c9496d92151ab7a0cb66989ddce624f
   Core: 2fbd9d0be76ed231f520bd2db4a45a75b07b8c51
   ESTabBarController: 8db71cb7f648747a11f25ede0f91195cb0394c27
   Eureka: 246b17918da454e3b38cc64aea23af2d3463fd81
   FDFullscreenPopGesture: 7e81964528cd8f9419b2ea07189b4d05929b9f22
   HUD: a0622060114bf7b9d75896184789ee16551d8a1e
   Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  MediaEditorKit: 90ef5430b2eb065b783cccceef6f787eec1ea081
   Mesh: ec4968934d47ec22782ec23eeb1cbaa39c3a4848
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
+  PinLayout: e8e74faf770501bd6c29cad14db52acd8b2994e6
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  PopoverImagePicker: 39ebd94fed622f2a939eec1374a2453c3feb0aed
   ReactiveCocoa: bec7898df69c7d2b2b2f26ed1677a87cb599c147
   ReactiveObjC: d136aca40062171b3c550a772b154f9f5e9bdfd0
   ReactiveSwift: 3f8af1faebcc4492726abb5fdfd9197e5566e006
@@ -102,8 +144,7 @@ SPEC CHECKSUMS:
   SnapKit: feb331006d7f8c05828bf5ecda16611ed144a947
   SwiftyJSON: e58a312a0274068d4444ee06dc73202a516754fc
   XCGLogger: 5a21c8be020a21d0b798937f85c1cdb61a288422
-  ZCycleView: e1f805e55b27997dc2c196d2fea6330fb3cdf7c5
 
-PODFILE CHECKSUM: 83567b341a5214ecbe487b96e1fd8fda35bb2113
+PODFILE CHECKSUM: 45ed2c2f47a0408fd0b1cba9750e901a43619890
 
 COCOAPODS: 1.5.3

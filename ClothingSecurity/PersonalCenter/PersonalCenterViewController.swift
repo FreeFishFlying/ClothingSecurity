@@ -21,14 +21,19 @@ class PersonalCenterViewController: GroupedFormViewController {
         configTableView()
         configTabViewCell()
         registerEvent()
-        currentUser = UserItem.current()
+        LoginAndRegisterFacade.shared.obserUserItemChange().observeValues { [weak self] item in
+            guard let `self` = self else { return }
+            self.currentUser = item
+        }
     }
     
     var currentUser: UserItem? {
         didSet {
             if let user = currentUser {
-                header.title = user.username
-                
+                header.item = (url: user.avatar, name: user.nickName, account: user.mobile)
+            } else {
+                header.item = nil
+                header.title = "登录/注册"
             }
         }
     }
@@ -68,7 +73,7 @@ class PersonalCenterViewController: GroupedFormViewController {
             make.left.right.equalToSuperview()
             make.height.equalTo(120)
         }
-        header.title = "登录/注册"
+        currentUser = UserItem.current()
         header.onLoginClick = { [weak self] in
             guard let `self` = self else { return }
             let controller = LoginViewController()
@@ -132,7 +137,7 @@ fileprivate class LoginHeaderView: UIView {
     
     var onLoginClick: (() -> Void)?
     
-    var item: (url: String, name: String, account: String)? {
+    var item: (url: String?, name: String?, account: String?)? {
         didSet {
             if let item = item {
                 title = item.name
@@ -141,9 +146,19 @@ fileprivate class LoginHeaderView: UIView {
                     make.left.equalTo(icon.snp.right).offset(12)
                     make.bottom.equalTo(icon.snp.centerY)
                 }
-                if let url = URL(string: item.url) {
-                   // icon.kf.setImage(with: url, placeholder: imageNamed("defaultLogo"), options: nil, progressBlock: nil, completionHandler: nil)
+                if let url = item.url, let path = URL(string: url) {
+                    icon.kf.setImage(with: path, placeholder: imageNamed("defaultLogo"), options: nil, progressBlock: nil, completionHandler: nil)
+                } else {
+                    icon.image = imageNamed("defaultLogo")
                 }
+            } else {
+                nameLabel.snp.makeConstraints { make in
+                    make.left.equalTo(icon.snp.right).offset(12)
+                    make.centerY.equalTo(icon.snp.centerY)
+                    make.right.equalToSuperview().offset(-15)
+                }
+                icon.image = imageNamed("defaultLogo")
+                accountLabel.text = nil
             }
         }
     }
@@ -173,6 +188,7 @@ fileprivate class LoginHeaderView: UIView {
         nameLabel.snp.makeConstraints { make in
             make.left.equalTo(icon.snp.right).offset(12)
             make.centerY.equalTo(icon.snp.centerY)
+            make.right.equalToSuperview().offset(-15)
         }
         addSubview(accountLabel)
         accountLabel.snp.makeConstraints { make in
@@ -195,7 +211,7 @@ fileprivate class LoginHeaderView: UIView {
         let icon = UIImageView()
         icon.layer.cornerRadius = 31
         icon.layer.masksToBounds = true
-        icon.image = imageNamed("photo")
+        icon.image = imageNamed("defaultLogo")
         return icon
     }()
     

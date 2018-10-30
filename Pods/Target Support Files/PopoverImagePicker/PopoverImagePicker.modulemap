@@ -1,0 +1,6 @@
+framework module PopoverImagePicker {
+  umbrella header "PopoverImagePicker-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -11,6 +11,15 @@ import Mesh
 import ReactiveSwift
 import SwiftyJSON
 
+class UploadHeaderImageResponse: HttpResponseData {
+    var imageModel: ImageModel?
+    public required init(json: JSON?) {
+        super.init(json: json)
+        guard let json = json else { return }
+        imageModel = ImageModel(json: json["data"])
+    }
+}
+
 class UpdateUserPacket: HttpRequestPacket<LoginResponseData> {
     private let updateInfo: [String: String]
     init(info: [String: String]) {
@@ -35,5 +44,13 @@ class UpdateUserPacket: HttpRequestPacket<LoginResponseData> {
     
     override func requestParameter() -> [String: Any]? {
         return updateInfo
+    }
+    
+    override func send() -> SignalProducer<LoginResponseData, NSError> {
+        return super.send().on(value: { data in
+            if let user = data.userItem {
+                LoginAndRegisterFacade.shared.userChangePip.input.send(value: user)
+            }
+        })
     }
 }

@@ -1,0 +1,29 @@
+{
+  "name": "MediaEditorKit",
+  "version": "0.1.0",
+  "license": {
+    "type": "BSD"
+  },
+  "homepage": "https://github.com/kingxt/MediaEditorKit",
+  "authors": {
+    "kingxt": "kingxt@163.com"
+  },
+  "summary": "EMediaEditorKit",
+  "source": {
+    "git": "http://gitlab.xiaoheiban.cn/components/MediaEditorKit.git"
+  },
+  "source_files": "MediaEditorKit/**/*.{h,m,mm,cpp}",
+  "resources": "MediaEditorKit/**/*.bundle",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.8",
+    "tvos": "9.0"
+  },
+  "libraries": "stdc++",
+  "dependencies": {
+    "pop": [
+
+    ]
+  }
+}

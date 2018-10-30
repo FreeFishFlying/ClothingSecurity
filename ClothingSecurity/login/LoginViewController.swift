@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import ZCycleView
 import SnapKit
 import Core
 import FDFullscreenPopGesture

@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import ZCycleView
 import SnapKit
 
 class MainContentViewController: BaseViewController {

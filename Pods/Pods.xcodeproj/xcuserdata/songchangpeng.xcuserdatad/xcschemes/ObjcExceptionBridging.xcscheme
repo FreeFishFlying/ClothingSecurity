@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9670759C5AD12B8A0E0D13EEA2DC22C1"
+               BlueprintIdentifier = "A867E0EEC7372129EFD3F8770840970E"
                BlueprintName = "ObjcExceptionBridging"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "ObjcExceptionBridging.framework">

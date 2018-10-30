@@ -24,4 +24,12 @@ class AuthUserInfoPacket: HttpRequestPacket<LoginResponseData> {
     override func httpMethod() -> HTTPMethod {
         return .get
     }
+    
+    override func send() -> SignalProducer<LoginResponseData, NSError> {
+        return super.send().on(value: { data in
+            if let user = data.userItem {
+                LoginAndRegisterFacade.shared.userChangePip.input.send(value: user)
+            }
+        })
+    }
 }

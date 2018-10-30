@@ -1,0 +1,34 @@
+{
+  "name": "AlertController",
+  "version": "0.1",
+  "summary": "Simple Alert View written in Swift, which can be used as a UIAlertController replacement.",
+  "homepage": "http://180.166.126.162:9000/components/AlertController",
+  "screenshots": "http://180.166.126.162:9000/components/AlertController",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Daiki Okumura": "kim@liao.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "http://180.166.126.162:9000/components/AlertController",
+    "tag": "0.1"
+  },
+  "source_files": "AlertController/**/*.swift",
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "resource_bundles": {
+    "AlertController": [
+      "AlertController/**/*.{xib}"
+    ]
+  },
+  "dependencies": {
+    "SnapKit": [
+
+    ]
+  }
+}

@@ -1,0 +1,2314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		6BAC8967200217C40086BC7F /* framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6BAC8968200217C40086BC7F /* Build configuration list for PBXAggregateTarget "framework" */;
+			buildPhases = (
+				6BAC896F200217CB0086BC7F /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = framework;
+			productName = framework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		19ECFCF54E3C39D04FA99D5D /* NSObject+TGLock.h in Headers */ = {isa = PBXBuildFile; fileRef = 19ECF1C44A49B6042168E7DA /* NSObject+TGLock.h */; };
+		19ECFEADCBDAB252A22BD2F0 /* NSObject+TGLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 19ECFF9910E5DE37A11B0BE6 /* NSObject+TGLock.m */; };
+		24E57C27FB9521138881C56B /* libPods-Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FB42E8CF9A75FE3463DA034 /* libPods-Test.a */; };
+		3B7D963D20030AAA00A72810 /* MediaEditorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01777271F1F8F100044446D /* MediaEditorKit.framework */; };
+		3B7D96932003261800A72810 /* NSValue+JNWAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B7D96592003261100A72810 /* NSValue+JNWAdditions.h */; };
+		3B7D96952003261800A72810 /* NSValue+JNWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7D965B2003261200A72810 /* NSValue+JNWAdditions.m */; };
+		3B7D969C2003261800A72810 /* JNWSpringAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B7D96622003261200A72810 /* JNWSpringAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B7D96AD2003261800A72810 /* JNWSpringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7D96732003261500A72810 /* JNWSpringAnimation.m */; };
+		3B7D96C72003504D00A72810 /* MediaEditorKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3B7D96C62003504D00A72810 /* MediaEditorKit.bundle */; };
+		3B8C61402004CAD200F7C9D3 /* MediaEditorKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D0EB42021F3142F400838FE6 /* MediaEditorKit.bundle */; };
+		3B8C61412004CC8100F7C9D3 /* MediaEditorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01777271F1F8F100044446D /* MediaEditorKit.framework */; };
+		3B8C61422004CC8100F7C9D3 /* MediaEditorKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D01777271F1F8F100044446D /* MediaEditorKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3CBCE8F67FAB7638003A34FB /* libPods-MediaEditorKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8711663C3E00083F2B4D2D3 /* libPods-MediaEditorKit.a */; };
+		6B52AC262001B6AA00E35677 /* TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52AC252001B6AA00E35677 /* TestUITests.swift */; };
+		6B52AC522001BB7200E35677 /* TGModernGalleryVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B52AC502001BB7200E35677 /* TGModernGalleryVideoView.m */; };
+		6B52AC532001BB7200E35677 /* TGModernGalleryVideoView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B52AC512001BB7200E35677 /* TGModernGalleryVideoView.h */; };
+		6BAC897A2002189D0086BC7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAC89792002189D0086BC7F /* AppDelegate.m */; };
+		6BAC897D2002189D0086BC7F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAC897C2002189D0086BC7F /* ViewController.m */; };
+		6BAC89802002189D0086BC7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BAC897E2002189D0086BC7F /* Main.storyboard */; };
+		6BAC89822002189D0086BC7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BAC89812002189D0086BC7F /* Assets.xcassets */; };
+		6BAC89852002189D0086BC7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BAC89832002189D0086BC7F /* LaunchScreen.storyboard */; };
+		6BAC89882002189D0086BC7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAC89872002189D0086BC7F /* main.m */; };
+		6BAC89922002189E0086BC7F /* TestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAC89912002189E0086BC7F /* TestUITests.m */; };
+		6BAC89A5200224060086BC7F /* MKLegacyComponentsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAC89A3200224060086BC7F /* MKLegacyComponentsContext.m */; };
+		6BAC89A6200224060086BC7F /* MKLegacyComponentsContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BAC89A4200224060086BC7F /* MKLegacyComponentsContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BAC89A8200227D60086BC7F /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAC89A7200227D60086BC7F /* libstdc++.tbd */; };
+		6BAC89A92002347B0086BC7F /* MediaEditorKit.bundle in Sources */ = {isa = PBXBuildFile; fileRef = D0EB42021F3142F400838FE6 /* MediaEditorKit.bundle */; };
+		6BC5C2A62001DC2D00CAB9F4 /* SSignal+Combine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C26F2001DC2D00CAB9F4 /* SSignal+Combine.m */; };
+		6BC5C2A72001DC2D00CAB9F4 /* SSignal+Multicast.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2702001DC2D00CAB9F4 /* SSignal+Multicast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2A82001DC2D00CAB9F4 /* SBlockDisposable.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2712001DC2D00CAB9F4 /* SBlockDisposable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2A92001DC2D00CAB9F4 /* SThreadPoolQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2722001DC2D00CAB9F4 /* SThreadPoolQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2AA2001DC2D00CAB9F4 /* STimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2732001DC2D00CAB9F4 /* STimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2AB2001DC2D00CAB9F4 /* SAtomic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2742001DC2D00CAB9F4 /* SAtomic.m */; };
+		6BC5C2AC2001DC2D00CAB9F4 /* SSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2752001DC2D00CAB9F4 /* SSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2AD2001DC2D00CAB9F4 /* SSignal+Single.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2762001DC2D00CAB9F4 /* SSignal+Single.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2AE2001DC2D00CAB9F4 /* SSignal+Accumulate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2772001DC2D00CAB9F4 /* SSignal+Accumulate.m */; };
+		6BC5C2AF2001DC2D00CAB9F4 /* SBag.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2782001DC2D00CAB9F4 /* SBag.m */; };
+		6BC5C2B02001DC2D00CAB9F4 /* SSignal+Meta.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2792001DC2D00CAB9F4 /* SSignal+Meta.m */; };
+		6BC5C2B12001DC2D00CAB9F4 /* SSignal+SideEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C27A2001DC2D00CAB9F4 /* SSignal+SideEffects.m */; };
+		6BC5C2B22001DC2D00CAB9F4 /* SMetaDisposable.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C27B2001DC2D00CAB9F4 /* SMetaDisposable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2B32001DC2D00CAB9F4 /* SMulticastSignalManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C27C2001DC2D00CAB9F4 /* SMulticastSignalManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2B42001DC2D00CAB9F4 /* SSignal+Dispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C27D2001DC2D00CAB9F4 /* SSignal+Dispatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2B52001DC2D00CAB9F4 /* SSignal+Timing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C27E2001DC2D00CAB9F4 /* SSignal+Timing.m */; };
+		6BC5C2B62001DC2D00CAB9F4 /* SSubscriber.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C27F2001DC2D00CAB9F4 /* SSubscriber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2B72001DC2D00CAB9F4 /* SSignal+Pipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2802001DC2D00CAB9F4 /* SSignal+Pipe.m */; };
+		6BC5C2B82001DC2D00CAB9F4 /* SDisposableSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2812001DC2D00CAB9F4 /* SDisposableSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2B92001DC2D00CAB9F4 /* SThreadPoolTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2822001DC2D00CAB9F4 /* SThreadPoolTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2BA2001DC2D00CAB9F4 /* SDisposable.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2832001DC2D00CAB9F4 /* SDisposable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2BB2001DC2D00CAB9F4 /* SSignal+Catch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2842001DC2D00CAB9F4 /* SSignal+Catch.m */; };
+		6BC5C2BC2001DC2D00CAB9F4 /* SQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2852001DC2D00CAB9F4 /* SQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2BD2001DC2D00CAB9F4 /* SVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2862001DC2D00CAB9F4 /* SVariable.m */; };
+		6BC5C2BE2001DC2D00CAB9F4 /* SSignal+Take.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2872001DC2D00CAB9F4 /* SSignal+Take.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2BF2001DC2D00CAB9F4 /* SSignal+Mapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2882001DC2D00CAB9F4 /* SSignal+Mapping.m */; };
+		6BC5C2C02001DC2D00CAB9F4 /* SThreadPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2892001DC2D00CAB9F4 /* SThreadPool.m */; };
+		6BC5C2C12001DC2D00CAB9F4 /* SAtomic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C28A2001DC2D00CAB9F4 /* SAtomic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2C22001DC2D00CAB9F4 /* STimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C28B2001DC2D00CAB9F4 /* STimer.m */; };
+		6BC5C2C32001DC2D00CAB9F4 /* SThreadPoolQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C28C2001DC2D00CAB9F4 /* SThreadPoolQueue.m */; };
+		6BC5C2C42001DC2D00CAB9F4 /* SBlockDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C28D2001DC2D00CAB9F4 /* SBlockDisposable.m */; };
+		6BC5C2C52001DC2D00CAB9F4 /* SSignal+Multicast.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C28E2001DC2D00CAB9F4 /* SSignal+Multicast.m */; };
+		6BC5C2C62001DC2D00CAB9F4 /* SSignal+Combine.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C28F2001DC2D00CAB9F4 /* SSignal+Combine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2C72001DC2D00CAB9F4 /* SSignal+Timing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2902001DC2D00CAB9F4 /* SSignal+Timing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2C82001DC2D00CAB9F4 /* SSignal+Dispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2912001DC2D00CAB9F4 /* SSignal+Dispatch.m */; };
+		6BC5C2C92001DC2D00CAB9F4 /* SMetaDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2922001DC2D00CAB9F4 /* SMetaDisposable.m */; };
+		6BC5C2CA2001DC2D00CAB9F4 /* SMulticastSignalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2932001DC2D00CAB9F4 /* SMulticastSignalManager.m */; };
+		6BC5C2CB2001DC2D00CAB9F4 /* SSignal+SideEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2942001DC2D00CAB9F4 /* SSignal+SideEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2CC2001DC2D00CAB9F4 /* SSignal+Meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2952001DC2D00CAB9F4 /* SSignal+Meta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2CD2001DC2D00CAB9F4 /* SBag.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2962001DC2D00CAB9F4 /* SBag.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2CE2001DC2D00CAB9F4 /* SSignal+Accumulate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2972001DC2D00CAB9F4 /* SSignal+Accumulate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2CF2001DC2D00CAB9F4 /* SSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2982001DC2D00CAB9F4 /* SSignal.m */; };
+		6BC5C2D02001DC2D00CAB9F4 /* SSignal+Single.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2992001DC2D00CAB9F4 /* SSignal+Single.m */; };
+		6BC5C2D12001DC2D00CAB9F4 /* SSignalKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C29A2001DC2D00CAB9F4 /* SSignalKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2D22001DC2D00CAB9F4 /* SThreadPoolTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C29B2001DC2D00CAB9F4 /* SThreadPoolTask.m */; };
+		6BC5C2D32001DC2D00CAB9F4 /* SDisposableSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C29C2001DC2D00CAB9F4 /* SDisposableSet.m */; };
+		6BC5C2D42001DC2D00CAB9F4 /* SSignal+Pipe.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C29D2001DC2D00CAB9F4 /* SSignal+Pipe.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2D52001DC2D00CAB9F4 /* SSubscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C29E2001DC2D00CAB9F4 /* SSubscriber.m */; };
+		6BC5C2D62001DC2D00CAB9F4 /* SThreadPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C29F2001DC2D00CAB9F4 /* SThreadPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2D72001DC2D00CAB9F4 /* SSignal+Take.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2A02001DC2D00CAB9F4 /* SSignal+Take.m */; };
+		6BC5C2D82001DC2D00CAB9F4 /* SSignal+Mapping.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2A12001DC2D00CAB9F4 /* SSignal+Mapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2DA2001DC2D00CAB9F4 /* SVariable.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2A32001DC2D00CAB9F4 /* SVariable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BC5C2DB2001DC2D00CAB9F4 /* SQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC5C2A42001DC2D00CAB9F4 /* SQueue.m */; };
+		6BC5C2DC2001DC2D00CAB9F4 /* SSignal+Catch.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC5C2A52001DC2D00CAB9F4 /* SSignal+Catch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BFCA1772001D41B003F1D84 /* TGMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFCA1752001D41B003F1D84 /* TGMenuView.m */; };
+		6BFCA1782001D41B003F1D84 /* TGMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BFCA1762001D41B003F1D84 /* TGMenuView.h */; };
+		D017772C1F1F8F100044446D /* MediaEditorKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D017772A1F1F8F100044446D /* MediaEditorKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01777511F1F8FE60044446D /* LegacyComponentsGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = D01777381F1F8FE60044446D /* LegacyComponentsGlobals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01777661F1F8FE60044446D /* TGStringUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D017774D1F1F8FE60044446D /* TGStringUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01777671F1F8FE60044446D /* TGStringUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = D017774E1F1F8FE60044446D /* TGStringUtils.mm */; };
+		D017776B1F1F909E0044446D /* LegacyComponentsGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = D017776A1F1F909E0044446D /* LegacyComponentsGlobals.m */; };
+		D017789D1F1FC99A0044446D /* LegacyComponentsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = D017789B1F1FC99A0044446D /* LegacyComponentsInternal.h */; };
+		D017789E1F1FC99A0044446D /* LegacyComponentsInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = D017789C1F1FC99A0044446D /* LegacyComponentsInternal.m */; };
+		D01778A91F1FD0900044446D /* MKImageUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D01778A51F1FD0900044446D /* MKImageUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01778AA1F1FD0900044446D /* MKImageUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = D01778A61F1FD0900044446D /* MKImageUtils.mm */; };
+		D01778BA1F2009880044446D /* Freedom.h in Headers */ = {isa = PBXBuildFile; fileRef = D01778B81F2009880044446D /* Freedom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01778BB1F2009880044446D /* Freedom.mm in Sources */ = {isa = PBXBuildFile; fileRef = D01778B91F2009880044446D /* Freedom.mm */; };
+		D01778C21F200AF70044446D /* TGAnimationBlockDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D01778C01F200AF70044446D /* TGAnimationBlockDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01778C31F200AF70044446D /* TGAnimationBlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D01778C11F200AF70044446D /* TGAnimationBlockDelegate.m */; };
+		D01778E91F20CAE60044446D /* MKViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D01778DD1F20CAE60044446D /* MKViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01778EA1F20CAE60044446D /* MKViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D01778DE1F20CAE60044446D /* MKViewController.mm */; };
+		D01778ED1F20CAE60044446D /* MKOverlayController.h in Headers */ = {isa = PBXBuildFile; fileRef = D01778E11F20CAE60044446D /* MKOverlayController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01778EE1F20CAE60044446D /* MKOverlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01778E21F20CAE60044446D /* MKOverlayController.m */; };
+		D01778EF1F20CAE60044446D /* MKOverlayControllerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = D01778E31F20CAE60044446D /* MKOverlayControllerWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01778F01F20CAE60044446D /* MKOverlayControllerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D01778E41F20CAE60044446D /* MKOverlayControllerWindow.m */; };
+		D01778F71F20CDAC0044446D /* MKHacks.h in Headers */ = {isa = PBXBuildFile; fileRef = D01778F51F20CDAC0044446D /* MKHacks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01778F81F20CDAC0044446D /* MKHacks.m in Sources */ = {isa = PBXBuildFile; fileRef = D01778F61F20CDAC0044446D /* MKHacks.m */; };
+		D01778FF1F20D0040044446D /* MKColor.h in Headers */ = {isa = PBXBuildFile; fileRef = D01778FD1F20D0040044446D /* MKColor.h */; };
+		D01779001F20D0040044446D /* MKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D01778FE1F20D0040044446D /* MKColor.m */; };
+		D01779031F20D16B0044446D /* FreedomUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779011F20D16B0044446D /* FreedomUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779041F20D16B0044446D /* FreedomUIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779021F20D16B0044446D /* FreedomUIKit.m */; };
+		D017790E1F20F4370044446D /* UIImage+TG.h in Headers */ = {isa = PBXBuildFile; fileRef = D017790C1F20F4370044446D /* UIImage+TG.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D017790F1F20F4370044446D /* UIImage+TG.m in Sources */ = {isa = PBXBuildFile; fileRef = D017790D1F20F4370044446D /* UIImage+TG.m */; };
+		D01779261F20FE480044446D /* TGObserverProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779241F20FE480044446D /* TGObserverProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779271F20FE480044446D /* TGObserverProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779251F20FE480044446D /* TGObserverProxy.m */; };
+		D017792F1F20FFAC0044446D /* TGMediaAssetsLegacyLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779291F20FFAC0044446D /* TGMediaAssetsLegacyLibrary.h */; };
+		D01779301F20FFAC0044446D /* TGMediaAssetsLegacyLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D017792A1F20FFAC0044446D /* TGMediaAssetsLegacyLibrary.m */; };
+		D01779311F20FFAC0044446D /* TGMediaAssetsLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D017792B1F20FFAC0044446D /* TGMediaAssetsLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779321F20FFAC0044446D /* TGMediaAssetsLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D017792C1F20FFAC0044446D /* TGMediaAssetsLibrary.m */; };
+		D01779331F20FFAC0044446D /* TGMediaAssetsModernLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = D017792D1F20FFAC0044446D /* TGMediaAssetsModernLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779341F20FFAC0044446D /* TGMediaAssetsModernLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D017792E1F20FFAC0044446D /* TGMediaAssetsModernLibrary.m */; };
+		D01779411F20FFF60044446D /* TGMediaAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779351F20FFF60044446D /* TGMediaAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779421F20FFF60044446D /* TGMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779361F20FFF60044446D /* TGMediaAsset.m */; };
+		D01779431F20FFF60044446D /* TGMediaAssetFetchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779371F20FFF60044446D /* TGMediaAssetFetchResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779441F20FFF60044446D /* TGMediaAssetFetchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779381F20FFF60044446D /* TGMediaAssetFetchResult.m */; };
+		D01779451F20FFF60044446D /* TGMediaAssetFetchResultChange.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779391F20FFF60044446D /* TGMediaAssetFetchResultChange.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779461F20FFF60044446D /* TGMediaAssetFetchResultChange.m in Sources */ = {isa = PBXBuildFile; fileRef = D017793A1F20FFF60044446D /* TGMediaAssetFetchResultChange.m */; };
+		D01779471F20FFF60044446D /* TGMediaAssetGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = D017793B1F20FFF60044446D /* TGMediaAssetGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779481F20FFF60044446D /* TGMediaAssetGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D017793C1F20FFF60044446D /* TGMediaAssetGroup.m */; };
+		D01779491F20FFF60044446D /* TGMediaAssetMoment.h in Headers */ = {isa = PBXBuildFile; fileRef = D017793D1F20FFF60044446D /* TGMediaAssetMoment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D017794A1F20FFF60044446D /* TGMediaAssetMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = D017793E1F20FFF60044446D /* TGMediaAssetMoment.m */; };
+		D017794B1F20FFF60044446D /* TGMediaAssetMomentList.h in Headers */ = {isa = PBXBuildFile; fileRef = D017793F1F20FFF60044446D /* TGMediaAssetMomentList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D017794C1F20FFF60044446D /* TGMediaAssetMomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779401F20FFF60044446D /* TGMediaAssetMomentList.m */; };
+		D017794F1F2100280044446D /* TGMediaSelectionContext.h in Headers */ = {isa = PBXBuildFile; fileRef = D017794D1F2100280044446D /* TGMediaSelectionContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779501F2100280044446D /* TGMediaSelectionContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D017794E1F2100280044446D /* TGMediaSelectionContext.m */; };
+		D01779531F2100520044446D /* MKMediaEditingContext.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779511F2100520044446D /* MKMediaEditingContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779541F2100520044446D /* MKMediaEditingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779521F2100520044446D /* MKMediaEditingContext.m */; };
+		D01779581F21031F0044446D /* MKPhotoEditorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779561F21031F0044446D /* MKPhotoEditorUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779591F21031F0044446D /* MKPhotoEditorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779571F21031F0044446D /* MKPhotoEditorUtils.m */; };
+		D017795C1F2103440044446D /* MKPhotoEditorValues.h in Headers */ = {isa = PBXBuildFile; fileRef = D017795A1F2103440044446D /* MKPhotoEditorValues.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D017795D1F2103440044446D /* MKPhotoEditorValues.m in Sources */ = {isa = PBXBuildFile; fileRef = D017795B1F2103440044446D /* MKPhotoEditorValues.m */; };
+		D01779601F2103680044446D /* MKPaintingData.h in Headers */ = {isa = PBXBuildFile; fileRef = D017795E1F2103680044446D /* MKPaintingData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779611F2103680044446D /* MKPaintingData.m in Sources */ = {isa = PBXBuildFile; fileRef = D017795F1F2103680044446D /* MKPaintingData.m */; };
+		D01779641F2103910044446D /* TGPaintUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779621F2103910044446D /* TGPaintUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779651F2103910044446D /* TGPaintUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779631F2103910044446D /* TGPaintUtils.m */; };
+		D017796B1F2103DB0044446D /* MKPhotoPaintEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779671F2103DB0044446D /* MKPhotoPaintEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D017796C1F2103DB0044446D /* MKPhotoPaintEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779681F2103DB0044446D /* MKPhotoPaintEntity.m */; };
+		D017796D1F2103DB0044446D /* MKPhotoPaintStickerEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779691F2103DB0044446D /* MKPhotoPaintStickerEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D017796E1F2103DB0044446D /* MKPhotoPaintStickerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D017796A1F2103DB0044446D /* MKPhotoPaintStickerEntity.m */; };
+		D01779711F2103FD0044446D /* MKPaintUndoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D017796F1F2103FD0044446D /* MKPaintUndoManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779721F2103FD0044446D /* MKPaintUndoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779701F2103FD0044446D /* MKPaintUndoManager.m */; };
+		D01779751F2104320044446D /* MKVideoEditAdjustments.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779731F2104320044446D /* MKVideoEditAdjustments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779761F2104320044446D /* MKVideoEditAdjustments.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779741F2104320044446D /* MKVideoEditAdjustments.m */; };
+		D017797B1F21075C0044446D /* TGModernCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779771F21075C0044446D /* TGModernCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D017797C1F21075C0044446D /* TGModernCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779781F21075C0044446D /* TGModernCache.m */; };
+		D017799C1F2108670044446D /* TGMemoryImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779981F2108670044446D /* TGMemoryImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D017799D1F2108670044446D /* TGMemoryImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779991F2108670044446D /* TGMemoryImageCache.m */; };
+		D01779A61F210A120044446D /* TGMediaAssetModernImageSignals.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779A21F210A120044446D /* TGMediaAssetModernImageSignals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779A71F210A120044446D /* TGMediaAssetModernImageSignals.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779A31F210A120044446D /* TGMediaAssetModernImageSignals.m */; };
+		D01779AA1F210A2C0044446D /* TGMediaAssetImageSignals.h in Headers */ = {isa = PBXBuildFile; fileRef = D01779A81F210A2C0044446D /* TGMediaAssetImageSignals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D01779AB1F210A2C0044446D /* TGMediaAssetImageSignals.m in Sources */ = {isa = PBXBuildFile; fileRef = D01779A91F210A2C0044446D /* TGMediaAssetImageSignals.m */; };
+		D0177A1F1F21403E0044446D /* LegacyComponentsContext.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177A1D1F21403E0044446D /* LegacyComponentsContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177A281F2144700044446D /* MKPhotoEditorAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177A261F2144700044446D /* MKPhotoEditorAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177A291F2144700044446D /* MKPhotoEditorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177A271F2144700044446D /* MKPhotoEditorAnimation.m */; };
+		D0177A2C1F2145B80044446D /* LegacyComponentsAccessChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177A2A1F2145B80044446D /* LegacyComponentsAccessChecker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177A321F21F1980044446D /* AVURLAsset+TGMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177A2E1F21F1980044446D /* AVURLAsset+TGMediaItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177A331F21F1980044446D /* AVURLAsset+TGMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177A2F1F21F1980044446D /* AVURLAsset+TGMediaItem.m */; };
+		D0177A341F21F1980044446D /* UIImage+MKMediaEditableItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177A301F21F1980044446D /* UIImage+MKMediaEditableItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177A351F21F1980044446D /* UIImage+MKMediaEditableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177A311F21F1980044446D /* UIImage+MKMediaEditableItem.m */; };
+		D0177A431F21F62A0044446D /* MKMediaVideoConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177A411F21F62A0044446D /* MKMediaVideoConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177A441F21F62A0044446D /* MKMediaVideoConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177A421F21F62A0044446D /* MKMediaVideoConverter.m */; };
+		D0177A7D1F2204640044446D /* TGModernButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177A7B1F2204640044446D /* TGModernButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177A7E1F2204640044446D /* TGModernButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177A7C1F2204640044446D /* TGModernButton.m */; };
+		D0177AC51F23D92C0044446D /* ActionStage.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177AC11F23D92C0044446D /* ActionStage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177AC61F23D92C0044446D /* ActionStage.mm in Sources */ = {isa = PBXBuildFile; fileRef = D0177AC21F23D92C0044446D /* ActionStage.mm */; };
+		D0177AC71F23D92C0044446D /* ASActor.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177AC31F23D92C0044446D /* ASActor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177AC81F23D92C0044446D /* ASActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177AC41F23D92C0044446D /* ASActor.m */; };
+		D0177ACE1F23D9810044446D /* ASHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177AC91F23D9810044446D /* ASHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177ACF1F23D9810044446D /* ASHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177ACA1F23D9810044446D /* ASHandle.m */; };
+		D0177AD01F23D9810044446D /* ASQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177ACB1F23D9810044446D /* ASQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177AD11F23D9810044446D /* ASQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177ACC1F23D9810044446D /* ASQueue.m */; };
+		D0177AD21F23D9810044446D /* ASWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177ACD1F23D9810044446D /* ASWatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177AD91F23D9B80044446D /* SGraphListNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177AD31F23D9B80044446D /* SGraphListNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177ADA1F23D9B80044446D /* SGraphListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177AD41F23D9B80044446D /* SGraphListNode.m */; };
+		D0177ADB1F23D9B80044446D /* SGraphNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177AD51F23D9B80044446D /* SGraphNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177ADC1F23D9B80044446D /* SGraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177AD61F23D9B80044446D /* SGraphNode.m */; };
+		D0177ADD1F23D9B80044446D /* SGraphObjectNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D0177AD71F23D9B80044446D /* SGraphObjectNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0177ADE1F23D9B80044446D /* SGraphObjectNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0177AD81F23D9B80044446D /* SGraphObjectNode.m */; };
+		D07BC6D71F2A18FE00ED97AA /* UIControl+HitTestEdgeInsets.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC6D51F2A18FE00ED97AA /* UIControl+HitTestEdgeInsets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC6D81F2A18FE00ED97AA /* UIControl+HitTestEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC6D61F2A18FE00ED97AA /* UIControl+HitTestEdgeInsets.m */; };
+		D07BC7171F2A29B700ED97AA /* MKPhotoEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7151F2A29B700ED97AA /* MKPhotoEditorController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC7181F2A29B700ED97AA /* MKPhotoEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7161F2A29B700ED97AA /* MKPhotoEditorController.m */; };
+		D07BC71F1F2A29E400ED97AA /* MKPhotoToolbarView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7191F2A29E400ED97AA /* MKPhotoToolbarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC7201F2A29E400ED97AA /* MKPhotoToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC71A1F2A29E400ED97AA /* MKPhotoToolbarView.m */; };
+		D07BC7341F2A2A7D00ED97AA /* MKPhotoEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7291F2A2A7D00ED97AA /* MKPhotoEditor.h */; };
+		D07BC7351F2A2A7D00ED97AA /* MKPhotoEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC72A1F2A2A7D00ED97AA /* MKPhotoEditor.m */; };
+		D07BC7361F2A2A7D00ED97AA /* MKPhotoEditorItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC72B1F2A2A7D00ED97AA /* MKPhotoEditorItem.h */; };
+		D07BC7371F2A2A7D00ED97AA /* MKPhotoEditorPicture.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC72C1F2A2A7D00ED97AA /* MKPhotoEditorPicture.h */; };
+		D07BC7381F2A2A7D00ED97AA /* MKPhotoEditorPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC72D1F2A2A7D00ED97AA /* MKPhotoEditorPicture.m */; };
+		D07BC73D1F2A2A7D00ED97AA /* MKPhotoEditorView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7321F2A2A7D00ED97AA /* MKPhotoEditorView.h */; };
+		D07BC73E1F2A2A7D00ED97AA /* MKPhotoEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7331F2A2A7D00ED97AA /* MKPhotoEditorView.m */; };
+		D07BC7411F2A2AC500ED97AA /* MKPhotoEditorButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC73F1F2A2AC500ED97AA /* MKPhotoEditorButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC7421F2A2AC500ED97AA /* MKPhotoEditorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7401F2A2AC500ED97AA /* MKPhotoEditorButton.m */; };
+		D07BC7761F2A2B3700ED97AA /* MKPhotoEditorGenericToolView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7501F2A2B3700ED97AA /* MKPhotoEditorGenericToolView.h */; };
+		D07BC7771F2A2B3700ED97AA /* MKPhotoEditorGenericToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7511F2A2B3700ED97AA /* MKPhotoEditorGenericToolView.m */; };
+		D07BC77A1F2A2B3700ED97AA /* MKPhotoEditorInterfaceAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7541F2A2B3700ED97AA /* MKPhotoEditorInterfaceAssets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC77B1F2A2B3700ED97AA /* MKPhotoEditorInterfaceAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7551F2A2B3700ED97AA /* MKPhotoEditorInterfaceAssets.m */; };
+		D07BC77C1F2A2B3700ED97AA /* MKPhotoEditorItemController.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7561F2A2B3700ED97AA /* MKPhotoEditorItemController.h */; };
+		D07BC77D1F2A2B3700ED97AA /* MKPhotoEditorItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7571F2A2B3700ED97AA /* MKPhotoEditorItemController.m */; };
+		D07BC7801F2A2B3700ED97AA /* MKPhotoEditorPreviewView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC75A1F2A2B3700ED97AA /* MKPhotoEditorPreviewView.h */; };
+		D07BC7811F2A2B3700ED97AA /* MKPhotoEditorPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC75B1F2A2B3700ED97AA /* MKPhotoEditorPreviewView.m */; };
+		D07BC7841F2A2B3700ED97AA /* MKPhotoEditorSliderView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC75E1F2A2B3700ED97AA /* MKPhotoEditorSliderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC7851F2A2B3700ED97AA /* MKPhotoEditorSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC75F1F2A2B3700ED97AA /* MKPhotoEditorSliderView.m */; };
+		D07BC7861F2A2B3700ED97AA /* MKPhotoEditorTabController.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7601F2A2B3700ED97AA /* MKPhotoEditorTabController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC7871F2A2B3700ED97AA /* MKPhotoEditorTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7611F2A2B3700ED97AA /* MKPhotoEditorTabController.m */; };
+		D07BC78C1F2A2B3700ED97AA /* MKPhotoEditorToolButtonsView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7661F2A2B3700ED97AA /* MKPhotoEditorToolButtonsView.h */; };
+		D07BC78D1F2A2B3700ED97AA /* MKPhotoEditorToolButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7671F2A2B3700ED97AA /* MKPhotoEditorToolButtonsView.m */; };
+		D07BC78E1F2A2B3700ED97AA /* MKPhotoEditorToolView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7681F2A2B3700ED97AA /* MKPhotoEditorToolView.h */; };
+		D07BC7A11F2A2B8900ED97AA /* GLProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7921F2A2B8900ED97AA /* GLProgram.h */; };
+		D07BC7A21F2A2B8900ED97AA /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7931F2A2B8900ED97AA /* GLProgram.m */; };
+		D07BC7A41F2A2B8900ED97AA /* GPUImageContext.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7951F2A2B8900ED97AA /* GPUImageContext.h */; };
+		D07BC7A51F2A2B8900ED97AA /* GPUImageContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7961F2A2B8900ED97AA /* GPUImageContext.m */; };
+		D07BC7A61F2A2B8900ED97AA /* GPUImageFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7971F2A2B8900ED97AA /* GPUImageFilter.h */; };
+		D07BC7A71F2A2B8900ED97AA /* GPUImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7981F2A2B8900ED97AA /* GPUImageFilter.m */; };
+		D07BC7A81F2A2B8900ED97AA /* GPUImageFramebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC7991F2A2B8900ED97AA /* GPUImageFramebuffer.h */; };
+		D07BC7A91F2A2B8900ED97AA /* GPUImageFramebuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC79A1F2A2B8900ED97AA /* GPUImageFramebuffer.m */; };
+		D07BC7AA1F2A2B8900ED97AA /* GPUImageFramebufferCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC79B1F2A2B8900ED97AA /* GPUImageFramebufferCache.h */; };
+		D07BC7AB1F2A2B8900ED97AA /* GPUImageFramebufferCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC79C1F2A2B8900ED97AA /* GPUImageFramebufferCache.m */; };
+		D07BC7AC1F2A2B8900ED97AA /* GPUImageOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC79D1F2A2B8900ED97AA /* GPUImageOutput.h */; };
+		D07BC7AD1F2A2B8900ED97AA /* GPUImageOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC79E1F2A2B8900ED97AA /* GPUImageOutput.m */; };
+		D07BC7AE1F2A2B8900ED97AA /* GPUImageTwoInputFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC79F1F2A2B8900ED97AA /* GPUImageTwoInputFilter.h */; };
+		D07BC7AF1F2A2B8900ED97AA /* GPUImageTwoInputFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC7A01F2A2B8900ED97AA /* GPUImageTwoInputFilter.m */; };
+		D07BC8761F2A2F7B00ED97AA /* TGWeakDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8741F2A2F7B00ED97AA /* TGWeakDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC8771F2A2F7B00ED97AA /* TGWeakDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8751F2A2F7B00ED97AA /* TGWeakDelegate.m */; };
+		D07BC87D1F2A365000ED97AA /* MKProgressSpinnerView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8791F2A365000ED97AA /* MKProgressSpinnerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC87E1F2A365000ED97AA /* MKProgressSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC87A1F2A365000ED97AA /* MKProgressSpinnerView.m */; };
+		D07BC87F1F2A365000ED97AA /* MKProgressWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC87B1F2A365000ED97AA /* MKProgressWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC8801F2A365000ED97AA /* MKProgressWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC87C1F2A365000ED97AA /* MKProgressWindow.m */; };
+		D07BC8931F2A375800ED97AA /* MKPhotoCropAreaView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8851F2A375800ED97AA /* MKPhotoCropAreaView.h */; };
+		D07BC8941F2A375800ED97AA /* MKPhotoCropAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8861F2A375800ED97AA /* MKPhotoCropAreaView.m */; };
+		D07BC8951F2A375800ED97AA /* MKPhotoCropControl.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8871F2A375800ED97AA /* MKPhotoCropControl.h */; };
+		D07BC8961F2A375800ED97AA /* MKPhotoCropControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8881F2A375800ED97AA /* MKPhotoCropControl.m */; };
+		D07BC8971F2A375800ED97AA /* MKPhotoCropController.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8891F2A375800ED97AA /* MKPhotoCropController.h */; };
+		D07BC8981F2A375800ED97AA /* MKPhotoCropController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC88A1F2A375800ED97AA /* MKPhotoCropController.m */; };
+		D07BC8991F2A375800ED97AA /* MKPhotoCropGridView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC88B1F2A375800ED97AA /* MKPhotoCropGridView.h */; };
+		D07BC89A1F2A375800ED97AA /* MKPhotoCropGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC88C1F2A375800ED97AA /* MKPhotoCropGridView.m */; };
+		D07BC89B1F2A375800ED97AA /* MKPhotoCropRotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC88D1F2A375800ED97AA /* MKPhotoCropRotationView.h */; };
+		D07BC89C1F2A375800ED97AA /* MKPhotoCropRotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC88E1F2A375800ED97AA /* MKPhotoCropRotationView.m */; };
+		D07BC89D1F2A375800ED97AA /* MKPhotoCropScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC88F1F2A375800ED97AA /* MKPhotoCropScrollView.h */; };
+		D07BC89E1F2A375800ED97AA /* MKPhotoCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8901F2A375800ED97AA /* MKPhotoCropScrollView.m */; };
+		D07BC89F1F2A375800ED97AA /* MKPhotoCropView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8911F2A375800ED97AA /* MKPhotoCropView.h */; };
+		D07BC8A01F2A375800ED97AA /* MKPhotoCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8921F2A375800ED97AA /* MKPhotoCropView.m */; };
+		D07BC8BF1F2A37EC00ED97AA /* MKPhotoPaintActionsView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8A91F2A37EC00ED97AA /* MKPhotoPaintActionsView.h */; };
+		D07BC8C01F2A37EC00ED97AA /* MKPhotoPaintActionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8AA1F2A37EC00ED97AA /* MKPhotoPaintActionsView.m */; };
+		D07BC8C11F2A37EC00ED97AA /* MKPhotoPaintColorPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8AB1F2A37EC00ED97AA /* MKPhotoPaintColorPicker.h */; };
+		D07BC8C21F2A37EC00ED97AA /* MKPhotoPaintColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8AC1F2A37EC00ED97AA /* MKPhotoPaintColorPicker.m */; };
+		D07BC8C31F2A37EC00ED97AA /* MKPhotoPaintController.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8AD1F2A37EC00ED97AA /* MKPhotoPaintController.h */; };
+		D07BC8C41F2A37EC00ED97AA /* MKPhotoPaintController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8AE1F2A37EC00ED97AA /* MKPhotoPaintController.m */; };
+		D07BC8C51F2A37EC00ED97AA /* MKPhotoPaintEntityView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8AF1F2A37EC00ED97AA /* MKPhotoPaintEntityView.h */; };
+		D07BC8C61F2A37EC00ED97AA /* MKPhotoPaintEntityView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8B01F2A37EC00ED97AA /* MKPhotoPaintEntityView.m */; };
+		D07BC8C71F2A37EC00ED97AA /* MKPhotoPaintFont.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8B11F2A37EC00ED97AA /* MKPhotoPaintFont.h */; };
+		D07BC8C81F2A37EC00ED97AA /* MKPhotoPaintFont.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8B21F2A37EC00ED97AA /* MKPhotoPaintFont.m */; };
+		D07BC8CB1F2A37EC00ED97AA /* MKPhotoPaintSelectionContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8B51F2A37EC00ED97AA /* MKPhotoPaintSelectionContainerView.h */; };
+		D07BC8CC1F2A37EC00ED97AA /* MKPhotoPaintSelectionContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8B61F2A37EC00ED97AA /* MKPhotoPaintSelectionContainerView.m */; };
+		D07BC8CD1F2A37EC00ED97AA /* MKPhotoPaintSettingsView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8B71F2A37EC00ED97AA /* MKPhotoPaintSettingsView.h */; };
+		D07BC8CE1F2A37EC00ED97AA /* MKPhotoPaintSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8B81F2A37EC00ED97AA /* MKPhotoPaintSettingsView.m */; };
+		D07BC8CF1F2A37EC00ED97AA /* MKPhotoPaintSettingsWrapperView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8B91F2A37EC00ED97AA /* MKPhotoPaintSettingsWrapperView.h */; };
+		D07BC8D01F2A37EC00ED97AA /* MKPhotoPaintSettingsWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8BA1F2A37EC00ED97AA /* MKPhotoPaintSettingsWrapperView.m */; };
+		D07BC8D11F2A37EC00ED97AA /* MKPhotoPaintSparseView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8BB1F2A37EC00ED97AA /* MKPhotoPaintSparseView.h */; };
+		D07BC8D21F2A37EC00ED97AA /* MKPhotoPaintSparseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8BC1F2A37EC00ED97AA /* MKPhotoPaintSparseView.m */; };
+		D07BC8D31F2A37EC00ED97AA /* MKPhotoPaintTextEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8BD1F2A37EC00ED97AA /* MKPhotoPaintTextEntity.h */; };
+		D07BC8D41F2A37EC00ED97AA /* MKPhotoPaintTextEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8BE1F2A37EC00ED97AA /* MKPhotoPaintTextEntity.m */; };
+		D07BC8FF1F2A380D00ED97AA /* MKPaintBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8D51F2A380D00ED97AA /* MKPaintBrush.h */; };
+		D07BC9001F2A380D00ED97AA /* MKPaintBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8D61F2A380D00ED97AA /* MKPaintBrush.m */; };
+		D07BC9011F2A380D00ED97AA /* MKPaintBrushPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8D71F2A380D00ED97AA /* MKPaintBrushPreview.h */; };
+		D07BC9021F2A380D00ED97AA /* MKPaintBrushPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8D81F2A380D00ED97AA /* MKPaintBrushPreview.m */; };
+		D07BC9031F2A380D00ED97AA /* MKPaintBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8D91F2A380D00ED97AA /* MKPaintBuffers.h */; };
+		D07BC9041F2A380D00ED97AA /* MKPaintBuffers.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8DA1F2A380D00ED97AA /* MKPaintBuffers.m */; };
+		D07BC9051F2A380D00ED97AA /* MKPaintCanvas.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8DB1F2A380D00ED97AA /* MKPaintCanvas.h */; };
+		D07BC9061F2A380D00ED97AA /* MKPaintCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8DC1F2A380D00ED97AA /* MKPaintCanvas.m */; };
+		D07BC9071F2A380D00ED97AA /* MKPaintEllipticalBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8DD1F2A380D00ED97AA /* MKPaintEllipticalBrush.h */; };
+		D07BC9081F2A380D00ED97AA /* MKPaintEllipticalBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8DE1F2A380D00ED97AA /* MKPaintEllipticalBrush.m */; };
+		D07BC90B1F2A380D00ED97AA /* TGPaintFaceDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8E11F2A380D00ED97AA /* TGPaintFaceDetector.h */; };
+		D07BC90C1F2A380D00ED97AA /* TGPaintFaceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8E21F2A380D00ED97AA /* TGPaintFaceDetector.m */; };
+		D07BC90D1F2A380D00ED97AA /* MKPainting.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8E31F2A380D00ED97AA /* MKPainting.h */; };
+		D07BC90E1F2A380D00ED97AA /* MKPainting.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8E41F2A380D00ED97AA /* MKPainting.m */; };
+		D07BC90F1F2A380D00ED97AA /* MKPaintingWrapperView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8E51F2A380D00ED97AA /* MKPaintingWrapperView.h */; };
+		D07BC9101F2A380D00ED97AA /* MKPaintingWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8E61F2A380D00ED97AA /* MKPaintingWrapperView.m */; };
+		D07BC9111F2A380D00ED97AA /* MKPaintInput.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8E71F2A380D00ED97AA /* MKPaintInput.h */; };
+		D07BC9121F2A380D00ED97AA /* MKPaintInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8E81F2A380D00ED97AA /* MKPaintInput.m */; };
+		D07BC9131F2A380D00ED97AA /* MKPaintNeonBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8E91F2A380D00ED97AA /* MKPaintNeonBrush.h */; };
+		D07BC9141F2A380D00ED97AA /* MKPaintNeonBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8EA1F2A380D00ED97AA /* MKPaintNeonBrush.m */; };
+		D07BC9151F2A380D00ED97AA /* MKPaintPanGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8EB1F2A380D00ED97AA /* MKPaintPanGestureRecognizer.h */; };
+		D07BC9161F2A380D00ED97AA /* MKPaintPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8EC1F2A380D00ED97AA /* MKPaintPanGestureRecognizer.m */; };
+		D07BC9171F2A380D00ED97AA /* MKPaintPath.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8ED1F2A380D00ED97AA /* MKPaintPath.h */; };
+		D07BC9181F2A380D00ED97AA /* MKPaintPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8EE1F2A380D00ED97AA /* MKPaintPath.m */; };
+		D07BC9191F2A380D00ED97AA /* MKPaintRadialBrush.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8EF1F2A380D00ED97AA /* MKPaintRadialBrush.h */; };
+		D07BC91A1F2A380D00ED97AA /* MKPaintRadialBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8F01F2A380D00ED97AA /* MKPaintRadialBrush.m */; };
+		D07BC91B1F2A380D00ED97AA /* MKPaintRender.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8F11F2A380D00ED97AA /* MKPaintRender.h */; };
+		D07BC91C1F2A380D00ED97AA /* MKPaintRender.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8F21F2A380D00ED97AA /* MKPaintRender.m */; };
+		D07BC91D1F2A380D00ED97AA /* MKPaintShader.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8F31F2A380D00ED97AA /* MKPaintShader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC91E1F2A380D00ED97AA /* MKPaintShader.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8F41F2A380D00ED97AA /* MKPaintShader.m */; };
+		D07BC91F1F2A380D00ED97AA /* MKPaintShaderSet.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8F51F2A380D00ED97AA /* MKPaintShaderSet.h */; };
+		D07BC9201F2A380D00ED97AA /* MKPaintShaderSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8F61F2A380D00ED97AA /* MKPaintShaderSet.m */; };
+		D07BC9211F2A380D00ED97AA /* MKPaintSlice.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8F71F2A380D00ED97AA /* MKPaintSlice.h */; };
+		D07BC9221F2A380D00ED97AA /* MKPaintSlice.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8F81F2A380D00ED97AA /* MKPaintSlice.m */; };
+		D07BC9231F2A380D00ED97AA /* MKPaintState.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8F91F2A380D00ED97AA /* MKPaintState.h */; };
+		D07BC9241F2A380D00ED97AA /* MKPaintState.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8FA1F2A380D00ED97AA /* MKPaintState.m */; };
+		D07BC9251F2A380D00ED97AA /* MKPaintSwatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8FB1F2A380D00ED97AA /* MKPaintSwatch.h */; };
+		D07BC9261F2A380D00ED97AA /* MKPaintSwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8FC1F2A380D00ED97AA /* MKPaintSwatch.m */; };
+		D07BC9271F2A380D00ED97AA /* MKPaintTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC8FD1F2A380D00ED97AA /* MKPaintTexture.h */; };
+		D07BC9281F2A380D00ED97AA /* MKPaintTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC8FE1F2A380D00ED97AA /* MKPaintTexture.m */; };
+		D07BC92B1F2A3A3F00ED97AA /* matrix.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC9291F2A3A3F00ED97AA /* matrix.h */; };
+		D07BC92C1F2A3A3F00ED97AA /* matrix.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC92A1F2A3A3F00ED97AA /* matrix.m */; };
+		D07BC92F1F2A3BA600ED97AA /* MKPhotoEntitiesContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC92D1F2A3BA600ED97AA /* MKPhotoEntitiesContainerView.h */; };
+		D07BC9301F2A3BA600ED97AA /* MKPhotoEntitiesContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC92E1F2A3BA600ED97AA /* MKPhotoEntitiesContainerView.m */; };
+		D07BC9351F2A3BD100ED97AA /* MKPhotoTextEntityView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC9311F2A3BD100ED97AA /* MKPhotoTextEntityView.h */; };
+		D07BC9361F2A3BD100ED97AA /* MKPhotoTextEntityView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC9321F2A3BD100ED97AA /* MKPhotoTextEntityView.m */; };
+		D07BC93B1F2A3C1F00ED97AA /* MKPhotoQualityController.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC9391F2A3C1F00ED97AA /* MKPhotoQualityController.h */; };
+		D07BC93C1F2A3C1F00ED97AA /* MKPhotoQualityController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC93A1F2A3C1F00ED97AA /* MKPhotoQualityController.m */; };
+		D07BC93F1F2A3DB900ED97AA /* TGMessageImageViewOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC93D1F2A3DB900ED97AA /* TGMessageImageViewOverlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BC9401F2A3DB900ED97AA /* TGMessageImageViewOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC93E1F2A3DB900ED97AA /* TGMessageImageViewOverlayView.m */; };
+		D07BC9721F2A467D00ED97AA /* MKPhotoTextSettingsView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC96E1F2A467D00ED97AA /* MKPhotoTextSettingsView.h */; };
+		D07BC9731F2A467D00ED97AA /* MKPhotoTextSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC96F1F2A467D00ED97AA /* MKPhotoTextSettingsView.m */; };
+		D07BC9741F2A467D00ED97AA /* MKPhotoBrushSettingsView.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BC9701F2A467D00ED97AA /* MKPhotoBrushSettingsView.h */; };
+		D07BC9751F2A467D00ED97AA /* MKPhotoBrushSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BC9711F2A467D00ED97AA /* MKPhotoBrushSettingsView.m */; };
+		D07BCA371F2A9B6A00ED97AA /* TGMediaAsset+TGMediaEditableItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D07BCA351F2A9B6A00ED97AA /* TGMediaAsset+TGMediaEditableItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D07BCA381F2A9B6A00ED97AA /* TGMediaAsset+TGMediaEditableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BCA361F2A9B6A00ED97AA /* TGMediaAsset+TGMediaEditableItem.m */; };
+		D07BCB021F2B546400ED97AA /* LegacyComponentsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D07BCB011F2B546400ED97AA /* LegacyComponentsContext.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B8C61432004CC8100F7C9D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D017771E1F1F8F100044446D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D01777261F1F8F100044446D;
+			remoteInfo = MediaEditorKit;
+		};
+		6BAC898E2002189E0086BC7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D017771E1F1F8F100044446D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BAC89752002189D0086BC7F;
+			remoteInfo = Test;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3B8C61452004CC8200F7C9D3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3B8C61422004CC8100F7C9D3 /* MediaEditorKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		09750F741F2FA5E8001B9886 /* SSignalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SSignalKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Telegraph-grvwvmixbmcefwboxkzfazvpcrxb/Build/Products/Release Hockeyapp-iphonesimulator/SSignalKit.framework"; sourceTree = "<group>"; };
+		19ECF1C44A49B6042168E7DA /* NSObject+TGLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TGLock.h"; sourceTree = "<group>"; };
+		19ECFF9910E5DE37A11B0BE6 /* NSObject+TGLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TGLock.m"; sourceTree = "<group>"; };
+		266BC7229ACB3AE28DB2BE88 /* Pods-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.release.xcconfig"; sourceTree = "<group>"; };
+		3B7D96592003261100A72810 /* NSValue+JNWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+JNWAdditions.h"; sourceTree = "<group>"; };
+		3B7D965B2003261200A72810 /* NSValue+JNWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+JNWAdditions.m"; sourceTree = "<group>"; };
+		3B7D96622003261200A72810 /* JNWSpringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNWSpringAnimation.h; sourceTree = "<group>"; };
+		3B7D96732003261500A72810 /* JNWSpringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNWSpringAnimation.m; sourceTree = "<group>"; };
+		3B7D96C62003504D00A72810 /* MediaEditorKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MediaEditorKit.bundle; path = MediaEditorKit/Resources/MediaEditorKit.bundle; sourceTree = SOURCE_ROOT; };
+		6A211412F43EBE1D7BF92ABC /* Pods-MediaEditorKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaEditorKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MediaEditorKit/Pods-MediaEditorKit.debug.xcconfig"; sourceTree = "<group>"; };
+		6B52AC212001B6AA00E35677 /* TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B52AC252001B6AA00E35677 /* TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUITests.swift; sourceTree = "<group>"; };
+		6B52AC272001B6AA00E35677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B52AC502001BB7200E35677 /* TGModernGalleryVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGModernGalleryVideoView.m; sourceTree = "<group>"; };
+		6B52AC512001BB7200E35677 /* TGModernGalleryVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGModernGalleryVideoView.h; sourceTree = "<group>"; };
+		6BAC89762002189D0086BC7F /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BAC89782002189D0086BC7F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6BAC89792002189D0086BC7F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6BAC897B2002189D0086BC7F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6BAC897C2002189D0086BC7F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6BAC897F2002189D0086BC7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6BAC89812002189D0086BC7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6BAC89842002189D0086BC7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6BAC89862002189D0086BC7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BAC89872002189D0086BC7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6BAC898D2002189D0086BC7F /* TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BAC89912002189E0086BC7F /* TestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestUITests.m; sourceTree = "<group>"; };
+		6BAC89932002189E0086BC7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BAC89A3200224060086BC7F /* MKLegacyComponentsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKLegacyComponentsContext.m; sourceTree = "<group>"; };
+		6BAC89A4200224060086BC7F /* MKLegacyComponentsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKLegacyComponentsContext.h; sourceTree = "<group>"; };
+		6BAC89A7200227D60086BC7F /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		6BAC89AD2003975C0086BC7F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BC5C26F2001DC2D00CAB9F4 /* SSignal+Combine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Combine.m"; sourceTree = "<group>"; };
+		6BC5C2702001DC2D00CAB9F4 /* SSignal+Multicast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Multicast.h"; sourceTree = "<group>"; };
+		6BC5C2712001DC2D00CAB9F4 /* SBlockDisposable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBlockDisposable.h; sourceTree = "<group>"; };
+		6BC5C2722001DC2D00CAB9F4 /* SThreadPoolQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SThreadPoolQueue.h; sourceTree = "<group>"; };
+		6BC5C2732001DC2D00CAB9F4 /* STimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STimer.h; sourceTree = "<group>"; };
+		6BC5C2742001DC2D00CAB9F4 /* SAtomic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAtomic.m; sourceTree = "<group>"; };
+		6BC5C2752001DC2D00CAB9F4 /* SSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSignal.h; sourceTree = "<group>"; };
+		6BC5C2762001DC2D00CAB9F4 /* SSignal+Single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Single.h"; sourceTree = "<group>"; };
+		6BC5C2772001DC2D00CAB9F4 /* SSignal+Accumulate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Accumulate.m"; sourceTree = "<group>"; };
+		6BC5C2782001DC2D00CAB9F4 /* SBag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBag.m; sourceTree = "<group>"; };
+		6BC5C2792001DC2D00CAB9F4 /* SSignal+Meta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Meta.m"; sourceTree = "<group>"; };
+		6BC5C27A2001DC2D00CAB9F4 /* SSignal+SideEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+SideEffects.m"; sourceTree = "<group>"; };
+		6BC5C27B2001DC2D00CAB9F4 /* SMetaDisposable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMetaDisposable.h; sourceTree = "<group>"; };
+		6BC5C27C2001DC2D00CAB9F4 /* SMulticastSignalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMulticastSignalManager.h; sourceTree = "<group>"; };
+		6BC5C27D2001DC2D00CAB9F4 /* SSignal+Dispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Dispatch.h"; sourceTree = "<group>"; };
+		6BC5C27E2001DC2D00CAB9F4 /* SSignal+Timing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Timing.m"; sourceTree = "<group>"; };
+		6BC5C27F2001DC2D00CAB9F4 /* SSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSubscriber.h; sourceTree = "<group>"; };
+		6BC5C2802001DC2D00CAB9F4 /* SSignal+Pipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Pipe.m"; sourceTree = "<group>"; };
+		6BC5C2812001DC2D00CAB9F4 /* SDisposableSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDisposableSet.h; sourceTree = "<group>"; };
+		6BC5C2822001DC2D00CAB9F4 /* SThreadPoolTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SThreadPoolTask.h; sourceTree = "<group>"; };
+		6BC5C2832001DC2D00CAB9F4 /* SDisposable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDisposable.h; sourceTree = "<group>"; };
+		6BC5C2842001DC2D00CAB9F4 /* SSignal+Catch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Catch.m"; sourceTree = "<group>"; };
+		6BC5C2852001DC2D00CAB9F4 /* SQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQueue.h; sourceTree = "<group>"; };
+		6BC5C2862001DC2D00CAB9F4 /* SVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVariable.m; sourceTree = "<group>"; };
+		6BC5C2872001DC2D00CAB9F4 /* SSignal+Take.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Take.h"; sourceTree = "<group>"; };
+		6BC5C2882001DC2D00CAB9F4 /* SSignal+Mapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Mapping.m"; sourceTree = "<group>"; };
+		6BC5C2892001DC2D00CAB9F4 /* SThreadPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SThreadPool.m; sourceTree = "<group>"; };
+		6BC5C28A2001DC2D00CAB9F4 /* SAtomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAtomic.h; sourceTree = "<group>"; };
+		6BC5C28B2001DC2D00CAB9F4 /* STimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STimer.m; sourceTree = "<group>"; };
+		6BC5C28C2001DC2D00CAB9F4 /* SThreadPoolQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SThreadPoolQueue.m; sourceTree = "<group>"; };
+		6BC5C28D2001DC2D00CAB9F4 /* SBlockDisposable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBlockDisposable.m; sourceTree = "<group>"; };
+		6BC5C28E2001DC2D00CAB9F4 /* SSignal+Multicast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Multicast.m"; sourceTree = "<group>"; };
+		6BC5C28F2001DC2D00CAB9F4 /* SSignal+Combine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Combine.h"; sourceTree = "<group>"; };
+		6BC5C2902001DC2D00CAB9F4 /* SSignal+Timing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Timing.h"; sourceTree = "<group>"; };
+		6BC5C2912001DC2D00CAB9F4 /* SSignal+Dispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Dispatch.m"; sourceTree = "<group>"; };
+		6BC5C2922001DC2D00CAB9F4 /* SMetaDisposable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMetaDisposable.m; sourceTree = "<group>"; };
+		6BC5C2932001DC2D00CAB9F4 /* SMulticastSignalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMulticastSignalManager.m; sourceTree = "<group>"; };
+		6BC5C2942001DC2D00CAB9F4 /* SSignal+SideEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+SideEffects.h"; sourceTree = "<group>"; };
+		6BC5C2952001DC2D00CAB9F4 /* SSignal+Meta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Meta.h"; sourceTree = "<group>"; };
+		6BC5C2962001DC2D00CAB9F4 /* SBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBag.h; sourceTree = "<group>"; };
+		6BC5C2972001DC2D00CAB9F4 /* SSignal+Accumulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Accumulate.h"; sourceTree = "<group>"; };
+		6BC5C2982001DC2D00CAB9F4 /* SSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSignal.m; sourceTree = "<group>"; };
+		6BC5C2992001DC2D00CAB9F4 /* SSignal+Single.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Single.m"; sourceTree = "<group>"; };
+		6BC5C29A2001DC2D00CAB9F4 /* SSignalKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSignalKit.h; sourceTree = "<group>"; };
+		6BC5C29B2001DC2D00CAB9F4 /* SThreadPoolTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SThreadPoolTask.m; sourceTree = "<group>"; };
+		6BC5C29C2001DC2D00CAB9F4 /* SDisposableSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDisposableSet.m; sourceTree = "<group>"; };
+		6BC5C29D2001DC2D00CAB9F4 /* SSignal+Pipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Pipe.h"; sourceTree = "<group>"; };
+		6BC5C29E2001DC2D00CAB9F4 /* SSubscriber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSubscriber.m; sourceTree = "<group>"; };
+		6BC5C29F2001DC2D00CAB9F4 /* SThreadPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SThreadPool.h; sourceTree = "<group>"; };
+		6BC5C2A02001DC2D00CAB9F4 /* SSignal+Take.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSignal+Take.m"; sourceTree = "<group>"; };
+		6BC5C2A12001DC2D00CAB9F4 /* SSignal+Mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Mapping.h"; sourceTree = "<group>"; };
+		6BC5C2A32001DC2D00CAB9F4 /* SVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVariable.h; sourceTree = "<group>"; };
+		6BC5C2A42001DC2D00CAB9F4 /* SQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQueue.m; sourceTree = "<group>"; };
+		6BC5C2A52001DC2D00CAB9F4 /* SSignal+Catch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSignal+Catch.h"; sourceTree = "<group>"; };
+		6BFCA1752001D41B003F1D84 /* TGMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMenuView.m; sourceTree = "<group>"; };
+		6BFCA1762001D41B003F1D84 /* TGMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMenuView.h; sourceTree = "<group>"; };
+		6FB42E8CF9A75FE3463DA034 /* libPods-Test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8711663C3E00083F2B4D2D3 /* libPods-MediaEditorKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MediaEditorKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB34F0102A85A8627EEBD43 /* Pods-MediaEditorKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaEditorKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-MediaEditorKit/Pods-MediaEditorKit.release.xcconfig"; sourceTree = "<group>"; };
+		D01777271F1F8F100044446D /* MediaEditorKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediaEditorKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D017772A1F1F8F100044446D /* MediaEditorKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaEditorKit.h; sourceTree = "<group>"; };
+		D01777381F1F8FE60044446D /* LegacyComponentsGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegacyComponentsGlobals.h; sourceTree = "<group>"; };
+		D017774D1F1F8FE60044446D /* TGStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGStringUtils.h; sourceTree = "<group>"; };
+		D017774E1F1F8FE60044446D /* TGStringUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TGStringUtils.mm; sourceTree = "<group>"; };
+		D017776A1F1F909E0044446D /* LegacyComponentsGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacyComponentsGlobals.m; sourceTree = "<group>"; };
+		D017789B1F1FC99A0044446D /* LegacyComponentsInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegacyComponentsInternal.h; sourceTree = "<group>"; };
+		D017789C1F1FC99A0044446D /* LegacyComponentsInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacyComponentsInternal.m; sourceTree = "<group>"; };
+		D01778A51F1FD0900044446D /* MKImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKImageUtils.h; sourceTree = "<group>"; };
+		D01778A61F1FD0900044446D /* MKImageUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MKImageUtils.mm; sourceTree = "<group>"; };
+		D01778B81F2009880044446D /* Freedom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Freedom.h; sourceTree = "<group>"; };
+		D01778B91F2009880044446D /* Freedom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Freedom.mm; sourceTree = "<group>"; };
+		D01778C01F200AF70044446D /* TGAnimationBlockDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGAnimationBlockDelegate.h; sourceTree = "<group>"; };
+		D01778C11F200AF70044446D /* TGAnimationBlockDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGAnimationBlockDelegate.m; sourceTree = "<group>"; };
+		D01778DD1F20CAE60044446D /* MKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKViewController.h; path = MediaEditorKit/MKViewController.h; sourceTree = "<group>"; };
+		D01778DE1F20CAE60044446D /* MKViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MKViewController.mm; path = MediaEditorKit/MKViewController.mm; sourceTree = "<group>"; };
+		D01778E11F20CAE60044446D /* MKOverlayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKOverlayController.h; path = MediaEditorKit/MKOverlayController.h; sourceTree = "<group>"; };
+		D01778E21F20CAE60044446D /* MKOverlayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKOverlayController.m; path = MediaEditorKit/MKOverlayController.m; sourceTree = "<group>"; };
+		D01778E31F20CAE60044446D /* MKOverlayControllerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKOverlayControllerWindow.h; path = MediaEditorKit/MKOverlayControllerWindow.h; sourceTree = "<group>"; };
+		D01778E41F20CAE60044446D /* MKOverlayControllerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKOverlayControllerWindow.m; path = MediaEditorKit/MKOverlayControllerWindow.m; sourceTree = "<group>"; };
+		D01778F51F20CDAC0044446D /* MKHacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKHacks.h; sourceTree = "<group>"; };
+		D01778F61F20CDAC0044446D /* MKHacks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKHacks.m; sourceTree = "<group>"; };
+		D01778FD1F20D0040044446D /* MKColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKColor.h; sourceTree = "<group>"; };
+		D01778FE1F20D0040044446D /* MKColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKColor.m; sourceTree = "<group>"; };
+		D01779011F20D16B0044446D /* FreedomUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreedomUIKit.h; sourceTree = "<group>"; };
+		D01779021F20D16B0044446D /* FreedomUIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreedomUIKit.m; sourceTree = "<group>"; };
+		D017790C1F20F4370044446D /* UIImage+TG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TG.h"; sourceTree = "<group>"; };
+		D017790D1F20F4370044446D /* UIImage+TG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TG.m"; sourceTree = "<group>"; };
+		D01779241F20FE480044446D /* TGObserverProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGObserverProxy.h; sourceTree = "<group>"; };
+		D01779251F20FE480044446D /* TGObserverProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGObserverProxy.m; sourceTree = "<group>"; };
+		D01779291F20FFAC0044446D /* TGMediaAssetsLegacyLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAssetsLegacyLibrary.h; sourceTree = "<group>"; };
+		D017792A1F20FFAC0044446D /* TGMediaAssetsLegacyLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAssetsLegacyLibrary.m; sourceTree = "<group>"; };
+		D017792B1F20FFAC0044446D /* TGMediaAssetsLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAssetsLibrary.h; sourceTree = "<group>"; };
+		D017792C1F20FFAC0044446D /* TGMediaAssetsLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAssetsLibrary.m; sourceTree = "<group>"; };
+		D017792D1F20FFAC0044446D /* TGMediaAssetsModernLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAssetsModernLibrary.h; sourceTree = "<group>"; };
+		D017792E1F20FFAC0044446D /* TGMediaAssetsModernLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAssetsModernLibrary.m; sourceTree = "<group>"; };
+		D01779351F20FFF60044446D /* TGMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAsset.h; sourceTree = "<group>"; };
+		D01779361F20FFF60044446D /* TGMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAsset.m; sourceTree = "<group>"; };
+		D01779371F20FFF60044446D /* TGMediaAssetFetchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAssetFetchResult.h; sourceTree = "<group>"; };
+		D01779381F20FFF60044446D /* TGMediaAssetFetchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAssetFetchResult.m; sourceTree = "<group>"; };
+		D01779391F20FFF60044446D /* TGMediaAssetFetchResultChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAssetFetchResultChange.h; sourceTree = "<group>"; };
+		D017793A1F20FFF60044446D /* TGMediaAssetFetchResultChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAssetFetchResultChange.m; sourceTree = "<group>"; };
+		D017793B1F20FFF60044446D /* TGMediaAssetGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAssetGroup.h; sourceTree = "<group>"; };
+		D017793C1F20FFF60044446D /* TGMediaAssetGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAssetGroup.m; sourceTree = "<group>"; };
+		D017793D1F20FFF60044446D /* TGMediaAssetMoment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAssetMoment.h; sourceTree = "<group>"; };
+		D017793E1F20FFF60044446D /* TGMediaAssetMoment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAssetMoment.m; sourceTree = "<group>"; };
+		D017793F1F20FFF60044446D /* TGMediaAssetMomentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAssetMomentList.h; sourceTree = "<group>"; };
+		D01779401F20FFF60044446D /* TGMediaAssetMomentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAssetMomentList.m; sourceTree = "<group>"; };
+		D017794D1F2100280044446D /* TGMediaSelectionContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaSelectionContext.h; sourceTree = "<group>"; };
+		D017794E1F2100280044446D /* TGMediaSelectionContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaSelectionContext.m; sourceTree = "<group>"; };
+		D01779511F2100520044446D /* MKMediaEditingContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMediaEditingContext.h; sourceTree = "<group>"; };
+		D01779521F2100520044446D /* MKMediaEditingContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMediaEditingContext.m; sourceTree = "<group>"; };
+		D01779561F21031F0044446D /* MKPhotoEditorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorUtils.h; sourceTree = "<group>"; };
+		D01779571F21031F0044446D /* MKPhotoEditorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorUtils.m; sourceTree = "<group>"; };
+		D017795A1F2103440044446D /* MKPhotoEditorValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorValues.h; sourceTree = "<group>"; };
+		D017795B1F2103440044446D /* MKPhotoEditorValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorValues.m; sourceTree = "<group>"; };
+		D017795E1F2103680044446D /* MKPaintingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintingData.h; sourceTree = "<group>"; };
+		D017795F1F2103680044446D /* MKPaintingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintingData.m; sourceTree = "<group>"; };
+		D01779621F2103910044446D /* TGPaintUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGPaintUtils.h; sourceTree = "<group>"; };
+		D01779631F2103910044446D /* TGPaintUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGPaintUtils.m; sourceTree = "<group>"; };
+		D01779671F2103DB0044446D /* MKPhotoPaintEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintEntity.h; sourceTree = "<group>"; };
+		D01779681F2103DB0044446D /* MKPhotoPaintEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintEntity.m; sourceTree = "<group>"; };
+		D01779691F2103DB0044446D /* MKPhotoPaintStickerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintStickerEntity.h; sourceTree = "<group>"; };
+		D017796A1F2103DB0044446D /* MKPhotoPaintStickerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintStickerEntity.m; sourceTree = "<group>"; };
+		D017796F1F2103FD0044446D /* MKPaintUndoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintUndoManager.h; sourceTree = "<group>"; };
+		D01779701F2103FD0044446D /* MKPaintUndoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintUndoManager.m; sourceTree = "<group>"; };
+		D01779731F2104320044446D /* MKVideoEditAdjustments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKVideoEditAdjustments.h; sourceTree = "<group>"; };
+		D01779741F2104320044446D /* MKVideoEditAdjustments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKVideoEditAdjustments.m; sourceTree = "<group>"; };
+		D01779771F21075C0044446D /* TGModernCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGModernCache.h; sourceTree = "<group>"; };
+		D01779781F21075C0044446D /* TGModernCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGModernCache.m; sourceTree = "<group>"; };
+		D01779981F2108670044446D /* TGMemoryImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMemoryImageCache.h; sourceTree = "<group>"; };
+		D01779991F2108670044446D /* TGMemoryImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMemoryImageCache.m; sourceTree = "<group>"; };
+		D01779A21F210A120044446D /* TGMediaAssetModernImageSignals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAssetModernImageSignals.h; sourceTree = "<group>"; };
+		D01779A31F210A120044446D /* TGMediaAssetModernImageSignals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAssetModernImageSignals.m; sourceTree = "<group>"; };
+		D01779A81F210A2C0044446D /* TGMediaAssetImageSignals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMediaAssetImageSignals.h; sourceTree = "<group>"; };
+		D01779A91F210A2C0044446D /* TGMediaAssetImageSignals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMediaAssetImageSignals.m; sourceTree = "<group>"; };
+		D0177A1D1F21403E0044446D /* LegacyComponentsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegacyComponentsContext.h; sourceTree = "<group>"; };
+		D0177A261F2144700044446D /* MKPhotoEditorAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorAnimation.h; sourceTree = "<group>"; };
+		D0177A271F2144700044446D /* MKPhotoEditorAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorAnimation.m; sourceTree = "<group>"; };
+		D0177A2A1F2145B80044446D /* LegacyComponentsAccessChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegacyComponentsAccessChecker.h; sourceTree = "<group>"; };
+		D0177A2E1F21F1980044446D /* AVURLAsset+TGMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVURLAsset+TGMediaItem.h"; sourceTree = "<group>"; };
+		D0177A2F1F21F1980044446D /* AVURLAsset+TGMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVURLAsset+TGMediaItem.m"; sourceTree = "<group>"; };
+		D0177A301F21F1980044446D /* UIImage+MKMediaEditableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MKMediaEditableItem.h"; sourceTree = "<group>"; };
+		D0177A311F21F1980044446D /* UIImage+MKMediaEditableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MKMediaEditableItem.m"; sourceTree = "<group>"; };
+		D0177A411F21F62A0044446D /* MKMediaVideoConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMediaVideoConverter.h; sourceTree = "<group>"; };
+		D0177A421F21F62A0044446D /* MKMediaVideoConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMediaVideoConverter.m; sourceTree = "<group>"; };
+		D0177A7B1F2204640044446D /* TGModernButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGModernButton.h; sourceTree = "<group>"; };
+		D0177A7C1F2204640044446D /* TGModernButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGModernButton.m; sourceTree = "<group>"; };
+		D0177AC11F23D92C0044446D /* ActionStage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionStage.h; sourceTree = "<group>"; };
+		D0177AC21F23D92C0044446D /* ActionStage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionStage.mm; sourceTree = "<group>"; };
+		D0177AC31F23D92C0044446D /* ASActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASActor.h; sourceTree = "<group>"; };
+		D0177AC41F23D92C0044446D /* ASActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASActor.m; sourceTree = "<group>"; };
+		D0177AC91F23D9810044446D /* ASHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHandle.h; sourceTree = "<group>"; };
+		D0177ACA1F23D9810044446D /* ASHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHandle.m; sourceTree = "<group>"; };
+		D0177ACB1F23D9810044446D /* ASQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASQueue.h; sourceTree = "<group>"; };
+		D0177ACC1F23D9810044446D /* ASQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASQueue.m; sourceTree = "<group>"; };
+		D0177ACD1F23D9810044446D /* ASWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASWatcher.h; sourceTree = "<group>"; };
+		D0177AD31F23D9B80044446D /* SGraphListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGraphListNode.h; sourceTree = "<group>"; };
+		D0177AD41F23D9B80044446D /* SGraphListNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGraphListNode.m; sourceTree = "<group>"; };
+		D0177AD51F23D9B80044446D /* SGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGraphNode.h; sourceTree = "<group>"; };
+		D0177AD61F23D9B80044446D /* SGraphNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGraphNode.m; sourceTree = "<group>"; };
+		D0177AD71F23D9B80044446D /* SGraphObjectNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGraphObjectNode.h; sourceTree = "<group>"; };
+		D0177AD81F23D9B80044446D /* SGraphObjectNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGraphObjectNode.m; sourceTree = "<group>"; };
+		D07BC6D51F2A18FE00ED97AA /* UIControl+HitTestEdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+HitTestEdgeInsets.h"; sourceTree = "<group>"; };
+		D07BC6D61F2A18FE00ED97AA /* UIControl+HitTestEdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+HitTestEdgeInsets.m"; sourceTree = "<group>"; };
+		D07BC7151F2A29B700ED97AA /* MKPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorController.h; sourceTree = "<group>"; };
+		D07BC7161F2A29B700ED97AA /* MKPhotoEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorController.m; sourceTree = "<group>"; };
+		D07BC7191F2A29E400ED97AA /* MKPhotoToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoToolbarView.h; sourceTree = "<group>"; };
+		D07BC71A1F2A29E400ED97AA /* MKPhotoToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoToolbarView.m; sourceTree = "<group>"; };
+		D07BC7291F2A2A7D00ED97AA /* MKPhotoEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditor.h; sourceTree = "<group>"; };
+		D07BC72A1F2A2A7D00ED97AA /* MKPhotoEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditor.m; sourceTree = "<group>"; };
+		D07BC72B1F2A2A7D00ED97AA /* MKPhotoEditorItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorItem.h; sourceTree = "<group>"; };
+		D07BC72C1F2A2A7D00ED97AA /* MKPhotoEditorPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorPicture.h; sourceTree = "<group>"; };
+		D07BC72D1F2A2A7D00ED97AA /* MKPhotoEditorPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorPicture.m; sourceTree = "<group>"; };
+		D07BC7321F2A2A7D00ED97AA /* MKPhotoEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorView.h; sourceTree = "<group>"; };
+		D07BC7331F2A2A7D00ED97AA /* MKPhotoEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorView.m; sourceTree = "<group>"; };
+		D07BC73F1F2A2AC500ED97AA /* MKPhotoEditorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorButton.h; sourceTree = "<group>"; };
+		D07BC7401F2A2AC500ED97AA /* MKPhotoEditorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorButton.m; sourceTree = "<group>"; };
+		D07BC7501F2A2B3700ED97AA /* MKPhotoEditorGenericToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorGenericToolView.h; sourceTree = "<group>"; };
+		D07BC7511F2A2B3700ED97AA /* MKPhotoEditorGenericToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorGenericToolView.m; sourceTree = "<group>"; };
+		D07BC7541F2A2B3700ED97AA /* MKPhotoEditorInterfaceAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorInterfaceAssets.h; sourceTree = "<group>"; };
+		D07BC7551F2A2B3700ED97AA /* MKPhotoEditorInterfaceAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorInterfaceAssets.m; sourceTree = "<group>"; };
+		D07BC7561F2A2B3700ED97AA /* MKPhotoEditorItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorItemController.h; sourceTree = "<group>"; };
+		D07BC7571F2A2B3700ED97AA /* MKPhotoEditorItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorItemController.m; sourceTree = "<group>"; };
+		D07BC75A1F2A2B3700ED97AA /* MKPhotoEditorPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorPreviewView.h; sourceTree = "<group>"; };
+		D07BC75B1F2A2B3700ED97AA /* MKPhotoEditorPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorPreviewView.m; sourceTree = "<group>"; };
+		D07BC75E1F2A2B3700ED97AA /* MKPhotoEditorSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorSliderView.h; sourceTree = "<group>"; };
+		D07BC75F1F2A2B3700ED97AA /* MKPhotoEditorSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorSliderView.m; sourceTree = "<group>"; };
+		D07BC7601F2A2B3700ED97AA /* MKPhotoEditorTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorTabController.h; sourceTree = "<group>"; };
+		D07BC7611F2A2B3700ED97AA /* MKPhotoEditorTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorTabController.m; sourceTree = "<group>"; };
+		D07BC7661F2A2B3700ED97AA /* MKPhotoEditorToolButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorToolButtonsView.h; sourceTree = "<group>"; };
+		D07BC7671F2A2B3700ED97AA /* MKPhotoEditorToolButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEditorToolButtonsView.m; sourceTree = "<group>"; };
+		D07BC7681F2A2B3700ED97AA /* MKPhotoEditorToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEditorToolView.h; sourceTree = "<group>"; };
+		D07BC7921F2A2B8900ED97AA /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
+		D07BC7931F2A2B8900ED97AA /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
+		D07BC7951F2A2B8900ED97AA /* GPUImageContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageContext.h; sourceTree = "<group>"; };
+		D07BC7961F2A2B8900ED97AA /* GPUImageContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageContext.m; sourceTree = "<group>"; };
+		D07BC7971F2A2B8900ED97AA /* GPUImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFilter.h; sourceTree = "<group>"; };
+		D07BC7981F2A2B8900ED97AA /* GPUImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageFilter.m; sourceTree = "<group>"; };
+		D07BC7991F2A2B8900ED97AA /* GPUImageFramebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFramebuffer.h; sourceTree = "<group>"; };
+		D07BC79A1F2A2B8900ED97AA /* GPUImageFramebuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageFramebuffer.m; sourceTree = "<group>"; };
+		D07BC79B1F2A2B8900ED97AA /* GPUImageFramebufferCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFramebufferCache.h; sourceTree = "<group>"; };
+		D07BC79C1F2A2B8900ED97AA /* GPUImageFramebufferCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageFramebufferCache.m; sourceTree = "<group>"; };
+		D07BC79D1F2A2B8900ED97AA /* GPUImageOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageOutput.h; sourceTree = "<group>"; };
+		D07BC79E1F2A2B8900ED97AA /* GPUImageOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageOutput.m; sourceTree = "<group>"; };
+		D07BC79F1F2A2B8900ED97AA /* GPUImageTwoInputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageTwoInputFilter.h; sourceTree = "<group>"; };
+		D07BC7A01F2A2B8900ED97AA /* GPUImageTwoInputFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageTwoInputFilter.m; sourceTree = "<group>"; };
+		D07BC8741F2A2F7B00ED97AA /* TGWeakDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGWeakDelegate.h; sourceTree = "<group>"; };
+		D07BC8751F2A2F7B00ED97AA /* TGWeakDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGWeakDelegate.m; sourceTree = "<group>"; };
+		D07BC8791F2A365000ED97AA /* MKProgressSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKProgressSpinnerView.h; sourceTree = "<group>"; };
+		D07BC87A1F2A365000ED97AA /* MKProgressSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKProgressSpinnerView.m; sourceTree = "<group>"; };
+		D07BC87B1F2A365000ED97AA /* MKProgressWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKProgressWindow.h; sourceTree = "<group>"; };
+		D07BC87C1F2A365000ED97AA /* MKProgressWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKProgressWindow.m; sourceTree = "<group>"; };
+		D07BC8851F2A375800ED97AA /* MKPhotoCropAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoCropAreaView.h; sourceTree = "<group>"; };
+		D07BC8861F2A375800ED97AA /* MKPhotoCropAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoCropAreaView.m; sourceTree = "<group>"; };
+		D07BC8871F2A375800ED97AA /* MKPhotoCropControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoCropControl.h; sourceTree = "<group>"; };
+		D07BC8881F2A375800ED97AA /* MKPhotoCropControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoCropControl.m; sourceTree = "<group>"; };
+		D07BC8891F2A375800ED97AA /* MKPhotoCropController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoCropController.h; sourceTree = "<group>"; };
+		D07BC88A1F2A375800ED97AA /* MKPhotoCropController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoCropController.m; sourceTree = "<group>"; };
+		D07BC88B1F2A375800ED97AA /* MKPhotoCropGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoCropGridView.h; sourceTree = "<group>"; };
+		D07BC88C1F2A375800ED97AA /* MKPhotoCropGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoCropGridView.m; sourceTree = "<group>"; };
+		D07BC88D1F2A375800ED97AA /* MKPhotoCropRotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoCropRotationView.h; sourceTree = "<group>"; };
+		D07BC88E1F2A375800ED97AA /* MKPhotoCropRotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoCropRotationView.m; sourceTree = "<group>"; };
+		D07BC88F1F2A375800ED97AA /* MKPhotoCropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoCropScrollView.h; sourceTree = "<group>"; };
+		D07BC8901F2A375800ED97AA /* MKPhotoCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoCropScrollView.m; sourceTree = "<group>"; };
+		D07BC8911F2A375800ED97AA /* MKPhotoCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoCropView.h; sourceTree = "<group>"; };
+		D07BC8921F2A375800ED97AA /* MKPhotoCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoCropView.m; sourceTree = "<group>"; };
+		D07BC8A91F2A37EC00ED97AA /* MKPhotoPaintActionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintActionsView.h; sourceTree = "<group>"; };
+		D07BC8AA1F2A37EC00ED97AA /* MKPhotoPaintActionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintActionsView.m; sourceTree = "<group>"; };
+		D07BC8AB1F2A37EC00ED97AA /* MKPhotoPaintColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintColorPicker.h; sourceTree = "<group>"; };
+		D07BC8AC1F2A37EC00ED97AA /* MKPhotoPaintColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintColorPicker.m; sourceTree = "<group>"; };
+		D07BC8AD1F2A37EC00ED97AA /* MKPhotoPaintController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintController.h; sourceTree = "<group>"; };
+		D07BC8AE1F2A37EC00ED97AA /* MKPhotoPaintController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintController.m; sourceTree = "<group>"; };
+		D07BC8AF1F2A37EC00ED97AA /* MKPhotoPaintEntityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintEntityView.h; sourceTree = "<group>"; };
+		D07BC8B01F2A37EC00ED97AA /* MKPhotoPaintEntityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintEntityView.m; sourceTree = "<group>"; };
+		D07BC8B11F2A37EC00ED97AA /* MKPhotoPaintFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintFont.h; sourceTree = "<group>"; };
+		D07BC8B21F2A37EC00ED97AA /* MKPhotoPaintFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintFont.m; sourceTree = "<group>"; };
+		D07BC8B51F2A37EC00ED97AA /* MKPhotoPaintSelectionContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintSelectionContainerView.h; sourceTree = "<group>"; };
+		D07BC8B61F2A37EC00ED97AA /* MKPhotoPaintSelectionContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintSelectionContainerView.m; sourceTree = "<group>"; };
+		D07BC8B71F2A37EC00ED97AA /* MKPhotoPaintSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintSettingsView.h; sourceTree = "<group>"; };
+		D07BC8B81F2A37EC00ED97AA /* MKPhotoPaintSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintSettingsView.m; sourceTree = "<group>"; };
+		D07BC8B91F2A37EC00ED97AA /* MKPhotoPaintSettingsWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintSettingsWrapperView.h; sourceTree = "<group>"; };
+		D07BC8BA1F2A37EC00ED97AA /* MKPhotoPaintSettingsWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintSettingsWrapperView.m; sourceTree = "<group>"; };
+		D07BC8BB1F2A37EC00ED97AA /* MKPhotoPaintSparseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintSparseView.h; sourceTree = "<group>"; };
+		D07BC8BC1F2A37EC00ED97AA /* MKPhotoPaintSparseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintSparseView.m; sourceTree = "<group>"; };
+		D07BC8BD1F2A37EC00ED97AA /* MKPhotoPaintTextEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoPaintTextEntity.h; sourceTree = "<group>"; };
+		D07BC8BE1F2A37EC00ED97AA /* MKPhotoPaintTextEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoPaintTextEntity.m; sourceTree = "<group>"; };
+		D07BC8D51F2A380D00ED97AA /* MKPaintBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintBrush.h; sourceTree = "<group>"; };
+		D07BC8D61F2A380D00ED97AA /* MKPaintBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintBrush.m; sourceTree = "<group>"; };
+		D07BC8D71F2A380D00ED97AA /* MKPaintBrushPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintBrushPreview.h; sourceTree = "<group>"; };
+		D07BC8D81F2A380D00ED97AA /* MKPaintBrushPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintBrushPreview.m; sourceTree = "<group>"; };
+		D07BC8D91F2A380D00ED97AA /* MKPaintBuffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintBuffers.h; sourceTree = "<group>"; };
+		D07BC8DA1F2A380D00ED97AA /* MKPaintBuffers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintBuffers.m; sourceTree = "<group>"; };
+		D07BC8DB1F2A380D00ED97AA /* MKPaintCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintCanvas.h; sourceTree = "<group>"; };
+		D07BC8DC1F2A380D00ED97AA /* MKPaintCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintCanvas.m; sourceTree = "<group>"; };
+		D07BC8DD1F2A380D00ED97AA /* MKPaintEllipticalBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintEllipticalBrush.h; sourceTree = "<group>"; };
+		D07BC8DE1F2A380D00ED97AA /* MKPaintEllipticalBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintEllipticalBrush.m; sourceTree = "<group>"; };
+		D07BC8E11F2A380D00ED97AA /* TGPaintFaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGPaintFaceDetector.h; sourceTree = "<group>"; };
+		D07BC8E21F2A380D00ED97AA /* TGPaintFaceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGPaintFaceDetector.m; sourceTree = "<group>"; };
+		D07BC8E31F2A380D00ED97AA /* MKPainting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPainting.h; sourceTree = "<group>"; };
+		D07BC8E41F2A380D00ED97AA /* MKPainting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPainting.m; sourceTree = "<group>"; };
+		D07BC8E51F2A380D00ED97AA /* MKPaintingWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintingWrapperView.h; sourceTree = "<group>"; };
+		D07BC8E61F2A380D00ED97AA /* MKPaintingWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintingWrapperView.m; sourceTree = "<group>"; };
+		D07BC8E71F2A380D00ED97AA /* MKPaintInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintInput.h; sourceTree = "<group>"; };
+		D07BC8E81F2A380D00ED97AA /* MKPaintInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintInput.m; sourceTree = "<group>"; };
+		D07BC8E91F2A380D00ED97AA /* MKPaintNeonBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintNeonBrush.h; sourceTree = "<group>"; };
+		D07BC8EA1F2A380D00ED97AA /* MKPaintNeonBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintNeonBrush.m; sourceTree = "<group>"; };
+		D07BC8EB1F2A380D00ED97AA /* MKPaintPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintPanGestureRecognizer.h; sourceTree = "<group>"; };
+		D07BC8EC1F2A380D00ED97AA /* MKPaintPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintPanGestureRecognizer.m; sourceTree = "<group>"; };
+		D07BC8ED1F2A380D00ED97AA /* MKPaintPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintPath.h; sourceTree = "<group>"; };
+		D07BC8EE1F2A380D00ED97AA /* MKPaintPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintPath.m; sourceTree = "<group>"; };
+		D07BC8EF1F2A380D00ED97AA /* MKPaintRadialBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintRadialBrush.h; sourceTree = "<group>"; };
+		D07BC8F01F2A380D00ED97AA /* MKPaintRadialBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintRadialBrush.m; sourceTree = "<group>"; };
+		D07BC8F11F2A380D00ED97AA /* MKPaintRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintRender.h; sourceTree = "<group>"; };
+		D07BC8F21F2A380D00ED97AA /* MKPaintRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintRender.m; sourceTree = "<group>"; };
+		D07BC8F31F2A380D00ED97AA /* MKPaintShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintShader.h; sourceTree = "<group>"; };
+		D07BC8F41F2A380D00ED97AA /* MKPaintShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintShader.m; sourceTree = "<group>"; };
+		D07BC8F51F2A380D00ED97AA /* MKPaintShaderSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintShaderSet.h; sourceTree = "<group>"; };
+		D07BC8F61F2A380D00ED97AA /* MKPaintShaderSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintShaderSet.m; sourceTree = "<group>"; };
+		D07BC8F71F2A380D00ED97AA /* MKPaintSlice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintSlice.h; sourceTree = "<group>"; };
+		D07BC8F81F2A380D00ED97AA /* MKPaintSlice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintSlice.m; sourceTree = "<group>"; };
+		D07BC8F91F2A380D00ED97AA /* MKPaintState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintState.h; sourceTree = "<group>"; };
+		D07BC8FA1F2A380D00ED97AA /* MKPaintState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintState.m; sourceTree = "<group>"; };
+		D07BC8FB1F2A380D00ED97AA /* MKPaintSwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintSwatch.h; sourceTree = "<group>"; };
+		D07BC8FC1F2A380D00ED97AA /* MKPaintSwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintSwatch.m; sourceTree = "<group>"; };
+		D07BC8FD1F2A380D00ED97AA /* MKPaintTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPaintTexture.h; sourceTree = "<group>"; };
+		D07BC8FE1F2A380D00ED97AA /* MKPaintTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPaintTexture.m; sourceTree = "<group>"; };
+		D07BC9291F2A3A3F00ED97AA /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
+		D07BC92A1F2A3A3F00ED97AA /* matrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = matrix.m; sourceTree = "<group>"; };
+		D07BC92D1F2A3BA600ED97AA /* MKPhotoEntitiesContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoEntitiesContainerView.h; sourceTree = "<group>"; };
+		D07BC92E1F2A3BA600ED97AA /* MKPhotoEntitiesContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoEntitiesContainerView.m; sourceTree = "<group>"; };
+		D07BC9311F2A3BD100ED97AA /* MKPhotoTextEntityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoTextEntityView.h; sourceTree = "<group>"; };
+		D07BC9321F2A3BD100ED97AA /* MKPhotoTextEntityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoTextEntityView.m; sourceTree = "<group>"; };
+		D07BC9391F2A3C1F00ED97AA /* MKPhotoQualityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoQualityController.h; sourceTree = "<group>"; };
+		D07BC93A1F2A3C1F00ED97AA /* MKPhotoQualityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoQualityController.m; sourceTree = "<group>"; };
+		D07BC93D1F2A3DB900ED97AA /* TGMessageImageViewOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMessageImageViewOverlayView.h; sourceTree = "<group>"; };
+		D07BC93E1F2A3DB900ED97AA /* TGMessageImageViewOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMessageImageViewOverlayView.m; sourceTree = "<group>"; };
+		D07BC96E1F2A467D00ED97AA /* MKPhotoTextSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoTextSettingsView.h; sourceTree = "<group>"; };
+		D07BC96F1F2A467D00ED97AA /* MKPhotoTextSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoTextSettingsView.m; sourceTree = "<group>"; };
+		D07BC9701F2A467D00ED97AA /* MKPhotoBrushSettingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPhotoBrushSettingsView.h; sourceTree = "<group>"; };
+		D07BC9711F2A467D00ED97AA /* MKPhotoBrushSettingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPhotoBrushSettingsView.m; sourceTree = "<group>"; };
+		D07BCA351F2A9B6A00ED97AA /* TGMediaAsset+TGMediaEditableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TGMediaAsset+TGMediaEditableItem.h"; sourceTree = "<group>"; };
+		D07BCA361F2A9B6A00ED97AA /* TGMediaAsset+TGMediaEditableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TGMediaAsset+TGMediaEditableItem.m"; sourceTree = "<group>"; };
+		D07BCB011F2B546400ED97AA /* LegacyComponentsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacyComponentsContext.m; sourceTree = "<group>"; };
+		D0EB42021F3142F400838FE6 /* MediaEditorKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MediaEditorKit.bundle; path = Resources/MediaEditorKit.bundle; sourceTree = "<group>"; };
+		E6D7466DE05D6109F74404A8 /* Pods-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B52AC1E2001B6AA00E35677 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BAC89732002189D0086BC7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B7D963D20030AAA00A72810 /* MediaEditorKit.framework in Frameworks */,
+				6BAC89A8200227D60086BC7F /* libstdc++.tbd in Frameworks */,
+				24E57C27FB9521138881C56B /* libPods-Test.a in Frameworks */,
+				3B8C61412004CC8100F7C9D3 /* MediaEditorKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BAC898A2002189D0086BC7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D01777231F1F8F100044446D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBCE8F67FAB7638003A34FB /* libPods-MediaEditorKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B7D9647200325F500A72810 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				3B7D96622003261200A72810 /* JNWSpringAnimation.h */,
+				3B7D96732003261500A72810 /* JNWSpringAnimation.m */,
+				3B7D96592003261100A72810 /* NSValue+JNWAdditions.h */,
+				3B7D965B2003261200A72810 /* NSValue+JNWAdditions.m */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
+		6B52AC242001B6AA00E35677 /* TestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6B52AC252001B6AA00E35677 /* TestUITests.swift */,
+				6B52AC272001B6AA00E35677 /* Info.plist */,
+			);
+			path = TestUITests;
+			sourceTree = "<group>";
+		};
+		6BAC89772002189D0086BC7F /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				3B7D96C62003504D00A72810 /* MediaEditorKit.bundle */,
+				6BAC89782002189D0086BC7F /* AppDelegate.h */,
+				6BAC89792002189D0086BC7F /* AppDelegate.m */,
+				6BAC897B2002189D0086BC7F /* ViewController.h */,
+				6BAC897C2002189D0086BC7F /* ViewController.m */,
+				6BAC897E2002189D0086BC7F /* Main.storyboard */,
+				6BAC89812002189D0086BC7F /* Assets.xcassets */,
+				6BAC89832002189D0086BC7F /* LaunchScreen.storyboard */,
+				6BAC89862002189D0086BC7F /* Info.plist */,
+				6BAC89872002189D0086BC7F /* main.m */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		6BAC89902002189E0086BC7F /* TestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6BAC89912002189E0086BC7F /* TestUITests.m */,
+				6BAC89932002189E0086BC7F /* Info.plist */,
+			);
+			path = TestUITests;
+			sourceTree = "<group>";
+		};
+		6BC5C26E2001DC2D00CAB9F4 /* SSignalKit */ = {
+			isa = PBXGroup;
+			children = (
+				6BC5C26F2001DC2D00CAB9F4 /* SSignal+Combine.m */,
+				6BC5C2702001DC2D00CAB9F4 /* SSignal+Multicast.h */,
+				6BC5C2712001DC2D00CAB9F4 /* SBlockDisposable.h */,
+				6BC5C2722001DC2D00CAB9F4 /* SThreadPoolQueue.h */,
+				6BC5C2732001DC2D00CAB9F4 /* STimer.h */,
+				6BC5C2742001DC2D00CAB9F4 /* SAtomic.m */,
+				6BC5C2752001DC2D00CAB9F4 /* SSignal.h */,
+				6BC5C2762001DC2D00CAB9F4 /* SSignal+Single.h */,
+				6BC5C2772001DC2D00CAB9F4 /* SSignal+Accumulate.m */,
+				6BC5C2782001DC2D00CAB9F4 /* SBag.m */,
+				6BC5C2792001DC2D00CAB9F4 /* SSignal+Meta.m */,
+				6BC5C27A2001DC2D00CAB9F4 /* SSignal+SideEffects.m */,
+				6BC5C27B2001DC2D00CAB9F4 /* SMetaDisposable.h */,
+				6BC5C27C2001DC2D00CAB9F4 /* SMulticastSignalManager.h */,
+				6BC5C27D2001DC2D00CAB9F4 /* SSignal+Dispatch.h */,
+				6BC5C27E2001DC2D00CAB9F4 /* SSignal+Timing.m */,
+				6BC5C27F2001DC2D00CAB9F4 /* SSubscriber.h */,
+				6BC5C2802001DC2D00CAB9F4 /* SSignal+Pipe.m */,
+				6BC5C2812001DC2D00CAB9F4 /* SDisposableSet.h */,
+				6BC5C2822001DC2D00CAB9F4 /* SThreadPoolTask.h */,
+				6BC5C2832001DC2D00CAB9F4 /* SDisposable.h */,
+				6BC5C2842001DC2D00CAB9F4 /* SSignal+Catch.m */,
+				6BC5C2852001DC2D00CAB9F4 /* SQueue.h */,
+				6BC5C2862001DC2D00CAB9F4 /* SVariable.m */,
+				6BC5C2872001DC2D00CAB9F4 /* SSignal+Take.h */,
+				6BC5C2882001DC2D00CAB9F4 /* SSignal+Mapping.m */,
+				6BC5C2892001DC2D00CAB9F4 /* SThreadPool.m */,
+				6BC5C28A2001DC2D00CAB9F4 /* SAtomic.h */,
+				6BC5C28B2001DC2D00CAB9F4 /* STimer.m */,
+				6BC5C28C2001DC2D00CAB9F4 /* SThreadPoolQueue.m */,
+				6BC5C28D2001DC2D00CAB9F4 /* SBlockDisposable.m */,
+				6BC5C28E2001DC2D00CAB9F4 /* SSignal+Multicast.m */,
+				6BC5C28F2001DC2D00CAB9F4 /* SSignal+Combine.h */,
+				6BC5C2902001DC2D00CAB9F4 /* SSignal+Timing.h */,
+				6BC5C2912001DC2D00CAB9F4 /* SSignal+Dispatch.m */,
+				6BC5C2922001DC2D00CAB9F4 /* SMetaDisposable.m */,
+				6BC5C2932001DC2D00CAB9F4 /* SMulticastSignalManager.m */,
+				6BC5C2942001DC2D00CAB9F4 /* SSignal+SideEffects.h */,
+				6BC5C2952001DC2D00CAB9F4 /* SSignal+Meta.h */,
+				6BC5C2962001DC2D00CAB9F4 /* SBag.h */,
+				6BC5C2972001DC2D00CAB9F4 /* SSignal+Accumulate.h */,
+				6BC5C2982001DC2D00CAB9F4 /* SSignal.m */,
+				6BC5C2992001DC2D00CAB9F4 /* SSignal+Single.m */,
+				6BC5C29A2001DC2D00CAB9F4 /* SSignalKit.h */,
+				6BC5C29B2001DC2D00CAB9F4 /* SThreadPoolTask.m */,
+				6BC5C29C2001DC2D00CAB9F4 /* SDisposableSet.m */,
+				6BC5C29D2001DC2D00CAB9F4 /* SSignal+Pipe.h */,
+				6BC5C29E2001DC2D00CAB9F4 /* SSubscriber.m */,
+				6BC5C29F2001DC2D00CAB9F4 /* SThreadPool.h */,
+				6BC5C2A02001DC2D00CAB9F4 /* SSignal+Take.m */,
+				6BC5C2A12001DC2D00CAB9F4 /* SSignal+Mapping.h */,
+				6BC5C2A32001DC2D00CAB9F4 /* SVariable.h */,
+				6BC5C2A42001DC2D00CAB9F4 /* SQueue.m */,
+				6BC5C2A52001DC2D00CAB9F4 /* SSignal+Catch.h */,
+			);
+			path = SSignalKit;
+			sourceTree = "<group>";
+		};
+		78454199826FCD0CC32CF1CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A211412F43EBE1D7BF92ABC /* Pods-MediaEditorKit.debug.xcconfig */,
+				BDB34F0102A85A8627EEBD43 /* Pods-MediaEditorKit.release.xcconfig */,
+				E6D7466DE05D6109F74404A8 /* Pods-Test.debug.xcconfig */,
+				266BC7229ACB3AE28DB2BE88 /* Pods-Test.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D017771D1F1F8F100044446D = {
+			isa = PBXGroup;
+			children = (
+				D01777291F1F8F100044446D /* MediaEditorKit */,
+				6B52AC242001B6AA00E35677 /* TestUITests */,
+				6BAC89772002189D0086BC7F /* Test */,
+				6BAC89902002189E0086BC7F /* TestUITests */,
+				D01777281F1F8F100044446D /* Products */,
+				D01779051F20E0DE0044446D /* Frameworks */,
+				78454199826FCD0CC32CF1CE /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		D01777281F1F8F100044446D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D01777271F1F8F100044446D /* MediaEditorKit.framework */,
+				6B52AC212001B6AA00E35677 /* TestUITests.xctest */,
+				6BAC89762002189D0086BC7F /* Test.app */,
+				6BAC898D2002189D0086BC7F /* TestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D01777291F1F8F100044446D /* MediaEditorKit */ = {
+			isa = PBXGroup;
+			children = (
+				6BAC89AD2003975C0086BC7F /* Info.plist */,
+				3B7D9647200325F500A72810 /* Animation */,
+				6BC5C26E2001DC2D00CAB9F4 /* SSignalKit */,
+				D0EB409E1F2FC0AA00838FE6 /* Resources */,
+				D017776F1F1F91B00044446D /* Utils */,
+				D0177AC01F23D9160044446D /* ActionStage */,
+				D01778AF1F1FFF6E0044446D /* Basic UI Components */,
+				D07BC8781F2A363800ED97AA /* Progress Window */,
+				D01778C81F200B810044446D /* MediaEditorKit */,
+				D01779281F20FEC90044446D /* Assets Library */,
+				D07BC7911F2A2B7000ED97AA /* GPUImage */,
+				D01779551F21030E0044446D /* Photo Editor Utils */,
+				D0177A251F2144540044446D /* Photo Editor */,
+				D01779661F2103C60044446D /* Photo Paint */,
+				D017772A1F1F8F100044446D /* MediaEditorKit.h */,
+			);
+			path = MediaEditorKit;
+			sourceTree = "<group>";
+		};
+		D017776F1F1F91B00044446D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6BAC89A4200224060086BC7F /* MKLegacyComponentsContext.h */,
+				6BAC89A3200224060086BC7F /* MKLegacyComponentsContext.m */,
+				D01777381F1F8FE60044446D /* LegacyComponentsGlobals.h */,
+				D017776A1F1F909E0044446D /* LegacyComponentsGlobals.m */,
+				D017789B1F1FC99A0044446D /* LegacyComponentsInternal.h */,
+				D017789C1F1FC99A0044446D /* LegacyComponentsInternal.m */,
+				D0177A1D1F21403E0044446D /* LegacyComponentsContext.h */,
+				D07BCB011F2B546400ED97AA /* LegacyComponentsContext.m */,
+				D017774D1F1F8FE60044446D /* TGStringUtils.h */,
+				D017774E1F1F8FE60044446D /* TGStringUtils.mm */,
+				D01778A51F1FD0900044446D /* MKImageUtils.h */,
+				D01778A61F1FD0900044446D /* MKImageUtils.mm */,
+				D01778B81F2009880044446D /* Freedom.h */,
+				D01778B91F2009880044446D /* Freedom.mm */,
+				D01779011F20D16B0044446D /* FreedomUIKit.h */,
+				D01779021F20D16B0044446D /* FreedomUIKit.m */,
+				D01778F51F20CDAC0044446D /* MKHacks.h */,
+				D01778F61F20CDAC0044446D /* MKHacks.m */,
+				D01778FD1F20D0040044446D /* MKColor.h */,
+				D01778FE1F20D0040044446D /* MKColor.m */,
+				D01779241F20FE480044446D /* TGObserverProxy.h */,
+				D01779251F20FE480044446D /* TGObserverProxy.m */,
+				D01779771F21075C0044446D /* TGModernCache.h */,
+				D01779781F21075C0044446D /* TGModernCache.m */,
+				D01779981F2108670044446D /* TGMemoryImageCache.h */,
+				D01779991F2108670044446D /* TGMemoryImageCache.m */,
+				D0177A2A1F2145B80044446D /* LegacyComponentsAccessChecker.h */,
+				D07BC8741F2A2F7B00ED97AA /* TGWeakDelegate.h */,
+				D07BC8751F2A2F7B00ED97AA /* TGWeakDelegate.m */,
+				D07BC9291F2A3A3F00ED97AA /* matrix.h */,
+				D07BC92A1F2A3A3F00ED97AA /* matrix.m */,
+				19ECF1C44A49B6042168E7DA /* NSObject+TGLock.h */,
+				19ECFF9910E5DE37A11B0BE6 /* NSObject+TGLock.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		D01778AF1F1FFF6E0044446D /* Basic UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				6BFCA1762001D41B003F1D84 /* TGMenuView.h */,
+				6BFCA1752001D41B003F1D84 /* TGMenuView.m */,
+				6B52AC512001BB7200E35677 /* TGModernGalleryVideoView.h */,
+				6B52AC502001BB7200E35677 /* TGModernGalleryVideoView.m */,
+				D01778C01F200AF70044446D /* TGAnimationBlockDelegate.h */,
+				D01778C11F200AF70044446D /* TGAnimationBlockDelegate.m */,
+				D017790C1F20F4370044446D /* UIImage+TG.h */,
+				D017790D1F20F4370044446D /* UIImage+TG.m */,
+				D0177A7B1F2204640044446D /* TGModernButton.h */,
+				D0177A7C1F2204640044446D /* TGModernButton.m */,
+				D07BC6D51F2A18FE00ED97AA /* UIControl+HitTestEdgeInsets.h */,
+				D07BC6D61F2A18FE00ED97AA /* UIControl+HitTestEdgeInsets.m */,
+				D07BC93D1F2A3DB900ED97AA /* TGMessageImageViewOverlayView.h */,
+				D07BC93E1F2A3DB900ED97AA /* TGMessageImageViewOverlayView.m */,
+			);
+			name = "Basic UI Components";
+			sourceTree = "<group>";
+		};
+		D01778C81F200B810044446D /* MediaEditorKit */ = {
+			isa = PBXGroup;
+			children = (
+				D01778DD1F20CAE60044446D /* MKViewController.h */,
+				D01778DE1F20CAE60044446D /* MKViewController.mm */,
+				D01778E11F20CAE60044446D /* MKOverlayController.h */,
+				D01778E21F20CAE60044446D /* MKOverlayController.m */,
+				D01778E31F20CAE60044446D /* MKOverlayControllerWindow.h */,
+				D01778E41F20CAE60044446D /* MKOverlayControllerWindow.m */,
+			);
+			name = MediaEditorKit;
+			path = ../../MediaEditorKit;
+			sourceTree = "<group>";
+		};
+		D01779051F20E0DE0044446D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6BAC89A7200227D60086BC7F /* libstdc++.tbd */,
+				09750F741F2FA5E8001B9886 /* SSignalKit.framework */,
+				B8711663C3E00083F2B4D2D3 /* libPods-MediaEditorKit.a */,
+				6FB42E8CF9A75FE3463DA034 /* libPods-Test.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D01779281F20FEC90044446D /* Assets Library */ = {
+			isa = PBXGroup;
+			children = (
+				D017792B1F20FFAC0044446D /* TGMediaAssetsLibrary.h */,
+				D017792C1F20FFAC0044446D /* TGMediaAssetsLibrary.m */,
+				D01779291F20FFAC0044446D /* TGMediaAssetsLegacyLibrary.h */,
+				D017792A1F20FFAC0044446D /* TGMediaAssetsLegacyLibrary.m */,
+				D017792D1F20FFAC0044446D /* TGMediaAssetsModernLibrary.h */,
+				D017792E1F20FFAC0044446D /* TGMediaAssetsModernLibrary.m */,
+				D01779351F20FFF60044446D /* TGMediaAsset.h */,
+				D01779361F20FFF60044446D /* TGMediaAsset.m */,
+				D01779371F20FFF60044446D /* TGMediaAssetFetchResult.h */,
+				D01779381F20FFF60044446D /* TGMediaAssetFetchResult.m */,
+				D01779391F20FFF60044446D /* TGMediaAssetFetchResultChange.h */,
+				D017793A1F20FFF60044446D /* TGMediaAssetFetchResultChange.m */,
+				D017793B1F20FFF60044446D /* TGMediaAssetGroup.h */,
+				D017793C1F20FFF60044446D /* TGMediaAssetGroup.m */,
+				D017793D1F20FFF60044446D /* TGMediaAssetMoment.h */,
+				D017793E1F20FFF60044446D /* TGMediaAssetMoment.m */,
+				D017793F1F20FFF60044446D /* TGMediaAssetMomentList.h */,
+				D01779401F20FFF60044446D /* TGMediaAssetMomentList.m */,
+				D01779A81F210A2C0044446D /* TGMediaAssetImageSignals.h */,
+				D01779A91F210A2C0044446D /* TGMediaAssetImageSignals.m */,
+				D01779A21F210A120044446D /* TGMediaAssetModernImageSignals.h */,
+				D01779A31F210A120044446D /* TGMediaAssetModernImageSignals.m */,
+				D017794D1F2100280044446D /* TGMediaSelectionContext.h */,
+				D017794E1F2100280044446D /* TGMediaSelectionContext.m */,
+				D01779511F2100520044446D /* MKMediaEditingContext.h */,
+				D01779521F2100520044446D /* MKMediaEditingContext.m */,
+				D07BCA351F2A9B6A00ED97AA /* TGMediaAsset+TGMediaEditableItem.h */,
+				D07BCA361F2A9B6A00ED97AA /* TGMediaAsset+TGMediaEditableItem.m */,
+			);
+			name = "Assets Library";
+			sourceTree = "<group>";
+		};
+		D01779551F21030E0044446D /* Photo Editor Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D01779561F21031F0044446D /* MKPhotoEditorUtils.h */,
+				D01779571F21031F0044446D /* MKPhotoEditorUtils.m */,
+				D017795A1F2103440044446D /* MKPhotoEditorValues.h */,
+				D017795B1F2103440044446D /* MKPhotoEditorValues.m */,
+				D01779731F2104320044446D /* MKVideoEditAdjustments.h */,
+				D01779741F2104320044446D /* MKVideoEditAdjustments.m */,
+				D0177A2E1F21F1980044446D /* AVURLAsset+TGMediaItem.h */,
+				D0177A2F1F21F1980044446D /* AVURLAsset+TGMediaItem.m */,
+				D0177A301F21F1980044446D /* UIImage+MKMediaEditableItem.h */,
+				D0177A311F21F1980044446D /* UIImage+MKMediaEditableItem.m */,
+				D0177A411F21F62A0044446D /* MKMediaVideoConverter.h */,
+				D0177A421F21F62A0044446D /* MKMediaVideoConverter.m */,
+			);
+			name = "Photo Editor Utils";
+			sourceTree = "<group>";
+		};
+		D01779661F2103C60044446D /* Photo Paint */ = {
+			isa = PBXGroup;
+			children = (
+				D017795E1F2103680044446D /* MKPaintingData.h */,
+				D017795F1F2103680044446D /* MKPaintingData.m */,
+				D01779621F2103910044446D /* TGPaintUtils.h */,
+				D01779631F2103910044446D /* TGPaintUtils.m */,
+				D01779671F2103DB0044446D /* MKPhotoPaintEntity.h */,
+				D01779681F2103DB0044446D /* MKPhotoPaintEntity.m */,
+				D01779691F2103DB0044446D /* MKPhotoPaintStickerEntity.h */,
+				D017796A1F2103DB0044446D /* MKPhotoPaintStickerEntity.m */,
+				D017796F1F2103FD0044446D /* MKPaintUndoManager.h */,
+				D01779701F2103FD0044446D /* MKPaintUndoManager.m */,
+				D07BC8A91F2A37EC00ED97AA /* MKPhotoPaintActionsView.h */,
+				D07BC8AA1F2A37EC00ED97AA /* MKPhotoPaintActionsView.m */,
+				D07BC8AB1F2A37EC00ED97AA /* MKPhotoPaintColorPicker.h */,
+				D07BC8AC1F2A37EC00ED97AA /* MKPhotoPaintColorPicker.m */,
+				D07BC8AD1F2A37EC00ED97AA /* MKPhotoPaintController.h */,
+				D07BC8AE1F2A37EC00ED97AA /* MKPhotoPaintController.m */,
+				D07BC8AF1F2A37EC00ED97AA /* MKPhotoPaintEntityView.h */,
+				D07BC8B01F2A37EC00ED97AA /* MKPhotoPaintEntityView.m */,
+				D07BC8B11F2A37EC00ED97AA /* MKPhotoPaintFont.h */,
+				D07BC8B21F2A37EC00ED97AA /* MKPhotoPaintFont.m */,
+				D07BC8B51F2A37EC00ED97AA /* MKPhotoPaintSelectionContainerView.h */,
+				D07BC8B61F2A37EC00ED97AA /* MKPhotoPaintSelectionContainerView.m */,
+				D07BC8B71F2A37EC00ED97AA /* MKPhotoPaintSettingsView.h */,
+				D07BC8B81F2A37EC00ED97AA /* MKPhotoPaintSettingsView.m */,
+				D07BC8B91F2A37EC00ED97AA /* MKPhotoPaintSettingsWrapperView.h */,
+				D07BC8BA1F2A37EC00ED97AA /* MKPhotoPaintSettingsWrapperView.m */,
+				D07BC8BB1F2A37EC00ED97AA /* MKPhotoPaintSparseView.h */,
+				D07BC8BC1F2A37EC00ED97AA /* MKPhotoPaintSparseView.m */,
+				D07BC8BD1F2A37EC00ED97AA /* MKPhotoPaintTextEntity.h */,
+				D07BC8BE1F2A37EC00ED97AA /* MKPhotoPaintTextEntity.m */,
+				D07BC8D51F2A380D00ED97AA /* MKPaintBrush.h */,
+				D07BC8D61F2A380D00ED97AA /* MKPaintBrush.m */,
+				D07BC8D71F2A380D00ED97AA /* MKPaintBrushPreview.h */,
+				D07BC8D81F2A380D00ED97AA /* MKPaintBrushPreview.m */,
+				D07BC8D91F2A380D00ED97AA /* MKPaintBuffers.h */,
+				D07BC8DA1F2A380D00ED97AA /* MKPaintBuffers.m */,
+				D07BC8DB1F2A380D00ED97AA /* MKPaintCanvas.h */,
+				D07BC8DC1F2A380D00ED97AA /* MKPaintCanvas.m */,
+				D07BC8DD1F2A380D00ED97AA /* MKPaintEllipticalBrush.h */,
+				D07BC8DE1F2A380D00ED97AA /* MKPaintEllipticalBrush.m */,
+				D07BC8E11F2A380D00ED97AA /* TGPaintFaceDetector.h */,
+				D07BC8E21F2A380D00ED97AA /* TGPaintFaceDetector.m */,
+				D07BC8E31F2A380D00ED97AA /* MKPainting.h */,
+				D07BC8E41F2A380D00ED97AA /* MKPainting.m */,
+				D07BC8E51F2A380D00ED97AA /* MKPaintingWrapperView.h */,
+				D07BC8E61F2A380D00ED97AA /* MKPaintingWrapperView.m */,
+				D07BC8E71F2A380D00ED97AA /* MKPaintInput.h */,
+				D07BC8E81F2A380D00ED97AA /* MKPaintInput.m */,
+				D07BC8E91F2A380D00ED97AA /* MKPaintNeonBrush.h */,
+				D07BC8EA1F2A380D00ED97AA /* MKPaintNeonBrush.m */,
+				D07BC8EB1F2A380D00ED97AA /* MKPaintPanGestureRecognizer.h */,
+				D07BC8EC1F2A380D00ED97AA /* MKPaintPanGestureRecognizer.m */,
+				D07BC8ED1F2A380D00ED97AA /* MKPaintPath.h */,
+				D07BC8EE1F2A380D00ED97AA /* MKPaintPath.m */,
+				D07BC8EF1F2A380D00ED97AA /* MKPaintRadialBrush.h */,
+				D07BC8F01F2A380D00ED97AA /* MKPaintRadialBrush.m */,
+				D07BC8F11F2A380D00ED97AA /* MKPaintRender.h */,
+				D07BC8F21F2A380D00ED97AA /* MKPaintRender.m */,
+				D07BC8F31F2A380D00ED97AA /* MKPaintShader.h */,
+				D07BC8F41F2A380D00ED97AA /* MKPaintShader.m */,
+				D07BC8F51F2A380D00ED97AA /* MKPaintShaderSet.h */,
+				D07BC8F61F2A380D00ED97AA /* MKPaintShaderSet.m */,
+				D07BC8F71F2A380D00ED97AA /* MKPaintSlice.h */,
+				D07BC8F81F2A380D00ED97AA /* MKPaintSlice.m */,
+				D07BC8F91F2A380D00ED97AA /* MKPaintState.h */,
+				D07BC8FA1F2A380D00ED97AA /* MKPaintState.m */,
+				D07BC8FB1F2A380D00ED97AA /* MKPaintSwatch.h */,
+				D07BC8FC1F2A380D00ED97AA /* MKPaintSwatch.m */,
+				D07BC8FD1F2A380D00ED97AA /* MKPaintTexture.h */,
+				D07BC8FE1F2A380D00ED97AA /* MKPaintTexture.m */,
+				D07BC92D1F2A3BA600ED97AA /* MKPhotoEntitiesContainerView.h */,
+				D07BC92E1F2A3BA600ED97AA /* MKPhotoEntitiesContainerView.m */,
+				D07BC9311F2A3BD100ED97AA /* MKPhotoTextEntityView.h */,
+				D07BC9321F2A3BD100ED97AA /* MKPhotoTextEntityView.m */,
+				D07BC96E1F2A467D00ED97AA /* MKPhotoTextSettingsView.h */,
+				D07BC96F1F2A467D00ED97AA /* MKPhotoTextSettingsView.m */,
+				D07BC9701F2A467D00ED97AA /* MKPhotoBrushSettingsView.h */,
+				D07BC9711F2A467D00ED97AA /* MKPhotoBrushSettingsView.m */,
+			);
+			name = "Photo Paint";
+			sourceTree = "<group>";
+		};
+		D0177A251F2144540044446D /* Photo Editor */ = {
+			isa = PBXGroup;
+			children = (
+				D0177A261F2144700044446D /* MKPhotoEditorAnimation.h */,
+				D0177A271F2144700044446D /* MKPhotoEditorAnimation.m */,
+				D07BC73F1F2A2AC500ED97AA /* MKPhotoEditorButton.h */,
+				D07BC7401F2A2AC500ED97AA /* MKPhotoEditorButton.m */,
+				D07BC7151F2A29B700ED97AA /* MKPhotoEditorController.h */,
+				D07BC7161F2A29B700ED97AA /* MKPhotoEditorController.m */,
+				D07BC7191F2A29E400ED97AA /* MKPhotoToolbarView.h */,
+				D07BC71A1F2A29E400ED97AA /* MKPhotoToolbarView.m */,
+				D07BC7291F2A2A7D00ED97AA /* MKPhotoEditor.h */,
+				D07BC72A1F2A2A7D00ED97AA /* MKPhotoEditor.m */,
+				D07BC72B1F2A2A7D00ED97AA /* MKPhotoEditorItem.h */,
+				D07BC72C1F2A2A7D00ED97AA /* MKPhotoEditorPicture.h */,
+				D07BC72D1F2A2A7D00ED97AA /* MKPhotoEditorPicture.m */,
+				D07BC7321F2A2A7D00ED97AA /* MKPhotoEditorView.h */,
+				D07BC7331F2A2A7D00ED97AA /* MKPhotoEditorView.m */,
+				D07BC7501F2A2B3700ED97AA /* MKPhotoEditorGenericToolView.h */,
+				D07BC7511F2A2B3700ED97AA /* MKPhotoEditorGenericToolView.m */,
+				D07BC7541F2A2B3700ED97AA /* MKPhotoEditorInterfaceAssets.h */,
+				D07BC7551F2A2B3700ED97AA /* MKPhotoEditorInterfaceAssets.m */,
+				D07BC7561F2A2B3700ED97AA /* MKPhotoEditorItemController.h */,
+				D07BC7571F2A2B3700ED97AA /* MKPhotoEditorItemController.m */,
+				D07BC75A1F2A2B3700ED97AA /* MKPhotoEditorPreviewView.h */,
+				D07BC75B1F2A2B3700ED97AA /* MKPhotoEditorPreviewView.m */,
+				D07BC75E1F2A2B3700ED97AA /* MKPhotoEditorSliderView.h */,
+				D07BC75F1F2A2B3700ED97AA /* MKPhotoEditorSliderView.m */,
+				D07BC7601F2A2B3700ED97AA /* MKPhotoEditorTabController.h */,
+				D07BC7611F2A2B3700ED97AA /* MKPhotoEditorTabController.m */,
+				D07BC7661F2A2B3700ED97AA /* MKPhotoEditorToolButtonsView.h */,
+				D07BC7671F2A2B3700ED97AA /* MKPhotoEditorToolButtonsView.m */,
+				D07BC7681F2A2B3700ED97AA /* MKPhotoEditorToolView.h */,
+				D07BC8851F2A375800ED97AA /* MKPhotoCropAreaView.h */,
+				D07BC8861F2A375800ED97AA /* MKPhotoCropAreaView.m */,
+				D07BC8871F2A375800ED97AA /* MKPhotoCropControl.h */,
+				D07BC8881F2A375800ED97AA /* MKPhotoCropControl.m */,
+				D07BC8891F2A375800ED97AA /* MKPhotoCropController.h */,
+				D07BC88A1F2A375800ED97AA /* MKPhotoCropController.m */,
+				D07BC88B1F2A375800ED97AA /* MKPhotoCropGridView.h */,
+				D07BC88C1F2A375800ED97AA /* MKPhotoCropGridView.m */,
+				D07BC88D1F2A375800ED97AA /* MKPhotoCropRotationView.h */,
+				D07BC88E1F2A375800ED97AA /* MKPhotoCropRotationView.m */,
+				D07BC88F1F2A375800ED97AA /* MKPhotoCropScrollView.h */,
+				D07BC8901F2A375800ED97AA /* MKPhotoCropScrollView.m */,
+				D07BC8911F2A375800ED97AA /* MKPhotoCropView.h */,
+				D07BC8921F2A375800ED97AA /* MKPhotoCropView.m */,
+				D07BC9391F2A3C1F00ED97AA /* MKPhotoQualityController.h */,
+				D07BC93A1F2A3C1F00ED97AA /* MKPhotoQualityController.m */,
+			);
+			name = "Photo Editor";
+			sourceTree = "<group>";
+		};
+		D0177AC01F23D9160044446D /* ActionStage */ = {
+			isa = PBXGroup;
+			children = (
+				D0177AC11F23D92C0044446D /* ActionStage.h */,
+				D0177AC21F23D92C0044446D /* ActionStage.mm */,
+				D0177AC31F23D92C0044446D /* ASActor.h */,
+				D0177AC41F23D92C0044446D /* ASActor.m */,
+				D0177AC91F23D9810044446D /* ASHandle.h */,
+				D0177ACA1F23D9810044446D /* ASHandle.m */,
+				D0177ACB1F23D9810044446D /* ASQueue.h */,
+				D0177ACC1F23D9810044446D /* ASQueue.m */,
+				D0177ACD1F23D9810044446D /* ASWatcher.h */,
+				D0177AD31F23D9B80044446D /* SGraphListNode.h */,
+				D0177AD41F23D9B80044446D /* SGraphListNode.m */,
+				D0177AD51F23D9B80044446D /* SGraphNode.h */,
+				D0177AD61F23D9B80044446D /* SGraphNode.m */,
+				D0177AD71F23D9B80044446D /* SGraphObjectNode.h */,
+				D0177AD81F23D9B80044446D /* SGraphObjectNode.m */,
+			);
+			name = ActionStage;
+			sourceTree = "<group>";
+		};
+		D07BC7911F2A2B7000ED97AA /* GPUImage */ = {
+			isa = PBXGroup;
+			children = (
+				D07BC7921F2A2B8900ED97AA /* GLProgram.h */,
+				D07BC7931F2A2B8900ED97AA /* GLProgram.m */,
+				D07BC7951F2A2B8900ED97AA /* GPUImageContext.h */,
+				D07BC7961F2A2B8900ED97AA /* GPUImageContext.m */,
+				D07BC7971F2A2B8900ED97AA /* GPUImageFilter.h */,
+				D07BC7981F2A2B8900ED97AA /* GPUImageFilter.m */,
+				D07BC7991F2A2B8900ED97AA /* GPUImageFramebuffer.h */,
+				D07BC79A1F2A2B8900ED97AA /* GPUImageFramebuffer.m */,
+				D07BC79B1F2A2B8900ED97AA /* GPUImageFramebufferCache.h */,
+				D07BC79C1F2A2B8900ED97AA /* GPUImageFramebufferCache.m */,
+				D07BC79D1F2A2B8900ED97AA /* GPUImageOutput.h */,
+				D07BC79E1F2A2B8900ED97AA /* GPUImageOutput.m */,
+				D07BC79F1F2A2B8900ED97AA /* GPUImageTwoInputFilter.h */,
+				D07BC7A01F2A2B8900ED97AA /* GPUImageTwoInputFilter.m */,
+			);
+			name = GPUImage;
+			sourceTree = "<group>";
+		};
+		D07BC8781F2A363800ED97AA /* Progress Window */ = {
+			isa = PBXGroup;
+			children = (
+				D07BC8791F2A365000ED97AA /* MKProgressSpinnerView.h */,
+				D07BC87A1F2A365000ED97AA /* MKProgressSpinnerView.m */,
+				D07BC87B1F2A365000ED97AA /* MKProgressWindow.h */,
+				D07BC87C1F2A365000ED97AA /* MKProgressWindow.m */,
+			);
+			name = "Progress Window";
+			sourceTree = "<group>";
+		};
+		D0EB409E1F2FC0AA00838FE6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D0EB42021F3142F400838FE6 /* MediaEditorKit.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D01777241F1F8F100044446D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B7D969C2003261800A72810 /* JNWSpringAnimation.h in Headers */,
+				6BAC89A6200224060086BC7F /* MKLegacyComponentsContext.h in Headers */,
+				6BC5C2A92001DC2D00CAB9F4 /* SThreadPoolQueue.h in Headers */,
+				6BC5C2B92001DC2D00CAB9F4 /* SThreadPoolTask.h in Headers */,
+				6BC5C2DA2001DC2D00CAB9F4 /* SVariable.h in Headers */,
+				6BC5C2AA2001DC2D00CAB9F4 /* STimer.h in Headers */,
+				6BC5C2B32001DC2D00CAB9F4 /* SMulticastSignalManager.h in Headers */,
+				6BC5C2B22001DC2D00CAB9F4 /* SMetaDisposable.h in Headers */,
+				6BC5C2A82001DC2D00CAB9F4 /* SBlockDisposable.h in Headers */,
+				6BC5C2B82001DC2D00CAB9F4 /* SDisposableSet.h in Headers */,
+				6BC5C2BA2001DC2D00CAB9F4 /* SDisposable.h in Headers */,
+				6BC5C2CD2001DC2D00CAB9F4 /* SBag.h in Headers */,
+				6BC5C2C12001DC2D00CAB9F4 /* SAtomic.h in Headers */,
+				6BC5C2D62001DC2D00CAB9F4 /* SThreadPool.h in Headers */,
+				6BC5C2BC2001DC2D00CAB9F4 /* SQueue.h in Headers */,
+				6BC5C2DC2001DC2D00CAB9F4 /* SSignal+Catch.h in Headers */,
+				6BC5C2CE2001DC2D00CAB9F4 /* SSignal+Accumulate.h in Headers */,
+				6BC5C2A72001DC2D00CAB9F4 /* SSignal+Multicast.h in Headers */,
+				6BC5C2BE2001DC2D00CAB9F4 /* SSignal+Take.h in Headers */,
+				6BC5C2B62001DC2D00CAB9F4 /* SSubscriber.h in Headers */,
+				6BC5C2C72001DC2D00CAB9F4 /* SSignal+Timing.h in Headers */,
+				6BC5C2B42001DC2D00CAB9F4 /* SSignal+Dispatch.h in Headers */,
+				6BC5C2CC2001DC2D00CAB9F4 /* SSignal+Meta.h in Headers */,
+				6BC5C2AD2001DC2D00CAB9F4 /* SSignal+Single.h in Headers */,
+				6BC5C2D82001DC2D00CAB9F4 /* SSignal+Mapping.h in Headers */,
+				6BC5C2C62001DC2D00CAB9F4 /* SSignal+Combine.h in Headers */,
+				6BC5C2D42001DC2D00CAB9F4 /* SSignal+Pipe.h in Headers */,
+				6BC5C2CB2001DC2D00CAB9F4 /* SSignal+SideEffects.h in Headers */,
+				3B7D96932003261800A72810 /* NSValue+JNWAdditions.h in Headers */,
+				6BC5C2AC2001DC2D00CAB9F4 /* SSignal.h in Headers */,
+				6BC5C2D12001DC2D00CAB9F4 /* SSignalKit.h in Headers */,
+				D0177ADD1F23D9B80044446D /* SGraphObjectNode.h in Headers */,
+				D01778ED1F20CAE60044446D /* MKOverlayController.h in Headers */,
+				D017796B1F2103DB0044446D /* MKPhotoPaintEntity.h in Headers */,
+				D07BC7AE1F2A2B8900ED97AA /* GPUImageTwoInputFilter.h in Headers */,
+				D01778F71F20CDAC0044446D /* MKHacks.h in Headers */,
+				D01779031F20D16B0044446D /* FreedomUIKit.h in Headers */,
+				D01778A91F1FD0900044446D /* MKImageUtils.h in Headers */,
+				D07BC8991F2A375800ED97AA /* MKPhotoCropGridView.h in Headers */,
+				D07BC7861F2A2B3700ED97AA /* MKPhotoEditorTabController.h in Headers */,
+				6B52AC532001BB7200E35677 /* TGModernGalleryVideoView.h in Headers */,
+				D01779411F20FFF60044446D /* TGMediaAsset.h in Headers */,
+				D07BC9741F2A467D00ED97AA /* MKPhotoBrushSettingsView.h in Headers */,
+				D0177A7D1F2204640044446D /* TGModernButton.h in Headers */,
+				D07BC9191F2A380D00ED97AA /* MKPaintRadialBrush.h in Headers */,
+				D01779751F2104320044446D /* MKVideoEditAdjustments.h in Headers */,
+				D07BCA371F2A9B6A00ED97AA /* TGMediaAsset+TGMediaEditableItem.h in Headers */,
+				D07BC7361F2A2A7D00ED97AA /* MKPhotoEditorItem.h in Headers */,
+				D07BC77C1F2A2B3700ED97AA /* MKPhotoEditorItemController.h in Headers */,
+				D07BC7AC1F2A2B8900ED97AA /* GPUImageOutput.h in Headers */,
+				D01779431F20FFF60044446D /* TGMediaAssetFetchResult.h in Headers */,
+				D0177AD01F23D9810044446D /* ASQueue.h in Headers */,
+				D07BC8BF1F2A37EC00ED97AA /* MKPhotoPaintActionsView.h in Headers */,
+				D01779261F20FE480044446D /* TGObserverProxy.h in Headers */,
+				D07BC87F1F2A365000ED97AA /* MKProgressWindow.h in Headers */,
+				D01777511F1F8FE60044446D /* LegacyComponentsGlobals.h in Headers */,
+				D07BC91B1F2A380D00ED97AA /* MKPaintRender.h in Headers */,
+				D01779531F2100520044446D /* MKMediaEditingContext.h in Headers */,
+				D017772C1F1F8F100044446D /* MediaEditorKit.h in Headers */,
+				D017794F1F2100280044446D /* TGMediaSelectionContext.h in Headers */,
+				D017789D1F1FC99A0044446D /* LegacyComponentsInternal.h in Headers */,
+				D07BC71F1F2A29E400ED97AA /* MKPhotoToolbarView.h in Headers */,
+				D0177A1F1F21403E0044446D /* LegacyComponentsContext.h in Headers */,
+				D01778BA1F2009880044446D /* Freedom.h in Headers */,
+				D0177A321F21F1980044446D /* AVURLAsset+TGMediaItem.h in Headers */,
+				D07BC7171F2A29B700ED97AA /* MKPhotoEditorController.h in Headers */,
+				D01779641F2103910044446D /* TGPaintUtils.h in Headers */,
+				D07BC8C51F2A37EC00ED97AA /* MKPhotoPaintEntityView.h in Headers */,
+				6BFCA1782001D41B003F1D84 /* TGMenuView.h in Headers */,
+				D07BC9351F2A3BD100ED97AA /* MKPhotoTextEntityView.h in Headers */,
+				D07BC78E1F2A2B3700ED97AA /* MKPhotoEditorToolView.h in Headers */,
+				D01779491F20FFF60044446D /* TGMediaAssetMoment.h in Headers */,
+				D07BC9251F2A380D00ED97AA /* MKPaintSwatch.h in Headers */,
+				D07BC91D1F2A380D00ED97AA /* MKPaintShader.h in Headers */,
+				D0177A341F21F1980044446D /* UIImage+MKMediaEditableItem.h in Headers */,
+				D07BC7841F2A2B3700ED97AA /* MKPhotoEditorSliderView.h in Headers */,
+				D07BC89D1F2A375800ED97AA /* MKPhotoCropScrollView.h in Headers */,
+				D0177AD91F23D9B80044446D /* SGraphListNode.h in Headers */,
+				D07BC8CB1F2A37EC00ED97AA /* MKPhotoPaintSelectionContainerView.h in Headers */,
+				D07BC7371F2A2A7D00ED97AA /* MKPhotoEditorPicture.h in Headers */,
+				D0177AC71F23D92C0044446D /* ASActor.h in Headers */,
+				D07BC9271F2A380D00ED97AA /* MKPaintTexture.h in Headers */,
+				D07BC9721F2A467D00ED97AA /* MKPhotoTextSettingsView.h in Headers */,
+				D01779451F20FFF60044446D /* TGMediaAssetFetchResultChange.h in Headers */,
+				D0177A2C1F2145B80044446D /* LegacyComponentsAccessChecker.h in Headers */,
+				D07BC8C71F2A37EC00ED97AA /* MKPhotoPaintFont.h in Headers */,
+				D07BC7AA1F2A2B8900ED97AA /* GPUImageFramebufferCache.h in Headers */,
+				D01779601F2103680044446D /* MKPaintingData.h in Headers */,
+				D07BC8D31F2A37EC00ED97AA /* MKPhotoPaintTextEntity.h in Headers */,
+				D017794B1F20FFF60044446D /* TGMediaAssetMomentList.h in Headers */,
+				D07BC9231F2A380D00ED97AA /* MKPaintState.h in Headers */,
+				D01779311F20FFAC0044446D /* TGMediaAssetsLibrary.h in Headers */,
+				D01779711F2103FD0044446D /* MKPaintUndoManager.h in Headers */,
+				D07BC7A41F2A2B8900ED97AA /* GPUImageContext.h in Headers */,
+				D017792F1F20FFAC0044446D /* TGMediaAssetsLegacyLibrary.h in Headers */,
+				D07BC87D1F2A365000ED97AA /* MKProgressSpinnerView.h in Headers */,
+				D017790E1F20F4370044446D /* UIImage+TG.h in Headers */,
+				D07BC89F1F2A375800ED97AA /* MKPhotoCropView.h in Headers */,
+				D07BC7A11F2A2B8900ED97AA /* GLProgram.h in Headers */,
+				D07BC8C31F2A37EC00ED97AA /* MKPhotoPaintController.h in Headers */,
+				D01778C21F200AF70044446D /* TGAnimationBlockDelegate.h in Headers */,
+				D0177A431F21F62A0044446D /* MKMediaVideoConverter.h in Headers */,
+				D07BC78C1F2A2B3700ED97AA /* MKPhotoEditorToolButtonsView.h in Headers */,
+				D07BC92F1F2A3BA600ED97AA /* MKPhotoEntitiesContainerView.h in Headers */,
+				D017795C1F2103440044446D /* MKPhotoEditorValues.h in Headers */,
+				D07BC89B1F2A375800ED97AA /* MKPhotoCropRotationView.h in Headers */,
+				D07BC90F1F2A380D00ED97AA /* MKPaintingWrapperView.h in Headers */,
+				D01779581F21031F0044446D /* MKPhotoEditorUtils.h in Headers */,
+				D07BC73D1F2A2A7D00ED97AA /* MKPhotoEditorView.h in Headers */,
+				D0177ADB1F23D9B80044446D /* SGraphNode.h in Headers */,
+				D07BC7761F2A2B3700ED97AA /* MKPhotoEditorGenericToolView.h in Headers */,
+				D07BC93F1F2A3DB900ED97AA /* TGMessageImageViewOverlayView.h in Headers */,
+				D01778EF1F20CAE60044446D /* MKOverlayControllerWindow.h in Headers */,
+				D07BC9171F2A380D00ED97AA /* MKPaintPath.h in Headers */,
+				D07BC7801F2A2B3700ED97AA /* MKPhotoEditorPreviewView.h in Headers */,
+				D017797B1F21075C0044446D /* TGModernCache.h in Headers */,
+				D01779471F20FFF60044446D /* TGMediaAssetGroup.h in Headers */,
+				D01779A61F210A120044446D /* TGMediaAssetModernImageSignals.h in Headers */,
+				D07BC90B1F2A380D00ED97AA /* TGPaintFaceDetector.h in Headers */,
+				D07BC7A61F2A2B8900ED97AA /* GPUImageFilter.h in Headers */,
+				D0177ACE1F23D9810044446D /* ASHandle.h in Headers */,
+				D07BC90D1F2A380D00ED97AA /* MKPainting.h in Headers */,
+				D017796D1F2103DB0044446D /* MKPhotoPaintStickerEntity.h in Headers */,
+				D07BC8C11F2A37EC00ED97AA /* MKPhotoPaintColorPicker.h in Headers */,
+				D07BC9211F2A380D00ED97AA /* MKPaintSlice.h in Headers */,
+				D07BC8971F2A375800ED97AA /* MKPhotoCropController.h in Headers */,
+				D01779AA1F210A2C0044446D /* TGMediaAssetImageSignals.h in Headers */,
+				D07BC7A81F2A2B8900ED97AA /* GPUImageFramebuffer.h in Headers */,
+				D01779331F20FFAC0044446D /* TGMediaAssetsModernLibrary.h in Headers */,
+				D07BC8931F2A375800ED97AA /* MKPhotoCropAreaView.h in Headers */,
+				D017799C1F2108670044446D /* TGMemoryImageCache.h in Headers */,
+				D07BC9071F2A380D00ED97AA /* MKPaintEllipticalBrush.h in Headers */,
+				D07BC8761F2A2F7B00ED97AA /* TGWeakDelegate.h in Headers */,
+				D07BC8FF1F2A380D00ED97AA /* MKPaintBrush.h in Headers */,
+				D07BC7341F2A2A7D00ED97AA /* MKPhotoEditor.h in Headers */,
+				D07BC92B1F2A3A3F00ED97AA /* matrix.h in Headers */,
+				D07BC9111F2A380D00ED97AA /* MKPaintInput.h in Headers */,
+				D07BC9031F2A380D00ED97AA /* MKPaintBuffers.h in Headers */,
+				D07BC9011F2A380D00ED97AA /* MKPaintBrushPreview.h in Headers */,
+				D07BC6D71F2A18FE00ED97AA /* UIControl+HitTestEdgeInsets.h in Headers */,
+				D01778E91F20CAE60044446D /* MKViewController.h in Headers */,
+				D07BC9131F2A380D00ED97AA /* MKPaintNeonBrush.h in Headers */,
+				D01777661F1F8FE60044446D /* TGStringUtils.h in Headers */,
+				D07BC8CF1F2A37EC00ED97AA /* MKPhotoPaintSettingsWrapperView.h in Headers */,
+				D0177AD21F23D9810044446D /* ASWatcher.h in Headers */,
+				D07BC9051F2A380D00ED97AA /* MKPaintCanvas.h in Headers */,
+				D07BC7411F2A2AC500ED97AA /* MKPhotoEditorButton.h in Headers */,
+				D07BC93B1F2A3C1F00ED97AA /* MKPhotoQualityController.h in Headers */,
+				D0177AC51F23D92C0044446D /* ActionStage.h in Headers */,
+				D07BC8951F2A375800ED97AA /* MKPhotoCropControl.h in Headers */,
+				D07BC8CD1F2A37EC00ED97AA /* MKPhotoPaintSettingsView.h in Headers */,
+				D07BC77A1F2A2B3700ED97AA /* MKPhotoEditorInterfaceAssets.h in Headers */,
+				D07BC91F1F2A380D00ED97AA /* MKPaintShaderSet.h in Headers */,
+				D07BC9151F2A380D00ED97AA /* MKPaintPanGestureRecognizer.h in Headers */,
+				D0177A281F2144700044446D /* MKPhotoEditorAnimation.h in Headers */,
+				D07BC8D11F2A37EC00ED97AA /* MKPhotoPaintSparseView.h in Headers */,
+				D01778FF1F20D0040044446D /* MKColor.h in Headers */,
+				19ECFCF54E3C39D04FA99D5D /* NSObject+TGLock.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6B52AC202001B6AA00E35677 /* TestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B52AC2F2001B6AA00E35677 /* Build configuration list for PBXNativeTarget "TestUITests" */;
+			buildPhases = (
+				6B52AC1D2001B6AA00E35677 /* Sources */,
+				6B52AC1E2001B6AA00E35677 /* Frameworks */,
+				6B52AC1F2001B6AA00E35677 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestUITests;
+			productName = TestUITests;
+			productReference = 6B52AC212001B6AA00E35677 /* TestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		6BAC89752002189D0086BC7F /* Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BAC89942002189E0086BC7F /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				370B1A37E7854AF2C37593BE /* [CP] Check Pods Manifest.lock */,
+				6BAC89722002189D0086BC7F /* Sources */,
+				6BAC89742002189D0086BC7F /* Resources */,
+				6BAC89732002189D0086BC7F /* Frameworks */,
+				3B8C61452004CC8200F7C9D3 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B8C61442004CC8100F7C9D3 /* PBXTargetDependency */,
+			);
+			name = Test;
+			productName = Test;
+			productReference = 6BAC89762002189D0086BC7F /* Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6BAC898C2002189D0086BC7F /* TestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BAC899B2002189E0086BC7F /* Build configuration list for PBXNativeTarget "TestUITests" */;
+			buildPhases = (
+				6BAC89892002189D0086BC7F /* Sources */,
+				6BAC898A2002189D0086BC7F /* Frameworks */,
+				6BAC898B2002189D0086BC7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6BAC898F2002189E0086BC7F /* PBXTargetDependency */,
+			);
+			name = TestUITests;
+			productName = TestUITests;
+			productReference = 6BAC898D2002189D0086BC7F /* TestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		D01777261F1F8F100044446D /* MediaEditorKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D017772F1F1F8F100044446D /* Build configuration list for PBXNativeTarget "MediaEditorKit" */;
+			buildPhases = (
+				0E1CC846F32B81EB86081F62 /* [CP] Check Pods Manifest.lock */,
+				D01777221F1F8F100044446D /* Sources */,
+				D01777231F1F8F100044446D /* Frameworks */,
+				D01777241F1F8F100044446D /* Headers */,
+				D01777251F1F8F100044446D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MediaEditorKit;
+			productName = LegacyComponents;
+			productReference = D01777271F1F8F100044446D /* MediaEditorKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D017771E1F1F8F100044446D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Telegram;
+				TargetAttributes = {
+					6B52AC202001B6AA00E35677 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 57Y9Q45MLS;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6B52AC0D2001B6A900E35677;
+					};
+					6BAC8967200217C40086BC7F = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 57Y9Q45MLS;
+						ProvisioningStyle = Automatic;
+					};
+					6BAC89752002189D0086BC7F = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 57Y9Q45MLS;
+						ProvisioningStyle = Automatic;
+					};
+					6BAC898C2002189D0086BC7F = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 57Y9Q45MLS;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6BAC89752002189D0086BC7F;
+					};
+					D01777261F1F8F100044446D = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 57Y9Q45MLS;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D01777211F1F8F100044446D /* Build configuration list for PBXProject "MediaEditorKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D017771D1F1F8F100044446D;
+			productRefGroup = D01777281F1F8F100044446D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D01777261F1F8F100044446D /* MediaEditorKit */,
+				6B52AC202001B6AA00E35677 /* TestUITests */,
+				6BAC8967200217C40086BC7F /* framework */,
+				6BAC89752002189D0086BC7F /* Test */,
+				6BAC898C2002189D0086BC7F /* TestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B52AC1F2001B6AA00E35677 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BAC89742002189D0086BC7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B7D96C72003504D00A72810 /* MediaEditorKit.bundle in Resources */,
+				6BAC89852002189D0086BC7F /* LaunchScreen.storyboard in Resources */,
+				6BAC89822002189D0086BC7F /* Assets.xcassets in Resources */,
+				6BAC89802002189D0086BC7F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BAC898B2002189D0086BC7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D01777251F1F8F100044446D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8C61402004CAD200F7C9D3 /* MediaEditorKit.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E1CC846F32B81EB86081F62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MediaEditorKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		370B1A37E7854AF2C37593BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Test-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BAC896F200217CB0086BC7F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}/iOS\"\n\n# Step 1. Build Device and Simulator versions on iOS\nxcodebuild -workspace \"${PROJECT_NAME}.xcworkspace\" -scheme \"${PROJECT_NAME}\"  -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6' clean build\nxcodebuild -workspace \"${PROJECT_NAME}.xcworkspace\" -scheme \"${PROJECT_NAME}\" -sdk iphoneos clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/iOS\"\n\n# Step 3. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/iOS/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 4. Convenience step to copy the framework to the project's directory\nmkdir -p \"${TMPDIR}/${PROJECT_NAME}/Frameworks/iOS\"\n\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/iOS/${PROJECT_NAME}.framework\" \"${TMPDIR}/${PROJECT_NAME}/Frameworks/iOS\"\n\n\n# Step 6. Create .tar.gz file for posting on the binary repository\ncd \"${TMPDIR}\"\n\n# We nest the framework inside a Frameworks folder so that it unarchives correctly\ntar -zcf \"${PROJECT_NAME}.framework.tar.gz\" \"${PROJECT_NAME}/Frameworks/\"\nmv \"${PROJECT_NAME}.framework.tar.gz\" \"${PROJECT_DIR}/\"\n\n# Step 7. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B52AC1D2001B6AA00E35677 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B52AC262001B6AA00E35677 /* TestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BAC89722002189D0086BC7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BAC89A92002347B0086BC7F /* MediaEditorKit.bundle in Sources */,
+				6BAC897D2002189D0086BC7F /* ViewController.m in Sources */,
+				6BAC89882002189D0086BC7F /* main.m in Sources */,
+				6BAC897A2002189D0086BC7F /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BAC89892002189D0086BC7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BAC89922002189E0086BC7F /* TestUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D01777221F1F8F100044446D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BC5C2A62001DC2D00CAB9F4 /* SSignal+Combine.m in Sources */,
+				D07BC8D41F2A37EC00ED97AA /* MKPhotoPaintTextEntity.m in Sources */,
+				D07BC90C1F2A380D00ED97AA /* TGPaintFaceDetector.m in Sources */,
+				D0177ADA1F23D9B80044446D /* SGraphListNode.m in Sources */,
+				D01779271F20FE480044446D /* TGObserverProxy.m in Sources */,
+				D07BC8961F2A375800ED97AA /* MKPhotoCropControl.m in Sources */,
+				D017795D1F2103440044446D /* MKPhotoEditorValues.m in Sources */,
+				D0177ADC1F23D9B80044446D /* SGraphNode.m in Sources */,
+				D017794A1F20FFF60044446D /* TGMediaAssetMoment.m in Sources */,
+				D01779541F2100520044446D /* MKMediaEditingContext.m in Sources */,
+				D07BC7A71F2A2B8900ED97AA /* GPUImageFilter.m in Sources */,
+				D01779041F20D16B0044446D /* FreedomUIKit.m in Sources */,
+				6BC5C2CF2001DC2D00CAB9F4 /* SSignal.m in Sources */,
+				3B7D96952003261800A72810 /* NSValue+JNWAdditions.m in Sources */,
+				D01779441F20FFF60044446D /* TGMediaAssetFetchResult.m in Sources */,
+				6BC5C2AE2001DC2D00CAB9F4 /* SSignal+Accumulate.m in Sources */,
+				6BC5C2D32001DC2D00CAB9F4 /* SDisposableSet.m in Sources */,
+				D01778BB1F2009880044446D /* Freedom.mm in Sources */,
+				D0177A351F21F1980044446D /* UIImage+MKMediaEditableItem.m in Sources */,
+				6BC5C2C42001DC2D00CAB9F4 /* SBlockDisposable.m in Sources */,
+				D07BC8CE1F2A37EC00ED97AA /* MKPhotoPaintSettingsView.m in Sources */,
+				D01779591F21031F0044446D /* MKPhotoEditorUtils.m in Sources */,
+				D07BC8981F2A375800ED97AA /* MKPhotoCropController.m in Sources */,
+				D07BC9161F2A380D00ED97AA /* MKPaintPanGestureRecognizer.m in Sources */,
+				D017794C1F20FFF60044446D /* TGMediaAssetMomentList.m in Sources */,
+				D01779421F20FFF60044446D /* TGMediaAsset.m in Sources */,
+				D01779481F20FFF60044446D /* TGMediaAssetGroup.m in Sources */,
+				6BC5C2C52001DC2D00CAB9F4 /* SSignal+Multicast.m in Sources */,
+				D07BC9241F2A380D00ED97AA /* MKPaintState.m in Sources */,
+				D07BC7421F2A2AC500ED97AA /* MKPhotoEditorButton.m in Sources */,
+				D07BC6D81F2A18FE00ED97AA /* UIControl+HitTestEdgeInsets.m in Sources */,
+				D07BC91E1F2A380D00ED97AA /* MKPaintShader.m in Sources */,
+				D07BC7201F2A29E400ED97AA /* MKPhotoToolbarView.m in Sources */,
+				D07BC8CC1F2A37EC00ED97AA /* MKPhotoPaintSelectionContainerView.m in Sources */,
+				D07BC9221F2A380D00ED97AA /* MKPaintSlice.m in Sources */,
+				6BC5C2C92001DC2D00CAB9F4 /* SMetaDisposable.m in Sources */,
+				D01778C31F200AF70044446D /* TGAnimationBlockDelegate.m in Sources */,
+				6BFCA1772001D41B003F1D84 /* TGMenuView.m in Sources */,
+				D07BC9301F2A3BA600ED97AA /* MKPhotoEntitiesContainerView.m in Sources */,
+				D01779611F2103680044446D /* MKPaintingData.m in Sources */,
+				D07BC9061F2A380D00ED97AA /* MKPaintCanvas.m in Sources */,
+				D07BCB021F2B546400ED97AA /* LegacyComponentsContext.m in Sources */,
+				D01779A71F210A120044446D /* TGMediaAssetModernImageSignals.m in Sources */,
+				D07BC89A1F2A375800ED97AA /* MKPhotoCropGridView.m in Sources */,
+				D07BC7AB1F2A2B8900ED97AA /* GPUImageFramebufferCache.m in Sources */,
+				D017796E1F2103DB0044446D /* MKPhotoPaintStickerEntity.m in Sources */,
+				D07BC89C1F2A375800ED97AA /* MKPhotoCropRotationView.m in Sources */,
+				D01778EE1F20CAE60044446D /* MKOverlayController.m in Sources */,
+				6BC5C2B02001DC2D00CAB9F4 /* SSignal+Meta.m in Sources */,
+				D07BC7851F2A2B3700ED97AA /* MKPhotoEditorSliderView.m in Sources */,
+				D01778EA1F20CAE60044446D /* MKViewController.mm in Sources */,
+				D0177ACF1F23D9810044446D /* ASHandle.m in Sources */,
+				D017790F1F20F4370044446D /* UIImage+TG.m in Sources */,
+				D017776B1F1F909E0044446D /* LegacyComponentsGlobals.m in Sources */,
+				D07BC78D1F2A2B3700ED97AA /* MKPhotoEditorToolButtonsView.m in Sources */,
+				D07BC7351F2A2A7D00ED97AA /* MKPhotoEditor.m in Sources */,
+				D07BC9731F2A467D00ED97AA /* MKPhotoTextSettingsView.m in Sources */,
+				D07BC9751F2A467D00ED97AA /* MKPhotoBrushSettingsView.m in Sources */,
+				D07BC8C21F2A37EC00ED97AA /* MKPhotoPaintColorPicker.m in Sources */,
+				D07BC87E1F2A365000ED97AA /* MKProgressSpinnerView.m in Sources */,
+				D07BC7811F2A2B3700ED97AA /* MKPhotoEditorPreviewView.m in Sources */,
+				D07BCA381F2A9B6A00ED97AA /* TGMediaAsset+TGMediaEditableItem.m in Sources */,
+				D07BC92C1F2A3A3F00ED97AA /* matrix.m in Sources */,
+				D07BC7AD1F2A2B8900ED97AA /* GPUImageOutput.m in Sources */,
+				D07BC89E1F2A375800ED97AA /* MKPhotoCropScrollView.m in Sources */,
+				D0177A331F21F1980044446D /* AVURLAsset+TGMediaItem.m in Sources */,
+				D0177ADE1F23D9B80044446D /* SGraphObjectNode.m in Sources */,
+				6BC5C2BD2001DC2D00CAB9F4 /* SVariable.m in Sources */,
+				D07BC90E1F2A380D00ED97AA /* MKPainting.m in Sources */,
+				D0177A441F21F62A0044446D /* MKMediaVideoConverter.m in Sources */,
+				6BC5C2B72001DC2D00CAB9F4 /* SSignal+Pipe.m in Sources */,
+				6BC5C2B12001DC2D00CAB9F4 /* SSignal+SideEffects.m in Sources */,
+				D07BC8801F2A365000ED97AA /* MKProgressWindow.m in Sources */,
+				6BC5C2AF2001DC2D00CAB9F4 /* SBag.m in Sources */,
+				D07BC8771F2A2F7B00ED97AA /* TGWeakDelegate.m in Sources */,
+				D01779761F2104320044446D /* MKVideoEditAdjustments.m in Sources */,
+				D07BC7381F2A2A7D00ED97AA /* MKPhotoEditorPicture.m in Sources */,
+				D07BC7181F2A29B700ED97AA /* MKPhotoEditorController.m in Sources */,
+				6BC5C2BB2001DC2D00CAB9F4 /* SSignal+Catch.m in Sources */,
+				6BC5C2C22001DC2D00CAB9F4 /* STimer.m in Sources */,
+				6BC5C2B52001DC2D00CAB9F4 /* SSignal+Timing.m in Sources */,
+				D07BC8C61F2A37EC00ED97AA /* MKPhotoPaintEntityView.m in Sources */,
+				D07BC7A91F2A2B8900ED97AA /* GPUImageFramebuffer.m in Sources */,
+				D017797C1F21075C0044446D /* TGModernCache.m in Sources */,
+				6BC5C2AB2001DC2D00CAB9F4 /* SAtomic.m in Sources */,
+				D017796C1F2103DB0044446D /* MKPhotoPaintEntity.m in Sources */,
+				D07BC8A01F2A375800ED97AA /* MKPhotoCropView.m in Sources */,
+				D07BC9361F2A3BD100ED97AA /* MKPhotoTextEntityView.m in Sources */,
+				D07BC9001F2A380D00ED97AA /* MKPaintBrush.m in Sources */,
+				6BC5C2BF2001DC2D00CAB9F4 /* SSignal+Mapping.m in Sources */,
+				D01777671F1F8FE60044446D /* TGStringUtils.mm in Sources */,
+				D01779501F2100280044446D /* TGMediaSelectionContext.m in Sources */,
+				D07BC9121F2A380D00ED97AA /* MKPaintInput.m in Sources */,
+				D07BC9261F2A380D00ED97AA /* MKPaintSwatch.m in Sources */,
+				D017799D1F2108670044446D /* TGMemoryImageCache.m in Sources */,
+				D07BC77D1F2A2B3700ED97AA /* MKPhotoEditorItemController.m in Sources */,
+				D0177AD11F23D9810044446D /* ASQueue.m in Sources */,
+				6BC5C2D22001DC2D00CAB9F4 /* SThreadPoolTask.m in Sources */,
+				D07BC8D01F2A37EC00ED97AA /* MKPhotoPaintSettingsWrapperView.m in Sources */,
+				D07BC9101F2A380D00ED97AA /* MKPaintingWrapperView.m in Sources */,
+				D01778F81F20CDAC0044446D /* MKHacks.m in Sources */,
+				D01779301F20FFAC0044446D /* TGMediaAssetsLegacyLibrary.m in Sources */,
+				D07BC9201F2A380D00ED97AA /* MKPaintShaderSet.m in Sources */,
+				D07BC91C1F2A380D00ED97AA /* MKPaintRender.m in Sources */,
+				6BC5C2C02001DC2D00CAB9F4 /* SThreadPool.m in Sources */,
+				D07BC7771F2A2B3700ED97AA /* MKPhotoEditorGenericToolView.m in Sources */,
+				D07BC7A21F2A2B8900ED97AA /* GLProgram.m in Sources */,
+				D01779341F20FFAC0044446D /* TGMediaAssetsModernLibrary.m in Sources */,
+				3B7D96AD2003261800A72810 /* JNWSpringAnimation.m in Sources */,
+				D07BC77B1F2A2B3700ED97AA /* MKPhotoEditorInterfaceAssets.m in Sources */,
+				D07BC91A1F2A380D00ED97AA /* MKPaintRadialBrush.m in Sources */,
+				D07BC8C01F2A37EC00ED97AA /* MKPhotoPaintActionsView.m in Sources */,
+				D07BC8C81F2A37EC00ED97AA /* MKPhotoPaintFont.m in Sources */,
+				D0177AC61F23D92C0044446D /* ActionStage.mm in Sources */,
+				D07BC8C41F2A37EC00ED97AA /* MKPhotoPaintController.m in Sources */,
+				D07BC7A51F2A2B8900ED97AA /* GPUImageContext.m in Sources */,
+				D07BC9081F2A380D00ED97AA /* MKPaintEllipticalBrush.m in Sources */,
+				D0177A291F2144700044446D /* MKPhotoEditorAnimation.m in Sources */,
+				D07BC9401F2A3DB900ED97AA /* TGMessageImageViewOverlayView.m in Sources */,
+				D01779651F2103910044446D /* TGPaintUtils.m in Sources */,
+				D01779AB1F210A2C0044446D /* TGMediaAssetImageSignals.m in Sources */,
+				D01779321F20FFAC0044446D /* TGMediaAssetsLibrary.m in Sources */,
+				6BC5C2DB2001DC2D00CAB9F4 /* SQueue.m in Sources */,
+				6BC5C2C32001DC2D00CAB9F4 /* SThreadPoolQueue.m in Sources */,
+				D01778F01F20CAE60044446D /* MKOverlayControllerWindow.m in Sources */,
+				D07BC7AF1F2A2B8900ED97AA /* GPUImageTwoInputFilter.m in Sources */,
+				D07BC8D21F2A37EC00ED97AA /* MKPhotoPaintSparseView.m in Sources */,
+				D01779461F20FFF60044446D /* TGMediaAssetFetchResultChange.m in Sources */,
+				6BC5C2D52001DC2D00CAB9F4 /* SSubscriber.m in Sources */,
+				D07BC9181F2A380D00ED97AA /* MKPaintPath.m in Sources */,
+				D07BC73E1F2A2A7D00ED97AA /* MKPhotoEditorView.m in Sources */,
+				6BC5C2D72001DC2D00CAB9F4 /* SSignal+Take.m in Sources */,
+				D01779001F20D0040044446D /* MKColor.m in Sources */,
+				D07BC9021F2A380D00ED97AA /* MKPaintBrushPreview.m in Sources */,
+				D01778AA1F1FD0900044446D /* MKImageUtils.mm in Sources */,
+				D0177A7E1F2204640044446D /* TGModernButton.m in Sources */,
+				6BC5C2C82001DC2D00CAB9F4 /* SSignal+Dispatch.m in Sources */,
+				D07BC9041F2A380D00ED97AA /* MKPaintBuffers.m in Sources */,
+				D0177AC81F23D92C0044446D /* ASActor.m in Sources */,
+				6BC5C2D02001DC2D00CAB9F4 /* SSignal+Single.m in Sources */,
+				D01779721F2103FD0044446D /* MKPaintUndoManager.m in Sources */,
+				D07BC8941F2A375800ED97AA /* MKPhotoCropAreaView.m in Sources */,
+				D017789E1F1FC99A0044446D /* LegacyComponentsInternal.m in Sources */,
+				6B52AC522001BB7200E35677 /* TGModernGalleryVideoView.m in Sources */,
+				6BAC89A5200224060086BC7F /* MKLegacyComponentsContext.m in Sources */,
+				6BC5C2CA2001DC2D00CAB9F4 /* SMulticastSignalManager.m in Sources */,
+				D07BC9141F2A380D00ED97AA /* MKPaintNeonBrush.m in Sources */,
+				D07BC7871F2A2B3700ED97AA /* MKPhotoEditorTabController.m in Sources */,
+				D07BC93C1F2A3C1F00ED97AA /* MKPhotoQualityController.m in Sources */,
+				D07BC9281F2A380D00ED97AA /* MKPaintTexture.m in Sources */,
+				19ECFEADCBDAB252A22BD2F0 /* NSObject+TGLock.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B8C61442004CC8100F7C9D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D01777261F1F8F100044446D /* MediaEditorKit */;
+			targetProxy = 3B8C61432004CC8100F7C9D3 /* PBXContainerItemProxy */;
+		};
+		6BAC898F2002189E0086BC7F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6BAC89752002189D0086BC7F /* Test */;
+			targetProxy = 6BAC898E2002189E0086BC7F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6BAC897E2002189D0086BC7F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BAC897F2002189D0086BC7F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6BAC89832002189D0086BC7F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BAC89842002189D0086BC7F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6B52AC322001B6AA00E35677 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liao.TestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Test;
+			};
+			name = Debug;
+		};
+		6B52AC332001B6AA00E35677 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liao.TestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Test;
+			};
+			name = Release;
+		};
+		6BAC8969200217C40086BC7F /* Debug AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Debug AppStore";
+		};
+		6BAC896B200217C40086BC7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6BAC896C200217C40086BC7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6BAC896D200217C40086BC7F /* Release AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Release AppStore";
+		};
+		6BAC896E200217C40086BC7F /* Release Hockeyapp */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Release Hockeyapp";
+		};
+		6BAC89972002189E0086BC7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6D7466DE05D6109F74404A8 /* Pods-Test.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liao.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6BAC89982002189E0086BC7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 266BC7229ACB3AE28DB2BE88 /* Pods-Test.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liao.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6BAC899E2002189E0086BC7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liao.TestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Test;
+			};
+			name = Debug;
+		};
+		6BAC899F2002189E0086BC7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57Y9Q45MLS;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liao.TestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Test;
+			};
+			name = Release;
+		};
+		D017772E1F1F8F100044446D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D01777311F1F8F100044446D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDB34F0102A85A8627EEBD43 /* Pods-MediaEditorKit.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../thirdparty/SSignalKit",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MediaEditorKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"pop\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.liao.MediaEditorKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D01778931F1FA58C0044446D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D01778941F1FA58C0044446D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A211412F43EBE1D7BF92ABC /* Pods-MediaEditorKit.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../thirdparty/SSignalKit",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MediaEditorKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"pop\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.liao.MediaEditorKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6B52AC2F2001B6AA00E35677 /* Build configuration list for PBXNativeTarget "TestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B52AC322001B6AA00E35677 /* Debug */,
+				6B52AC332001B6AA00E35677 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BAC8968200217C40086BC7F /* Build configuration list for PBXAggregateTarget "framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BAC8969200217C40086BC7F /* Debug AppStore */,
+				6BAC896B200217C40086BC7F /* Debug */,
+				6BAC896C200217C40086BC7F /* Release */,
+				6BAC896D200217C40086BC7F /* Release AppStore */,
+				6BAC896E200217C40086BC7F /* Release Hockeyapp */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BAC89942002189E0086BC7F /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BAC89972002189E0086BC7F /* Debug */,
+				6BAC89982002189E0086BC7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BAC899B2002189E0086BC7F /* Build configuration list for PBXNativeTarget "TestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BAC899E2002189E0086BC7F /* Debug */,
+				6BAC899F2002189E0086BC7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D01777211F1F8F100044446D /* Build configuration list for PBXProject "MediaEditorKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D01778931F1FA58C0044446D /* Debug */,
+				D017772E1F1F8F100044446D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D017772F1F1F8F100044446D /* Build configuration list for PBXNativeTarget "MediaEditorKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D01778941F1FA58C0044446D /* Debug */,
+				D01777311F1F8F100044446D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D017771E1F1F8F100044446D /* Project object */;
+}

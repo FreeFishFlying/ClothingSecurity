@@ -1,0 +1,58 @@
+{
+  "name": "Album",
+  "version": "0.1.0",
+  "summary": "A short description of Album.",
+  "description": "This is a album pod library",
+  "homepage": "https://github.com/Dylan Wang/Album",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Dylan Wang": "dylan@liao.com"
+  },
+  "source": {
+    "git": "http://180.166.126.162:9000/components/Album.git"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Album/Classes/**/*.swift",
+  "resource_bundles": {
+    "Album": [
+      "Album/Assets/*"
+    ]
+  },
+  "dependencies": {
+    "SnapKit": [
+
+    ],
+    "ReactiveSwift": [
+
+    ],
+    "ReactiveCocoa": [
+
+    ],
+    "pop": [
+
+    ],
+    "PinLayout": [
+
+    ],
+    "Mesh": [
+
+    ],
+    "Core": [
+
+    ],
+    "AlertController": [
+
+    ],
+    "MediaEditorKit": [
+
+    ],
+    "HUD": [
+
+    ]
+  }
+}

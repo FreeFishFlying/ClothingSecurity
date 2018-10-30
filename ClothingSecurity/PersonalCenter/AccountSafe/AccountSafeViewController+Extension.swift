@@ -27,6 +27,16 @@ class SafeAccountCell: Cell<String>, CellType {
         }
     }
     
+    var url: String? {
+        didSet {
+            if let url = url, let path = URL(string: url) {
+                icon.kf.setImage(with: path, placeholder: imageNamed("ic_defalult_logo"), options: nil, progressBlock: nil, completionHandler: nil)
+            } else {
+                icon.image = imageNamed("ic_defalult_logo")
+            }
+        }
+    }
+    
     public override func setup() {
         super.setup()
         addSubview(nameLabel)
@@ -68,6 +78,7 @@ class SafeAccountCell: Cell<String>, CellType {
     
     private let icon: UIImageView = {
         let icon = UIImageView()
+        icon.image = imageNamed("ic_defalult_logo")
         return icon
     }()
     
