@@ -120,6 +120,7 @@ open class HttpRequestPacket<T: HttpResponseData> {
                         logger.info("[Http][In] \((request.request?.url?.absoluteString ?? "")) " + (json.rawString(options: []) ?? ""))
                         if let code = response.response?.statusCode, code == 401 {
                             LoginAndRegisterFacade.shared.changeLoginState(value: true)
+                            UserItem.loginOut()
                         }
                         if response.response?.statusCode ?? 200 >= 400 {
                             observer.send(error: NSError(domain: internalErrorDomain, code: json["code"].intValue, userInfo: ["message" : json["message"].stringValue]))

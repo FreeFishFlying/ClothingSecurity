@@ -12,7 +12,6 @@ import SnapKit
 import Eureka
 
 class PersonalCenterViewController: GroupedFormViewController {
-    var hasLogin: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -22,30 +21,28 @@ class PersonalCenterViewController: GroupedFormViewController {
         configTableView()
         configTabViewCell()
         registerEvent()
-        LoginAndRegisterFacade.shared.obserUserItemChange().observeValues { [weak self] item in
-            guard let `self` = self else { return }
-            self.currentUser = item
-        }
     }
     
     var currentUser: UserItem? {
         didSet {
             if let user = currentUser {
-                hasLogin = true
-                header.item = (url: user.avatar, name: user.nickName, account: user.mobile)
-                header.canLogin = false
                 LoginState.shared.hasLogin = true
+                header.item = (url: user.avatar, name: user.nickName, account: user.mobile)
+                header.canLogin = !LoginState.shared.hasLogin
+                
             } else {
                 header.item = nil
-                header.title = "登录/注册"
-                hasLogin = false
-                header.canLogin = true
                 LoginState.shared.hasLogin = false
+                header.canLogin = !LoginState.shared.hasLogin
             }
         }
     }
     
     private func registerEvent() {
+        LoginAndRegisterFacade.shared.obserUserItemChange().observeValues { [weak self] item in
+            guard let `self` = self else { return }
+            self.currentUser = item
+        }
         LoginAndRegisterFacade.shared.appWillLoginOut().take(during: reactive.lifetime).observeValues { [weak self] value in
             if value {
                 let controller = LoginViewController()
@@ -96,6 +93,7 @@ class PersonalCenterViewController: GroupedFormViewController {
                 row.cell.title = "我的收藏"
                 row.cell.imageName = "ic_myFavourite"
                 row.onCellSelection({ (_, _) in
+                    if LoginState.shared.hasLogin {}
                 })
                 row.cell.height = { 67 }
         }
@@ -105,9 +103,11 @@ class PersonalCenterViewController: GroupedFormViewController {
                 row.cell.imageName = "ic_accountSafe"
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
-                    let controller = AccountSafeViewController()
-                    controller.hidesBottomBarWhenPushed = true
-                    self.navigationController?.pushViewController(controller, animated: true)
+                    if LoginState.shared.hasLogin {
+                        let controller = AccountSafeViewController()
+                        controller.hidesBottomBarWhenPushed = true
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }
                 })
                 row.cell.height = { 67 }
         }
@@ -123,7 +123,12 @@ class PersonalCenterViewController: GroupedFormViewController {
             <<< PersonalCenterCellRow { row in
                 row.cell.title = "设置"
                 row.cell.imageName = "ic_set"
-                row.onCellSelection({ (_, _) in
+                row.onCellSelection({ [weak self] (_, _) in
+                    if LoginState.shared.hasLogin {
+                        let controller = AccountSettingViewController()
+                        controller.hidesBottomBarWhenPushed = true
+                        self?.navigationController?.pushViewController(controller, animated: true)
+                    }
                 })
                 row.cell.height = { 67 }
         }
@@ -154,6 +159,7 @@ fileprivate class LoginHeaderView: UIView {
                 nameLabel.snp.remakeConstraints { make in
                     make.left.equalTo(icon.snp.right).offset(12)
                     make.bottom.equalTo(icon.snp.centerY)
+                    make.right.equalToSuperview().offset(-15)
                 }
                 if let url = item.url, let path = URL(string: url) {
                     icon.kf.setImage(with: path, placeholder: imageNamed("ic_defalult_logo"), options: nil, progressBlock: nil, completionHandler: nil)
@@ -161,13 +167,14 @@ fileprivate class LoginHeaderView: UIView {
                     icon.image = imageNamed("ic_defalult_logo")
                 }
             } else {
-                nameLabel.snp.makeConstraints { make in
+                nameLabel.snp.remakeConstraints { make in
                     make.left.equalTo(icon.snp.right).offset(12)
                     make.centerY.equalTo(icon.snp.centerY)
                     make.right.equalToSuperview().offset(-15)
                 }
                 icon.image = imageNamed("ic_defalult_logo")
                 accountLabel.text = nil
+                title = "登录/注册"
             }
         }
     }

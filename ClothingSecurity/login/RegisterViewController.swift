@@ -101,6 +101,7 @@ class RegisterViewController: BaseLoginViewController {
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
                 if value.isSuccess() {
+                    HUD.tip(text: "验证码已发出，请注意查收")
                     self.isEnable = false
                     self.countdownTimer = TimerProxy(withInterval: 1.0, repeats: true, timerHandler: { [weak self] in
                         self?.doCountDown()
@@ -163,8 +164,6 @@ class RegisterViewController: BaseLoginViewController {
                 }
             }
         }
-        
-        
     }
     
     private let nextButton: DarkKeyButton = DarkKeyButton(title: "下一步")

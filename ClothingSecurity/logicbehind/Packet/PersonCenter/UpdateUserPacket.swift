@@ -49,6 +49,7 @@ class UpdateUserPacket: HttpRequestPacket<LoginResponseData> {
     override func send() -> SignalProducer<LoginResponseData, NSError> {
         return super.send().on(value: { data in
             if let user = data.userItem {
+                UserItem.save(user)
                 LoginAndRegisterFacade.shared.userChangePip.input.send(value: user)
             }
         })

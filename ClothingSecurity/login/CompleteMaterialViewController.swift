@@ -46,7 +46,7 @@ class CompleteMaterialViewController: BaseLoginViewController {
     @objc func complete() {
         if let value = configData() {
             let info = ["nickName": value.nickname, "gender": value.sexType, "password": value.pd]
-            LoginAndRegisterFacade.shared.updateUserInfo(value: info).startWithResult { [weak self] result in
+            PersonCenterFacade.shared.updateUserInfo(value: info).startWithResult { [weak self] result in
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
                 if value.isSuccess() {

@@ -85,6 +85,9 @@ class SafeAccountCell: Cell<String>, CellType {
     private let icon: UIImageView = {
         let icon = UIImageView()
         icon.image = imageNamed("ic_defalult_logo")
+        icon.contentMode = UIView.ContentMode.scaleAspectFill
+        icon.layer.cornerRadius = 23.5
+        icon.layer.masksToBounds = true
         return icon
     }()
     

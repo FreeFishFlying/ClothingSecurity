@@ -19,14 +19,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ClothingSecurity/login/RegisterViewController.swift"
-            timestampString = "562505540.957563"
+            filePath = "ClothingSecurity/PersonalCenter/PersonalCenterViewController.swift"
+            timestampString = "562649585.3103369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "getCode()"
-            landmarkType = "7">
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "item"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

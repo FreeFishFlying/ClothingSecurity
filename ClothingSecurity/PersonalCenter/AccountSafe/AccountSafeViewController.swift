@@ -16,12 +16,17 @@ import Mesh
 import SwiftyJSON
 
 class AccountSafeViewController: GroupedFormViewController {
+    var userItem = UserItem.current()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         title = "账户安全"
         configTableView()
         configTableViewCell()
+        LoginAndRegisterFacade.shared.obserUserItemChange().observeValues { [weak self] item in
+            self?.userItem = item
+            self?.tableView.reloadData()
+        }
     }
     
     private func configTableView() {
@@ -38,40 +43,55 @@ class AccountSafeViewController: GroupedFormViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "头像"
-                row.cell.showIcon = true 
+                row.cell.showIcon = true
+                row.cell.url = userItem?.avatar
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
                     self.uploadImage()
                 })
                 row.cell.height = { 67 }
+                row.cellUpdate({ [weak self] cell, _ in
+                    cell.url = self?.userItem?.avatar
+                })
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "昵称"
                 row.cell.showIcon = false
+                row.cell.content = userItem?.nickName
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
-                    let controller = ChangeUserNameViewController()
+                    let controller = ChangeUserNameViewController(nickName: self.userItem?.nickName)
                     self.navigationController?.pushViewController(controller, animated: true)
                 })
                 row.cell.height = { 67 }
+                row.cellUpdate({ [weak self] cell, _ in
+                    cell.content = self?.userItem?.nickName
+                })
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "绑定手机号"
                 row.cell.showIcon = false
+                row.cell.content = userItem?.mobile
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
-                    let controller = ChangeMobileViewController()
+                    let controller = DetailMobileViewController()
                     self.navigationController?.pushViewController(controller, animated: true)
                 })
                 row.cell.height = { 67 }
+                row.cellUpdate({ [weak self] cell, _ in
+                    cell.content = self?.userItem?.mobile
+                })
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "修改密码"
                 row.cell.showIcon = false
-                row.onCellSelection({ (_, _) in
+                row.onCellSelection({ [weak self] (_, _) in
+                    guard let `self` = self else { return }
+                    let controller = ChangePasswordViewController()
+                    self.navigationController?.pushViewController(controller, animated: true)
                 })
                 row.cell.height = { 67 }
         }
@@ -82,12 +102,7 @@ class AccountSafeViewController: GroupedFormViewController {
             PopoverImagePicker.choosePhoto(actionSheetActions: [], navigationControllerClass: ThemeNavigationController.self) { image -> Void in
                 if let image = image {
                     if let data = image.pngData(){
-                        LoginAndRegisterFacade.shared.uploadHeaderImage(value: data).observe({ [weak self] result in
-                            guard let `self` = self else { return }
-                            guard let value = result.value else { return }
-                            guard let model = value.imageModel else { return }
-                            print("url = \(model.url)")
-                        })
+                        PersonCenterFacade.shared.uploadHeaderImage(value: data)
                     }
                 }
             }

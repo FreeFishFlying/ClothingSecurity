@@ -125,10 +125,19 @@ class LoginViewController: BaseLoginViewController {
         if pdRow.cell.textFieldText == nil {
             HUD.flashError(title: "密码不能为空")
         }
+        HUD.show(.progress)
         if let mobile = mobileRow.cell.textFieldText, let pd = pdRow.cell.textFieldText {
             LoginAndRegisterFacade.shared.login(mobile: mobile, password: pd).startWithResult { [weak self] result in
+                HUD.hide()
                 guard let `self` = self else { return }
-                self.navigationController?.popToRootViewController(animated: true)
+                guard let value = result.value else { return }
+                if value.isSuccess() {
+                    self.navigationController?.popToRootViewController(animated: true)
+                } else {
+                    if let content = value.tipMesage() {
+                        HUD.flashError(title: content)
+                    }
+                }
             }
         }
         

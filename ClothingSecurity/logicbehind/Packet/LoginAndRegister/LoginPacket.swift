@@ -17,8 +17,8 @@ public class LoginResponseData: HttpResponseData {
         super.init(json: json)
         guard let json = json else { return }
         userItem = UserItem.create(json: json["data"])
-        if let user = userItem {
-            UserItem.save(user)
+        if let user = userItem, user.id.isEmpty {
+            userItem = nil
         }
     }
 }
@@ -49,6 +49,15 @@ class LoginPacket: HttpRequestPacket<LoginResponseData> {
     
     override func requestParameter() -> [String: Any]? {
         return ["mobile": mobile, "password": pd]
+    }
+    
+    override func send() -> SignalProducer<LoginResponseData, NSError> {
+        return super.send().on(value: { data in
+            if let user = data.userItem {
+                UserItem.save(user)
+                LoginAndRegisterFacade.shared.userChangePip.input.send(value: user)
+            }
+        })
     }
 }
 

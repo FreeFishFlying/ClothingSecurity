@@ -122,6 +122,9 @@ class UserItem: NSObject, NSCoding {
     class func loginOut() {
         let clearUser = UserItem()
         UserItem.save(clearUser)
+        UserDefaults.standard.set(nil, forKey: "authorization")
+        UserDefaults.standard.synchronize()
+        LoginAndRegisterFacade.shared.userChangePip.input.send(value: nil)
     }
 }
 

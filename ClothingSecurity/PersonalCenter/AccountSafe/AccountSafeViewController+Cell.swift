@@ -34,6 +34,15 @@ class NormalSafeAccountCell: Cell<String>, CellType {
         }
     }
     
+    var content: String? {
+        set {
+            textField.text = newValue
+        }
+        get {
+            return textField.text
+        }
+    }
+    
     override func setup() {
         super.setup()
         addSubview(nameLabel)
@@ -64,7 +73,7 @@ class NormalSafeAccountCell: Cell<String>, CellType {
         return label
     }()
     
-    private let textField: UITextField = {
+    let textField: UITextField = {
         let tf = UITextField()
         tf.backgroundColor = UIColor.clear
         return tf
@@ -103,6 +112,31 @@ class NormalSafeAccounbtVerifyCell: Cell<String>, CellType {
         }
     }
     
+    var buttonTitle: String? {
+        didSet {
+            verifyButton.setTitle(buttonTitle, for: .normal)
+        }
+    }
+    
+    var code: String? {
+        return textField.text
+    }
+    
+    var buttonEnable: Bool? {
+        didSet {
+            if let enalbe = buttonEnable {
+                verifyButton.isEnabled = enalbe
+                if enalbe {
+                    verifyButton.backgroundColor = UIColor.black
+                    verifyButton.setTitleColor(UIColor(red: 255.0 / 255.0, green: 239.0 / 255.0, blue: 4.0 / 255.0, alpha: 1.0), for: .normal)
+                } else {
+                    verifyButton.backgroundColor = UIColor(hexString: "#d9d9d9")
+                    verifyButton.setTitleColor(UIColor.white, for: .normal)
+                }
+            }
+        }
+    }
+    
     override func setup() {
         super.setup()
         addSubview(nameLabel)
@@ -120,7 +154,7 @@ class NormalSafeAccounbtVerifyCell: Cell<String>, CellType {
         addSubview(textField)
         textField.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(103)
-            make.right.equalTo(verifyButton.snp.right).offset(-10)
+            make.right.equalTo(verifyButton.snp.left).offset(-10)
             make.centerY.equalToSuperview()
         }
         addSubview(line)

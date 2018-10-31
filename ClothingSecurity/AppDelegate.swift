@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func updateAuthInfo() {
         if UserItem.current() != nil {
-            LoginAndRegisterFacade.shared.updateAuthInfo()
+            PersonCenterFacade.shared.updateAuthInfo()
         }
     }
 
