@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B28F06007EA7C0E9C33C8058 /* Pods_ClothingSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46ABE2E877479909907E94E /* Pods_ClothingSecurity.framework */; };
+		B30E01E3218B4BA3005F2C0C /* BrandIntroductionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E01E2218B4BA3005F2C0C /* BrandIntroductionModel.swift */; };
+		B30E01E5218B5684005F2C0C /* PopularWearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E01E4218B5684005F2C0C /* PopularWearModel.swift */; };
+		B30E01E7218B56E0005F2C0C /* LatestMainPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E01E6218B56E0005F2C0C /* LatestMainPushModel.swift */; };
+		B30E01EC218B6AAE005F2C0C /* PopularWearPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E01EB218B6AAE005F2C0C /* PopularWearPacket.swift */; };
+		B30E01EE218B6AF6005F2C0C /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E01ED218B6AF6005F2C0C /* Good.swift */; };
+		B30E01F0218B6F96005F2C0C /* GoodsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E01EF218B6F96005F2C0C /* GoodsFacade.swift */; };
 		B30FD84D21860B9E0004BABB /* AccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84921860B9E0004BABB /* AccountSafeViewController.swift */; };
 		B30FD84E21860B9E0004BABB /* AccountSafeViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84A21860B9E0004BABB /* AccountSafeViewController+Cell.swift */; };
 		B30FD84F21860B9E0004BABB /* ChangeUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */; };
@@ -103,6 +109,12 @@
 /* Begin PBXFileReference section */
 		2E1F02F363D9AC4716C70A67 /* Pods-ClothingSecurity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.release.xcconfig"; sourceTree = "<group>"; };
 		5C96C59233EE40489AFE0B89 /* Pods-ClothingSecurity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.debug.xcconfig"; sourceTree = "<group>"; };
+		B30E01E2218B4BA3005F2C0C /* BrandIntroductionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandIntroductionModel.swift; sourceTree = "<group>"; };
+		B30E01E4218B5684005F2C0C /* PopularWearModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularWearModel.swift; sourceTree = "<group>"; };
+		B30E01E6218B56E0005F2C0C /* LatestMainPushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushModel.swift; sourceTree = "<group>"; };
+		B30E01EB218B6AAE005F2C0C /* PopularWearPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularWearPacket.swift; sourceTree = "<group>"; };
+		B30E01ED218B6AF6005F2C0C /* Good.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
+		B30E01EF218B6F96005F2C0C /* GoodsFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsFacade.swift; sourceTree = "<group>"; };
 		B30FD84921860B9E0004BABB /* AccountSafeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSafeViewController.swift; sourceTree = "<group>"; };
 		B30FD84A21860B9E0004BABB /* AccountSafeViewController+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountSafeViewController+Cell.swift"; sourceTree = "<group>"; };
 		B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserNameViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +233,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B30E01E1218B4B7E005F2C0C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B30E01E2218B4BA3005F2C0C /* BrandIntroductionModel.swift */,
+				B30E01E4218B5684005F2C0C /* PopularWearModel.swift */,
+				B30E01E6218B56E0005F2C0C /* LatestMainPushModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B30E01EA218B6A90005F2C0C /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+				B30E01EB218B6AAE005F2C0C /* PopularWearPacket.swift */,
+			);
+			path = Goods;
+			sourceTree = "<group>";
+		};
 		B30FD84821860B9E0004BABB /* AccountSafe */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +337,7 @@
 				B32612402186B0E4002A2E51 /* HttpRequest */,
 				B326124C2186B5CE002A2E51 /* LoginAndRegisterFacade.swift */,
 				B3B1AD102189AE1D001BBB32 /* PersonCenterFacade.swift */,
+				B30E01EF218B6F96005F2C0C /* GoodsFacade.swift */,
 			);
 			path = Facade;
 			sourceTree = "<group>";
@@ -324,6 +355,7 @@
 			children = (
 				B32612522186DFD1002A2E51 /* UserItem.swift */,
 				B3248D332188322000BF7485 /* ImageModel.swift */,
+				B30E01ED218B6AF6005F2C0C /* Good.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +363,7 @@
 		B32612442186B14A002A2E51 /* Packet */ = {
 			isa = PBXGroup;
 			children = (
+				B30E01EA218B6A90005F2C0C /* Goods */,
 				B3B1AD122189AE9D001BBB32 /* PersonCenter */,
 				B32612452186B176002A2E51 /* LoginAndRegister */,
 			);
@@ -380,6 +413,7 @@
 		B344CEC3216D96B1005CA9B3 /* MainContent */ = {
 			isa = PBXGroup;
 			children = (
+				B30E01E1218B4B7E005F2C0C /* ViewModel */,
 				B32256DC218B32840032A019 /* Render */,
 				B3B62FBF216DCBB10006A39E /* MainContentViewController.swift */,
 			);
@@ -801,6 +835,7 @@
 				B30FD8522186117C0004BABB /* ChangeMobileViewController.swift in Sources */,
 				B3248D3021880E6F00BF7485 /* AppAuthorizationUtil.swift in Sources */,
 				B3B1AD172189AE9D001BBB32 /* AuthUserInfoPacket.swift in Sources */,
+				B30E01EE218B6AF6005F2C0C /* Good.swift in Sources */,
 				B364D76921819CD50081593D /* ScanningViewController.swift in Sources */,
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
 				B34638AE21835C0F002B1CF3 /* BaseLoginViewController.swift in Sources */,
@@ -812,6 +847,7 @@
 				B34638AC21835AFC002B1CF3 /* CompleteMaterialViewController.swift in Sources */,
 				B32612532186DFD1002A2E51 /* UserItem.swift in Sources */,
 				B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */,
+				B30E01E5218B5684005F2C0C /* PopularWearModel.swift in Sources */,
 				B35DBB48216C9FA800CAFDAD /* Apperance.swift in Sources */,
 				B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */,
 				B3B1AD0D2189AA50001BBB32 /* ChangePasswordViewController.swift in Sources */,
@@ -822,6 +858,7 @@
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
 				B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */,
+				B30E01E7218B56E0005F2C0C /* LatestMainPushModel.swift in Sources */,
 				B32612492186B1E8002A2E51 /* GetAuthCodePacket.swift in Sources */,
 				B35DBB4C216CAAC600CAFDAD /* UIKit+extension.swift in Sources */,
 				B3B1AD162189AE9D001BBB32 /* ChangePasswordPacket.swift in Sources */,
@@ -830,6 +867,7 @@
 				B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */,
 				B30FD84E21860B9E0004BABB /* AccountSafeViewController+Cell.swift in Sources */,
 				B34638B0218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift in Sources */,
+				B30E01EC218B6AAE005F2C0C /* PopularWearPacket.swift in Sources */,
 				B3248D2E21880D9200BF7485 /* AlbumHelper.swift in Sources */,
 				B30FD84D21860B9E0004BABB /* AccountSafeViewController.swift in Sources */,
 				B3B1AD112189AE1D001BBB32 /* PersonCenterFacade.swift in Sources */,
@@ -838,7 +876,9 @@
 				B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */,
 				B3B1AD072189969F001BBB32 /* LoginOutPacket.swift in Sources */,
 				B3B1AD1A2189AFAC001BBB32 /* UpdateUserPacket.swift in Sources */,
+				B30E01E3218B4BA3005F2C0C /* BrandIntroductionModel.swift in Sources */,
 				B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */,
+				B30E01F0218B6F96005F2C0C /* GoodsFacade.swift in Sources */,
 				B3B1AD0521899193001BBB32 /* ForgetPasswordPacket.swift in Sources */,
 				B364D76D21819CD50081593D /* SLScannerView.swift in Sources */,
 				B322EFEE216F2D0B0077EE02 /* SLQRCodeHelper.swift in Sources */,

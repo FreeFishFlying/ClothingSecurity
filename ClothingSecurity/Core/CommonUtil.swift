@@ -58,7 +58,6 @@ extension UIBarButtonItem {
 }
 
 class DarkKeyButton: UIButton {
-    
     init(title: String) {
         super.init(frame: .zero)
         backgroundColor = UIColor.black
@@ -66,6 +65,23 @@ class DarkKeyButton: UIButton {
         layer.cornerRadius = 22
         layer.masksToBounds = true
         setTitle(title, for: .normal)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class HeaderCellButton: UIButton {
+    init(_ title: String) {
+        super.init(frame: .zero)
+        backgroundColor = UIColor.clear
+        setTitleColor(UIColor(hexString: "#323333"), for: .normal)
+        setTitle(title, for: .normal)
+        titleLabel?.font = UIFont(name: "PingFangSC-Semibold", size: 19.0)
+        setImage(imageNamed("icon_right"), for: .normal)
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 10)
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: 95, bottom: 0, right: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
