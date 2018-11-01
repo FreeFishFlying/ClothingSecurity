@@ -17,13 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Entrance.styleNavgationBar()
         window?.rootViewController = Entrance.entrance()
         applyStyle()
-        //updateAuthInfo()
+        updateAuthInfo()
         return true
     }
     
     private func updateAuthInfo() {
         if UserItem.current() != nil {
+            LoginState.shared.hasLogin = true
             PersonCenterFacade.shared.updateAuthInfo()
+        } else {
+            LoginState.shared.hasLogin = false
         }
     }
 

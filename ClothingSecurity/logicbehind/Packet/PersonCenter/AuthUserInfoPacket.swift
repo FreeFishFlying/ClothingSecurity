@@ -13,10 +13,6 @@ import SwiftyJSON
 
 class AuthUserInfoPacket: HttpRequestPacket<LoginResponseData> {
     
-    required public init() {
-        fatalError("init() has not been implemented")
-    }
-    
     override func requestUrl() -> URL {
         return URL(string: "/get_auth_info")!
     }

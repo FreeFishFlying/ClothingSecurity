@@ -119,20 +119,6 @@ class PersonalCenterViewController: GroupedFormViewController {
                 })
                 row.cell.height = { 67 }
         }
-        form +++ fixHeightHeaderSection(height: 0)
-            <<< PersonalCenterCellRow { row in
-                row.cell.title = "设置"
-                row.cell.imageName = "ic_set"
-                row.onCellSelection({ [weak self] (_, _) in
-                    if LoginState.shared.hasLogin {
-                        let controller = AccountSettingViewController()
-                        controller.hidesBottomBarWhenPushed = true
-                        self?.navigationController?.pushViewController(controller, animated: true)
-                    }
-                })
-                row.cell.height = { 67 }
-        }
-        
     }
     
     private let header: LoginHeaderView = LoginHeaderView()

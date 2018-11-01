@@ -13,6 +13,9 @@
 		B30FD84F21860B9E0004BABB /* ChangeUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */; };
 		B30FD85021860B9E0004BABB /* AccountSafeViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84C21860B9E0004BABB /* AccountSafeViewController+Extension.swift */; };
 		B30FD8522186117C0004BABB /* ChangeMobileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD8512186117C0004BABB /* ChangeMobileViewController.swift */; };
+		B32256DE218B33020032A019 /* BrandIntroductionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32256DD218B33020032A019 /* BrandIntroductionCell.swift */; };
+		B32256E0218B33260032A019 /* PopularWeasrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32256DF218B33260032A019 /* PopularWeasrCell.swift */; };
+		B32256E2218B33460032A019 /* LatestMainPushCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32256E1218B33460032A019 /* LatestMainPushCell.swift */; };
 		B322EFE5216F1C8E0077EE02 /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFE4216F1C8E0077EE02 /* CommonUtil.swift */; };
 		B322EFE7216F1F7E0077EE02 /* ScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFE6216F1F7E0077EE02 /* ScanningViewController.swift */; };
 		B322EFEC216F2CAF0077EE02 /* SLQRCodeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322EFEB216F2CAF0077EE02 /* SLQRCodeConfig.swift */; };
@@ -105,6 +108,9 @@
 		B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserNameViewController.swift; sourceTree = "<group>"; };
 		B30FD84C21860B9E0004BABB /* AccountSafeViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountSafeViewController+Extension.swift"; sourceTree = "<group>"; };
 		B30FD8512186117C0004BABB /* ChangeMobileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMobileViewController.swift; sourceTree = "<group>"; };
+		B32256DD218B33020032A019 /* BrandIntroductionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandIntroductionCell.swift; sourceTree = "<group>"; };
+		B32256DF218B33260032A019 /* PopularWeasrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularWeasrCell.swift; sourceTree = "<group>"; };
+		B32256E1218B33460032A019 /* LatestMainPushCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushCell.swift; sourceTree = "<group>"; };
 		B322EFE4216F1C8E0077EE02 /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		B322EFE6216F1F7E0077EE02 /* ScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningViewController.swift; sourceTree = "<group>"; };
 		B322EFEB216F2CAF0077EE02 /* SLQRCodeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLQRCodeConfig.swift; sourceTree = "<group>"; };
@@ -230,6 +236,23 @@
 			path = AccountSafe;
 			sourceTree = "<group>";
 		};
+		B32256DB218B31BF0032A019 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
+		B32256DC218B32840032A019 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				B32256DD218B33020032A019 /* BrandIntroductionCell.swift */,
+				B32256DF218B33260032A019 /* PopularWeasrCell.swift */,
+				B32256E1218B33460032A019 /* LatestMainPushCell.swift */,
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
 		B322EFE8216F2C7C0077EE02 /* Scan */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +371,7 @@
 		B344CEC2216D96B1005CA9B3 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				B32256DB218B31BF0032A019 /* Render */,
 				B3B62FC3216DCC1B0006A39E /* DiscoverViewController.swift */,
 			);
 			path = Discover;
@@ -356,6 +380,7 @@
 		B344CEC3216D96B1005CA9B3 /* MainContent */ = {
 			isa = PBXGroup;
 			children = (
+				B32256DC218B32840032A019 /* Render */,
 				B3B62FBF216DCBB10006A39E /* MainContentViewController.swift */,
 			);
 			path = MainContent;
@@ -790,8 +815,10 @@
 				B35DBB48216C9FA800CAFDAD /* Apperance.swift in Sources */,
 				B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */,
 				B3B1AD0D2189AA50001BBB32 /* ChangePasswordViewController.swift in Sources */,
+				B32256DE218B33020032A019 /* BrandIntroductionCell.swift in Sources */,
 				B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */,
 				B364D76821819CD50081593D /* ClothingSecurityViewController.swift in Sources */,
+				B32256E0218B33260032A019 /* PopularWeasrCell.swift in Sources */,
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
 				B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */,
@@ -822,6 +849,7 @@
 				B3248D2A21880A6A00BF7485 /* ZPageControl.swift in Sources */,
 				B3B62FC4216DCC1B0006A39E /* DiscoverViewController.swift in Sources */,
 				B3248D342188322000BF7485 /* ImageModel.swift in Sources */,
+				B32256E2218B33460032A019 /* LatestMainPushCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,6 +1028,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BEVZGB29V;
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1062,6 +1091,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BEVZGB29V;
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

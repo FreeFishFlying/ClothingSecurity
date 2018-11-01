@@ -27,6 +27,25 @@ class AccountSafeViewController: GroupedFormViewController {
             self?.userItem = item
             self?.tableView.reloadData()
         }
+        tableView.snp.remakeConstraints { make in
+            make.top.equalTo(safeAreaTopLayoutGuide)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(270)
+        }
+        view.addSubview(button)
+        button.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(48)
+            make.right.equalToSuperview().offset(-48)
+            make.height.equalTo(44)
+            make.top.equalTo(tableView.snp.bottom).offset(30)
+        }
+        button.addTarget(self, action: #selector(loginOut), for: .touchUpInside)
+    }
+    
+    @objc func loginOut() {
+        UserItem.loginOut()
+        PersonCenterFacade.shared.logout()
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func configTableView() {
@@ -108,6 +127,8 @@ class AccountSafeViewController: GroupedFormViewController {
             }
         })
     }
+    
+    private let button: DarkKeyButton = DarkKeyButton(title: "退出登录")
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.001
