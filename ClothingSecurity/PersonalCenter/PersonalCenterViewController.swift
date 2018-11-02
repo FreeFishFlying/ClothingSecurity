@@ -144,7 +144,7 @@ fileprivate class LoginHeaderView: UIView {
                 accountLabel.text = item.account
                 nameLabel.snp.remakeConstraints { make in
                     make.left.equalTo(icon.snp.right).offset(12)
-                    make.bottom.equalTo(icon.snp.centerY)
+                    make.bottom.equalTo(icon.snp.centerY).offset(5)
                     make.right.equalToSuperview().offset(-15)
                 }
                 if let url = item.url, let path = URL(string: url) {
@@ -195,7 +195,7 @@ fileprivate class LoginHeaderView: UIView {
         addSubview(accountLabel)
         accountLabel.snp.makeConstraints { make in
             make.left.equalTo(icon.snp.right).offset(12)
-            make.top.equalTo(nameLabel.snp.bottom).offset(7)
+            make.top.equalTo(nameLabel.snp.bottom).offset(3)
         }
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(loginClick))
         nameLabel.addGestureRecognizer(tap)

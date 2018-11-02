@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 import SnapKit
 class DiscoverViewController: BaseViewController {
+    var searchList = [SearchCategoryViewModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        loadSearchData()
     }
     
     private func configUI() {
@@ -34,14 +36,31 @@ class DiscoverViewController: BaseViewController {
             make.bottom.equalToSuperview()
             make.width.equalTo(94)
         }
+        tableView.dataSource = self
+        tableView.delegate = self
         searchBar.delegate = self
         searchBar.returnKeyType = .search
     
     }
     
+    private func loadSearchData() {
+        GoodsFacade.shared.categoryList().startWithResult { [weak self] result in
+            guard let `self` = self else { return }
+            guard let value = result.value else { return }
+            if !value.list.isEmpty {
+                value.list.forEach({ item in
+                    self.searchList.append(SearchCategoryViewModel(model: item))
+                })
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor(hexString: "#f7f7f7")
+        tableView.register(SearchCategoryCell.self, forCellReuseIdentifier: "SearchCategoryCell")
         return tableView
     }()
     
@@ -88,4 +107,22 @@ extension DiscoverViewController: UISearchBarDelegate {
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.text = nil
     }
+}
+
+extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchList.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCategoryCell", for: indexPath) as! SearchCategoryCell
+        cell.render(searchList[indexPath.row])
+        return cell
+    }
+    
+    
 }

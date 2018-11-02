@@ -41,6 +41,13 @@
 		B326124D2186B5CE002A2E51 /* LoginAndRegisterFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326124C2186B5CE002A2E51 /* LoginAndRegisterFacade.swift */; };
 		B32612532186DFD1002A2E51 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32612522186DFD1002A2E51 /* UserItem.swift */; };
 		B326A01C218954590072E220 /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326A01B218954590072E220 /* AccountSettingViewController.swift */; };
+		B3447A67218C97EA005E6EF8 /* BannerListPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A66218C97EA005E6EF8 /* BannerListPacket.swift */; };
+		B3447A6B218C9818005E6EF8 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A6A218C9818005E6EF8 /* Banner.swift */; };
+		B3447A6F218CB1B5005E6EF8 /* BrandIntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A6E218CB1B5005E6EF8 /* BrandIntroduceViewController.swift */; };
+		B3447A71218CBF67005E6EF8 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A70218CBF67005E6EF8 /* SearchCategory.swift */; };
+		B3447A73218CC051005E6EF8 /* CategoryListPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A72218CC051005E6EF8 /* CategoryListPacket.swift */; };
+		B3447A77218CC1E6005E6EF8 /* SearchCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A76218CC1E6005E6EF8 /* SearchCategoryViewModel.swift */; };
+		B3447A79218CC32A005E6EF8 /* SearchCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3447A78218CC32A005E6EF8 /* SearchCategoryCell.swift */; };
 		B34638AC21835AFC002B1CF3 /* CompleteMaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34638AB21835AFC002B1CF3 /* CompleteMaterialViewController.swift */; };
 		B34638AE21835C0F002B1CF3 /* BaseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34638AD21835C0F002B1CF3 /* BaseLoginViewController.swift */; };
 		B34638B0218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34638AF218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift */; };
@@ -142,6 +149,13 @@
 		B326124C2186B5CE002A2E51 /* LoginAndRegisterFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAndRegisterFacade.swift; sourceTree = "<group>"; };
 		B32612522186DFD1002A2E51 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		B326A01B218954590072E220 /* AccountSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
+		B3447A66218C97EA005E6EF8 /* BannerListPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerListPacket.swift; sourceTree = "<group>"; };
+		B3447A6A218C9818005E6EF8 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		B3447A6E218CB1B5005E6EF8 /* BrandIntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandIntroduceViewController.swift; sourceTree = "<group>"; };
+		B3447A70218CBF67005E6EF8 /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
+		B3447A72218CC051005E6EF8 /* CategoryListPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPacket.swift; sourceTree = "<group>"; };
+		B3447A76218CC1E6005E6EF8 /* SearchCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryViewModel.swift; sourceTree = "<group>"; };
+		B3447A78218CC32A005E6EF8 /* SearchCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryCell.swift; sourceTree = "<group>"; };
 		B34638AB21835AFC002B1CF3 /* CompleteMaterialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteMaterialViewController.swift; sourceTree = "<group>"; };
 		B34638AD21835C0F002B1CF3 /* BaseLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLoginViewController.swift; sourceTree = "<group>"; };
 		B34638AF218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompleteMaterialViewController+Cell.swift"; sourceTree = "<group>"; };
@@ -247,6 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				B30E01EB218B6AAE005F2C0C /* PopularWearPacket.swift */,
+				B3447A66218C97EA005E6EF8 /* BannerListPacket.swift */,
+				B3447A72218CC051005E6EF8 /* CategoryListPacket.swift */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -264,13 +280,6 @@
 				B3B1AD0C2189AA50001BBB32 /* ChangePasswordViewController.swift */,
 			);
 			path = AccountSafe;
-			sourceTree = "<group>";
-		};
-		B32256DB218B31BF0032A019 /* Render */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Render;
 			sourceTree = "<group>";
 		};
 		B32256DC218B32840032A019 /* Render */ = {
@@ -356,6 +365,8 @@
 				B32612522186DFD1002A2E51 /* UserItem.swift */,
 				B3248D332188322000BF7485 /* ImageModel.swift */,
 				B30E01ED218B6AF6005F2C0C /* Good.swift */,
+				B3447A6A218C9818005E6EF8 /* Banner.swift */,
+				B3447A70218CBF67005E6EF8 /* SearchCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,6 +392,22 @@
 			path = LoginAndRegister;
 			sourceTree = "<group>";
 		};
+		B3447A74218CC182005E6EF8 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				B3447A78218CC32A005E6EF8 /* SearchCategoryCell.swift */,
+			);
+			path = Render;
+			sourceTree = "<group>";
+		};
+		B3447A75218CC182005E6EF8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B3447A76218CC1E6005E6EF8 /* SearchCategoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B344CEC0216D96B0005CA9B3 /* PersonalCenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,7 +431,8 @@
 		B344CEC2216D96B1005CA9B3 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
-				B32256DB218B31BF0032A019 /* Render */,
+				B3447A74218CC182005E6EF8 /* Render */,
+				B3447A75218CC182005E6EF8 /* ViewModel */,
 				B3B62FC3216DCC1B0006A39E /* DiscoverViewController.swift */,
 			);
 			path = Discover;
@@ -416,6 +444,7 @@
 				B30E01E1218B4B7E005F2C0C /* ViewModel */,
 				B32256DC218B32840032A019 /* Render */,
 				B3B62FBF216DCBB10006A39E /* MainContentViewController.swift */,
+				B3447A6E218CB1B5005E6EF8 /* BrandIntroduceViewController.swift */,
 			);
 			path = MainContent;
 			sourceTree = "<group>";
@@ -829,6 +858,8 @@
 				B3B62FC6216DCC370006A39E /* PersonalCenterViewController.swift in Sources */,
 				B364D76B21819CD50081593D /* SLQRCodeHelper.swift in Sources */,
 				B3248D2821880A6A00BF7485 /* ZCycleViewCell.swift in Sources */,
+				B3447A71218CBF67005E6EF8 /* SearchCategory.swift in Sources */,
+				B3447A6F218CB1B5005E6EF8 /* BrandIntroduceViewController.swift in Sources */,
 				B34638B221837286002B1CF3 /* ForgetPasswordViewController.swift in Sources */,
 				B364D76A21819CD50081593D /* SLQRCodeConfig.swift in Sources */,
 				B35DBB46216C9A6D00CAFDAD /* LoginViewController.swift in Sources */,
@@ -836,7 +867,9 @@
 				B3248D3021880E6F00BF7485 /* AppAuthorizationUtil.swift in Sources */,
 				B3B1AD172189AE9D001BBB32 /* AuthUserInfoPacket.swift in Sources */,
 				B30E01EE218B6AF6005F2C0C /* Good.swift in Sources */,
+				B3447A73218CC051005E6EF8 /* CategoryListPacket.swift in Sources */,
 				B364D76921819CD50081593D /* ScanningViewController.swift in Sources */,
+				B3447A77218CC1E6005E6EF8 /* SearchCategoryViewModel.swift in Sources */,
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
 				B34638AE21835C0F002B1CF3 /* BaseLoginViewController.swift in Sources */,
 				B326A01C218954590072E220 /* AccountSettingViewController.swift in Sources */,
@@ -853,6 +886,7 @@
 				B3B1AD0D2189AA50001BBB32 /* ChangePasswordViewController.swift in Sources */,
 				B32256DE218B33020032A019 /* BrandIntroductionCell.swift in Sources */,
 				B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */,
+				B3447A6B218C9818005E6EF8 /* Banner.swift in Sources */,
 				B364D76821819CD50081593D /* ClothingSecurityViewController.swift in Sources */,
 				B32256E0218B33260032A019 /* PopularWeasrCell.swift in Sources */,
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
@@ -862,6 +896,7 @@
 				B32612492186B1E8002A2E51 /* GetAuthCodePacket.swift in Sources */,
 				B35DBB4C216CAAC600CAFDAD /* UIKit+extension.swift in Sources */,
 				B3B1AD162189AE9D001BBB32 /* ChangePasswordPacket.swift in Sources */,
+				B3447A67218C97EA005E6EF8 /* BannerListPacket.swift in Sources */,
 				B3248D2921880A6A00BF7485 /* ZCycleLayout.swift in Sources */,
 				B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */,
 				B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */,
@@ -878,6 +913,7 @@
 				B3B1AD1A2189AFAC001BBB32 /* UpdateUserPacket.swift in Sources */,
 				B30E01E3218B4BA3005F2C0C /* BrandIntroductionModel.swift in Sources */,
 				B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */,
+				B3447A79218CC32A005E6EF8 /* SearchCategoryCell.swift in Sources */,
 				B30E01F0218B6F96005F2C0C /* GoodsFacade.swift in Sources */,
 				B3B1AD0521899193001BBB32 /* ForgetPasswordPacket.swift in Sources */,
 				B364D76D21819CD50081593D /* SLScannerView.swift in Sources */,

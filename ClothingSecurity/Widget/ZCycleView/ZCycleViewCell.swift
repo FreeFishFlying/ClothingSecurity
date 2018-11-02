@@ -69,6 +69,7 @@ class ZCycleViewCell: UICollectionViewCell {
     func addImageView() {
         imageView = UIImageView(frame: contentView.bounds)
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         contentView.addSubview(imageView)
     }
     

@@ -49,7 +49,7 @@ class PopularWearResponse: HttpResponseData {
 class PopularWearPacket: HttpRequestPacket<PopularWearResponse> {
     let page: Int
     let size: Int
-    init(page: Int, size: Int = 10) {
+    init(page: Int, size: Int ) {
         self.page = page
         self.size = size
     }
@@ -70,5 +70,9 @@ class PopularWearPacket: HttpRequestPacket<PopularWearResponse> {
 class LatestMainPush: PopularWearPacket {
     override func requestUrl() -> URL {
         return URL(string: "/goods/list_hot?size=\(size)&page=\(page)")!
+        
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
     }
 }

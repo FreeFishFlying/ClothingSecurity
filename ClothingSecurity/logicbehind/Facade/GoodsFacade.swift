@@ -15,11 +15,19 @@ import SwiftyJSON
 class GoodsFacade: NSObject {
     @objc public static let shared = GoodsFacade()
     
-    func popularWear(page: Int) -> SignalProducer<PopularWearResponse, NSError> {
-        return PopularWearPacket(page: page).send()
+    func popularWear(page: Int, size: Int) -> SignalProducer<PopularWearResponse, NSError> {
+        return PopularWearPacket(page: page, size: size).send()
     }
     
-    func latestMainPush(page: Int) -> SignalProducer<PopularWearResponse, NSError> {
-        return LatestMainPush(page: page).send()
+    func latestMainPush(page: Int, size: Int) -> SignalProducer<PopularWearResponse, NSError> {
+        return LatestMainPush(page: page, size: size).send()
+    }
+    
+    func bannerList() -> SignalProducer<BannerListResponse, NSError> {
+        return BannerListPacket().send()
+    }
+    
+    func categoryList() -> SignalProducer<CategoryListResponseData, NSError> {
+        return CategoryListPacket().send()
     }
 }

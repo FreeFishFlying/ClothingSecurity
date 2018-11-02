@@ -33,8 +33,6 @@ class BrandIntroductionCell: UITableViewCell {
             make.left.equalToSuperview().offset(15)
             make.top.equalTo(button.snp.bottom).offset(5)
             make.right.equalToSuperview().offset(-114)
-            make.bottom.equalToSuperview().offset(-25)
-            make.height.equalTo(100)
         }
         addSubview(logo)
         logo.snp.makeConstraints { make in
@@ -81,13 +79,6 @@ class BrandIntroductionCell: UITableViewCell {
         brandLabel.text = model.title
         explainLabel.text = model.explain
         contentLabel.text = model.content
-        backView.snp.remakeConstraints { make in
-            make.left.equalToSuperview().offset(15)
-            make.top.equalTo(button.snp.bottom).offset(5)
-            make.right.equalToSuperview().offset(-114)
-            make.bottom.equalToSuperview().offset(-25)
-            make.height.equalTo(model.contentViewHeight)
-        }
         backView.layoutIfNeeded()
         layoutIfNeeded()
     }
