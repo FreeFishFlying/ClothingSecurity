@@ -18,4 +18,8 @@ class GoodsFacade: NSObject {
     func popularWear(page: Int) -> SignalProducer<PopularWearResponse, NSError> {
         return PopularWearPacket(page: page).send()
     }
+    
+    func latestMainPush(page: Int) -> SignalProducer<PopularWearResponse, NSError> {
+        return LatestMainPush(page: page).send()
+    }
 }

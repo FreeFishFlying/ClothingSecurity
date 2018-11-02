@@ -8,10 +8,12 @@
 
 import Foundation
 import UIKit
+import Mesh
 
 class PopularWearCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -25,23 +27,40 @@ class PopularWearCell: UITableViewCell {
             make.top.equalToSuperview().offset(30)
             make.height.equalTo(30)
         }
-        addSubview(backView)
-        backView.snp.makeConstraints { make in
+        addSubview(imageContentView)
+        imageContentView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15)
-            make.right.equalToSuperview().offset(-15)
             make.height.equalTo(209)
+            make.width.equalTo(345)
+            make.top.equalTo(button.snp.bottom).offset(5)
         }
         addSubview(explainLabel)
         explainLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
-            make.top.equalTo(backView.snp.bottom)
+            make.top.equalTo(imageContentView.snp.bottom).offset(4)
         }
     }
     
-    private let button: HeaderCellButton = HeaderCellButton("品牌介绍")
+    func render(_ model: PopularWearModel) {
+        explainLabel.text = model.title
+        if let url = model.url {
+            imageContentView.kf.setImage(with: url, placeholder: nil)
+        }
+        imageContentView.snp.updateConstraints { make in
+            make.width.equalTo(model.imageViewWidth)
+            make.height.equalTo(model.imageViewHeight)
+        }
+    }
     
-    private let backView: UIView = UIView()
+    private let button: HeaderCellButton = HeaderCellButton("人气穿搭")
+    
+    private let imageContentView: UIImageView = {
+        let imageView =  UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }()
     
     private let explainLabel: UILabel = {
         let label = UILabel()

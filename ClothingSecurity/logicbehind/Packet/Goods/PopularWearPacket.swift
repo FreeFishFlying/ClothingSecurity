@@ -66,3 +66,9 @@ class PopularWearPacket: HttpRequestPacket<PopularWearResponse> {
         return .get
     }
 }
+
+class LatestMainPush: PopularWearPacket {
+    override func requestUrl() -> URL {
+        return URL(string: "/goods/list_hot?size=\(size)&page=\(page)")!
+    }
+}

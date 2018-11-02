@@ -17,13 +17,23 @@ class MainContentViewController: BaseViewController {
         navigationItem.titleView = imageHeader
         navigationItem.titleView?.addSubview(titleView)
         dataSource.append(BrandIntroductionModel())
+        dataSource.append(PopularWearModel(good: nil))
         configUI()
         loadData()
     }
     
     private func loadData() {
         GoodsFacade.shared.popularWear(page: 0).startWithResult { [weak self] result in
-            
+            guard let `self` = self else { return }
+            guard let value = result.value else { return }
+            if let model = self.dataSource[safe: 1] as? PopularWearModel {
+                model.good = value.content.first
+                self.tableView.reloadData()
+            }
+        }
+        GoodsFacade.shared.latestMainPush(page: 0).startWithResult { [weak self] result in
+            guard let `self` = self else { return }
+            guard let value = result.value else { return }
         }
     }
     
@@ -79,6 +89,8 @@ extension MainContentViewController: UITableViewDataSource, UITableViewDelegate 
         let model = dataSource[indexPath.section]
         if let model = model as? BrandIntroductionModel {
             return model.height
+        } else if let model = model as? PopularWearModel {
+            return model.height
         }
         return 0
     }
@@ -90,6 +102,8 @@ extension MainContentViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = dataSource[indexPath.section]
         if let model = model as? BrandIntroductionModel {
+            return model.height
+        } else if let model = model as? PopularWearModel {
             return model.height
         }
         return 0
@@ -103,6 +117,10 @@ extension MainContentViewController: UITableViewDataSource, UITableViewDelegate 
         let model = dataSource[indexPath.section]
         if let model = model as? BrandIntroductionModel {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BrandIntroductionCell", for: indexPath) as! BrandIntroductionCell
+            cell.render(model)
+            return cell
+        } else if let model = model as? PopularWearModel {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PopularWearCell", for: indexPath) as! PopularWearCell
             cell.render(model)
             return cell
         }
