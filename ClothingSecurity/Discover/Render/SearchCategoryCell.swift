@@ -15,9 +15,27 @@ class SearchCategoryCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectedBackgroundView = selectedView
         backgroundColor = UIColor(hexString: "#f7f7f7")
-        addSubview(label)
+        contentView.addSubview(label)
         label.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(14)
             make.center.equalToSuperview()
+            make.right.equalToSuperview().offset(-14)
+        }
+        selectedView.addSubview(cursor)
+        cursor.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(2)
+            make.height.equalTo(30)
+        }
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if selected {
+            label.textColor = UIColor(hexString: "#393838")
+        } else {
+            label.textColor = UIColor(hexString: "#999999")
         }
     }
     
@@ -32,14 +50,22 @@ class SearchCategoryCell: UITableViewCell {
     
     private let selectedView: UIView = {
         let view = UIView.init(frame: CGRect(x: 0, y: 0, width: 94, height: 70))
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor(hexString: "#ffffff")
         return view
     }()
     
     private let label: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(hexString: "#999999")
+        label.numberOfLines = 0
         label.font = systemFontSize(fontSize: 14)
+        label.textAlignment = .center
         return label
+    }()
+    
+    private let cursor: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(hexString: "#000000")
+        return view
     }()
 }

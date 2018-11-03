@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 import SnapKit
 class DiscoverViewController: BaseViewController {
-    var searchList = [SearchCategoryViewModel]()
+    var categoryList = [SearchCategoryViewModel]()
+    var subCategoryGoods = [SubCategory]()
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -22,25 +23,48 @@ class DiscoverViewController: BaseViewController {
             UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "取消"
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
+        view.addSubview(containerView)
+        containerView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaTopLayoutGuide)
+            make.left.right.bottom.equalToSuperview()
+        }
+        containerView.addSubview(resultViewController.view)
+        resultViewController.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        resultViewController.onClickKeyWord = { [weak self] keyword in
+            guard let `self` = self else { return }
+            self.beginSearch(keyword)
+            self.searchBar.text = keyword
+        }
+        resultViewController.onSelectGoodById = { [weak self] id in
+            guard let `self` = self else { return }
+            let controller = DiscoverNewGoodViewController(id: id)
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
+            
+        }
         view.addSubview(backView)
         backView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)
             make.left.right.bottom.equalToSuperview()
         }
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(cancelSearch))
-        backView.addGestureRecognizer(tap)
-        view.addSubview(tableView)
+        backView.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)
             make.left.equalToSuperview()
             make.bottom.equalToSuperview()
             make.width.equalTo(94)
         }
-        tableView.dataSource = self
-        tableView.delegate = self
         searchBar.delegate = self
         searchBar.returnKeyType = .search
-    
+        backView.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaTopLayoutGuide)
+            make.left.equalTo(tableView.snp.right).offset(15)
+            make.right.equalToSuperview().offset(-15)
+            make.bottom.equalToSuperview()
+        }
     }
     
     private func loadSearchData() {
@@ -49,19 +73,78 @@ class DiscoverViewController: BaseViewController {
             guard let value = result.value else { return }
             if !value.list.isEmpty {
                 value.list.forEach({ item in
-                    self.searchList.append(SearchCategoryViewModel(model: item))
+                    self.categoryList.append(SearchCategoryViewModel(model: item))
                 })
             }
             self.tableView.reloadData()
+            if !self.categoryList.isEmpty {
+                self.tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .top)
+                if let model = self.categoryList.first {
+                    self.searchByCategoryId(id: model.model.id)
+                }
+            }
         }
     }
     
-    private let tableView: UITableView = {
+    private func searchByCategoryId(id: String) {
+        GoodsFacade.shared.goodsGroupCategoryBy(id: id).startWithResult { [weak self] result in
+            guard let `self` = self else { return }
+            guard let value = result.value else { return }
+            self.subCategoryGoods.removeAll()
+            self.subCategoryGoods.append(contentsOf: value.dataList)
+            self.collectionView.reloadData()
+        }
+    }
+    
+    private func beginSearch(_ keyword: String) {
+        GoodsFacade.shared.search(keyword).startWithResult { [weak self] result in
+            guard let `self` = self else { return }
+            guard let value = result.value else { return }
+            self.resultViewController.searchResult = value.content
+        }
+    }
+    
+    private let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        return view
+    }()
+    
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor(hexString: "#f7f7f7")
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.register(SearchCategoryCell.self, forCellReuseIdentifier: "SearchCategoryCell")
         return tableView
+        
+    }()
+    
+    lazy var resultViewController = DiscoverResultViewController()
+    
+    lazy var layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 15
+        layout.minimumInteritemSpacing = 15
+        let width = ScreenWidth - 94 - 45
+        let size = floor(width / 2)
+        layout.itemSize = CGSize(width: size, height: size)
+        layout.headerReferenceSize = CGSize(width: ScreenWidth, height: 37)
+        return layout
+    }()
+    
+    lazy var collectionView: UICollectionView = {
+        let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.layout)
+        collection.delegate = self
+        collection.dataSource = self
+        collection.alwaysBounceVertical = false
+        collection.alwaysBounceHorizontal = false
+        collection.backgroundColor = .clear
+        collection.register(DetailCategoryGoodCell.self, forCellWithReuseIdentifier: "DetailCategoryGoodCell")
+        collection.register(DetailCategoryHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "DetailCategoryHeaderView")
+        collection.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
+        return collection
     }()
     
     private let searchBar: UISearchBar = {
@@ -74,44 +157,50 @@ class DiscoverViewController: BaseViewController {
     
     private let backView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.red
+        view.backgroundColor = UIColor.white
         view.isUserInteractionEnabled = true
         return view
     }()
     
     @objc func cancelSearch() {
        searchBar.endEditing(true)
+        view.sendSubviewToBack(containerView)
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.text = nil
+
     }
 }
 
 extension DiscoverViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         searchBar.setShowsCancelButton(true, animated: true)
-        view.bringSubviewToFront(backView)
+        view.bringSubviewToFront(containerView)
+        resultViewController.beginSearch()
         return true
     }
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        view.sendSubviewToBack(backView)
-        searchBar.setShowsCancelButton(false, animated: true)
-        searchBar.text = nil
         return true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let keyword = searchBar.text {
+            beginSearch(keyword)
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
-        view.sendSubviewToBack(backView)
+        view.sendSubviewToBack(containerView)
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.text = nil
     }
 }
 
 extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchList.count
+        return categoryList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -120,9 +209,56 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCategoryCell", for: indexPath) as! SearchCategoryCell
-        cell.render(searchList[indexPath.row])
+        cell.render(categoryList[indexPath.row])
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let viewModel = categoryList[safe: indexPath.row] {
+            searchByCategoryId(id: viewModel.model.id)
+        }
+    }
+}
+
+extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return subCategoryGoods.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let sub = subCategoryGoods[safe: section] {
+            return sub.list.count
+        }
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionFooter {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer", for: indexPath)
+            return view
+        } else {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "DetailCategoryHeaderView", for: indexPath) as! DetailCategoryHeaderView
+            let model = subCategoryGoods[indexPath.section]
+            view.name = model.name
+            return view
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 25
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCategoryGoodCell", for: indexPath) as! DetailCategoryGoodCell
+        cell.model = subCategoryGoods[indexPath.section].list[indexPath.row]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = subCategoryGoods[indexPath.section].list[indexPath.row]
+        let controller = DiscoverNewGoodViewController(id: model.id)
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }

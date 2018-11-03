@@ -25,5 +25,4 @@ class SearchCategoryViewModel: NSObject {
     var title: String? {
         return model.name
     }
-    
 }

@@ -22,7 +22,7 @@ class SearchCategory: NSObject {
         if let createTime = json["createTime"].double {
             self.createTime = createTime
         }
-        if let name = json["createTime"].string {
+        if let name = json["name"].string {
             self.name = name
         }
         if let level = json["level"].int {

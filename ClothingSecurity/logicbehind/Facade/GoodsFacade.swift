@@ -30,4 +30,12 @@ class GoodsFacade: NSObject {
     func categoryList() -> SignalProducer<CategoryListResponseData, NSError> {
         return CategoryListPacket().send()
     }
+    
+    func goodsGroupCategoryBy(id: String) -> SignalProducer<GroupCategoryResponseData, NSError> {
+        return GroupCategoryPacket(categoryId: id).send()
+    }
+    
+    func search(_ keyword: String) -> SignalProducer<PopularWearResponse, NSError> {
+        return SearchByKeywordPacket(keyword: keyword).send()
+    }
 }
