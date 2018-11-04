@@ -46,16 +46,14 @@ class Good: NSObject {
             self.collectCount = collectCount
         }
         if let galleryList = json["gallery"].array {
-            galleryList.forEach { [weak self] js in
-                guard let `self` = self else { return }
+            galleryList.forEach {  js in
                 if let item = js.string {
                     self.gallery.append(item)
                 }
             }
         }
         if let detailsList = json["details"].array {
-            detailsList.forEach { [weak self] js in
-                guard let `self` = self else { return }
+            detailsList.forEach { js in
                 if let item = js.string {
                     self.details.append(item)
                 }

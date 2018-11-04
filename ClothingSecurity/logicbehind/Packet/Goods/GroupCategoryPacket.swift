@@ -43,27 +43,4 @@ class GroupCategoryPacket: HttpRequestPacket<GroupCategoryResponseData> {
     }
 }
 
-class SearchByKeywordPacket: HttpRequestPacket<PopularWearResponse> {
-    let keyword: String
-    init(keyword: String) {
-        self.keyword = keyword
-        SearchHistory.save(keyword)
-    }
-    
-    required public init() {
-        fatalError("init() has not been implemented")
-    }
-    
-    override func requestUrl() -> URL {
-        let url = "/outfit/list_hot?keyword=\(keyword)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        return URL(string: url)!
-    }
-    
-    override func httpMethod() -> HTTPMethod {
-        return .get
-    }
-    
-    override func parameterEncoding() -> ParameterEncoding {
-        return URLEncoding.queryString
-    }
-}
+

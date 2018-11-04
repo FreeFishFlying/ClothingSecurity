@@ -38,12 +38,6 @@ class BrandIntroductionModel: NSObject {
         height += contentHeight
     }
     
-    func getTextHeigh(textStr: String, font: UIFont, width: CGFloat) -> CGFloat {
-        let normalText: String = textStr
-        let size = CGSize(width: width, height: 200)
-        let dic = [NSAttributedString.Key.font: font]
-        let stringSize = normalText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic, context:nil).size
-        return stringSize.height
-    }
+    
 
 }

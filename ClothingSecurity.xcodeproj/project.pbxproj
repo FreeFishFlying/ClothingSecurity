@@ -78,6 +78,12 @@
 		B364D76C21819CD50081593D /* SWQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B364D76521819CD50081593D /* SWQRCode.bundle */; };
 		B364D76D21819CD50081593D /* SLScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364D76721819CD50081593D /* SLScannerView.swift */; };
 		B3AFD581218E9DCB00D54F34 /* LatestMainPushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */; };
+		B3AFD583218EBFD400D54F34 /* LatestMainPushPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD582218EBFD400D54F34 /* LatestMainPushPacket.swift */; };
+		B3AFD585218EBFE700D54F34 /* SearchByKeywordPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD584218EBFE700D54F34 /* SearchByKeywordPacket.swift */; };
+		B3AFD587218EC02300D54F34 /* DetailGoodPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD586218EC02300D54F34 /* DetailGoodPacket.swift */; };
+		B3AFD589218F27F100D54F34 /* DetailPriceAndCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD588218F27F100D54F34 /* DetailPriceAndCollectCell.swift */; };
+		B3AFD58B218F3E9A00D54F34 /* DetailRichGoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD58A218F3E9A00D54F34 /* DetailRichGoodCell.swift */; };
+		B3AFD58D218F3EF800D54F34 /* DetailRichGoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD58C218F3EF800D54F34 /* DetailRichGoodModel.swift */; };
 		B3B1AD0521899193001BBB32 /* ForgetPasswordPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B1AD0421899193001BBB32 /* ForgetPasswordPacket.swift */; };
 		B3B1AD072189969F001BBB32 /* LoginOutPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B1AD062189969F001BBB32 /* LoginOutPacket.swift */; };
 		B3B1AD0921899944001BBB32 /* DetailMobileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B1AD0821899944001BBB32 /* DetailMobileViewController.swift */; };
@@ -202,6 +208,12 @@
 		B364D76721819CD50081593D /* SLScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLScannerView.swift; sourceTree = "<group>"; };
 		B364D76E2181A1420081593D /* ClothingSecurity-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClothingSecurity-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushViewController.swift; sourceTree = "<group>"; };
+		B3AFD582218EBFD400D54F34 /* LatestMainPushPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushPacket.swift; sourceTree = "<group>"; };
+		B3AFD584218EBFE700D54F34 /* SearchByKeywordPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByKeywordPacket.swift; sourceTree = "<group>"; };
+		B3AFD586218EC02300D54F34 /* DetailGoodPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoodPacket.swift; sourceTree = "<group>"; };
+		B3AFD588218F27F100D54F34 /* DetailPriceAndCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPriceAndCollectCell.swift; sourceTree = "<group>"; };
+		B3AFD58A218F3E9A00D54F34 /* DetailRichGoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRichGoodCell.swift; sourceTree = "<group>"; };
+		B3AFD58C218F3EF800D54F34 /* DetailRichGoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRichGoodModel.swift; sourceTree = "<group>"; };
 		B3B1AD0421899193001BBB32 /* ForgetPasswordPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPacket.swift; sourceTree = "<group>"; };
 		B3B1AD062189969F001BBB32 /* LoginOutPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOutPacket.swift; sourceTree = "<group>"; };
 		B3B1AD0821899944001BBB32 /* DetailMobileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMobileViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +294,9 @@
 				B3447A66218C97EA005E6EF8 /* BannerListPacket.swift */,
 				B3447A72218CC051005E6EF8 /* CategoryListPacket.swift */,
 				B340BE73218D720E006FB78D /* GroupCategoryPacket.swift */,
+				B3AFD582218EBFD400D54F34 /* LatestMainPushPacket.swift */,
+				B3AFD584218EBFE700D54F34 /* SearchByKeywordPacket.swift */,
+				B3AFD586218EC02300D54F34 /* DetailGoodPacket.swift */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -419,6 +434,8 @@
 				B340BE75218D772B006FB78D /* DetailCategoryGoodCell.swift */,
 				B340BE77218D9BAC006FB78D /* DetailCategoryHeaderView.swift */,
 				B340BE7F218E0AB9006FB78D /* DetailSearchedGoodCell.swift */,
+				B3AFD588218F27F100D54F34 /* DetailPriceAndCollectCell.swift */,
+				B3AFD58A218F3E9A00D54F34 /* DetailRichGoodCell.swift */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -427,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				B3447A76218CC1E6005E6EF8 /* SearchCategoryViewModel.swift */,
+				B3AFD58C218F3EF800D54F34 /* DetailRichGoodModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -895,9 +913,12 @@
 				B35DBB46216C9A6D00CAFDAD /* LoginViewController.swift in Sources */,
 				B30FD8522186117C0004BABB /* ChangeMobileViewController.swift in Sources */,
 				B3248D3021880E6F00BF7485 /* AppAuthorizationUtil.swift in Sources */,
+				B3AFD587218EC02300D54F34 /* DetailGoodPacket.swift in Sources */,
 				B3B1AD172189AE9D001BBB32 /* AuthUserInfoPacket.swift in Sources */,
 				B30E01EE218B6AF6005F2C0C /* Good.swift in Sources */,
 				B3447A73218CC051005E6EF8 /* CategoryListPacket.swift in Sources */,
+				B3AFD589218F27F100D54F34 /* DetailPriceAndCollectCell.swift in Sources */,
+				B3AFD58B218F3E9A00D54F34 /* DetailRichGoodCell.swift in Sources */,
 				B364D76921819CD50081593D /* ScanningViewController.swift in Sources */,
 				B3447A77218CC1E6005E6EF8 /* SearchCategoryViewModel.swift in Sources */,
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
@@ -910,6 +931,7 @@
 				B34638AC21835AFC002B1CF3 /* CompleteMaterialViewController.swift in Sources */,
 				B32612532186DFD1002A2E51 /* UserItem.swift in Sources */,
 				B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */,
+				B3AFD58D218F3EF800D54F34 /* DetailRichGoodModel.swift in Sources */,
 				B30E01E5218B5684005F2C0C /* PopularWearModel.swift in Sources */,
 				B35DBB48216C9FA800CAFDAD /* Apperance.swift in Sources */,
 				B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */,
@@ -918,6 +940,7 @@
 				B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */,
 				B3447A6B218C9818005E6EF8 /* Banner.swift in Sources */,
 				B364D76821819CD50081593D /* ClothingSecurityViewController.swift in Sources */,
+				B3AFD585218EBFE700D54F34 /* SearchByKeywordPacket.swift in Sources */,
 				B32256E0218B33260032A019 /* PopularWeasrCell.swift in Sources */,
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
@@ -957,6 +980,7 @@
 				B35DBB0E216C783A00CAFDAD /* AppDelegate.swift in Sources */,
 				B3248D2721880A6A00BF7485 /* ZCycleView.swift in Sources */,
 				B3BBEE682181B7BB00F5FA47 /* ParallaxHeaderMode.swift in Sources */,
+				B3AFD583218EBFD400D54F34 /* LatestMainPushPacket.swift in Sources */,
 				B3B1AD182189AE9D001BBB32 /* ChangeMobilePacket.swift in Sources */,
 				B3248D2A21880A6A00BF7485 /* ZPageControl.swift in Sources */,
 				B3B62FC4216DCC1B0006A39E /* DiscoverViewController.swift in Sources */,
@@ -1138,7 +1162,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9BEVZGB29V;
+				DEVELOPMENT_TEAM = AUSFNXNYA2;
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1187,7 +1211,7 @@
 					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = org.scp.clothingsecurity;
+				PRODUCT_BUNDLE_IDENTIFIER = org.beedee.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_VERSION = 4.2;
@@ -1201,7 +1225,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9BEVZGB29V;
+				DEVELOPMENT_TEAM = AUSFNXNYA2;
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1250,7 +1274,7 @@
 					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = org.scp.clothingsecurity;
+				PRODUCT_BUNDLE_IDENTIFIER = org.beedee.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_VERSION = 4.2;

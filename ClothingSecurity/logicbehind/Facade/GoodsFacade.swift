@@ -38,4 +38,8 @@ class GoodsFacade: NSObject {
     func search(_ keyword: String) -> SignalProducer<PopularWearResponse, NSError> {
         return SearchByKeywordPacket(keyword: keyword).send()
     }
+    
+    func detailGoodBy(_ id: String) -> SignalProducer<DetailGoodResponseData, NSError> {
+        return DetailGoodPacket(id: id).send()
+    }
 }
