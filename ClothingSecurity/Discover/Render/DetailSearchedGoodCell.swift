@@ -12,6 +12,7 @@ import UIKit
 class DetailSearchedGoodCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         configUI()
     }
     
@@ -29,7 +30,7 @@ class DetailSearchedGoodCell: UITableViewCell {
         addSubview(nextIcon)
         nextIcon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(17)
+            make.right.equalToSuperview().offset(-17)
         }
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
@@ -76,6 +77,7 @@ class DetailSearchedGoodCell: UITableViewCell {
     
     private let nextIcon: UIImageView = {
         let next = UIImageView()
+        next.image = imageNamed("ic_arrows_right")
         return next
     }()
     

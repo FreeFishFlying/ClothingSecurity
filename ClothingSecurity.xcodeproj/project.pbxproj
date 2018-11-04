@@ -45,7 +45,7 @@
 		B340BE74218D720E006FB78D /* GroupCategoryPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE73218D720E006FB78D /* GroupCategoryPacket.swift */; };
 		B340BE76218D772B006FB78D /* DetailCategoryGoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE75218D772B006FB78D /* DetailCategoryGoodCell.swift */; };
 		B340BE78218D9BAC006FB78D /* DetailCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE77218D9BAC006FB78D /* DetailCategoryHeaderView.swift */; };
-		B340BE7A218DBDBA006FB78D /* DiscoverNewGoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE79218DBDBA006FB78D /* DiscoverNewGoodViewController.swift */; };
+		B340BE7A218DBDBA006FB78D /* DetailGoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE79218DBDBA006FB78D /* DetailGoodViewController.swift */; };
 		B340BE7C218DC0D6006FB78D /* SearchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE7B218DC0D6006FB78D /* SearchHistoryView.swift */; };
 		B340BE7E218DD5BD006FB78D /* DiscoverResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE7D218DD5BD006FB78D /* DiscoverResultViewController.swift */; };
 		B340BE80218E0AB9006FB78D /* DetailSearchedGoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE7F218E0AB9006FB78D /* DetailSearchedGoodCell.swift */; };
@@ -77,6 +77,7 @@
 		B364D76B21819CD50081593D /* SLQRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364D76421819CD50081593D /* SLQRCodeHelper.swift */; };
 		B364D76C21819CD50081593D /* SWQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B364D76521819CD50081593D /* SWQRCode.bundle */; };
 		B364D76D21819CD50081593D /* SLScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364D76721819CD50081593D /* SLScannerView.swift */; };
+		B3AFD581218E9DCB00D54F34 /* LatestMainPushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */; };
 		B3B1AD0521899193001BBB32 /* ForgetPasswordPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B1AD0421899193001BBB32 /* ForgetPasswordPacket.swift */; };
 		B3B1AD072189969F001BBB32 /* LoginOutPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B1AD062189969F001BBB32 /* LoginOutPacket.swift */; };
 		B3B1AD0921899944001BBB32 /* DetailMobileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B1AD0821899944001BBB32 /* DetailMobileViewController.swift */; };
@@ -161,7 +162,7 @@
 		B340BE73218D720E006FB78D /* GroupCategoryPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCategoryPacket.swift; sourceTree = "<group>"; };
 		B340BE75218D772B006FB78D /* DetailCategoryGoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCategoryGoodCell.swift; sourceTree = "<group>"; };
 		B340BE77218D9BAC006FB78D /* DetailCategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCategoryHeaderView.swift; sourceTree = "<group>"; };
-		B340BE79218DBDBA006FB78D /* DiscoverNewGoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverNewGoodViewController.swift; sourceTree = "<group>"; };
+		B340BE79218DBDBA006FB78D /* DetailGoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoodViewController.swift; sourceTree = "<group>"; };
 		B340BE7B218DC0D6006FB78D /* SearchHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryView.swift; sourceTree = "<group>"; };
 		B340BE7D218DD5BD006FB78D /* DiscoverResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverResultViewController.swift; sourceTree = "<group>"; };
 		B340BE7F218E0AB9006FB78D /* DetailSearchedGoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSearchedGoodCell.swift; sourceTree = "<group>"; };
@@ -200,6 +201,7 @@
 		B364D76521819CD50081593D /* SWQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SWQRCode.bundle; sourceTree = "<group>"; };
 		B364D76721819CD50081593D /* SLScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLScannerView.swift; sourceTree = "<group>"; };
 		B364D76E2181A1420081593D /* ClothingSecurity-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClothingSecurity-Bridging-Header.h"; sourceTree = "<group>"; };
+		B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushViewController.swift; sourceTree = "<group>"; };
 		B3B1AD0421899193001BBB32 /* ForgetPasswordPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPacket.swift; sourceTree = "<group>"; };
 		B3B1AD062189969F001BBB32 /* LoginOutPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOutPacket.swift; sourceTree = "<group>"; };
 		B3B1AD0821899944001BBB32 /* DetailMobileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMobileViewController.swift; sourceTree = "<group>"; };
@@ -455,7 +457,7 @@
 				B3447A74218CC182005E6EF8 /* Render */,
 				B3447A75218CC182005E6EF8 /* ViewModel */,
 				B3B62FC3216DCC1B0006A39E /* DiscoverViewController.swift */,
-				B340BE79218DBDBA006FB78D /* DiscoverNewGoodViewController.swift */,
+				B340BE79218DBDBA006FB78D /* DetailGoodViewController.swift */,
 				B340BE7D218DD5BD006FB78D /* DiscoverResultViewController.swift */,
 				B340BE7B218DC0D6006FB78D /* SearchHistoryView.swift */,
 			);
@@ -469,6 +471,7 @@
 				B32256DC218B32840032A019 /* Render */,
 				B3B62FBF216DCBB10006A39E /* MainContentViewController.swift */,
 				B3447A6E218CB1B5005E6EF8 /* BrandIntroduceViewController.swift */,
+				B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */,
 			);
 			path = MainContent;
 			sourceTree = "<group>";
@@ -941,11 +944,12 @@
 				B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */,
 				B3B1AD072189969F001BBB32 /* LoginOutPacket.swift in Sources */,
 				B3B1AD1A2189AFAC001BBB32 /* UpdateUserPacket.swift in Sources */,
+				B3AFD581218E9DCB00D54F34 /* LatestMainPushViewController.swift in Sources */,
 				B30E01E3218B4BA3005F2C0C /* BrandIntroductionModel.swift in Sources */,
 				B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */,
 				B3447A79218CC32A005E6EF8 /* SearchCategoryCell.swift in Sources */,
 				B340BE7E218DD5BD006FB78D /* DiscoverResultViewController.swift in Sources */,
-				B340BE7A218DBDBA006FB78D /* DiscoverNewGoodViewController.swift in Sources */,
+				B340BE7A218DBDBA006FB78D /* DetailGoodViewController.swift in Sources */,
 				B30E01F0218B6F96005F2C0C /* GoodsFacade.swift in Sources */,
 				B3B1AD0521899193001BBB32 /* ForgetPasswordPacket.swift in Sources */,
 				B364D76D21819CD50081593D /* SLScannerView.swift in Sources */,

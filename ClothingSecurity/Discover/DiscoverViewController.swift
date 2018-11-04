@@ -39,7 +39,7 @@ class DiscoverViewController: BaseViewController {
         }
         resultViewController.onSelectGoodById = { [weak self] id in
             guard let `self` = self else { return }
-            let controller = DiscoverNewGoodViewController(id: id)
+            let controller = DetailGoodViewController(id: id)
             controller.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(controller, animated: true)
             
@@ -257,7 +257,7 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = subCategoryGoods[indexPath.section].list[indexPath.row]
-        let controller = DiscoverNewGoodViewController(id: model.id)
+        let controller = DetailGoodViewController(id: model.id)
         controller.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(controller, animated: true)
     }

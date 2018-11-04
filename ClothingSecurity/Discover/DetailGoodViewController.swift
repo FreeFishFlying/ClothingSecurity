@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DiscoverNewGoodViewController: BaseViewController {
+class DetailGoodViewController: BaseViewController {
     
     let id: String
     init(id: String) {
@@ -23,6 +23,6 @@ class DiscoverNewGoodViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fd_prefersNavigationBarHidden = true 
     }
 }

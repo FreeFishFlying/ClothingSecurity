@@ -62,6 +62,7 @@ class DiscoverResultViewController: BaseViewController {
         tableView.register(DetailSearchedGoodCell.self, forCellReuseIdentifier: "DetailSearchedGoodCell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.keyboardDismissMode = .onDrag
         return tableView
     }()
 }

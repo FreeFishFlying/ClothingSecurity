@@ -16,6 +16,7 @@ class SearchCategory: NSObject {
     var level: Int = 0
     
     init(json: JSON) {
+        super.init()
         if let id = json["id"].string {
             self.id = id
         }

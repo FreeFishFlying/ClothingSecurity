@@ -17,8 +17,10 @@ class Good: NSObject {
     var price: Double = 0
     var collected: Bool = false
     var collectCount: Int = 0
-    
+    var gallery = [String]()
+    var details = [String]()
     init(json: JSON)  {
+        super.init()
         if let id = json["id"].string {
             self.id = id
         }
@@ -42,6 +44,22 @@ class Good: NSObject {
         }
         if let collectCount = json["collectCount"].int {
             self.collectCount = collectCount
+        }
+        if let galleryList = json["gallery"].array {
+            galleryList.forEach { [weak self] js in
+                guard let `self` = self else { return }
+                if let item = js.string {
+                    self.gallery.append(item)
+                }
+            }
+        }
+        if let detailsList = json["details"].array {
+            detailsList.forEach { [weak self] js in
+                guard let `self` = self else { return }
+                if let item = js.string {
+                    self.details.append(item)
+                }
+            }
         }
     }
 }

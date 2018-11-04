@@ -62,6 +62,8 @@ class MainContentViewController: BaseViewController {
         tableView.estimatedRowHeight = 0
         cycleView.delegate = self
         cycleView.imageContentMode = .scaleAspectFill
+        cycleView.pageControlIndictirColor = UIColor(hexString: "#bfbfbf")
+        cycleView.pageControlCurrentIndictirColor = UIColor.black
     }
     
     private let cycleView: ZCycleView = {
@@ -136,11 +138,25 @@ extension MainContentViewController: UITableViewDataSource, UITableViewDelegate 
         } else if let model = model as? LatestMainPushModel {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LatestMainPushCell", for: indexPath) as! LatestMainPushCell
             cell.render(model)
+            cell.onTapLatestMainPushItem = { [weak self] id in
+                guard let `self` = self else { return }
+                self.searchById(id)
+            }
+            cell.onMore = { [weak self] in
+                guard let `self` = self else { return }
+                let controller = LatestMainPushViewController()
+                controller.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
             return cell
         }
         return UITableViewCell()
     }
     
-    
+    func searchById(_ id: String) {
+        let controller = DetailGoodViewController(id: id)
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
