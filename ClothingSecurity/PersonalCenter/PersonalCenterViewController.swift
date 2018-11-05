@@ -45,8 +45,10 @@ class PersonalCenterViewController: GroupedFormViewController {
         }
         LoginAndRegisterFacade.shared.appWillLoginOut().take(during: reactive.lifetime).observeValues { [weak self] value in
             if value {
+                UserItem.loginOut()
                 let controller = LoginViewController()
-                self?.navigationController?.pushViewController(controller, animated: true)
+                let nav = UINavigationController(rootViewController: controller)
+                self?.navigationController?.present(nav, animated: true, completion: nil)
             }
         }
     }
@@ -81,9 +83,9 @@ class PersonalCenterViewController: GroupedFormViewController {
         header.onLoginClick = { [weak self] in
             guard let `self` = self else { return }
             let controller = LoginViewController()
-            controller.hidesBottomBarWhenPushed = true
             controller.fd_interactivePopDisabled = true
-            self.navigationController?.pushViewController(controller, animated: true)
+            let nav = UINavigationController(rootViewController: controller)
+            self.navigationController?.present(nav, animated: true, completion: nil)
         }
     }
     

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class DetailGoodViewController: BaseViewController {
-    var model: Good?
+    var viewModel: DetailRichGoodModel?
     let id: String
     init(id: String) {
         self.id = id
@@ -25,9 +25,9 @@ class DetailGoodViewController: BaseViewController {
         GoodsFacade.shared.detailGoodBy(id).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
-            self.model = value.model
-            if let model = self.model {
+            if let model = value.model {
                 self.cycleView.setUrlsGroup(model.gallery)
+                self.viewModel = DetailRichGoodModel(model: model)
             }
             self.tableView.reloadData()
         }
@@ -38,6 +38,11 @@ class DetailGoodViewController: BaseViewController {
         fd_prefersNavigationBarHidden = true
         configUI()
         loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
     }
     
     
@@ -69,9 +74,10 @@ class DetailGoodViewController: BaseViewController {
     }
     
     private let tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.separatorStyle = .none
         tableView.register(DetailPriceAndCollectCell.self, forCellReuseIdentifier: "DetailPriceAndCollectCell")
+        tableView.register(DetailRichGoodCell.self, forCellReuseIdentifier: "DetailRichGoodCell")
         return tableView
     }()
     
@@ -87,10 +93,18 @@ class DetailGoodViewController: BaseViewController {
 extension DetailGoodViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if model != nil {
+        if viewModel != nil {
             return 2
         }
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -100,9 +114,24 @@ extension DetailGoodViewController: UITableViewDelegate, UITableViewDataSource {
         return 0.01
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if model != nil {
+        if viewModel != nil {
             return 1
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let model = viewModel {
+            if indexPath.section == 0 {
+                return 75
+            } else {
+                return model.height
+            }
         }
         return 0
     }
@@ -110,9 +139,43 @@ extension DetailGoodViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPriceAndCollectCell", for: indexPath) as! DetailPriceAndCollectCell
-            cell.model = model
+            if let model = viewModel {
+                cell.render(model)
+            }
+            cell.onCollectClick = { [weak self] in
+                guard let `self` = self else { return }
+                self.collect()
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailRichGoodCell", for: indexPath) as! DetailRichGoodCell
+            if let model = viewModel {
+                cell.render(model)
+            }
             return cell
         }
-        return UITableViewCell()
+    }
+    
+    private func collect() {
+        if LoginState.shared.hasLogin {
+            if let model = viewModel {
+                if model.model.collected {
+                    
+                } else {
+                    
+                }
+            }
+            
+        } else {
+            let controller = LoginViewController()
+            let nav = UINavigationController(rootViewController: controller)
+            navigationController?.present(nav, animated: true, completion: nil)
+            LoginAndRegisterFacade.shared.obserUserItemChange().take(during: reactive.lifetime).observeValues { [weak self] item in
+                guard let `self` = self else { return }
+                if item != nil {
+                    self.collect()
+                }
+            }
+        }
     }
 }

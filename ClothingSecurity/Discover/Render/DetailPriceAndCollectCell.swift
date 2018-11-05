@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 class DetailPriceAndCollectCell: UITableViewCell {
+    var onCollectClick: (() -> Void)?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         configUI()
     }
     
@@ -26,6 +28,7 @@ class DetailPriceAndCollectCell: UITableViewCell {
             make.top.equalToSuperview().offset(15)
             make.width.lessThanOrEqualTo(80)
         }
+        collectButton.addTarget(self, action: #selector(onClick), for: .touchUpInside)
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(17)
@@ -39,19 +42,19 @@ class DetailPriceAndCollectCell: UITableViewCell {
         }
     }
     
-    var model: Good? {
-        didSet {
-            if let model = model {
-                collectButton.setTitle(" \(model.collectCount)", for: .normal)
-                if model.collected {
-                    collectButton.setImage(imageNamed("ic_collected"), for: .normal)
-                } else{
-                    collectButton.setImage(imageNamed("ic_uncollect"), for: .normal)
-                }
-                nameLabel.text = model.name
-                priceLabel.text = "￥\(model.price)"
-            }
+    @objc private func onClick() {
+        onCollectClick?()
+    }
+    
+    func render(_ model: DetailRichGoodModel) {
+        collectButton.setTitle(" \(model.collectCount ?? 0)", for: .normal)
+        if let collect = model.isCollect, collect {
+            collectButton.setImage(imageNamed("ic_collected"), for: .normal)
+        } else {
+            collectButton.setImage(imageNamed("ic_uncollect"), for: .normal)
         }
+        nameLabel.text = model.title
+        priceLabel.text = model.price
     }
     
     private let nameLabel: UILabel = {

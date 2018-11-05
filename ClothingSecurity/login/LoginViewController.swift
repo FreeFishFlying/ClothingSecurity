@@ -27,6 +27,10 @@ class LoginViewController: BaseLoginViewController {
         headerTitle = "登录"
     }
     
+    override func back() {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
     private func configTableView() {
         tableView.snp.remakeConstraints { make in
             var value: CGFloat = 20.0

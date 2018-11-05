@@ -34,10 +34,14 @@ class BaseLoginViewController: GroupedFormViewController {
         }
     }
     
+    func back() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     private func configHeaderView() {
         headerView.onBackButtonClick = { [weak self] in
             guard let `self` = self else { return }
-            self.navigationController?.popViewController(animated: true)
+            self.back()
         }
         view.addSubview(headerView)
         headerView.snp.makeConstraints { make in
