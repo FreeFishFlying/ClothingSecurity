@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import HUD
 class DetailGoodViewController: BaseViewController {
     var viewModel: DetailRichGoodModel?
     let id: String
@@ -28,6 +28,8 @@ class DetailGoodViewController: BaseViewController {
             if let model = value.model {
                 self.cycleView.setUrlsGroup(model.gallery)
                 self.viewModel = DetailRichGoodModel(model: model)
+            } else {
+                HUD.tip(text: "商品不存在")
             }
             self.tableView.reloadData()
         }
@@ -38,6 +40,41 @@ class DetailGoodViewController: BaseViewController {
         fd_prefersNavigationBarHidden = true
         configUI()
         loadData()
+        regiestEvent()
+    }
+    
+    private func regiestEvent() {
+        LoginAndRegisterFacade.shared.obserUserItemChange().take(during: reactive.lifetime).observeValues { [weak self] item in
+            guard let `self` = self else { return }
+            if item != nil {
+                GoodsFacade.shared.detailGoodBy(self.id).startWithResult({ [weak self] result in
+                    guard let `self` = self else { return }
+                    guard let value = result.value else { return }
+                    if let model = value.model, let viewModel = self.viewModel {
+                        viewModel.isCollect = model.collected
+                        viewModel.collectCount = model.collectCount
+                        self.tableView.reloadData()
+                        if !viewModel.isCollect {
+                            self.collect()
+                        }
+                    }
+                })
+            }
+        }
+        GoodsFacade.shared.obserCollectState().take(during: reactive.lifetime).observeValues { [weak self] result in
+            guard let `self` = self else { return }
+            guard let id = result.id else { return }
+            guard let collect = result.collect else { return }
+            if id == self.id, let model = self.viewModel {
+                model.isCollect = collect
+                if collect {
+                    model.collectCount += 1
+                } else {
+                    model.collectCount -= 1
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -158,11 +195,11 @@ extension DetailGoodViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func collect() {
         if LoginState.shared.hasLogin {
-            if let model = viewModel {
-                if model.model.collected {
-                    
-                } else {
-                    
+            if let model = viewModel, model.isCollect {
+                 GoodsFacade.shared.unCollect(id: id, type: CollectType.goods).startWithResult { _ in
+                }
+            } else {
+                GoodsFacade.shared.collect(id: id, type: CollectType.goods).startWithResult { _ in
                 }
             }
             
@@ -170,12 +207,6 @@ extension DetailGoodViewController: UITableViewDelegate, UITableViewDataSource {
             let controller = LoginViewController()
             let nav = UINavigationController(rootViewController: controller)
             navigationController?.present(nav, animated: true, completion: nil)
-            LoginAndRegisterFacade.shared.obserUserItemChange().take(during: reactive.lifetime).observeValues { [weak self] item in
-                guard let `self` = self else { return }
-                if item != nil {
-                    self.collect()
-                }
-            }
         }
     }
 }

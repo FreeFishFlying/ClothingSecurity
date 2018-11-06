@@ -16,7 +16,9 @@ public class LoginResponseData: HttpResponseData {
     public required init(json: JSON?) {
         super.init(json: json)
         guard let json = json else { return }
-        userItem = UserItem.create(json: json["data"])
+        if !json["data"].isEmpty {
+            userItem = UserItem.create(json: json["data"])
+        }
         if let user = userItem, user.id.isEmpty {
             userItem = nil
         }

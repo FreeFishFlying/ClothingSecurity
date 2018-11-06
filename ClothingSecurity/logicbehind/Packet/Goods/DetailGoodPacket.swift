@@ -14,7 +14,7 @@ class DetailGoodResponseData: HttpResponseData {
     var model: Good?
     required init(json: JSON?) {
         super.init(json: json)
-        if let json = json {
+        if let json = json, !json["data"].isEmpty {
             model = Good(json: json["data"])
         }
     }

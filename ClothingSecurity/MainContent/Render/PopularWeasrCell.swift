@@ -13,6 +13,7 @@ import Mesh
 class PopularWearCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         configUI()
     }
     
@@ -58,6 +59,7 @@ class PopularWearCell: UITableViewCell {
     private let imageContentView: UIImageView = {
         let imageView =  UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.isUserInteractionEnabled = true
         imageView.clipsToBounds = true
         return imageView
     }()

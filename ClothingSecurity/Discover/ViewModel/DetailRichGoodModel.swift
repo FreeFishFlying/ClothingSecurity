@@ -14,6 +14,8 @@ class DetailRichGoodModel: NSObject {
     var height: CGFloat = 0
     var sizeList = [CGSize]()
     let model: Good
+    var isCollect: Bool = false
+    var collectCount: Int = 0
     init(model: Good) {
         self.model = model
         super.init()
@@ -22,19 +24,16 @@ class DetailRichGoodModel: NSObject {
             height += size.height
             height += 10
         }
+        isCollect = model.collected
+        collectCount = model.collectCount
+        
     }
     
     var imageUrls: [String]? {
         return model.details
     }
     
-    var isCollect: Bool? {
-        return model.collected
-    }
     
-    var collectCount: Int? {
-        return model.collectCount
-    }
     
     var price: String? {
         return "￥\(model.price)"

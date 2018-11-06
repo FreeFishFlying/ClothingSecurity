@@ -25,15 +25,11 @@ class PersonalCenterViewController: GroupedFormViewController {
     
     var currentUser: UserItem? {
         didSet {
+            header.canLogin = !LoginState.shared.hasLogin
             if let user = currentUser {
-                LoginState.shared.hasLogin = true
                 header.item = (url: user.avatar, name: user.nickName, account: user.mobile)
-                header.canLogin = !LoginState.shared.hasLogin
-                
             } else {
                 header.item = nil
-                LoginState.shared.hasLogin = false
-                header.canLogin = !LoginState.shared.hasLogin
             }
         }
     }

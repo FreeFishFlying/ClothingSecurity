@@ -77,6 +77,11 @@
 		B364D76B21819CD50081593D /* SLQRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364D76421819CD50081593D /* SLQRCodeHelper.swift */; };
 		B364D76C21819CD50081593D /* SWQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B364D76521819CD50081593D /* SWQRCode.bundle */; };
 		B364D76D21819CD50081593D /* SLScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B364D76721819CD50081593D /* SLScannerView.swift */; };
+		B377C358219077B100114A25 /* CollectGoodPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377C357219077B100114A25 /* CollectGoodPacket.swift */; };
+		B377C35A219079A500114A25 /* UnCollectGoodPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377C359219079A500114A25 /* UnCollectGoodPacket.swift */; };
+		B377C35C21908AFE00114A25 /* PopularWearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377C35B21908AFE00114A25 /* PopularWearViewController.swift */; };
+		B377C35E2190905500114A25 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377C35D2190905500114A25 /* VideoModel.swift */; };
+		B377C3602190936F00114A25 /* DesignHotListPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377C35F2190936F00114A25 /* DesignHotListPacket.swift */; };
 		B3AFD581218E9DCB00D54F34 /* LatestMainPushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */; };
 		B3AFD583218EBFD400D54F34 /* LatestMainPushPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD582218EBFD400D54F34 /* LatestMainPushPacket.swift */; };
 		B3AFD585218EBFE700D54F34 /* SearchByKeywordPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD584218EBFE700D54F34 /* SearchByKeywordPacket.swift */; };
@@ -207,6 +212,11 @@
 		B364D76521819CD50081593D /* SWQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SWQRCode.bundle; sourceTree = "<group>"; };
 		B364D76721819CD50081593D /* SLScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLScannerView.swift; sourceTree = "<group>"; };
 		B364D76E2181A1420081593D /* ClothingSecurity-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClothingSecurity-Bridging-Header.h"; sourceTree = "<group>"; };
+		B377C357219077B100114A25 /* CollectGoodPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectGoodPacket.swift; sourceTree = "<group>"; };
+		B377C359219079A500114A25 /* UnCollectGoodPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnCollectGoodPacket.swift; sourceTree = "<group>"; };
+		B377C35B21908AFE00114A25 /* PopularWearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularWearViewController.swift; sourceTree = "<group>"; };
+		B377C35D2190905500114A25 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		B377C35F2190936F00114A25 /* DesignHotListPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignHotListPacket.swift; sourceTree = "<group>"; };
 		B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushViewController.swift; sourceTree = "<group>"; };
 		B3AFD582218EBFD400D54F34 /* LatestMainPushPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushPacket.swift; sourceTree = "<group>"; };
 		B3AFD584218EBFE700D54F34 /* SearchByKeywordPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByKeywordPacket.swift; sourceTree = "<group>"; };
@@ -297,6 +307,9 @@
 				B3AFD582218EBFD400D54F34 /* LatestMainPushPacket.swift */,
 				B3AFD584218EBFE700D54F34 /* SearchByKeywordPacket.swift */,
 				B3AFD586218EC02300D54F34 /* DetailGoodPacket.swift */,
+				B377C357219077B100114A25 /* CollectGoodPacket.swift */,
+				B377C359219079A500114A25 /* UnCollectGoodPacket.swift */,
+				B377C35F2190936F00114A25 /* DesignHotListPacket.swift */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -402,6 +415,7 @@
 				B3447A6A218C9818005E6EF8 /* Banner.swift */,
 				B3447A70218CBF67005E6EF8 /* SearchCategory.swift */,
 				B340BE71218D671A006FB78D /* SubCategory.swift */,
+				B377C35D2190905500114A25 /* VideoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -490,6 +504,7 @@
 				B3B62FBF216DCBB10006A39E /* MainContentViewController.swift */,
 				B3447A6E218CB1B5005E6EF8 /* BrandIntroduceViewController.swift */,
 				B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */,
+				B377C35B21908AFE00114A25 /* PopularWearViewController.swift */,
 			);
 			path = MainContent;
 			sourceTree = "<group>";
@@ -893,6 +908,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B35DBB4A216CA7AE00CAFDAD /* BaseViewController.swift in Sources */,
+				B377C35C21908AFE00114A25 /* PopularWearViewController.swift in Sources */,
 				B32612422186B0E4002A2E51 /* HttpRequestPacket.swift in Sources */,
 				B340BE7C218DC0D6006FB78D /* SearchHistoryView.swift in Sources */,
 				B322EFE7216F1F7E0077EE02 /* ScanningViewController.swift in Sources */,
@@ -908,6 +924,7 @@
 				B3447A71218CBF67005E6EF8 /* SearchCategory.swift in Sources */,
 				B3447A6F218CB1B5005E6EF8 /* BrandIntroduceViewController.swift in Sources */,
 				B34638B221837286002B1CF3 /* ForgetPasswordViewController.swift in Sources */,
+				B377C3602190936F00114A25 /* DesignHotListPacket.swift in Sources */,
 				B340BE80218E0AB9006FB78D /* DetailSearchedGoodCell.swift in Sources */,
 				B364D76A21819CD50081593D /* SLQRCodeConfig.swift in Sources */,
 				B35DBB46216C9A6D00CAFDAD /* LoginViewController.swift in Sources */,
@@ -922,6 +939,7 @@
 				B364D76921819CD50081593D /* ScanningViewController.swift in Sources */,
 				B3447A77218CC1E6005E6EF8 /* SearchCategoryViewModel.swift in Sources */,
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
+				B377C35E2190905500114A25 /* VideoModel.swift in Sources */,
 				B34638AE21835C0F002B1CF3 /* BaseLoginViewController.swift in Sources */,
 				B326A01C218954590072E220 /* AccountSettingViewController.swift in Sources */,
 				B3B1AD0921899944001BBB32 /* DetailMobileViewController.swift in Sources */,
@@ -954,6 +972,7 @@
 				B340BE76218D772B006FB78D /* DetailCategoryGoodCell.swift in Sources */,
 				B3248D2921880A6A00BF7485 /* ZCycleLayout.swift in Sources */,
 				B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */,
+				B377C35A219079A500114A25 /* UnCollectGoodPacket.swift in Sources */,
 				B340BE72218D671A006FB78D /* SubCategory.swift in Sources */,
 				B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */,
 				B30FD84E21860B9E0004BABB /* AccountSafeViewController+Cell.swift in Sources */,
@@ -968,6 +987,7 @@
 				B3B1AD072189969F001BBB32 /* LoginOutPacket.swift in Sources */,
 				B3B1AD1A2189AFAC001BBB32 /* UpdateUserPacket.swift in Sources */,
 				B3AFD581218E9DCB00D54F34 /* LatestMainPushViewController.swift in Sources */,
+				B377C358219077B100114A25 /* CollectGoodPacket.swift in Sources */,
 				B30E01E3218B4BA3005F2C0C /* BrandIntroductionModel.swift in Sources */,
 				B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */,
 				B3447A79218CC32A005E6EF8 /* SearchCategoryCell.swift in Sources */,

@@ -47,8 +47,8 @@ class DetailPriceAndCollectCell: UITableViewCell {
     }
     
     func render(_ model: DetailRichGoodModel) {
-        collectButton.setTitle(" \(model.collectCount ?? 0)", for: .normal)
-        if let collect = model.isCollect, collect {
+        collectButton.setTitle(" \(model.collectCount)", for: .normal)
+        if model.isCollect {
             collectButton.setImage(imageNamed("ic_collected"), for: .normal)
         } else {
             collectButton.setImage(imageNamed("ic_uncollect"), for: .normal)

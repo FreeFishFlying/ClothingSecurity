@@ -160,6 +160,18 @@ extension MainContentViewController: UITableViewDataSource, UITableViewDelegate 
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let controller = BrandIntroduceViewController()
+            controller.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(controller, animated: true)
+        } else if indexPath.section == 1 {
+            let controller = PopularWearViewController()
+            controller.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
     func searchById(_ id: String) {
         let controller = DetailGoodViewController(id: id)
         controller.hidesBottomBarWhenPushed = true
