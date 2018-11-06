@@ -64,4 +64,8 @@ class GoodsFacade: NSObject {
     func obserCollectState() -> Signal<(id: String?, collect: Bool?), NoError> {
         return collectStatechanged.output
     }
+    
+    func hotDesignList() ->  SignalProducer<DesignHotListResponse, NSError> {
+        return DesignHotListPacket().send()
+    }
 }

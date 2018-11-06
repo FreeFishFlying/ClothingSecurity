@@ -12,13 +12,16 @@ import Mesh
 import ReactiveSwift
 
 class DesignHotListResponse: HttpResponseData {
-    var content: [VideoModel]?
+    var content = [VideoModel]()
     required init(json: JSON?) {
         super.init(json: json)
         if let json = json {
-            if let list = json["content"].array {
-                list.forEach { js in
-                    content?.append(VideoModel(json: js))
+            if !json["data"].isEmpty {
+                let data = json["data"]
+                if let list = data["content"].array {
+                    list.forEach { js in
+                        content.append(VideoModel(json: js))
+                    }
                 }
             }
         }
@@ -26,5 +29,15 @@ class DesignHotListResponse: HttpResponseData {
 }
 
 class DesignHotListPacket: HttpRequestPacket<DesignHotListResponse> {
+    override func requestUrl() -> URL {
+        return URL(string: "/design/list_hot?page=0&size=10")!
+    }
     
+    override func httpMethod() -> HTTPMethod {
+        return .get
+    }
+    
+    override func parameterEncoding() -> ParameterEncoding {
+        return JSONEncoding.default
+    }
 }

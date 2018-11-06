@@ -19,6 +19,10 @@
 		B30FD84F21860B9E0004BABB /* ChangeUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */; };
 		B30FD85021860B9E0004BABB /* AccountSafeViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD84C21860B9E0004BABB /* AccountSafeViewController+Extension.swift */; };
 		B30FD8522186117C0004BABB /* ChangeMobileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FD8512186117C0004BABB /* ChangeMobileViewController.swift */; };
+		B31E7DE42191AE2D003653EC /* ClothesMakingVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E7DE32191AE2D003653EC /* ClothesMakingVideoCell.swift */; };
+		B31E7DE62191AEC0003653EC /* ClothesMakingVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E7DE52191AEC0003653EC /* ClothesMakingVideoModel.swift */; };
+		B31E7DEA2191E633003653EC /* ClothesPopularImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E7DE92191E633003653EC /* ClothesPopularImageCell.swift */; };
+		B31E7DEC2191E648003653EC /* ClothesPopularImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E7DEB2191E648003653EC /* ClothesPopularImageModel.swift */; };
 		B32256DE218B33020032A019 /* BrandIntroductionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32256DD218B33020032A019 /* BrandIntroductionCell.swift */; };
 		B32256E0218B33260032A019 /* PopularWeasrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32256DF218B33260032A019 /* PopularWeasrCell.swift */; };
 		B32256E2218B33460032A019 /* LatestMainPushCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32256E1218B33460032A019 /* LatestMainPushCell.swift */; };
@@ -147,6 +151,10 @@
 		B30FD84B21860B9E0004BABB /* ChangeUserNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserNameViewController.swift; sourceTree = "<group>"; };
 		B30FD84C21860B9E0004BABB /* AccountSafeViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountSafeViewController+Extension.swift"; sourceTree = "<group>"; };
 		B30FD8512186117C0004BABB /* ChangeMobileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMobileViewController.swift; sourceTree = "<group>"; };
+		B31E7DE32191AE2D003653EC /* ClothesMakingVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesMakingVideoCell.swift; sourceTree = "<group>"; };
+		B31E7DE52191AEC0003653EC /* ClothesMakingVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesMakingVideoModel.swift; sourceTree = "<group>"; };
+		B31E7DE92191E633003653EC /* ClothesPopularImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesPopularImageCell.swift; sourceTree = "<group>"; };
+		B31E7DEB2191E648003653EC /* ClothesPopularImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesPopularImageModel.swift; sourceTree = "<group>"; };
 		B32256DD218B33020032A019 /* BrandIntroductionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandIntroductionCell.swift; sourceTree = "<group>"; };
 		B32256DF218B33260032A019 /* PopularWeasrCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularWeasrCell.swift; sourceTree = "<group>"; };
 		B32256E1218B33460032A019 /* LatestMainPushCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushCell.swift; sourceTree = "<group>"; };
@@ -293,6 +301,8 @@
 				B30E01E2218B4BA3005F2C0C /* BrandIntroductionModel.swift */,
 				B30E01E4218B5684005F2C0C /* PopularWearModel.swift */,
 				B30E01E6218B56E0005F2C0C /* LatestMainPushModel.swift */,
+				B31E7DE52191AEC0003653EC /* ClothesMakingVideoModel.swift */,
+				B31E7DEB2191E648003653EC /* ClothesPopularImageModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -335,6 +345,8 @@
 				B32256DD218B33020032A019 /* BrandIntroductionCell.swift */,
 				B32256DF218B33260032A019 /* PopularWeasrCell.swift */,
 				B32256E1218B33460032A019 /* LatestMainPushCell.swift */,
+				B31E7DE32191AE2D003653EC /* ClothesMakingVideoCell.swift */,
+				B31E7DE92191E633003653EC /* ClothesPopularImageCell.swift */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -963,13 +975,16 @@
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
 				B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */,
+				B31E7DEA2191E633003653EC /* ClothesPopularImageCell.swift in Sources */,
 				B30E01E7218B56E0005F2C0C /* LatestMainPushModel.swift in Sources */,
 				B340BE78218D9BAC006FB78D /* DetailCategoryHeaderView.swift in Sources */,
+				B31E7DEC2191E648003653EC /* ClothesPopularImageModel.swift in Sources */,
 				B32612492186B1E8002A2E51 /* GetAuthCodePacket.swift in Sources */,
 				B35DBB4C216CAAC600CAFDAD /* UIKit+extension.swift in Sources */,
 				B3B1AD162189AE9D001BBB32 /* ChangePasswordPacket.swift in Sources */,
 				B3447A67218C97EA005E6EF8 /* BannerListPacket.swift in Sources */,
 				B340BE76218D772B006FB78D /* DetailCategoryGoodCell.swift in Sources */,
+				B31E7DE42191AE2D003653EC /* ClothesMakingVideoCell.swift in Sources */,
 				B3248D2921880A6A00BF7485 /* ZCycleLayout.swift in Sources */,
 				B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */,
 				B377C35A219079A500114A25 /* UnCollectGoodPacket.swift in Sources */,
@@ -984,6 +999,7 @@
 				B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */,
 				B326124D2186B5CE002A2E51 /* LoginAndRegisterFacade.swift in Sources */,
 				B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */,
+				B31E7DE62191AEC0003653EC /* ClothesMakingVideoModel.swift in Sources */,
 				B3B1AD072189969F001BBB32 /* LoginOutPacket.swift in Sources */,
 				B3B1AD1A2189AFAC001BBB32 /* UpdateUserPacket.swift in Sources */,
 				B3AFD581218E9DCB00D54F34 /* LatestMainPushViewController.swift in Sources */,
