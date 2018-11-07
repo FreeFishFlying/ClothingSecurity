@@ -13,11 +13,12 @@ class ClothesMakingVideoCell: UITableViewCell, UIScrollViewDelegate {
     var onPlayView: ((String) -> Void)?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
+            make.left.equalToSuperview().offset(15)
+            make.right.equalToSuperview().offset(-9)
             make.height.equalTo((ScreenWidth - 30) / 16 * 9 + 39)
         }
     }
@@ -31,7 +32,9 @@ class ClothesMakingVideoCell: UITableViewCell, UIScrollViewDelegate {
         scroll.bounces = false
         scroll.alwaysBounceVertical = false
         scroll.alwaysBounceHorizontal = false
-        scroll.delegate = self
+        scroll.isPagingEnabled = true
+        scroll.bounces = true
+        scroll.clipsToBounds = false
         return scroll
     }()
     
@@ -49,7 +52,7 @@ class ClothesMakingVideoCell: UITableViewCell, UIScrollViewDelegate {
                 if let view = lastView {
                     make.left.equalTo(view.snp.right).offset(6)
                 } else {
-                    make.left.equalToSuperview().offset(15)
+                    make.left.equalToSuperview().offset(0)
                 }
                 make.width.equalTo(model.videoViewSize.width)
                 make.height.equalTo(model.videoViewSize.height)
@@ -60,10 +63,7 @@ class ClothesMakingVideoCell: UITableViewCell, UIScrollViewDelegate {
                 self.onPlayView?(url)
             }
         }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        scrollView.contentSize = CGSize(width: (ScreenWidth - 15 - 9) * CGFloat(model.videoModel.count), height: 0)
     }
 }
 

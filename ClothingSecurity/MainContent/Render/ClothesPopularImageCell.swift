@@ -14,6 +14,7 @@ class ClothesPopularImageCell: UITableViewCell {
     var onCollectClick: ((ClothesPopularImageModel) -> Void)?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         configUI()
     }
     

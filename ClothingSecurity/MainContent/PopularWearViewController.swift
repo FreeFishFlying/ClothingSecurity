@@ -168,10 +168,10 @@ class PopularWearViewController: BaseViewController, UITableViewDelegate, UITabl
     private func collect(_ model: ClothesPopularImageModel) {
         if LoginState.shared.hasLogin {
             if  model.isCollect {
-                GoodsFacade.shared.unCollect(id: model.id, type: CollectType.goods).startWithResult { _ in
+                GoodsFacade.shared.unCollect(id: model.id, type: CollectType.outfit).startWithResult { _ in
                 }
             } else {
-                GoodsFacade.shared.collect(id: model.id, type: CollectType.goods).startWithResult { _ in
+                GoodsFacade.shared.collect(id: model.id, type: CollectType.outfit).startWithResult { _ in
                 }
             }
             
