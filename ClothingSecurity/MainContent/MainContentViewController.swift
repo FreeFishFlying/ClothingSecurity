@@ -9,10 +9,12 @@
 import Foundation
 import UIKit
 import SnapKit
+import Mesh
 
 class MainContentViewController: BaseViewController {
     var bannerList = [Banner]()
     var dataSource = [Any]()
+    fileprivate var networkReachabilityManager: NetworkReachabilityManager?
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = imageHeader
@@ -22,6 +24,29 @@ class MainContentViewController: BaseViewController {
         dataSource.append(LatestMainPushModel())
         configUI()
         loadData()
+        registerEvent()
+    }
+    
+    func registerEvent() {
+        if networkReachabilityManager == nil {
+            networkReachabilityManager = NetworkReachabilityManager()
+            networkReachabilityManager?.startListening()
+            networkReachabilityManager?.listener = { status in
+                switch status {
+                case .notReachable:
+                   break
+                case let .reachable(connectionType):
+                    switch connectionType {
+                    case .ethernetOrWiFi:
+                        self.loadData()
+                    case .wwan:
+                       self.loadData()
+                    }
+                case .unknown:
+                    break
+                }
+            }
+        }
     }
     
     private func loadData() {
@@ -178,4 +203,3 @@ extension MainContentViewController: UITableViewDataSource, UITableViewDelegate 
         navigationController?.pushViewController(controller, animated: true)
     }
 }
-

@@ -9,13 +9,38 @@
 import Foundation
 import UIKit
 import SnapKit
+import Mesh
 class DiscoverViewController: BaseViewController {
     var categoryList = [SearchCategoryViewModel]()
     var subCategoryGoods = [SubCategory]()
+    fileprivate var networkReachabilityManager: NetworkReachabilityManager?
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
         loadSearchData()
+        registerEvent()
+    }
+    
+    func registerEvent() {
+        if networkReachabilityManager == nil {
+            networkReachabilityManager = NetworkReachabilityManager()
+            networkReachabilityManager?.startListening()
+            networkReachabilityManager?.listener = { status in
+                switch status {
+                case .notReachable:
+                    break
+                case let .reachable(connectionType):
+                    switch connectionType {
+                    case .ethernetOrWiFi:
+                        self.loadSearchData()
+                    case .wwan:
+                        self.loadSearchData()
+                    }
+                case .unknown:
+                    break
+                }
+            }
+        }
     }
     
     private func configUI() {

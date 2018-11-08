@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-
+import AVFoundation
+import AVKit
 class PopularWearViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     var videoModel: ClothesMakingVideoModel?
@@ -151,6 +152,16 @@ class PopularWearViewController: BaseViewController, UITableViewDelegate, UITabl
             let cell = tableView.dequeueReusableCell(withIdentifier: "ClothesMakingVideoCell", for: indexPath) as! ClothesMakingVideoCell
             if let model = videoModel {
                 cell.render(model)
+                cell.onPlayView = { [weak self] url in
+                    if let remoteUrl = URL(string: url) {
+                        let player = AVPlayer(url: remoteUrl)
+                        let playController = AVPlayerViewController()
+                        playController.player = player
+                        self?.present(playController, animated: true, completion: {
+                            playController.player?.play()
+                        })
+                    }
+                }
             }
             return cell
         } else {
@@ -182,3 +193,4 @@ class PopularWearViewController: BaseViewController, UITableViewDelegate, UITabl
         }
     }
 }
+

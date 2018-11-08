@@ -78,10 +78,12 @@ class PersonalCenterViewController: GroupedFormViewController {
         currentUser = UserItem.current()
         header.onLoginClick = { [weak self] in
             guard let `self` = self else { return }
-            let controller = LoginViewController()
-            controller.fd_interactivePopDisabled = true
-            let nav = UINavigationController(rootViewController: controller)
-            self.navigationController?.present(nav, animated: true, completion: nil)
+            if !LoginState.shared.hasLogin {
+                let controller = LoginViewController()
+                controller.fd_interactivePopDisabled = true
+                let nav = UINavigationController(rootViewController: controller)
+                self.navigationController?.present(nav, animated: true, completion: nil)
+            }
         }
     }
     
