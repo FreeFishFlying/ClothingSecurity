@@ -32,7 +32,11 @@ class LoginAndRegisterFacade: NSObject {
     }
     
     func login(mobile: String, password: String) -> SignalProducer<LoginResponseData, NSError> {
-        return LoginPacket(mobile: mobile, pd: password).send()
+        return LoginPacket(mobile: mobile, pd: password).send().on(value: { response in
+            if response.isSuccess() {
+                LoginState.shared.hasLogin = true
+            }
+        })
     }
     
     func appWillLoginOut() -> Signal<Bool, NoError> {

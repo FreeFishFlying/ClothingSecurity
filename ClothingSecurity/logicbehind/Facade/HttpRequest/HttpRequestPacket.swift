@@ -90,6 +90,7 @@ open class HttpRequestPacket<T: HttpResponseData> {
         if let authorization = authorization() {
             headers["authorization"] = authorization
         }
+        print("url = \(requestUrl().absoluteString)")
         request = Mesh.request(URL(string: rootUrl + requestUrl().absoluteString)!,
                                method: httpMethod(),
                                parameters: requestParameter(),

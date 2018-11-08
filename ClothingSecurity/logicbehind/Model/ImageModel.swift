@@ -20,6 +20,7 @@ class ImageModel: NSObject {
     var url: String = ""
     
     init(json: JSON) {
+        super.init()
         if let id = json["id"].string {
             self.id = id
         }

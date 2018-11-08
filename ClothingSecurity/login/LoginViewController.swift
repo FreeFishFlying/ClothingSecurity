@@ -27,6 +27,10 @@ class LoginViewController: BaseLoginViewController {
         headerTitle = "登录"
     }
     
+    override func back() {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
     private func configTableView() {
         tableView.snp.remakeConstraints { make in
             var value: CGFloat = 20.0
@@ -132,7 +136,7 @@ class LoginViewController: BaseLoginViewController {
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
                 if value.isSuccess() {
-                    self.navigationController?.popToRootViewController(animated: true)
+                    self.navigationController?.dismiss(animated: true, completion: nil)
                 } else {
                     if let content = value.tipMesage() {
                         HUD.flashError(title: content)

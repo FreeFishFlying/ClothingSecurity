@@ -51,6 +51,7 @@ class CompleteMaterialViewController: BaseLoginViewController {
                 guard let value = result.value else { return }
                 if value.isSuccess() {
                     self.navigationController?.popToRootViewController(animated: true)
+                    self.navigationController?.dismiss(animated: true, completion: nil)
                 }
             }
         }

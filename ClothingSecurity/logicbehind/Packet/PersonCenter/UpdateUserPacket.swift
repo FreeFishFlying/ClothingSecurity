@@ -16,7 +16,9 @@ class UploadHeaderImageResponse: HttpResponseData {
     public required init(json: JSON?) {
         super.init(json: json)
         guard let json = json else { return }
-        imageModel = ImageModel(json: json["data"])
+        if !json["data"].isEmpty {
+            imageModel = ImageModel(json: json["data"])
+        }
     }
 }
 

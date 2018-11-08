@@ -25,15 +25,11 @@ class PersonalCenterViewController: GroupedFormViewController {
     
     var currentUser: UserItem? {
         didSet {
+            header.canLogin = !LoginState.shared.hasLogin
             if let user = currentUser {
-                LoginState.shared.hasLogin = true
                 header.item = (url: user.avatar, name: user.nickName, account: user.mobile)
-                header.canLogin = !LoginState.shared.hasLogin
-                
             } else {
                 header.item = nil
-                LoginState.shared.hasLogin = false
-                header.canLogin = !LoginState.shared.hasLogin
             }
         }
     }
@@ -45,8 +41,10 @@ class PersonalCenterViewController: GroupedFormViewController {
         }
         LoginAndRegisterFacade.shared.appWillLoginOut().take(during: reactive.lifetime).observeValues { [weak self] value in
             if value {
+                UserItem.loginOut()
                 let controller = LoginViewController()
-                self?.navigationController?.pushViewController(controller, animated: true)
+                let nav = UINavigationController(rootViewController: controller)
+                self?.navigationController?.present(nav, animated: true, completion: nil)
             }
         }
     }
@@ -81,9 +79,9 @@ class PersonalCenterViewController: GroupedFormViewController {
         header.onLoginClick = { [weak self] in
             guard let `self` = self else { return }
             let controller = LoginViewController()
-            controller.hidesBottomBarWhenPushed = true
             controller.fd_interactivePopDisabled = true
-            self.navigationController?.pushViewController(controller, animated: true)
+            let nav = UINavigationController(rootViewController: controller)
+            self.navigationController?.present(nav, animated: true, completion: nil)
         }
     }
     
@@ -144,7 +142,7 @@ fileprivate class LoginHeaderView: UIView {
                 accountLabel.text = item.account
                 nameLabel.snp.remakeConstraints { make in
                     make.left.equalTo(icon.snp.right).offset(12)
-                    make.bottom.equalTo(icon.snp.centerY)
+                    make.bottom.equalTo(icon.snp.centerY).offset(5)
                     make.right.equalToSuperview().offset(-15)
                 }
                 if let url = item.url, let path = URL(string: url) {
@@ -195,7 +193,7 @@ fileprivate class LoginHeaderView: UIView {
         addSubview(accountLabel)
         accountLabel.snp.makeConstraints { make in
             make.left.equalTo(icon.snp.right).offset(12)
-            make.top.equalTo(nameLabel.snp.bottom).offset(7)
+            make.top.equalTo(nameLabel.snp.bottom).offset(3)
         }
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(loginClick))
         nameLabel.addGestureRecognizer(tap)
