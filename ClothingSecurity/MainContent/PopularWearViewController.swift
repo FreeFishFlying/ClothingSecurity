@@ -176,6 +176,14 @@ class PopularWearViewController: BaseViewController, UITableViewDelegate, UITabl
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1, let model = imageModels[safe: indexPath.row] {
+            let controller = DetailPopularWearViewController(wearId: model.id)
+            navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
     private func collect(_ model: ClothesPopularImageModel) {
         if LoginState.shared.hasLogin {
             if  model.isCollect {

@@ -85,7 +85,6 @@ class DetailGoodViewController: BaseViewController {
     
     
     private func configUI() {
-        view.backgroundColor = UIColor.red
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(-20)

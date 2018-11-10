@@ -116,6 +116,8 @@
 		B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6E2182E32200F5FA47 /* InputRender.swift */; };
 		B3F2B3B82180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */; };
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
+		B3F61788219688870051926E /* DetailPopularWearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F61787219688870051926E /* DetailPopularWearViewController.swift */; };
+		B3F6178A21968C1C0051926E /* DetailPopularWearPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */; };
 		B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCEEC52182091200DA52E2 /* LoginViewController+Cell.swift */; };
 		B3FCEEC821821FFD00DA52E2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
@@ -255,6 +257,8 @@
 		B3BBEE6E2182E32200F5FA47 /* InputRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRender.swift; sourceTree = "<group>"; };
 		B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalCenterViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
+		B3F61787219688870051926E /* DetailPopularWearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearViewController.swift; sourceTree = "<group>"; };
+		B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearPacket.swift; sourceTree = "<group>"; };
 		B3FCEEC52182091200DA52E2 /* LoginViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Cell.swift"; sourceTree = "<group>"; };
 		B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B46ABE2E877479909907E94E /* Pods_ClothingSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -320,6 +324,7 @@
 				B377C357219077B100114A25 /* CollectGoodPacket.swift */,
 				B377C359219079A500114A25 /* UnCollectGoodPacket.swift */,
 				B377C35F2190936F00114A25 /* DesignHotListPacket.swift */,
+				B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -517,6 +522,7 @@
 				B3447A6E218CB1B5005E6EF8 /* BrandIntroduceViewController.swift */,
 				B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */,
 				B377C35B21908AFE00114A25 /* PopularWearViewController.swift */,
+				B3F61787219688870051926E /* DetailPopularWearViewController.swift */,
 			);
 			path = MainContent;
 			sourceTree = "<group>";
@@ -945,6 +951,7 @@
 				B3AFD587218EC02300D54F34 /* DetailGoodPacket.swift in Sources */,
 				B3B1AD172189AE9D001BBB32 /* AuthUserInfoPacket.swift in Sources */,
 				B30E01EE218B6AF6005F2C0C /* Good.swift in Sources */,
+				B3F6178A21968C1C0051926E /* DetailPopularWearPacket.swift in Sources */,
 				B3447A73218CC051005E6EF8 /* CategoryListPacket.swift in Sources */,
 				B3AFD589218F27F100D54F34 /* DetailPriceAndCollectCell.swift in Sources */,
 				B3AFD58B218F3E9A00D54F34 /* DetailRichGoodCell.swift in Sources */,
@@ -963,6 +970,7 @@
 				B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */,
 				B3AFD58D218F3EF800D54F34 /* DetailRichGoodModel.swift in Sources */,
 				B30E01E5218B5684005F2C0C /* PopularWearModel.swift in Sources */,
+				B3F61788219688870051926E /* DetailPopularWearViewController.swift in Sources */,
 				B35DBB48216C9FA800CAFDAD /* Apperance.swift in Sources */,
 				B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */,
 				B3B1AD0D2189AA50001BBB32 /* ChangePasswordViewController.swift in Sources */,

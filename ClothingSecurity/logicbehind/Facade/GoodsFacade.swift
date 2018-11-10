@@ -45,6 +45,10 @@ class GoodsFacade: NSObject {
         return DetailGoodPacket(id: id).send()
     }
     
+    func detailPopularWearBy(_ id: String) -> SignalProducer<DetailGoodResponseData, NSError> {
+        return DetailPopularWearPacket(id: id).send()
+    }
+    
     func collect(id: String, type: CollectType) -> SignalProducer<HttpResponseData, NSError> {
         return CollectGoodPacket(id: id, type: type).send().on(value:{ [weak self] response in
             if response.isSuccess() {
