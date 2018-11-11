@@ -31,6 +31,7 @@ PODS:
     - Kingfisher
     - ReactiveSwift
     - XCGLogger
+  - MJRefresh (3.1.15.5)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
@@ -67,6 +68,7 @@ DEPENDENCIES:
   - HUD (from `submodules/HUD/`)
   - MediaEditorKit (from `submodules/MediaEditorKit/`)
   - Mesh (from `submodules/Mesh/`)
+  - MJRefresh (from `submodules/MJRefresh/`)
   - PinLayout (from `submodules/PinLayout/`)
   - PopoverImagePicker (from `submodules/PopoverImagePicker/`)
   - ReactiveCocoa (from `submodules/ReactiveCocoa/`)
@@ -104,6 +106,8 @@ EXTERNAL SOURCES:
     :path: submodules/MediaEditorKit/
   Mesh:
     :path: submodules/Mesh/
+  MJRefresh:
+    :path: submodules/MJRefresh/
   PinLayout:
     :path: submodules/PinLayout/
   PopoverImagePicker:
@@ -135,6 +139,7 @@ SPEC CHECKSUMS:
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   MediaEditorKit: 90ef5430b2eb065b783cccceef6f787eec1ea081
   Mesh: d7dca107b41d6636aa334f2e475f9d0881dad70e
+  MJRefresh: 0baede3bc35739e7c57d2ed678545897ce96681a
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   PinLayout: c1476693fc284c78b297d8319b727ed2e237fcb5
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
@@ -147,6 +152,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: e58a312a0274068d4444ee06dc73202a516754fc
   XCGLogger: 5a21c8be020a21d0b798937f85c1cdb61a288422
 
-PODFILE CHECKSUM: 6487b613f49cacfd805634bd50d6f4aecef72041
+PODFILE CHECKSUM: 331a117b0b3353f92a2f00c930f44cb9b8489407
 
 COCOAPODS: 1.5.2

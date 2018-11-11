@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MJRefresh
 
 class FavouritePopularWearController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     var page: Int = 0
@@ -22,13 +23,14 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
         }
         loadData()
         regiestEvent()
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(loadData))
     }
     
-    private func loadData() {
+    @objc private func loadData() {
         GoodsFacade.shared.collectList(type: CollectType.outfit, page: page).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
-            self.page = value.page
+            self.page += 1
             value.content.forEach({ item in
                 self.imageModels.append(ClothesPopularImageModel(model: item))
             })

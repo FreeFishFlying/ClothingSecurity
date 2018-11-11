@@ -119,7 +119,10 @@ class PersonalCenterViewController: GroupedFormViewController {
             <<< PersonalCenterCellRow { row in
                 row.cell.title = "关于我们"
                 row.cell.imageName = "ic_aboutMe"
-                row.onCellSelection({ (_, _) in
+                row.onCellSelection({ [weak self] (_, _) in
+                    guard let `self` = self else { return }
+                    let controller = AboutAppViewController()
+                    self.navigationController?.pushViewController(controller, animated: true)
                 })
                 row.cell.height = { 67 }
         }

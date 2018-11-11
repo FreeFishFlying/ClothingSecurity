@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MJRefresh
 
 class FavouriteGoodViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -22,12 +23,14 @@ class FavouriteGoodViewController: BaseViewController, UICollectionViewDelegate,
             make.bottom.equalToSuperview()
         }
         loadData()
+        collectionView.mj_footer = MJRefreshFooter(refreshingTarget: self, refreshingAction: #selector(loadData))
     }
     
-    private func loadData() {
+    @objc private func loadData() {
         GoodsFacade.shared.collectList(type: .goods, page: page).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
+            self.page += 1
             self.list.append(contentsOf: value.content)
             self.collectionView.reloadData()
         }

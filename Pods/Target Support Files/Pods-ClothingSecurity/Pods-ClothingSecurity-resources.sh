@@ -94,10 +94,12 @@ EOM
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/../submodules/ESTabBarController/Sources/en.lproj"
   install_resource "${PODS_ROOT}/../submodules/Eureka/Source/Resources/Eureka.bundle"
+  install_resource "${PODS_ROOT}/../submodules/MJRefresh/MJRefresh/MJRefresh.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/../submodules/ESTabBarController/Sources/en.lproj"
   install_resource "${PODS_ROOT}/../submodules/Eureka/Source/Resources/Eureka.bundle"
+  install_resource "${PODS_ROOT}/../submodules/MJRefresh/MJRefresh/MJRefresh.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

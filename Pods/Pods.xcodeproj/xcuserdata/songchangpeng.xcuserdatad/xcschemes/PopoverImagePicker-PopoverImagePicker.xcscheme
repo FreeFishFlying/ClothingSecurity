@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "134B5A8528AA2462FE7F1A910B482A4E"
+               BlueprintIdentifier = "C14476CDB27EFC62C3DDD5C4B8C77BAF"
                BuildableName = "PopoverImagePicker.bundle"
                BlueprintName = "PopoverImagePicker-PopoverImagePicker"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "134B5A8528AA2462FE7F1A910B482A4E"
+            BlueprintIdentifier = "C14476CDB27EFC62C3DDD5C4B8C77BAF"
             BuildableName = "PopoverImagePicker.bundle"
             BlueprintName = "PopoverImagePicker-PopoverImagePicker"
             ReferencedContainer = "container:Pods.xcodeproj">

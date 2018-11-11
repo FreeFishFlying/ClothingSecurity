@@ -115,6 +115,7 @@
 		B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */; };
 		B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6E2182E32200F5FA47 /* InputRender.swift */; };
 		B3E0D6A32197CBAA00CF5B63 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */; };
+		B3E0D6A721986EAD00CF5B63 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */; };
 		B3F2B3B82180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */; };
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
 		B3F61788219688870051926E /* DetailPopularWearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F61787219688870051926E /* DetailPopularWearViewController.swift */; };
@@ -261,6 +262,7 @@
 		B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3BBEE6E2182E32200F5FA47 /* InputRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRender.swift; sourceTree = "<group>"; };
 		B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
+		B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalCenterViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
 		B3F61787219688870051926E /* DetailPopularWearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearViewController.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 				B3F6178B21969D980051926E /* BaseFavouriteViewController.swift */,
 				B3F6178D2196A0770051926E /* FavouritePopularWearController.swift */,
 				B3F6178F2196A0CC0051926E /* FavouriteGoodViewController.swift */,
+				B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */,
 			);
 			path = PersonalCenter;
 			sourceTree = "<group>";
@@ -872,11 +875,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity-resources.sh",
 				"${PODS_ROOT}/../submodules/ESTabBarController/Sources/en.lproj",
 				"${PODS_ROOT}/../submodules/Eureka/Source/Resources/Eureka.bundle",
+				"${PODS_ROOT}/../submodules/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Eureka.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -990,6 +995,7 @@
 				B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */,
 				B3B1AD0D2189AA50001BBB32 /* ChangePasswordViewController.swift in Sources */,
 				B32256DE218B33020032A019 /* BrandIntroductionCell.swift in Sources */,
+				B3E0D6A721986EAD00CF5B63 /* AboutAppViewController.swift in Sources */,
 				B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */,
 				B3447A6B218C9818005E6EF8 /* Banner.swift in Sources */,
 				B364D76821819CD50081593D /* ClothingSecurityViewController.swift in Sources */,

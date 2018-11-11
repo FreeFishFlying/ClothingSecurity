@@ -21,4 +21,5 @@ target 'ClothingSecurity' do
     pod 'PopoverImagePicker', :path =>'submodules/PopoverImagePicker/'
     pod 'ActionSheet', :path =>'submodules/ActionSheet/'
     pod 'PinLayout', :path => 'submodules/PinLayout/'
+    pod 'MJRefresh', :path => 'submodules/MJRefresh/'
 end
