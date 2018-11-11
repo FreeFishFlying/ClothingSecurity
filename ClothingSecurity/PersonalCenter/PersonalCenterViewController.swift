@@ -92,8 +92,12 @@ class PersonalCenterViewController: GroupedFormViewController {
             <<< PersonalCenterCellRow { row in
                 row.cell.title = "我的收藏"
                 row.cell.imageName = "ic_myFavourite"
-                row.onCellSelection({ (_, _) in
-                    if LoginState.shared.hasLogin {}
+                row.onCellSelection({ [weak self] (_, _) in
+                    if LoginState.shared.hasLogin {
+                        let controller = BaseFavouriteViewController()
+                        controller.hidesBottomBarWhenPushed = true
+                        self?.navigationController?.pushViewController(controller, animated: true)
+                    }
                 })
                 row.cell.height = { 67 }
         }

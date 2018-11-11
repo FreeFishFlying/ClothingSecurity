@@ -114,10 +114,15 @@
 		B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */; };
 		B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */; };
 		B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6E2182E32200F5FA47 /* InputRender.swift */; };
+		B3E0D6A32197CBAA00CF5B63 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */; };
 		B3F2B3B82180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */; };
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
 		B3F61788219688870051926E /* DetailPopularWearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F61787219688870051926E /* DetailPopularWearViewController.swift */; };
 		B3F6178A21968C1C0051926E /* DetailPopularWearPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */; };
+		B3F6178C21969D980051926E /* BaseFavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178B21969D980051926E /* BaseFavouriteViewController.swift */; };
+		B3F6178E2196A0770051926E /* FavouritePopularWearController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178D2196A0770051926E /* FavouritePopularWearController.swift */; };
+		B3F617902196A0CC0051926E /* FavouriteGoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178F2196A0CC0051926E /* FavouriteGoodViewController.swift */; };
+		B3F617922196A1870051926E /* CollectListPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F617912196A1870051926E /* CollectListPacket.swift */; };
 		B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCEEC52182091200DA52E2 /* LoginViewController+Cell.swift */; };
 		B3FCEEC821821FFD00DA52E2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
@@ -255,10 +260,15 @@
 		B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeader.swift; sourceTree = "<group>"; };
 		B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3BBEE6E2182E32200F5FA47 /* InputRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRender.swift; sourceTree = "<group>"; };
+		B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalCenterViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
 		B3F61787219688870051926E /* DetailPopularWearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearViewController.swift; sourceTree = "<group>"; };
 		B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearPacket.swift; sourceTree = "<group>"; };
+		B3F6178B21969D980051926E /* BaseFavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFavouriteViewController.swift; sourceTree = "<group>"; };
+		B3F6178D2196A0770051926E /* FavouritePopularWearController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePopularWearController.swift; sourceTree = "<group>"; };
+		B3F6178F2196A0CC0051926E /* FavouriteGoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteGoodViewController.swift; sourceTree = "<group>"; };
+		B3F617912196A1870051926E /* CollectListPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectListPacket.swift; sourceTree = "<group>"; };
 		B3FCEEC52182091200DA52E2 /* LoginViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Cell.swift"; sourceTree = "<group>"; };
 		B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B46ABE2E877479909907E94E /* Pods_ClothingSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,6 +335,7 @@
 				B377C359219079A500114A25 /* UnCollectGoodPacket.swift */,
 				B377C35F2190936F00114A25 /* DesignHotListPacket.swift */,
 				B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */,
+				B3F617912196A1870051926E /* CollectListPacket.swift */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -486,6 +497,9 @@
 				B30FD84821860B9E0004BABB /* AccountSafe */,
 				B3B62FC5216DCC370006A39E /* PersonalCenterViewController.swift */,
 				B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */,
+				B3F6178B21969D980051926E /* BaseFavouriteViewController.swift */,
+				B3F6178D2196A0770051926E /* FavouritePopularWearController.swift */,
+				B3F6178F2196A0CC0051926E /* FavouriteGoodViewController.swift */,
 			);
 			path = PersonalCenter;
 			sourceTree = "<group>";
@@ -618,6 +632,7 @@
 				B3B62FCB216DE2C90006A39E /* Entrance.swift */,
 				B322EFE4216F1C8E0077EE02 /* CommonUtil.swift */,
 				B3248D2D21880D9200BF7485 /* AlbumHelper.swift */,
+				B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -983,6 +998,9 @@
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
 				B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */,
+				B3E0D6A32197CBAA00CF5B63 /* SegmentView.swift in Sources */,
+				B3F6178E2196A0770051926E /* FavouritePopularWearController.swift in Sources */,
+				B3F617922196A1870051926E /* CollectListPacket.swift in Sources */,
 				B31E7DEA2191E633003653EC /* ClothesPopularImageCell.swift in Sources */,
 				B30E01E7218B56E0005F2C0C /* LatestMainPushModel.swift in Sources */,
 				B340BE78218D9BAC006FB78D /* DetailCategoryHeaderView.swift in Sources */,
@@ -1003,7 +1021,9 @@
 				B30E01EC218B6AAE005F2C0C /* PopularWearPacket.swift in Sources */,
 				B3248D2E21880D9200BF7485 /* AlbumHelper.swift in Sources */,
 				B30FD84D21860B9E0004BABB /* AccountSafeViewController.swift in Sources */,
+				B3F617902196A0CC0051926E /* FavouriteGoodViewController.swift in Sources */,
 				B3B1AD112189AE1D001BBB32 /* PersonCenterFacade.swift in Sources */,
+				B3F6178C21969D980051926E /* BaseFavouriteViewController.swift in Sources */,
 				B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */,
 				B326124D2186B5CE002A2E51 /* LoginAndRegisterFacade.swift in Sources */,
 				B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */,

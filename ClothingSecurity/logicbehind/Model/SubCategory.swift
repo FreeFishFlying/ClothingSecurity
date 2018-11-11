@@ -34,9 +34,6 @@ class SubCategory: NSObject {
         if let dataList = json["list"].array {
             dataList.forEach { js in
                 list.append(Good(json: js))
-                list.append(Good(json: js))
-                list.append(Good(json: js))
-                list.append(Good(json: js))
             }
         }
     }

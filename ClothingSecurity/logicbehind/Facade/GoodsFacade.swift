@@ -72,4 +72,8 @@ class GoodsFacade: NSObject {
     func hotDesignList() ->  SignalProducer<DesignHotListResponse, NSError> {
         return DesignHotListPacket().send()
     }
+    
+    func collectList(type: CollectType, page: Int) -> SignalProducer<CollectListPacketResponse, NSError> {
+        return CollectListPacket(type: type, page: page).send()
+    }
 }
