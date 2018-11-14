@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B28F06007EA7C0E9C33C8058 /* Pods_ClothingSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46ABE2E877479909907E94E /* Pods_ClothingSecurity.framework */; };
+		B30D81AA219C57DB00423C7E /* AppDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30D81A9219C57DB00423C7E /* AppDescriptionViewController.swift */; };
+		B30D81AC219C6D3600423C7E /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30D81AB219C6D3600423C7E /* FeedbackViewController.swift */; };
 		B30E01E3218B4BA3005F2C0C /* BrandIntroductionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E01E2218B4BA3005F2C0C /* BrandIntroductionModel.swift */; };
 		B30E01E5218B5684005F2C0C /* PopularWearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E01E4218B5684005F2C0C /* PopularWearModel.swift */; };
 		B30E01E7218B56E0005F2C0C /* LatestMainPushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E01E6218B56E0005F2C0C /* LatestMainPushModel.swift */; };
@@ -148,6 +150,8 @@
 /* Begin PBXFileReference section */
 		2E1F02F363D9AC4716C70A67 /* Pods-ClothingSecurity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.release.xcconfig"; sourceTree = "<group>"; };
 		5C96C59233EE40489AFE0B89 /* Pods-ClothingSecurity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.debug.xcconfig"; sourceTree = "<group>"; };
+		B30D81A9219C57DB00423C7E /* AppDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDescriptionViewController.swift; sourceTree = "<group>"; };
+		B30D81AB219C6D3600423C7E /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		B30E01E2218B4BA3005F2C0C /* BrandIntroductionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandIntroductionModel.swift; sourceTree = "<group>"; };
 		B30E01E4218B5684005F2C0C /* PopularWearModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularWearModel.swift; sourceTree = "<group>"; };
 		B30E01E6218B56E0005F2C0C /* LatestMainPushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushModel.swift; sourceTree = "<group>"; };
@@ -503,6 +507,8 @@
 				B3F6178D2196A0770051926E /* FavouritePopularWearController.swift */,
 				B3F6178F2196A0CC0051926E /* FavouriteGoodViewController.swift */,
 				B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */,
+				B30D81A9219C57DB00423C7E /* AppDescriptionViewController.swift */,
+				B30D81AB219C6D3600423C7E /* FeedbackViewController.swift */,
 			);
 			path = PersonalCenter;
 			sourceTree = "<group>";
@@ -1004,6 +1010,7 @@
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
 				B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */,
+				B30D81AC219C6D3600423C7E /* FeedbackViewController.swift in Sources */,
 				B3E0D6A32197CBAA00CF5B63 /* SegmentView.swift in Sources */,
 				B3F6178E2196A0770051926E /* FavouritePopularWearController.swift in Sources */,
 				B3F617922196A1870051926E /* CollectListPacket.swift in Sources */,
@@ -1030,6 +1037,7 @@
 				B3F617902196A0CC0051926E /* FavouriteGoodViewController.swift in Sources */,
 				B3B1AD112189AE1D001BBB32 /* PersonCenterFacade.swift in Sources */,
 				B3F6178C21969D980051926E /* BaseFavouriteViewController.swift in Sources */,
+				B30D81AA219C57DB00423C7E /* AppDescriptionViewController.swift in Sources */,
 				B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */,
 				B326124D2186B5CE002A2E51 /* LoginAndRegisterFacade.swift in Sources */,
 				B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */,

@@ -9,6 +9,60 @@ import Foundation
 import Core
 import Eureka
 
+class NormalTableViewCell: Cell<String>, CellType {
+    public override func setup() {
+        super.setup()
+        addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(14)
+            make.centerY.equalToSuperview()
+        }
+        addSubview(nextIcon)
+        nextIcon.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-15)
+        }
+        addSubview(line)
+        line.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-0.5)
+            make.height.equalTo(0.5)
+        }
+    }
+    
+    var name: String? {
+        didSet {
+            nameLabel.text = name
+        }
+    }
+    
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.font = systemFontSize(fontSize: 15)
+        label.textColor = UIColor(hexString: "#333333")
+        return label
+    }()
+    
+    private let nextIcon: UIImageView = {
+        let icon = UIImageView()
+        icon.image = imageNamed("ic_arrows_right")
+        return icon
+    }()
+    
+    private let line: UIImageView = {
+        let line = UIImageView()
+        line.backgroundColor = UIColor(red: 229.0 / 255.0, green: 229.0 / 255.0, blue: 229.0 / 255.0, alpha: 1.0)
+        return line
+    }()
+}
+
+final class NormalTableViewCellRow: Row<NormalTableViewCell>, RowType {
+    public required init(tag: String?) {
+        super.init(tag: tag)
+        cellProvider = CellProvider<NormalTableViewCell>()
+    }
+}
+
 class TextfieldInputCell: Cell<String>, CellType {
     
     public override func setup() {

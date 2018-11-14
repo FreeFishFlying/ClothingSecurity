@@ -16,6 +16,29 @@ import UIKit
 private var AssociatedUIViewTapHandle: Void?
 private var AssociatedDisposableHandle: Void?
 
+extension UITextView {
+    func makeLimit(length: Int, signal: Signal<String?, NoError>? = nil, callback: (() -> Void)? = defaultBeyondLimitCallback) {
+        func doLimit(attributedText: NSAttributedString) {
+            if markedTextRange == nil && text != nil {
+                let text: String = self.text
+                if text.count > length {
+                    let range = text.rangeOfComposedCharacterSequence(at: text.index(text.startIndex, offsetBy: length - 1)).nsRange
+                    self.attributedText = attributedText.attributedSubstring(from: NSRange(location: 0, length: range.location + range.length))
+                    callback?()
+                }
+            }
+        }
+        
+        (signal ?? reactive.continuousTextValues).observeValues { [weak self] _ in
+            guard let `self` = self else {
+                return
+            }
+            doLimit(attributedText: self.attributedText)
+        }
+        doLimit(attributedText: attributedText)
+    }
+}
+
 extension UIViewController {
     private class InternalTapGestureRecognizer: UITapGestureRecognizer {}
 

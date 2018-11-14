@@ -58,10 +58,9 @@ class BrandIntroduceViewController: BaseViewController {
         bottomLogo.snp.makeConstraints { make in
             make.top.equalTo(chineseLabel.snp.bottom).offset(12)
             make.right.equalTo(chineseLabel.snp.right)
+            make.bottom.equalTo(scrollView.snp.bottom).offset(-30)
         }
-        scrollView.contentSize = CGSize(width: ScreenWidth, height: ScreenHeight * 1.5)
     }
-    
     
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()

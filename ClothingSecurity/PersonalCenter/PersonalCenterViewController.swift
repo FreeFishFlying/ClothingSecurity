@@ -122,6 +122,7 @@ class PersonalCenterViewController: GroupedFormViewController {
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
                     let controller = AboutAppViewController()
+                    controller.hidesBottomBarWhenPushed = true
                     self.navigationController?.pushViewController(controller, animated: true)
                 })
                 row.cell.height = { 67 }
