@@ -18,12 +18,17 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
         super.viewDidLoad()
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.left.bottom.equalToSuperview()
+            make.top.equalTo(safeAreaTopLayoutGuide)
+            make.left.bottom.equalToSuperview()
             make.width.equalTo(ScreenWidth)
         }
-        loadData()
         regiestEvent()
-        tableView.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(loadData))
+        //tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(loadData))
+        tableView.mj_footer = MJRefreshAutoFooter(refreshingBlock: { [weak self] in
+            guard let `self` = self else { return }
+            self.loadData()
+        })
+        loadData()
     }
     
     @objc private func loadData() {
@@ -34,6 +39,7 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
             value.content.forEach({ item in
                 self.imageModels.append(ClothesPopularImageModel(model: item))
             })
+            self.tableView.mj_footer.endRefreshing()
             self.tableView.reloadData()
         }
     }
@@ -73,7 +79,7 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.001
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return imageModels.count
     }

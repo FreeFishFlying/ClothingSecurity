@@ -60,6 +60,14 @@ class FeedbackViewController: BaseViewController {
                self.countButton.setTitle("0/\(self.maxNumber)", for: .normal)
             }
         }
+        textView.returnKeyType = UIReturnKeyType.done
+        textView.shouldChangeTextInRange = { [weak self] _, text in
+            if text == "\n" {
+                self?.textView.resignFirstResponder()
+                return false
+            }
+            return true
+        }
     }
     
     @objc func sure() {
