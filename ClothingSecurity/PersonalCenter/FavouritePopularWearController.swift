@@ -23,8 +23,7 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
             make.width.equalTo(ScreenWidth)
         }
         regiestEvent()
-        //tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(loadData))
-        tableView.mj_footer = MJRefreshAutoFooter(refreshingBlock: { [weak self] in
+        tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: { [weak self] in
             guard let `self` = self else { return }
             self.loadData()
         })
@@ -35,11 +34,18 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
         GoodsFacade.shared.collectList(type: CollectType.outfit, page: page).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
-            self.page += 1
             value.content.forEach({ item in
                 self.imageModels.append(ClothesPopularImageModel(model: item))
             })
-            self.tableView.mj_footer.endRefreshing()
+            if self.tableView.mj_footer.isRefreshing {
+                self.tableView.mj_footer.endRefreshing()
+            }
+            if value.last {
+                self.tableView.mj_footer.endRefreshingWithNoMoreData()
+            } else {
+                self.page += 1
+                self.tableView.mj_footer.resetNoMoreData()
+            }
             self.tableView.reloadData()
         }
     }
@@ -62,7 +68,7 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
     }
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.separatorStyle = .none
         tableView.backgroundView = nil
         tableView.backgroundColor = UIColor.clear

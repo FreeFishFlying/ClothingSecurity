@@ -23,14 +23,22 @@ class FavouriteGoodViewController: BaseViewController, UICollectionViewDelegate,
             make.bottom.equalToSuperview()
         }
         loadData()
-        collectionView.mj_footer = MJRefreshFooter(refreshingTarget: self, refreshingAction: #selector(loadData))
+        collectionView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadData))
     }
     
     @objc private func loadData() {
         GoodsFacade.shared.collectList(type: .goods, page: page).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
-            self.page += 1
+            if value.last {
+                self.collectionView.mj_footer.endRefreshingWithNoMoreData()
+            } else {
+                self.page += 1
+                self.collectionView.mj_footer.resetNoMoreData()
+            }
+            if self.collectionView.mj_footer.isRefreshing {
+                self.collectionView.mj_footer.endRefreshing()
+            }
             self.list.append(contentsOf: value.content)
             self.collectionView.reloadData()
         }
