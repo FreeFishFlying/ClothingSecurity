@@ -19,6 +19,7 @@ class DiscoverViewController: BaseViewController {
         configUI()
         loadSearchData()
         registerEvent()
+        loadHotTerm()
     }
     
     func registerEvent() {
@@ -111,6 +112,15 @@ class DiscoverViewController: BaseViewController {
         }
     }
     
+    private func loadHotTerm() {
+        GoodsFacade.shared.hotTerm().startWithResult { [weak self] result in
+            guard let `self` = self else { return }
+            guard let value = result.value else { return }
+            print("value = \(value.value)")
+            self.searchBar.placeholder = value.value
+        }
+    }
+    
     private func searchByCategoryId(id: String) {
         GoodsFacade.shared.goodsGroupCategoryBy(id: id).startWithResult { [weak self] result in
             guard let `self` = self else { return }
@@ -174,7 +184,6 @@ class DiscoverViewController: BaseViewController {
     
     private let searchBar: UISearchBar = {
         let searchbar = UISearchBar(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 44))
-        searchbar.placeholder = "搜索产品，“羽绒服”..."
         searchbar.showsCancelButton = false
         searchbar.subviews.first?.subviews.last?.backgroundColor = UIColor(hexString: "#f7f7f7")
         return searchbar

@@ -110,6 +110,8 @@
 		B3B62FC6216DCC370006A39E /* PersonalCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62FC5216DCC370006A39E /* PersonalCenterViewController.swift */; };
 		B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62FC9216DDDB70006A39E /* ThemeNavigationController.swift */; };
 		B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B62FCB216DE2C90006A39E /* Entrance.swift */; };
+		B3BAFEE921AAC876008DB251 /* PersonalFeedbackPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BAFEE821AAC876008DB251 /* PersonalFeedbackPacket.swift */; };
+		B3BAFEEB21AACC18008DB251 /* GoodSearchTermPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BAFEEA21AACC18008DB251 /* GoodSearchTermPacket.swift */; };
 		B3BBEE682181B7BB00F5FA47 /* ParallaxHeaderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE642181B7BB00F5FA47 /* ParallaxHeaderMode.swift */; };
 		B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE652181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift */; };
 		B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE662181B7BB00F5FA47 /* UIView+Blur.swift */; };
@@ -259,6 +261,8 @@
 		B3B62FC5216DCC370006A39E /* PersonalCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCenterViewController.swift; sourceTree = "<group>"; };
 		B3B62FC9216DDDB70006A39E /* ThemeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNavigationController.swift; sourceTree = "<group>"; };
 		B3B62FCB216DE2C90006A39E /* Entrance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entrance.swift; sourceTree = "<group>"; };
+		B3BAFEE821AAC876008DB251 /* PersonalFeedbackPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalFeedbackPacket.swift; sourceTree = "<group>"; };
+		B3BAFEEA21AACC18008DB251 /* GoodSearchTermPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodSearchTermPacket.swift; sourceTree = "<group>"; };
 		B3BBEE642181B7BB00F5FA47 /* ParallaxHeaderMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderMode.swift; sourceTree = "<group>"; };
 		B3BBEE652181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ParallaxHeader.swift"; sourceTree = "<group>"; };
 		B3BBEE662181B7BB00F5FA47 /* UIView+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
@@ -342,6 +346,7 @@
 				B377C35F2190936F00114A25 /* DesignHotListPacket.swift */,
 				B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */,
 				B3F617912196A1870051926E /* CollectListPacket.swift */,
+				B3BAFEEA21AACC18008DB251 /* GoodSearchTermPacket.swift */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -690,6 +695,7 @@
 				B3B1AD132189AE9D001BBB32 /* ChangePasswordPacket.swift */,
 				B3B1AD142189AE9D001BBB32 /* AuthUserInfoPacket.swift */,
 				B3B1AD152189AE9D001BBB32 /* ChangeMobilePacket.swift */,
+				B3BAFEE821AAC876008DB251 /* PersonalFeedbackPacket.swift */,
 			);
 			path = PersonCenter;
 			sourceTree = "<group>";
@@ -975,6 +981,7 @@
 				B30FD8522186117C0004BABB /* ChangeMobileViewController.swift in Sources */,
 				B3248D3021880E6F00BF7485 /* AppAuthorizationUtil.swift in Sources */,
 				B3AFD587218EC02300D54F34 /* DetailGoodPacket.swift in Sources */,
+				B3BAFEE921AAC876008DB251 /* PersonalFeedbackPacket.swift in Sources */,
 				B3B1AD172189AE9D001BBB32 /* AuthUserInfoPacket.swift in Sources */,
 				B30E01EE218B6AF6005F2C0C /* Good.swift in Sources */,
 				B3F6178A21968C1C0051926E /* DetailPopularWearPacket.swift in Sources */,
@@ -1026,6 +1033,7 @@
 				B31E7DE42191AE2D003653EC /* ClothesMakingVideoCell.swift in Sources */,
 				B3248D2921880A6A00BF7485 /* ZCycleLayout.swift in Sources */,
 				B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */,
+				B3BAFEEB21AACC18008DB251 /* GoodSearchTermPacket.swift in Sources */,
 				B377C35A219079A500114A25 /* UnCollectGoodPacket.swift in Sources */,
 				B340BE72218D671A006FB78D /* SubCategory.swift in Sources */,
 				B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */,

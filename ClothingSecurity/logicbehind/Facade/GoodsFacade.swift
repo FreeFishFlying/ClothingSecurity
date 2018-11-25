@@ -76,4 +76,8 @@ class GoodsFacade: NSObject {
     func collectList(type: CollectType, page: Int) -> SignalProducer<CollectListPacketResponse, NSError> {
         return CollectListPacket(type: type, page: page).send()
     }
+    
+    func hotTerm() -> SignalProducer<GoodSearchTermResponse, NSError> {
+        return GoodSearchTermPacket().send()
+    }
 }

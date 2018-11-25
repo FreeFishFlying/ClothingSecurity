@@ -61,4 +61,8 @@ class PersonCenterFacade: NSObject {
     func updateUserInfo(value: [String: String]) -> SignalProducer<LoginResponseData, NSError> {
         return UpdateUserPacket(info: value).send()
     }
+    
+    func feedback(content: String)  -> SignalProducer<HttpResponseData, NSError> {
+        return PersonalFeedbackPacket(content: content).send()
+    }
 }

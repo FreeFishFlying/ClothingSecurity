@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Core
+import HUD
 class FeedbackViewController: BaseViewController {
     private let maxNumber = "200"
     override func viewDidLoad() {
@@ -71,7 +72,20 @@ class FeedbackViewController: BaseViewController {
     }
     
     @objc func sure() {
-        
+        if  !self.textView.text.isEmpty {
+            PersonCenterFacade.shared.feedback(content: self.textView.text).startWithResult { [weak self] result in
+                guard let `self` = self else { return }
+                guard let value = result.value else { return }
+                if value.isSuccess() {
+                    self.navigationController?.popViewController(animated: true)
+                    HUD.flashSuccess(title: "提交成功")
+                } else {
+                    HUD.flashError(title: "提交失败")
+                }
+            }
+        } else {
+            HUD.tip(text: "请输入内容")
+        }
     }
     
     private let container: UIView = {
