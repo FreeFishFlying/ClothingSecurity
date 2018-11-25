@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 import AVFoundation
 import AVKit
+import MJRefresh
 class PopularWearViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    var page: Int = 0
     var videoModel: ClothesMakingVideoModel?
     var imageModels = [ClothesPopularImageModel]()
     override func viewDidLoad() {
@@ -23,8 +24,11 @@ class PopularWearViewController: BaseViewController, UITableViewDelegate, UITabl
             make.left.right.bottom.equalToSuperview()
         }
         loadVideo()
-        loadImageData(page: 0)
+        loadImageData()
         regiestEvent()
+        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: { [weak self] in
+            self?.loadImageData()
+        })
     }
     
     private func loadVideo() {
@@ -38,13 +42,22 @@ class PopularWearViewController: BaseViewController, UITableViewDelegate, UITabl
         }
     }
     
-    private func loadImageData(page: Int) {
+    private func loadImageData() {
         GoodsFacade.shared.popularWear(page: page, size: 10).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
             value.content.forEach({ item in
                 self.imageModels.append(ClothesPopularImageModel(model: item))
             })
+            if self.tableView.mj_footer.isRefreshing {
+                self.tableView.mj_footer.endRefreshing()
+            }
+            if value.last {
+                self.tableView.mj_footer.endRefreshingWithNoMoreData()
+            } else {
+                self.page += 1
+                self.tableView.mj_footer.resetNoMoreData()
+            }
             self.tableView.reloadData()
         }
     }

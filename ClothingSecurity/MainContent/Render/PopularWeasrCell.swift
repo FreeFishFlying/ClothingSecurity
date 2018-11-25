@@ -11,6 +11,7 @@ import UIKit
 import Mesh
 
 class PopularWearCell: UITableViewCell {
+    var onMore: (() -> Void)?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -28,6 +29,7 @@ class PopularWearCell: UITableViewCell {
             make.top.equalToSuperview().offset(30)
             make.height.equalTo(30)
         }
+        button.addTarget(self, action: #selector(onMoreClick), for: .touchUpInside)
         addSubview(imageContentView)
         imageContentView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15)
@@ -41,6 +43,10 @@ class PopularWearCell: UITableViewCell {
             make.right.equalToSuperview().offset(-15)
             make.top.equalTo(imageContentView.snp.bottom).offset(4)
         }
+    }
+    
+    @objc func onMoreClick() {
+        onMore?()
     }
     
     func render(_ model: PopularWearModel) {

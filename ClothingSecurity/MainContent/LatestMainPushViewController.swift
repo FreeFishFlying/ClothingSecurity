@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import MJRefresh
 class LatestMainPushViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
+    var page: Int = 0
     private var dataSource = [Good]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +23,26 @@ class LatestMainPushViewController: BaseViewController, UICollectionViewDelegate
             make.bottom.equalToSuperview()
         }
         loadData()
+        collectionView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: { [weak self] in
+            self?.loadData()
+        })
     }
     
     private func loadData() {
         GoodsFacade.shared.latestMainPush(page: 0, size: 10).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
+            if value.last {
+                self.collectionView.mj_footer.endRefreshingWithNoMoreData()
+            } else {
+                self.page += 1
+                self.collectionView.mj_footer.resetNoMoreData()
+            }
+            if self.collectionView.mj_footer.isRefreshing {
+                self.collectionView.mj_footer.endRefreshing()
+            }
             self.dataSource.append(contentsOf: value.content)
+            
             self.collectionView.reloadData()
         }
     }

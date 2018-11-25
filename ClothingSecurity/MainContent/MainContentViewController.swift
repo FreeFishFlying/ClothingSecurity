@@ -166,6 +166,11 @@ extension MainContentViewController: UITableViewDataSource, UITableViewDelegate 
         } else if let model = model as? PopularWearModel {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PopularWearCell", for: indexPath) as! PopularWearCell
             cell.render(model)
+            cell.onMore = { [weak self] in
+                let controller = PopularWearViewController()
+                controller.hidesBottomBarWhenPushed = true
+                self?.navigationController?.pushViewController(controller, animated: true)
+            }
             return cell
         } else if let model = model as? LatestMainPushModel {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LatestMainPushCell", for: indexPath) as! LatestMainPushCell
