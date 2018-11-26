@@ -96,7 +96,7 @@ class AboutAppViewController: GroupedFormViewController {
     private let versionLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(hexString: "#666666")
-        label.text = "版本 V" + UIDevice.current.systemVersion
+        label.text = "版本 V" + (Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
         label.font = UIFont(name: "PingFang-SC-Medium", size: 14.0)
         return label
     }()
