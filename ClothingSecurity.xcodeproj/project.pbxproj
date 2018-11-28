@@ -66,6 +66,7 @@
 		B32FD65021AE79AE007BE7DB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD64F21AE79AE007BE7DB /* ImageIO.framework */; };
 		B32FD65221AE79B8007BE7DB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD65121AE79B8007BE7DB /* CoreText.framework */; };
 		B32FD65421AE79C3007BE7DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD65321AE79C3007BE7DB /* CoreGraphics.framework */; };
+		B32FD65621AEA55A007BE7DB /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FD65521AEA55A007BE7DB /* ScanResultViewController.swift */; };
 		B340BE72218D671A006FB78D /* SubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE71218D671A006FB78D /* SubCategory.swift */; };
 		B340BE74218D720E006FB78D /* GroupCategoryPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE73218D720E006FB78D /* GroupCategoryPacket.swift */; };
 		B340BE76218D772B006FB78D /* DetailCategoryGoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE75218D772B006FB78D /* DetailCategoryGoodCell.swift */; };
@@ -235,6 +236,7 @@
 		B32FD64F21AE79AE007BE7DB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		B32FD65121AE79B8007BE7DB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B32FD65321AE79C3007BE7DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B32FD65521AEA55A007BE7DB /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		B340BE71218D671A006FB78D /* SubCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategory.swift; sourceTree = "<group>"; };
 		B340BE73218D720E006FB78D /* GroupCategoryPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCategoryPacket.swift; sourceTree = "<group>"; };
 		B340BE75218D772B006FB78D /* DetailCategoryGoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCategoryGoodCell.swift; sourceTree = "<group>"; };
@@ -766,6 +768,7 @@
 		B364D75E21819CD50081593D /* ClothingSecurity */ = {
 			isa = PBXGroup;
 			children = (
+				B32FD65521AEA55A007BE7DB /* ScanResultViewController.swift */,
 				B364D75F21819CD50081593D /* ClothingSecurityViewController.swift */,
 				B364D76021819CD50081593D /* ScanningViewController.swift */,
 				B364D76121819CD50081593D /* Scan */,
@@ -1143,6 +1146,7 @@
 				B3AFD585218EBFE700D54F34 /* SearchByKeywordPacket.swift in Sources */,
 				B32256E0218B33260032A019 /* PopularWeasrCell.swift in Sources */,
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
+				B32FD65621AEA55A007BE7DB /* ScanResultViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
 				B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */,
 				B30D81AC219C6D3600423C7E /* FeedbackViewController.swift in Sources */,
