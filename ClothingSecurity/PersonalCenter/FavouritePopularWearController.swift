@@ -22,6 +22,7 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
             make.left.bottom.equalToSuperview()
             make.width.equalTo(ScreenWidth)
         }
+        configSpaceUI()
         regiestEvent()
         tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: { [weak self] in
             guard let `self` = self else { return }
@@ -45,6 +46,10 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
             } else {
                 self.page += 1
                 self.tableView.mj_footer.resetNoMoreData()
+            }
+            if value.first, self.imageModels.isEmpty {
+                self.tableView.mj_footer.isHidden = true
+                self.spaceView.isHidden = false
             }
             self.tableView.reloadData()
         }
@@ -76,6 +81,46 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
         tableView.dataSource = self
         tableView.register(ClothesPopularImageCell.self, forCellReuseIdentifier: "ClothesPopularImageCell")
         return tableView
+    }()
+    
+    private func configSpaceUI() {
+        view.addSubview(spaceView)
+        spaceView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        spaceView.addSubview(spaceIcon)
+        spaceIcon.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-90)
+        }
+        spaceView.addSubview(spaceLabel)
+        spaceLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(spaceIcon.snp.bottom).offset(30)
+        }
+        spaceView.isHidden = true
+    }
+    
+    private let spaceView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private let spaceIcon: UIImageView = {
+        let icon = UIImageView()
+        icon.image = imageNamed("ic_collect_blank")
+        return icon
+    }()
+    
+    private let spaceLabel: UILabel = {
+        let label = UILabel()
+        let attributedString = NSMutableAttributedString(string: "您还没有相关的产品收藏哦")
+        attributedString.addAttributes([
+            NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Regular", size: 14.0)!,
+            NSAttributedString.Key.foregroundColor:UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0)
+            ], range: NSRange(location: 0, length: attributedString.length))
+        label.attributedText = attributedString
+        return label
     }()
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

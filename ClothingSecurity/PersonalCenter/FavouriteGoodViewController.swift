@@ -22,6 +22,7 @@ class FavouriteGoodViewController: BaseViewController, UICollectionViewDelegate,
             make.width.equalTo(ScreenWidth - 30)
             make.bottom.equalToSuperview()
         }
+        configSpaceUI()
         loadData()
         collectionView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadData))
     }
@@ -41,6 +42,10 @@ class FavouriteGoodViewController: BaseViewController, UICollectionViewDelegate,
             }
             self.list.append(contentsOf: value.content)
             self.collectionView.reloadData()
+            if value.first, self.list.isEmpty {
+                self.collectionView.mj_footer.isHidden = true
+                self.spaceView.isHidden = false
+            }
         }
     }
     
@@ -52,6 +57,46 @@ class FavouriteGoodViewController: BaseViewController, UICollectionViewDelegate,
         let size = floor(width / 2)
         layout.itemSize = CGSize(width: size, height: size)
         return layout
+    }()
+    
+    private func configSpaceUI() {
+        view.addSubview(spaceView)
+        spaceView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        spaceView.addSubview(spaceIcon)
+        spaceIcon.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-90)
+        }
+        spaceView.addSubview(spaceLabel)
+        spaceLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(spaceIcon.snp.bottom).offset(30)
+        }
+        spaceView.isHidden = true
+    }
+    
+    private let spaceView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private let spaceIcon: UIImageView = {
+        let icon = UIImageView()
+        icon.image = imageNamed("ic_collect_blank")
+        return icon
+    }()
+    
+    private let spaceLabel: UILabel = {
+        let label = UILabel()
+        let attributedString = NSMutableAttributedString(string: "您还没有相关的产品收藏哦")
+        attributedString.addAttributes([
+            NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Regular", size: 14.0)!,
+            NSAttributedString.Key.foregroundColor:UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0)
+            ], range: NSRange(location: 0, length: attributedString.length))
+        label.attributedText = attributedString
+        return label
     }()
     
     lazy var collectionView: UICollectionView = {

@@ -20,7 +20,6 @@ class DiscoverResultViewController: BaseViewController {
             make.left.bottom.right.equalToSuperview()
         }
         tableView.isHidden = true
-        SearchHistory.save("陈年往事肉发我")
         view.addSubview(searchHistoryView)
         searchHistoryView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide).offset(45)
@@ -28,6 +27,7 @@ class DiscoverResultViewController: BaseViewController {
             make.right.equalToSuperview()
             make.height.equalTo(200)
         }
+        configSpaceUI()
         searchHistoryView.onHideSearchView = { [weak self] in
             guard let `self` = self else { return }
             self.searchHistoryView.isHidden = true
@@ -38,18 +38,45 @@ class DiscoverResultViewController: BaseViewController {
         }
     }
     
+    private func configSpaceUI() {
+        view.addSubview(spaceView)
+        spaceView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        spaceView.addSubview(spaceIcon)
+        spaceIcon.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-40)
+        }
+        spaceView.addSubview(spaceLabel)
+        spaceLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(spaceIcon.snp.bottom).offset(30)
+        }
+        spaceView.isHidden = true
+    }
+    
     func beginSearch() {
         searchHistoryView.reset()
         searchHistoryView.isHidden = false
         tableView.isHidden = true
+        spaceView.isHidden = true
     }
     
     var searchResult: [Good]? {
         didSet {
-            if let reslut = searchResult, !reslut.isEmpty {
+            if let reslut = searchResult {
+                if !reslut.isEmpty {
+                    tableView.isHidden = false
+                    spaceView.isHidden = true
+                } else {
+                    tableView.isHidden = true
+                    spaceView.isHidden = false
+                }
                 searchHistoryView.isHidden = true
-                tableView.isHidden = false
                 tableView.reloadData()
+            } else {
+                spaceView.isHidden = false
             }
         }
     }
@@ -64,6 +91,28 @@ class DiscoverResultViewController: BaseViewController {
         tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
         return tableView
+    }()
+    
+    private let spaceView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private let spaceIcon: UIImageView = {
+        let icon = UIImageView()
+        icon.image = imageNamed("ic_search_blank")
+        return icon
+    }()
+    
+    private let spaceLabel: UILabel = {
+        let label = UILabel()
+        let attributedString = NSMutableAttributedString(string: "抱歉，没有搜到相关内容")
+        attributedString.addAttributes([
+            NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Regular", size: 14.0)!,
+            NSAttributedString.Key.foregroundColor:UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0)
+            ], range: NSRange(location: 0, length: attributedString.length))
+        label.attributedText = attributedString
+        return label
     }()
 }
 

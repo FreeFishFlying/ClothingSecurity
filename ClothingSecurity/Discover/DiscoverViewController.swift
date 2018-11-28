@@ -116,8 +116,11 @@ class DiscoverViewController: BaseViewController {
         GoodsFacade.shared.hotTerm().startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
-            print("value = \(value.value)")
-            self.searchBar.placeholder = value.value
+            if !value.value.isEmpty {
+                self.searchBar.placeholder = value.value
+            } else {
+                self.searchBar.placeholder = "搜索产品"
+            }
         }
     }
     
@@ -136,6 +139,7 @@ class DiscoverViewController: BaseViewController {
             guard let `self` = self else { return }
             guard let value = result.value else { return }
             self.resultViewController.searchResult = value.content
+            self.searchBar.resignFirstResponder()
         }
     }
     
@@ -185,6 +189,7 @@ class DiscoverViewController: BaseViewController {
     private let searchBar: UISearchBar = {
         let searchbar = UISearchBar(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 44))
         searchbar.showsCancelButton = false
+        searchbar.placeholder = "搜索产品"
         searchbar.subviews.first?.subviews.last?.backgroundColor = UIColor(hexString: "#f7f7f7")
         return searchbar
     }()
