@@ -134,39 +134,39 @@ class RegisterViewController: BaseLoginViewController {
         }
     }
     
-    @objc private func nextClick() {
-        guard let phoneRow: TextfieldInputCellRow = form.rowBy(tag: "phoneCell") as? TextfieldInputCellRow else { return }
-        guard let codeRow: InputRenderCellRow = form.rowBy(tag: "secturyCell")  as? InputRenderCellRow else { return }
-        if let phone = phoneRow.cell.textFieldText, let code = codeRow.cell.code {
-            if !phone.isEmpty && !code.isEmpty {
-                LoginAndRegisterFacade.shared.register(mobile: phone, code: code).startWithResult { [weak self] result in
-                    guard let `self` = self else { return }
-                    guard let value = result.value else { return }
-                    if value.isSuccess() {
-                        let controller = CompleteMaterialViewController()
-                        self.navigationController?.pushViewController(controller, animated: true)
+    func pragrame() -> (mobile: String?, code: String?) {
+        guard let phoneRow: TextfieldInputCellRow = form.rowBy(tag: "phoneCell") as? TextfieldInputCellRow else { return (mobile: nil, code: nil)}
+        guard let codeRow: InputRenderCellRow = form.rowBy(tag: "secturyCell")  as? InputRenderCellRow else { return (mobile: nil, code: nil) }
+        return (mobile: phoneRow.cell.textFieldText, code: codeRow.cell.code)
+    }
+    
+    @objc func nextClick() {
+        let params = pragrame()
+        if let phone = params.mobile, !phone.isEmpty, let code = params.code, !code.isEmpty {
+            LoginAndRegisterFacade.shared.register(mobile: phone, code: code).startWithResult { [weak self] result in
+                guard let `self` = self else { return }
+                guard let value = result.value else { return }
+                if value.isSuccess() {
+                    self.complete(value.userItem)
+                } else {
+                    if let message = value.tipMesage() {
+                        HUD.flashError(title: message)
                     } else {
-                        if let message = value.tipMesage() {
-                            HUD.flashError(title: message)
-                        } else {
-                            HUD.flashError(title: "注册失败,请稍后再试")
-                        }
+                        HUD.flashError(title: "注册失败,请稍后再试")
                     }
                 }
-            } else {
-                if phone.isEmpty {
-                    HUD.flashError(title: "手机号不能为空")
-                    return
-                }
-                if code.isEmpty {
-                    HUD.flashError(title: "验证码不能为空")
-                    return
-                }
             }
+        } else {
+            HUD.flashError(title: "手机号或者验证码不能为空")
         }
     }
     
-    private let nextButton: DarkKeyButton = DarkKeyButton(title: "下一步")
+    func complete(_ user: UserItem?) {
+        let controller = CompleteMaterialViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    let nextButton: DarkKeyButton = DarkKeyButton(title: "下一步")
     
     private let userAgreement: UIButton = {
         let button = UIButton()

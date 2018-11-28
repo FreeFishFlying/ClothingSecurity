@@ -67,7 +67,7 @@ open class HttpRequestPacket<T: HttpResponseData> {
     }
     
     var rootUrl: String {
-        return "https://api.beedee.yituizhineng.top"
+        return "https://api.beedeemade.com"
     }
 
     open func requestParameter() -> [String: Any]? {

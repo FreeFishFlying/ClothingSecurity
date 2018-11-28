@@ -22,4 +22,5 @@ target 'ClothingSecurity' do
     pod 'ActionSheet', :path =>'submodules/ActionSheet/'
     pod 'PinLayout', :path => 'submodules/PinLayout/'
     pod 'MJRefresh', :path => 'submodules/MJRefresh/'
+    pod 'WechatOpenSDK'
 end

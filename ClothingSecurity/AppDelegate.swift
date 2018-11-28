@@ -8,17 +8,28 @@
 
 import UIKit
 import FDFullscreenPopGesture
+import HUD
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, TencentSessionDelegate, WeiboSDKDelegate {
+    
     var window: UIWindow?
+    
+    var tencentAuth: TencentOAuth!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Entrance.styleNavgationBar()
         window?.rootViewController = Entrance.entrance()
         applyStyle()
         updateAuthInfo()
+        regiesterOtherLink()
         return true
+    }
+    
+    private func login(code: String, type: ThirdType) {
+        HUD.show(.progress)
+        ThirdloginFacade.shared.login(code: code, type: type).startWithResult { result in
+            HUD.hide()
+        }
     }
     
     private func updateAuthInfo() {
@@ -28,6 +39,84 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             LoginState.shared.hasLogin = false
         }
+    }
+    
+    private func regiesterOtherLink() {
+        WXApi.registerApp("wx7266547dcee7b1b6")
+        tencentAuth = TencentOAuth(appId: "1107909602", andDelegate: self)
+        WeiboSDK.registerApp("2096526831")
+        WeiboSDK.enableDebugMode(true)
+    }
+    
+    func onResp(_ resp: BaseResp!) {
+        if resp.isKind(of: SendAuthResp.self) {
+            if let authResp = resp as? SendAuthResp {
+                if let code = ThirdloginFacade.shared.scopeCode(resp: authResp) {
+                    login(code: code, type: .wx)
+                }
+            }
+        }
+    }
+    
+    func tencentDidLogin() {
+        if let token = tencentAuth.accessToken {
+            login(code: token, type: .qq)
+        } else {
+            HUD.flashError(title: "授权失败")
+        }
+    }
+    
+    func tencentDidNotLogin(_ cancelled: Bool) {
+        HUD.flashError(title: "登录失败")
+    }
+    
+    func tencentDidNotNetWork() {
+        HUD.flashError(title: "当前无网络")
+    }
+    
+    func didReceiveWeiboRequest(_ request: WBBaseRequest!) {
+    }
+    
+    func didReceiveWeiboResponse(_ response: WBBaseResponse!) {
+        guard let res = response as? WBAuthorizeResponse else { return }
+        guard let accessToken = res.accessToken else { return }
+        login(code: accessToken, type: .wb)
+    }
+    
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        if url.scheme == "wx7266547dcee7b1b6" {
+            return WXApi.handleOpen(url, delegate: self)
+        } else if url.scheme == "tencent1107909602" {
+            return TencentOAuth.handleOpen(url)
+        } else if url.scheme == "wb2096526831" {
+            return WeiboSDK.handleOpen(url, delegate: self)
+        }
+        return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if url.scheme == "wx7266547dcee7b1b6" {
+           return WXApi.handleOpen(url, delegate: self)
+        } else if url.scheme == "tencent1107909602" {
+            return TencentOAuth.handleOpen(url)
+        } else if url.scheme == "wb2096526831" {
+            return WeiboSDK.handleOpen(url, delegate: self)
+        }
+        return true
+    }
+    
+     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.scheme == "wx7266547dcee7b1b6" {
+            return WXApi.handleOpen(url, delegate: self)
+        }
+        if let urlKey: String = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String {
+            if urlKey == "com.tencent.mqq" {
+                return TencentOAuth.handleOpen(url)
+            } else if urlKey == "com.sina.weibo" {
+                return WeiboSDK.handleOpen(url, delegate: self)
+            }
+        }
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

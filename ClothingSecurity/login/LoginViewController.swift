@@ -25,6 +25,7 @@ class LoginViewController: BaseLoginViewController {
         configTableViewCell()
         configAnother()
         headerTitle = "登录"
+        onClickThridView()
     }
     
     override func back() {
@@ -62,6 +63,50 @@ class LoginViewController: BaseLoginViewController {
                 value = -20
             }
             make.bottom.equalTo(thirdView.snp.top).offset(value)
+        }
+    }
+    
+    private func onClickThridView() {
+        ThirdloginFacade.shared.willRegister().observeResult { [weak self] result in
+            guard let value = result.value else { return }
+            if value {
+                let controller = ThirdRegisterViewController()
+                self?.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
+        
+        ThirdloginFacade.shared.thirdLoginSucess().observeResult { [weak self] result in
+            guard let value = result.value else { return }
+            if value {
+                self?.navigationController?.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+        thirdView.onWXClick = {
+            if WXApi.isWXAppInstalled() {
+                let req = SendAuthReq()
+                req.scope = "snsapi_userinfo"
+                req.state = "App"
+                if !WXApi.send(req) {
+                    HUD.flashError(title: "微信授权失败")
+                }
+            } else {
+                HUD.tip(text: "您还没有安装微信")
+            }
+        }
+        
+        thirdView.onQQClick = {
+            if let appDel = UIApplication.shared.delegate as? AppDelegate {
+                let permissons = [kOPEN_PERMISSION_GET_USER_INFO, kOPEN_PERMISSION_GET_SIMPLE_USER_INFO]
+                appDel.tencentAuth.authorize(permissons)
+            }
+        }
+        
+        thirdView.onWBClick = {
+            let request = WBAuthorizeRequest()
+            request.scope = "all"
+            request.redirectURI = "https://api.beedeemade.com"
+            WeiboSDK.send(request)
         }
     }
     
