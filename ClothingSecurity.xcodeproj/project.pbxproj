@@ -90,7 +90,6 @@
 		B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB0F216C783A00CAFDAD /* ViewController.swift */; };
 		B35DBB13216C783A00CAFDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35DBB11216C783A00CAFDAD /* Main.storyboard */; };
 		B35DBB15216C783D00CAFDAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B35DBB14216C783D00CAFDAD /* Assets.xcassets */; };
-		B35DBB18216C783D00CAFDAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35DBB16216C783D00CAFDAD /* LaunchScreen.storyboard */; };
 		B35DBB23216C783D00CAFDAD /* ClothingSecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB22216C783D00CAFDAD /* ClothingSecurityTests.swift */; };
 		B35DBB2E216C783D00CAFDAD /* ClothingSecurityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB2D216C783D00CAFDAD /* ClothingSecurityUITests.swift */; };
 		B35DBB46216C9A6D00CAFDAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB42216C9A6C00CAFDAD /* LoginViewController.swift */; };
@@ -261,7 +260,6 @@
 		B35DBB0F216C783A00CAFDAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B35DBB12216C783A00CAFDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B35DBB14216C783D00CAFDAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B35DBB17216C783D00CAFDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B35DBB19216C783D00CAFDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B35DBB1E216C783D00CAFDAD /* ClothingSecurityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClothingSecurityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B35DBB22216C783D00CAFDAD /* ClothingSecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingSecurityTests.swift; sourceTree = "<group>"; };
@@ -706,7 +704,6 @@
 				B35DBB0F216C783A00CAFDAD /* ViewController.swift */,
 				B35DBB11216C783A00CAFDAD /* Main.storyboard */,
 				B35DBB14216C783D00CAFDAD /* Assets.xcassets */,
-				B35DBB16216C783D00CAFDAD /* LaunchScreen.storyboard */,
 				B35DBB19216C783D00CAFDAD /* Info.plist */,
 				B364D76E2181A1420081593D /* ClothingSecurity-Bridging-Header.h */,
 			);
@@ -963,7 +960,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B364D76C21819CD50081593D /* SWQRCode.bundle in Resources */,
-				B35DBB18216C783D00CAFDAD /* LaunchScreen.storyboard in Resources */,
 				B35DBB15216C783D00CAFDAD /* Assets.xcassets in Resources */,
 				B35DBB13216C783A00CAFDAD /* Main.storyboard in Resources */,
 				B32FD64B21AE795D007BE7DB /* WeiboSDK.bundle in Resources */,
@@ -1248,14 +1244,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		B35DBB16216C783D00CAFDAD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B35DBB17216C783D00CAFDAD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1380,6 +1368,7 @@
 			baseConfigurationReference = 5C96C59233EE40489AFE0B89 /* Pods-ClothingSecurity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9M58D95D36;
@@ -1449,7 +1438,7 @@
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1458,6 +1447,7 @@
 			baseConfigurationReference = 2E1F02F363D9AC4716C70A67 /* Pods-ClothingSecurity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9M58D95D36;
@@ -1526,7 +1516,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "ClothingSecurity/Lib/ClothingSecurity-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

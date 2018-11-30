@@ -114,7 +114,7 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
     
     private let spaceLabel: UILabel = {
         let label = UILabel()
-        let attributedString = NSMutableAttributedString(string: "您还没有相关的产品收藏哦")
+        let attributedString = NSMutableAttributedString(string: "您还没有相关的穿搭收藏哦")
         attributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Regular", size: 14.0)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0)
