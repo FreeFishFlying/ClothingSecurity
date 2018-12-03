@@ -65,6 +65,21 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>2</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>747b569f586c4829d623e33ccddb15729887dcfd</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>KitName</key>
+					<string>Crashlytics</string>
+				</dict>
+			</dict>
+		</array>
+	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>weixin</string>
@@ -91,6 +106,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>您还没有开启相机权限，开启之后才能正常拍摄您喜欢的照片和视频进行发布</string>
+	<key>NSLocationUsageDescription</key>
+	<string>为了进行防伪溯源，我们需要记录您解码时的地理位置</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>为了进行防伪溯源，我们需要记录您解码时的地理位置</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>您还没有开启照片的读写和写入权限，开启之后才能将您喜欢的照片或视频导入进行分享  同时也可以将您录制的视频或照片保存到相册
 您还没有开启照片的读写和写入权限，开启之后才能将您喜欢的照片或视频导入进行分享  同时也可以将您录制的视频或照片保存到相册

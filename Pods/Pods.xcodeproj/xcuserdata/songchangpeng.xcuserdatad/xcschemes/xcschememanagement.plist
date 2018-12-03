@@ -95,6 +95,13 @@
 			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>29</integer>
+		</dict>
 		<key>MediaEditorKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -192,6 +199,13 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>27</integer>
+		</dict>
+		<key>ZXingObjC.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>28</integer>
 		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
