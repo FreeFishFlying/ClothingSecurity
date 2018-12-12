@@ -1,0 +1,20 @@
+{
+    "colorGreen":"28AF63",
+    "colorGray":"494949",
+    "themeColor":"28AF63",
+    "homeFont":16,
+    "showSettings":true,
+    "webServiceToken":"7827d78d-94b2-4ac3-bebc-09be0e8249a1",
+    "showResult":true,
+    "showLevel":true,
+    "forcedFlash":true,
+    "webServiceUrl":"https://svc-pannpass-sirena.s2icode.com/api/svc",
+    "changeLanguage": false,
+    "dpi": 2000,
+    "type": "MultiPolygon",
+    "coordinates": [
+    
+    ]
+
+    
+}
