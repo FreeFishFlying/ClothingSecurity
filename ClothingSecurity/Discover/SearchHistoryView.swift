@@ -66,6 +66,9 @@ class SearchHistoryView: UIView {
                     width += newItemWidth
                 })
             }
+            isHidden = false
+        } else {
+            isHidden = true
         }
     }
     

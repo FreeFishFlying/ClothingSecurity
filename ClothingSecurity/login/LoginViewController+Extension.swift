@@ -81,6 +81,18 @@ class HeaderView: UIView {
     
     var onBackButtonClick: (() -> Void)?
     
+    var onChooseLogo: (() -> Void)?
+    
+    var imageUrl: String? {
+        didSet {
+            if let imageUrl = imageUrl {
+                if let url = URL(string: imageUrl) {
+                    logo.kf.setImage(with: url, placeholder: imageNamed("login_logo"))
+                }
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configUI()
@@ -122,11 +134,18 @@ class HeaderView: UIView {
             make.centerY.equalTo(backgroundView.snp.bottom)
             make.height.width.equalTo(105)
         }
+        logo.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapChooseLogo))
+        logo.addGestureRecognizer(tap)
         backButton.addTarget(self, action: #selector(backButtonClick), for: .touchUpInside)
     }
     
     @objc func backButtonClick() {
         onBackButtonClick?()
+    }
+    
+    @objc func tapChooseLogo() {
+        onChooseLogo?()
     }
     
     private let backButton: UIButton = {

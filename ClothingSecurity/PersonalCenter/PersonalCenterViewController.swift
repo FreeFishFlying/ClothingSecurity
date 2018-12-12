@@ -79,10 +79,7 @@ class PersonalCenterViewController: GroupedFormViewController {
         header.onLoginClick = { [weak self] in
             guard let `self` = self else { return }
             if !LoginState.shared.hasLogin {
-                let controller = LoginViewController()
-                controller.fd_interactivePopDisabled = true
-                let nav = UINavigationController(rootViewController: controller)
-                self.navigationController?.present(nav, animated: true, completion: nil)
+                self.onLogin()
             }
         }
     }
@@ -97,6 +94,8 @@ class PersonalCenterViewController: GroupedFormViewController {
                         let controller = BaseFavouriteViewController()
                         controller.hidesBottomBarWhenPushed = true
                         self?.navigationController?.pushViewController(controller, animated: true)
+                    } else {
+                        self?.onLogin()
                     }
                 })
                 row.cell.height = { 67 }
@@ -111,6 +110,8 @@ class PersonalCenterViewController: GroupedFormViewController {
                         let controller = AccountSafeViewController()
                         controller.hidesBottomBarWhenPushed = true
                         self.navigationController?.pushViewController(controller, animated: true)
+                    } else {
+                        self.onLogin()
                     }
                 })
                 row.cell.height = { 67 }
@@ -127,6 +128,12 @@ class PersonalCenterViewController: GroupedFormViewController {
                 })
                 row.cell.height = { 67 }
         }
+    }
+    private func onLogin() {
+        let controller = LoginViewController()
+        controller.fd_interactivePopDisabled = true
+        let nav = UINavigationController(rootViewController: controller)
+        navigationController?.present(nav, animated: true, completion: nil)
     }
     
     private let header: LoginHeaderView = LoginHeaderView()
