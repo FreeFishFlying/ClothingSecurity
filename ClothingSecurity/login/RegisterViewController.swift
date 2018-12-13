@@ -116,7 +116,10 @@ class RegisterViewController: BaseLoginViewController {
     }
     
     @objc private func readUserAgreement() {
-        
+        if let url = URL(string: "https://static.beedeemade.com/html/registration_agreement.html") {
+            let webView = RegisterAgreementWebViewController(url: url)
+            navigationController?.pushViewController(webView, animated: true)
+        }
     }
     
     private func doCountDown() {

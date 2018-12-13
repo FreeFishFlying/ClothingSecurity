@@ -125,6 +125,15 @@ class HeaderView: UIView {
         backButton.addTarget(self, action: #selector(backButtonClick), for: .touchUpInside)
     }
     
+    public func noLogoUI() {
+        backgroundView.snp.updateConstraints { make in
+            make.height.equalTo(64)
+        }
+        logo.snp.updateConstraints { make in
+            make.height.equalTo(0)
+        }
+    }
+    
     @objc func backButtonClick() {
         onBackButtonClick?()
     }
