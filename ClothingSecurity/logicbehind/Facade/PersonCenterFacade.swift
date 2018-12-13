@@ -42,7 +42,7 @@ class PersonCenterFacade: NSObject {
     }
     
     func onUploadImage(value: Data, callBack: @escaping ((ImageModel?) -> Void)) {
-        let url = "https://api.beedee.yituizhineng.top" + "/oss/upload"
+        let url = httpRootUrl + "/oss/upload"
         Mesh.upload(multipartFormData: { form in
             form.append(value, withName: "file", fileName: "\(UUID().uuidString).png", mimeType: "png")
         }, to: url) { encodingResult in
@@ -56,11 +56,13 @@ class PersonCenterFacade: NSObject {
                             let model = UploadHeaderImageResponse(json: json)
                             callBack(model.imageModel)
                         } else {
+                            print(" output value = \(encodingResult)")
                             callBack(nil)
                         }
                     }
                 })
             case .failure(_):
+                print(" output value = \(encodingResult)")
                 callBack(nil)
             }
         }

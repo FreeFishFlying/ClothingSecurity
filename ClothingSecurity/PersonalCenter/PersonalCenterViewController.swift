@@ -230,6 +230,7 @@ fileprivate class LoginHeaderView: UIView {
         let icon = UIImageView()
         icon.layer.cornerRadius = 31
         icon.layer.masksToBounds = true
+        icon.contentMode = .scaleAspectFill
         icon.image = imageNamed("defaultLogo")
         return icon
     }()

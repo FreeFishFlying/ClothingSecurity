@@ -13,6 +13,9 @@ import Result
 import SwiftyJSON
 import XCGLogger
 
+let httpRootUrl = "https://api.beedeemade.com"
+//"https://api.beedee.yituizhineng.top"
+
 enum DeltaDataType: String {
     case add = "ADD"
     case delete = "DELETE"
@@ -67,8 +70,7 @@ open class HttpRequestPacket<T: HttpResponseData> {
     }
     
     var rootUrl: String {
-        return "https://api.beedeemade.com"
-        //return "https://api.beedee.yituizhineng.top"
+        return httpRootUrl
     }
 
     open func requestParameter() -> [String: Any]? {

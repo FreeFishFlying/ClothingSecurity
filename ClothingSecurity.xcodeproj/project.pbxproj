@@ -67,7 +67,6 @@
 		B32FD65221AE79B8007BE7DB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD65121AE79B8007BE7DB /* CoreText.framework */; };
 		B32FD65421AE79C3007BE7DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD65321AE79C3007BE7DB /* CoreGraphics.framework */; };
 		B32FD65621AEA55A007BE7DB /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FD65521AEA55A007BE7DB /* ScanResultViewController.swift */; };
-		B33001D621B520F7005E9FCD /* HideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33001D521B520F7005E9FCD /* HideBarViewController.swift */; };
 		B3380ACD21BE504F003A8C71 /* RegisterAgreementWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3380ACC21BE504F003A8C71 /* RegisterAgreementWebViewController.swift */; };
 		B340BE72218D671A006FB78D /* SubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE71218D671A006FB78D /* SubCategory.swift */; };
 		B340BE74218D720E006FB78D /* GroupCategoryPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE73218D720E006FB78D /* GroupCategoryPacket.swift */; };
@@ -239,7 +238,6 @@
 		B32FD65121AE79B8007BE7DB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B32FD65321AE79C3007BE7DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B32FD65521AEA55A007BE7DB /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
-		B33001D521B520F7005E9FCD /* HideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideBarViewController.swift; sourceTree = "<group>"; };
 		B3380ACC21BE504F003A8C71 /* RegisterAgreementWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAgreementWebViewController.swift; sourceTree = "<group>"; };
 		B340BE71218D671A006FB78D /* SubCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategory.swift; sourceTree = "<group>"; };
 		B340BE73218D720E006FB78D /* GroupCategoryPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCategoryPacket.swift; sourceTree = "<group>"; };
@@ -1385,7 +1383,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AUSFNXNYA2;
+				DEVELOPMENT_TEAM = 9M58D95D36;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ ",
@@ -1464,7 +1462,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AUSFNXNYA2;
+				DEVELOPMENT_TEAM = 9M58D95D36;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ ",
