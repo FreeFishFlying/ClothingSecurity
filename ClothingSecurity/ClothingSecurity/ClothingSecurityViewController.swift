@@ -65,19 +65,22 @@ class ClothingSecurityViewController: BaseViewController {
     }()
     
     @objc private func scanning() {
-        let hideController = HideBarViewController()
-        hideController.view.frame = CGRect.zero
-        hideController.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(hideController, animated: false)
-        S2iCodeModule.shared()?.start(within: nil, uiNavigationController: navigationController)
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.2) {
-            if let childControllers = self.navigationController?.viewControllers {
-                var newChildens = childControllers
-                if let child = newChildens.first(where: {$0.isKind(of: HideBarViewController.self)}) {
-                   newChildens.remove(object: child)
-                   self.navigationController?.viewControllers = newChildens
-                }
-            }
-        }
+        let scan = ScanningViewController()
+        scan.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(scan, animated: true)
+//        let hideController = HideBarViewController()
+//        hideController.view.frame = CGRect.zero
+//        hideController.hidesBottomBarWhenPushed = true
+//        navigationController?.pushViewController(hideController, animated: false)
+//        S2iCodeModule.shared()?.start(within: nil, uiNavigationController: navigationController)
+//        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.2) {
+//            if let childControllers = self.navigationController?.viewControllers {
+//                var newChildens = childControllers
+//                if let child = newChildens.first(where: {$0.isKind(of: HideBarViewController.self)}) {
+//                   newChildens.remove(object: child)
+//                   self.navigationController?.viewControllers = newChildens
+//                }
+//            }
+//        }
     }
 }

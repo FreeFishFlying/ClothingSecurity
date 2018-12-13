@@ -58,7 +58,6 @@ class DiscoverResultViewController: BaseViewController {
     
     func beginSearch() {
         searchHistoryView.reset()
-        searchHistoryView.isHidden = false
         tableView.isHidden = true
         spaceView.isHidden = true
     }

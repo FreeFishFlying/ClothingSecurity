@@ -31,6 +31,17 @@ class PersonCenterFacade: NSObject {
     }
     
     func uploadHeaderImage(value: Data) {
+        onUploadImage(value: value) { model in
+            if let user = UserItem.current(), let model = model {
+                user.avatar = model.url
+                UserItem.save(user)
+                PersonCenterFacade.shared.updateUserInfo(value: ["avatar": model.url]).start()
+                LoginAndRegisterFacade.shared.userChangePip.input.send(value: user)
+            }
+        }
+    }
+    
+    func onUploadImage(value: Data, callBack: @escaping ((ImageModel?) -> Void)) {
         let url = "https://api.beedee.yituizhineng.top" + "/oss/upload"
         Mesh.upload(multipartFormData: { form in
             form.append(value, withName: "file", fileName: "\(UUID().uuidString).png", mimeType: "png")
@@ -43,17 +54,14 @@ class PersonCenterFacade: NSObject {
                             print(" output value = \(value)")
                             let json = JSON(parseJSON: value)
                             let model = UploadHeaderImageResponse(json: json)
-                            if let user = UserItem.current(), let model = model.imageModel {
-                                user.avatar = model.url
-                                UserItem.save(user)
-                                PersonCenterFacade.shared.updateUserInfo(value: ["avatar": model.url]).start()
-                                LoginAndRegisterFacade.shared.userChangePip.input.send(value: user)
-                            }
+                            callBack(model.imageModel)
+                        } else {
+                            callBack(nil)
                         }
                     }
                 })
             case .failure(_):
-                print("upload image failed ")
+                callBack(nil)
             }
         }
     }

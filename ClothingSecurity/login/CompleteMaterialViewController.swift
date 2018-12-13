@@ -10,14 +10,43 @@ import Foundation
 import Core
 import Eureka
 import HUD
-
+import PopoverImagePicker
 class CompleteMaterialViewController: BaseLoginViewController {
+    var imageUrl: String? {
+        didSet {
+            if let url = imageUrl {
+                self.headerView.imageUrl = url
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         headerTitle = "完善信息"
         configTableView()
         configTableViewCell()
         configButton()
+        headerView.onChooseLogo = { [weak self] in
+            guard let `self` = self else { return }
+            self.uploadImage()
+        }
+    }
+    
+    private func uploadImage() {
+        AppAuthorizationUtil.checkPhoto({ () in
+            PopoverImagePicker.choosePhoto(actionSheetActions: [], navigationControllerClass: ThemeNavigationController.self) { image -> Void in
+                if let image = image {
+                    if let data = image.pngData(){
+                        PersonCenterFacade.shared.onUploadImage(value: data, callBack: { [weak self] model in
+                            guard let `self` = self else { return }
+                            if let model = model {
+                                self.imageUrl = model.url
+                            }
+                        })
+                    }
+                }
+            }
+        })
     }
     
     private func configTableView() {
@@ -45,11 +74,15 @@ class CompleteMaterialViewController: BaseLoginViewController {
     
     @objc func complete() {
         if let value = configData() {
-            let info = ["nickName": value.nickname, "gender": value.sexType, "password": value.pd]
+            var info = ["nickName": value.nickname, "gender": value.sexType, "password": value.pd]
+            if let url = imageUrl {
+                info["avatar"] = url
+            }
             PersonCenterFacade.shared.updateUserInfo(value: info).startWithResult { [weak self] result in
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
                 if value.isSuccess() {
+                    LoginState.shared.hasLogin = true
                     self.navigationController?.dismiss(animated: true, completion: nil)
                 }
             }

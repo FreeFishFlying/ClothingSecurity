@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F10D2ED39B70B9A05228D4CC52E87C58"
+               BlueprintIdentifier = "3ADB1EC23B94287A1C032F8643666386"
                BlueprintName = "PinLayout"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "PinLayout.framework">
