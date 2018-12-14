@@ -8,6 +8,13 @@
 
 import Foundation
 import SwiftyJSON
+
+enum BannerType: String {
+    case goods = "goods"
+    case design = "design"
+    case outfit = "outfit"
+}
+
 class Banner: NSObject {
     var id: String = ""
     var createTime: Double = 0
@@ -16,7 +23,8 @@ class Banner: NSObject {
     var image: String = ""
     var link: String = ""
     var position: String = ""
-    
+    var goodId: String = ""
+    var type: BannerType = .goods
     init(json: JSON) {
         super.init()
         if let id = json["id"].string {
@@ -36,6 +44,15 @@ class Banner: NSObject {
         }
         if let link = json["link"].string {
             self.link = link
+            if let paths = URL(string: link)?.path {
+                let list = paths.components(separatedBy: "/")
+                if let id = list.last {
+                    goodId = id
+                }
+                if let g_type = list.first {
+                    type = BannerType(rawValue: g_type) ?? .goods
+                }
+            }
         }
         if let position = json["position"].string {
             self.position = position

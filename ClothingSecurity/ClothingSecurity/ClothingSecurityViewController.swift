@@ -31,7 +31,7 @@ class ClothingSecurityViewController: BaseViewController {
         }
         view.addSubview(button)
         button.snp.makeConstraints { make in
-            make.top.equalTo(tipLabel.snp.bottom).offset(36)
+            make.top.equalTo(tipLabel.snp.bottom).offset(ScreenWidth > 320 ? 36 : 16)
             make.height.equalTo(44)
             make.left.equalToSuperview().offset(48)
             make.right.equalToSuperview().offset(-48)

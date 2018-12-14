@@ -18,7 +18,7 @@ class BaseLoginViewController: GroupedFormViewController {
         if #available(iOS 11.0, *) {
             safeBottom = UIApplication.shared.keyWindow!.safeAreaInsets.bottom
         }
-        view.backgroundColor = UIColor(hexString: "#EBEBEB")
+        view.backgroundColor = UIColor(hexString: "#ffffff")
         fd_prefersNavigationBarHidden = true
         fd_interactivePopDisabled = true
         UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)

@@ -124,7 +124,9 @@ extension MainContentViewController: ZCycleViewProtocol {
             return
         } else {
             if let model = bannerList[safe: index]{
-                searchById(model.id)
+                if model.type == .goods {
+                    searchById(model.goodId)
+                }
             }
         }
     }
