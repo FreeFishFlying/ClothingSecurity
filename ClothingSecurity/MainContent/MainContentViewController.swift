@@ -119,7 +119,6 @@ extension MainContentViewController: ZCycleViewProtocol {
     }
     
     func cycleViewDidSelectedIndex(_ index: Int) {
-        print("select index = \(index)")
         if bannerList.isEmpty {
             return
         } else {

@@ -21,7 +21,7 @@ class SearchByKeywordPacket: HttpRequestPacket<PopularWearResponse> {
     }
     
     override func requestUrl() -> URL {
-        let url = "/outfit/list_hot?keyword=\(keyword)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = "/goods/search?keyword=\(keyword)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         return URL(string: url)!
     }
     

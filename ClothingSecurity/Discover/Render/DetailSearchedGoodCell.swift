@@ -31,6 +31,8 @@ class DetailSearchedGoodCell: UITableViewCell {
         nextIcon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-17)
+            make.width.equalTo(6)
+            make.height.equalTo(12)
         }
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in

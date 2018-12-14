@@ -31,6 +31,7 @@ class UserItem: NSObject, NSCoding {
         aCoder.encode(email, forKey: "email")
         aCoder.encode(role, forKey: "role")
         aCoder.encode(nickName, forKey: "nickName")
+        aCoder.encode(hasPassword, forKey: "hasPassword")
     }
     
     private func chanegeDecodeTypeToString(key: String, aDecode: NSCoder) -> String {
@@ -52,6 +53,7 @@ class UserItem: NSObject, NSCoding {
         email = chanegeDecodeTypeToString(key: "email", aDecode: aDecoder)
         role = chanegeDecodeTypeToString(key: "role", aDecode: aDecoder)
         nickName = chanegeDecodeTypeToString(key: "nickName", aDecode: aDecoder)
+        hasPassword = aDecoder.decodeBool(forKey: "hasPassword")
     }
     
     var id: String = ""
@@ -64,7 +66,7 @@ class UserItem: NSObject, NSCoding {
     var email: String = ""
     var role: String = ""
     var nickName: String = ""
-    
+    var hasPassword: Bool = false
     
     
     class func create(json: JSON) -> UserItem {
@@ -77,6 +79,9 @@ class UserItem: NSObject, NSCoding {
         }
         if let updateTime = json["updateTime"].double {
             userItem.updateTime = updateTime
+        }
+        if let hasPassword = json["hasPassword"].bool {
+            userItem.hasPassword = hasPassword
         }
         if let username = json["username"].string {
             userItem.username = username

@@ -103,16 +103,18 @@ class AccountSafeViewController: GroupedFormViewController {
                     cell.content = self?.userItem?.mobile
                 })
         }
-        form +++ fixHeightHeaderSection(height: 0)
-            <<< SafeAccountCellRow { row in
-                row.cell.title = "修改密码"
-                row.cell.showIcon = false
-                row.onCellSelection({ [weak self] (_, _) in
-                    guard let `self` = self else { return }
-                    let controller = ChangePasswordViewController()
-                    self.navigationController?.pushViewController(controller, animated: true)
-                })
-                row.cell.height = { 67 }
+        if let hasPD = userItem?.hasPassword, hasPD {
+            form +++ fixHeightHeaderSection(height: 0)
+                <<< SafeAccountCellRow { row in
+                    row.cell.title = "修改密码"
+                    row.cell.showIcon = false
+                    row.onCellSelection({ [weak self] (_, _) in
+                        guard let `self` = self else { return }
+                        let controller = ChangePasswordViewController()
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    })
+                    row.cell.height = { 67 }
+            }
         }
     }
     

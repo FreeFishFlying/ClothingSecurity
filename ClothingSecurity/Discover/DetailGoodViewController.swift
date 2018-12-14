@@ -82,8 +82,6 @@ class DetailGoodViewController: BaseViewController {
         UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
     }
     
-    
-    
     private func configUI() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
