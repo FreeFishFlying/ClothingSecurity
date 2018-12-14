@@ -33,9 +33,13 @@ class DiscoverViewController: BaseViewController {
                 case let .reachable(connectionType):
                     switch connectionType {
                     case .ethernetOrWiFi:
-                        self.loadSearchData()
+                        if self.categoryList.isEmpty {
+                            self.loadSearchData()
+                        }
                     case .wwan:
-                        self.loadSearchData()
+                        if self.categoryList.isEmpty {
+                            self.loadSearchData()
+                        }
                     }
                 case .unknown:
                     break
@@ -98,6 +102,7 @@ class DiscoverViewController: BaseViewController {
             guard let `self` = self else { return }
             guard let value = result.value else { return }
             if !value.list.isEmpty {
+                self.categoryList.removeAll()
                 value.list.forEach({ item in
                     self.categoryList.append(SearchCategoryViewModel(model: item))
                 })

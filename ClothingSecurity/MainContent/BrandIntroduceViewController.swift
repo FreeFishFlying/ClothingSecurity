@@ -41,6 +41,7 @@ class BrandIntroduceViewController: BaseViewController {
         englishLabel.snp.makeConstraints { make in
             make.top.equalTo(differentLabel.snp.bottom).offset(18)
             make.left.equalToSuperview().offset(15)
+            make.width.equalTo(ScreenWidth - 38)
         }
         englishLabel.text = englishContent
         scrollView.addSubview(titleLabel)
@@ -53,6 +54,7 @@ class BrandIntroduceViewController: BaseViewController {
         chineseLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15)
             make.top.equalTo(titleLabel.snp.bottom).offset(15)
+            make.width.equalTo(ScreenWidth - 38)
         }
         scrollView.addSubview(bottomLogo)
         bottomLogo.snp.makeConstraints { make in
