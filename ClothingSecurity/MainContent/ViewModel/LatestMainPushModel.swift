@@ -16,6 +16,7 @@ class LatestMainPushModel: NSObject {
     
     var models: [Good]? {
         didSet {
+            height = 0
             if let models = models, !models.isEmpty {
                 height += 65
                 if models.count <= 2 {

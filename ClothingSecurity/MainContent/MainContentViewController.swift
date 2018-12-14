@@ -105,7 +105,7 @@ class MainContentViewController: BaseViewController {
     }()
     
     private let tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView.init(frame: .zero, style: .plain)
         tableView.separatorStyle = .none
         tableView.register(BrandIntroductionCell.self, forCellReuseIdentifier: "BrandIntroductionCell")
         tableView.register(PopularWearCell.self, forCellReuseIdentifier: "PopularWearCell")
@@ -146,7 +146,7 @@ extension MainContentViewController: UITableViewDataSource, UITableViewDelegate 
         } else if let model = model as? LatestMainPushModel {
             return CGFloat(model.height)
         }
-        return 0
+        return 0.01
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
