@@ -25,4 +25,5 @@ target 'ClothingSecurity' do
     pod 'ZXingObjC', :path => 'submodules/ZXingObjC/'
     pod 'WechatOpenSDK'
     pod 'Masonry'
+    pod 'BaiduMobStatCodeless'
 end
