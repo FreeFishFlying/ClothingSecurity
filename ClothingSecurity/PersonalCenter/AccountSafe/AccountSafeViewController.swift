@@ -122,7 +122,7 @@ class AccountSafeViewController: GroupedFormViewController {
         AppAuthorizationUtil.checkPhoto({ () in
             PopoverImagePicker.choosePhoto(actionSheetActions: [], navigationControllerClass: ThemeNavigationController.self) { image -> Void in
                 if let image = image {
-                    if let data = image.pngData(){
+                    if let data = image.asJPEGData(0.4) {
                         PersonCenterFacade.shared.uploadHeaderImage(value: data)
                     }
                 }
