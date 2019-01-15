@@ -14,6 +14,7 @@ PODS:
     - SnapKit
   - AlertController (0.1):
     - SnapKit
+  - BaiduMobStatCodeless (4.8.3)
   - Core (0.0.1):
     - Mesh
     - pop
@@ -66,6 +67,7 @@ DEPENDENCIES:
   - ActionSheet (from `submodules/ActionSheet/`)
   - Album (from `submodules/Album/`)
   - AlertController (from `submodules/AlertController/`)
+  - BaiduMobStatCodeless
   - Core (from `submodules/Core/`)
   - ESTabBarController (from `submodules/ESTabBarController/`)
   - Eureka (from `submodules/Eureka/`)
@@ -89,6 +91,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - BaiduMobStatCodeless
     - Kingfisher
     - Masonry
     - ObjcExceptionBridging
@@ -143,6 +146,7 @@ SPEC CHECKSUMS:
   ActionSheet: 481c7b0b90691c4882cdc915b3c144df3e93ef5b
   Album: 49b56b2a29b28222668384e02a77e406d8fa0547
   AlertController: 428d46ec2c9496d92151ab7a0cb66989ddce624f
+  BaiduMobStatCodeless: fc98daffd6d08f1c9644737864b61d2c806965d1
   Core: 2fbd9d0be76ed231f520bd2db4a45a75b07b8c51
   ESTabBarController: 8db71cb7f648747a11f25ede0f91195cb0394c27
   Eureka: 246b17918da454e3b38cc64aea23af2d3463fd81
@@ -167,6 +171,6 @@ SPEC CHECKSUMS:
   XCGLogger: 5a21c8be020a21d0b798937f85c1cdb61a288422
   ZXingObjC: df03d998b10bd2879fed52d1967cc8bb8b575671
 
-PODFILE CHECKSUM: 0abc0237f2a3bba7428c2799615590167e5181fc
+PODFILE CHECKSUM: 135a8a18d30597b01173a9e09b6b681a55352ead
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

@@ -29,7 +29,7 @@ class LatestMainPushViewController: BaseViewController, UICollectionViewDelegate
     }
     
     private func loadData() {
-        GoodsFacade.shared.latestMainPush(page: 0, size: 10).startWithResult { [weak self] result in
+        GoodsFacade.shared.latestMainPush(page: page, size: 10).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
             if value.last {
