@@ -58,7 +58,7 @@ class MainContentViewController: BaseViewController {
                 self.tableView.reloadData()
             }
         }
-        GoodsFacade.shared.latestMainPush(page: 0, size: 4).startWithResult { [weak self] result in
+        GoodsFacade.shared.latestMainPush(page: 0, size: 8).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
             if let model = self.dataSource[safe: 2] as? LatestMainPushModel {

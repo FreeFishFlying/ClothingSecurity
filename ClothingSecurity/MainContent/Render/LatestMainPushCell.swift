@@ -74,6 +74,7 @@ class LatestMainPushCell: UITableViewCell, UICollectionViewDataSource, UICollect
         collection.dataSource = self
         collection.alwaysBounceVertical = false
         collection.alwaysBounceHorizontal = false
+        collection.isScrollEnabled = false
         collection.backgroundColor = .clear
         collection.register(DetailCategoryGoodCell.self, forCellWithReuseIdentifier: "DetailCategoryGoodCell")
         collection.register(DetailCategoryHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "DetailCategoryHeaderView")
