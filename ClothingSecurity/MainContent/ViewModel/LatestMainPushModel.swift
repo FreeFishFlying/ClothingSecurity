@@ -19,14 +19,8 @@ class LatestMainPushModel: NSObject {
             height = 0
             if let models = models, !models.isEmpty {
                 height += 65
-                if models.count <= 2 {
-                    height += defaultImageSize
-                    height += 10
-                } else {
-                    height += defaultImageSize * 2
-                    height += 20
-                }
-                
+                let gap: CGFloat = 10
+                height += CGFloat(ceil(Double(models.count) / 2) * (defaultImageSize + gap))
             } else {
                 height = 0
             }
