@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6DEC7EAE10DF94EFE57DC058AECC005C"
+               BlueprintIdentifier = "00AEDFDD7D173DF499B7131F50D05411"
                BlueprintName = "MediaEditorKit"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "MediaEditorKit.framework">

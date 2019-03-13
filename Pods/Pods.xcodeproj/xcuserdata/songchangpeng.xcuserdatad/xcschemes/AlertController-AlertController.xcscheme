@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0B9E0513678CBD0D888FC8D769158F3B"
+               BlueprintIdentifier = "C8499E30586ED09A8D96B7C70A3ABF5B"
                BuildableName = "AlertController.bundle"
                BlueprintName = "AlertController-AlertController"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0B9E0513678CBD0D888FC8D769158F3B"
+            BlueprintIdentifier = "C8499E30586ED09A8D96B7C70A3ABF5B"
             BuildableName = "AlertController.bundle"
             BlueprintName = "AlertController-AlertController"
             ReferencedContainer = "container:Pods.xcodeproj">
