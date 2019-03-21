@@ -1,0 +1,19 @@
+{
+    "colorGreen":"28AF63",
+    "colorGray":"494949",
+    "themeColor":"28AF63",
+    "homeFont":16,
+    "showSettings":true,
+    "webServiceToken":"c86e5d02-bcfd-47b1-8a04-7c88382e42e7",
+    "showResult":true,
+    "showLevel":true,
+    "forcedFlash":true,
+    "webServiceUrl":"https://svc-kxzt-beedee.s2icode.com/api/svc",
+    "changeLanguage": true,
+    "feedbackUrl":"https://www.wjx.cn/jq/32649677.aspx",
+    "type": "MultiPolygon",
+    "coordinates": [
+    
+    ]
+}
+

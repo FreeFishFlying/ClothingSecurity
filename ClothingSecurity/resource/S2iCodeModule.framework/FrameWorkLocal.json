@@ -1,0 +1,22 @@
+{
+    "OEM":true,
+    "colorGreen":"28AF63",
+    "colorGray":"494949",
+    "homeFont":16,
+    "historyIsNotDisplayed":false,
+    "showSettings":true,
+    "webServiceToken":"S2iCodeModule_ios_2.0.0",
+    "Demo":false,
+    "showResult":true,
+    "showLevel":false,
+    "forcedFlash":false,
+    "webServiceUrl":"http://test.svc.s2icode.com/api/svc",
+    "type": "MultiPolygon",
+    "coordinates": [
+    
+    ],
+    "privacy_zh":"http://s2i.cn/app/s2i2/privacy_policy_cn.html",
+    "privacy_en":"http://s2i.cn/app/s2i2/privacy_policy_en.html"
+    
+    
+}

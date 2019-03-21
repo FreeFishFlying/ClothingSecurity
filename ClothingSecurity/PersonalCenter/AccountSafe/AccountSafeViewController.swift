@@ -14,6 +14,7 @@ import HUD
 import PopoverImagePicker
 import Mesh
 import SwiftyJSON
+import S2iCodeModule
 
 class AccountSafeViewController: GroupedFormViewController {
     var userItem = UserItem.current()
@@ -42,10 +43,15 @@ class AccountSafeViewController: GroupedFormViewController {
         button.addTarget(self, action: #selector(loginOut), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     @objc func loginOut() {
         UserItem.loginOut()
         PersonCenterFacade.shared.logout()
         navigationController?.popToRootViewController(animated: true)
+        
     }
     
     private func configTableView() {

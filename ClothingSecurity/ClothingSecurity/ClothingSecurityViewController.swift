@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import S2iCodeModule
 class ClothingSecurityViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,22 +66,20 @@ class ClothingSecurityViewController: BaseViewController {
     }()
     
     @objc private func scanning() {
-        let scan = ScanningViewController()
-        scan.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(scan, animated: true)
-//        let hideController = HideBarViewController()
-//        hideController.view.frame = CGRect.zero
-//        hideController.hidesBottomBarWhenPushed = true
-//        navigationController?.pushViewController(hideController, animated: false)
-//        S2iCodeModule.shared()?.start(within: nil, uiNavigationController: navigationController)
-//        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.2) {
-//            if let childControllers = self.navigationController?.viewControllers {
-//                var newChildens = childControllers
-//                if let child = newChildens.first(where: {$0.isKind(of: HideBarViewController.self)}) {
-//                   newChildens.remove(object: child)
-//                   self.navigationController?.viewControllers = newChildens
-//                }
-//            }
-//        }
+        if let tabController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController {
+            tabController.tabBar.isHidden = true
+            tabController.navigationController?.isNavigationBarHidden = true
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+        S2iCodeModule.shared()?.start(within: nil, uiNavigationController: currentNavigationController())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let tabController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController {
+            tabController.tabBar.isHidden = false
+            tabController.navigationController?.isNavigationBarHidden = false
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        }
     }
 }

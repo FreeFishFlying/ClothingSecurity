@@ -139,6 +139,10 @@
 		B3BBEE6B2181B7BB00F5FA47 /* ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */; };
 		B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */; };
 		B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6E2182E32200F5FA47 /* InputRender.swift */; };
+		B3C95B0F2243BEAD0036C5D6 /* FrameWorkLocal.json in Resources */ = {isa = PBXBuildFile; fileRef = B3C95B0D2243BEAD0036C5D6 /* FrameWorkLocal.json */; };
+		B3C95B102243BEAD0036C5D6 /* S2iCodeModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */; };
+		B3C95B112243BF770036C5D6 /* S2iCodeModule.framework in Resources */ = {isa = PBXBuildFile; fileRef = B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */; };
+		B3C95B152243C3DC0036C5D6 /* S2iCodeModule.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B3E0D6A32197CBAA00CF5B63 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */; };
 		B3E0D6A721986EAD00CF5B63 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */; };
 		B3F2B3B82180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */; };
@@ -169,6 +173,19 @@
 			remoteInfo = ClothingSecurity;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B3C95B132243C3940036C5D6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B3C95B152243C3DC0036C5D6 /* S2iCodeModule.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2E1F02F363D9AC4716C70A67 /* Pods-ClothingSecurity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothingSecurity.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity.release.xcconfig"; sourceTree = "<group>"; };
@@ -317,6 +334,8 @@
 		B3BBEE672181B7BB00F5FA47 /* ParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeader.swift; sourceTree = "<group>"; };
 		B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3BBEE6E2182E32200F5FA47 /* InputRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRender.swift; sourceTree = "<group>"; };
+		B3C95B0D2243BEAD0036C5D6 /* FrameWorkLocal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FrameWorkLocal.json; sourceTree = "<group>"; };
+		B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = S2iCodeModule.framework; sourceTree = "<group>"; };
 		B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalCenterViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -337,6 +356,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C95B102243BEAD0036C5D6 /* S2iCodeModule.framework in Frameworks */,
 				B32FD65421AE79C3007BE7DB /* CoreGraphics.framework in Frameworks */,
 				B32FD65221AE79B8007BE7DB /* CoreText.framework in Frameworks */,
 				B32FD65021AE79AE007BE7DB /* ImageIO.framework in Frameworks */,
@@ -694,6 +714,7 @@
 		B35DBB0C216C783A00CAFDAD /* ClothingSecurity */ = {
 			isa = PBXGroup;
 			children = (
+				B3C95B0C2243BEAD0036C5D6 /* resource */,
 				B32FD61721AE3115007BE7DB /* Lib */,
 				B35DBB41216C9A6C00CAFDAD /* login */,
 				B364D75E21819CD50081593D /* ClothingSecurity */,
@@ -838,6 +859,15 @@
 			path = ParallaxHeader;
 			sourceTree = "<group>";
 		};
+		B3C95B0C2243BEAD0036C5D6 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				B3C95B0D2243BEAD0036C5D6 /* FrameWorkLocal.json */,
+				B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
 		F1F1A134462388183135CDA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -870,6 +900,7 @@
 				B35DBB08216C783A00CAFDAD /* Resources */,
 				7E5E4583928CE2DF547DAE23 /* [CP] Embed Pods Frameworks */,
 				5296025A72796C8BCFCA78C0 /* [CP] Copy Pods Resources */,
+				B3C95B132243C3940036C5D6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -965,6 +996,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C95B0F2243BEAD0036C5D6 /* FrameWorkLocal.json in Resources */,
+				B3C95B112243BF770036C5D6 /* S2iCodeModule.framework in Resources */,
 				B35DBB15216C783D00CAFDAD /* Assets.xcassets in Resources */,
 				B39C99CC21C1497B005605DA /* SWQRCode.bundle in Resources */,
 				B35DBB13216C783A00CAFDAD /* Main.storyboard in Resources */,
@@ -1384,12 +1417,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AUSFNXNYA2;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ ",
+					"$(PROJECT_DIR)/ClothingSecurity/resource",
 				);
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1463,12 +1498,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AUSFNXNYA2;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ ",
+					"$(PROJECT_DIR)/ClothingSecurity/resource",
 				);
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

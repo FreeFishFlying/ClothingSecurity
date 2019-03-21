@@ -8,6 +8,7 @@
 
 import UIKit
 import FDFullscreenPopGesture
+import S2iCodeModule
 import HUD
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, TencentSessionDelegate, WeiboSDKDelegate {
@@ -22,7 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, TencentSes
         applyStyle()
         updateAuthInfo()
         regiesterOtherLink()
+        S2iCodeModule.shared()?.initS2iCodeModule()
         return true
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        S2iCodeModule.shared()?.applicationDidEnterBackground(application)
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        S2iCodeModule.shared()?.applicationWillEnterForeground(application)
     }
     
     private func login(code: String, type: ThirdType) {
