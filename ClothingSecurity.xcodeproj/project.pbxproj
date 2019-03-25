@@ -66,7 +66,6 @@
 		B32FD65021AE79AE007BE7DB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD64F21AE79AE007BE7DB /* ImageIO.framework */; };
 		B32FD65221AE79B8007BE7DB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD65121AE79B8007BE7DB /* CoreText.framework */; };
 		B32FD65421AE79C3007BE7DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD65321AE79C3007BE7DB /* CoreGraphics.framework */; };
-		B32FD65621AEA55A007BE7DB /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32FD65521AEA55A007BE7DB /* ScanResultViewController.swift */; };
 		B3380ACD21BE504F003A8C71 /* RegisterAgreementWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3380ACC21BE504F003A8C71 /* RegisterAgreementWebViewController.swift */; };
 		B340BE72218D671A006FB78D /* SubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE71218D671A006FB78D /* SubCategory.swift */; };
 		B340BE74218D720E006FB78D /* GroupCategoryPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340BE73218D720E006FB78D /* GroupCategoryPacket.swift */; };
@@ -254,7 +253,6 @@
 		B32FD64F21AE79AE007BE7DB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		B32FD65121AE79B8007BE7DB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B32FD65321AE79C3007BE7DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B32FD65521AEA55A007BE7DB /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		B3380ACC21BE504F003A8C71 /* RegisterAgreementWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAgreementWebViewController.swift; sourceTree = "<group>"; };
 		B340BE71218D671A006FB78D /* SubCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategory.swift; sourceTree = "<group>"; };
 		B340BE73218D720E006FB78D /* GroupCategoryPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCategoryPacket.swift; sourceTree = "<group>"; };
@@ -793,7 +791,6 @@
 			children = (
 				B39C99C721C1497B005605DA /* Scan */,
 				B39C99C221C14822005605DA /* HideBarViewController.swift */,
-				B32FD65521AEA55A007BE7DB /* ScanResultViewController.swift */,
 				B364D75F21819CD50081593D /* ClothingSecurityViewController.swift */,
 				B364D76021819CD50081593D /* ScanningViewController.swift */,
 			);
@@ -1184,7 +1181,6 @@
 				B3AFD585218EBFE700D54F34 /* SearchByKeywordPacket.swift in Sources */,
 				B32256E0218B33260032A019 /* PopularWeasrCell.swift in Sources */,
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
-				B32FD65621AEA55A007BE7DB /* ScanResultViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
 				B3B62FCC216DE2C90006A39E /* Entrance.swift in Sources */,
 				B30D81AC219C6D3600423C7E /* FeedbackViewController.swift in Sources */,
@@ -1329,6 +1325,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"${TARGET_BUILD_DIR}/S2iCodeModule.framework/**",
+					"$(SRCROOT)/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1349,6 +1349,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "ClothingSecurity/ClothingSecurity-Bridging-Header";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1390,6 +1391,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"${TARGET_BUILD_DIR}/S2iCodeModule.framework/**",
+					"$(SRCROOT)/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1403,6 +1408,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "ClothingSecurity/ClothingSecurity-Bridging-Header";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1416,12 +1422,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AUSFNXNYA2;
+				DEVELOPMENT_TEAM = 9M58D95D36;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ ",
 					"$(PROJECT_DIR)/ClothingSecurity/resource",
+					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1486,6 +1493,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
 			};
 			name = Debug;
 		};
@@ -1497,12 +1505,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AUSFNXNYA2;
+				DEVELOPMENT_TEAM = 9M58D95D36;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ ",
 					"$(PROJECT_DIR)/ClothingSecurity/resource",
+					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1566,6 +1575,7 @@
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
 			};
 			name = Release;
 		};

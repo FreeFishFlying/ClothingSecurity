@@ -8,10 +8,18 @@
 
 import Foundation
 import UIKit
+import S2iCodeModule
 class HideBarViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.frame = CGRect.zero
         view.backgroundColor = UIColor.white
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 }

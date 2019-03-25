@@ -14,6 +14,8 @@ class ClothingSecurityViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "防伪检测"
+//        navigationController?.navigationBar.isHidden = true
+//        navigationController?.setNavigationBarHidden(true, animated: false)
         configUI()
     }
     
@@ -66,20 +68,25 @@ class ClothingSecurityViewController: BaseViewController {
     }()
     
     @objc private func scanning() {
-        if let tabController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController {
-            tabController.tabBar.isHidden = true
-            tabController.navigationController?.isNavigationBarHidden = true
-            navigationController?.setNavigationBarHidden(true, animated: true)
+        S2iCodeModule.shared()?.start(within: UIApplication.shared.keyWindow, uiNavigationController: self.navigationController)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            let controllers = self.navigationController?.viewControllers;
+            if let controller = controllers?.last {
+                controller.navigationController?.navigationBar.isHidden = true
+                controller.navigationController?.setNavigationBarHidden(true, animated: false)
+                controller.tabBarController?.tabBar.isHidden = true
+                controller.fd_interactivePopDisabled = true
+                self.extendedLayoutIncludesOpaqueBars = true
+            }
         }
-        S2iCodeModule.shared()?.start(within: nil, uiNavigationController: currentNavigationController())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let tabController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController {
-            tabController.tabBar.isHidden = false
-            tabController.navigationController?.isNavigationBarHidden = false
-            navigationController?.setNavigationBarHidden(false, animated: true)
-        }
+        self.tabBarController?.tabBar.isHidden = false
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 }

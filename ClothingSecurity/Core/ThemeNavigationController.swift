@@ -25,6 +25,8 @@ func currentNavigationController() -> UINavigationController? {
 
 extension UIViewController {
     private static var AssociatedBackItem: UInt8 = 0
+
+    private static var AssociatedBackItemOnStack: UInt8 = 0
     
     @objc var autoCreateBackItem: Bool {
         get {
@@ -32,6 +34,15 @@ extension UIViewController {
         }
         set {
             objc_setAssociatedObject(self, &UIViewController.AssociatedBackItem, newValue, .OBJC_ASSOCIATION_ASSIGN)
+        }
+    }
+
+    @objc var hideBackItemOnStack: Bool {
+        get {
+            return objc_getAssociatedObject(self, &UIViewController.AssociatedBackItemOnStack) as? Bool ?? true
+        }
+        set {
+            objc_setAssociatedObject(self, &UIViewController.AssociatedBackItemOnStack, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
 }
@@ -58,7 +69,7 @@ class ThemeNavigationController: UINavigationController, UINavigationControllerD
         customView.addSubview(editButton)
         let editItem = UIBarButtonItem(customView: customView)
         
-        return editItem // UIBarButtonItem(image: imageNamed("ic_app_back_nor")?.withRenderingMode(.alwaysOriginal) ?? UIImage(), style: .plain, target: self, action: #selector(popTopViewController))
+        return editItem
     }
     
     func navigationController(_: UINavigationController, willShow viewController: UIViewController, animated _: Bool) {

@@ -14,7 +14,6 @@ import HUD
 import PopoverImagePicker
 import Mesh
 import SwiftyJSON
-import S2iCodeModule
 
 class AccountSafeViewController: GroupedFormViewController {
     var userItem = UserItem.current()
