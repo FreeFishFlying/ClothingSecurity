@@ -139,8 +139,6 @@
 		B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6C2181D33F00F5FA47 /* LoginViewController+Extension.swift */; };
 		B3BBEE6F2182E32200F5FA47 /* InputRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBEE6E2182E32200F5FA47 /* InputRender.swift */; };
 		B3C95B0F2243BEAD0036C5D6 /* FrameWorkLocal.json in Resources */ = {isa = PBXBuildFile; fileRef = B3C95B0D2243BEAD0036C5D6 /* FrameWorkLocal.json */; };
-		B3C95B102243BEAD0036C5D6 /* S2iCodeModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */; };
-		B3C95B112243BF770036C5D6 /* S2iCodeModule.framework in Resources */ = {isa = PBXBuildFile; fileRef = B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */; };
 		B3C95B152243C3DC0036C5D6 /* S2iCodeModule.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B3E0D6A32197CBAA00CF5B63 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */; };
 		B3E0D6A721986EAD00CF5B63 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */; };
@@ -354,7 +352,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3C95B102243BEAD0036C5D6 /* S2iCodeModule.framework in Frameworks */,
 				B32FD65421AE79C3007BE7DB /* CoreGraphics.framework in Frameworks */,
 				B32FD65221AE79B8007BE7DB /* CoreText.framework in Frameworks */,
 				B32FD65021AE79AE007BE7DB /* ImageIO.framework in Frameworks */,
@@ -994,7 +991,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3C95B0F2243BEAD0036C5D6 /* FrameWorkLocal.json in Resources */,
-				B3C95B112243BF770036C5D6 /* S2iCodeModule.framework in Resources */,
 				B35DBB15216C783D00CAFDAD /* Assets.xcassets in Resources */,
 				B39C99CC21C1497B005605DA /* SWQRCode.bundle in Resources */,
 				B35DBB13216C783A00CAFDAD /* Main.storyboard in Resources */,
@@ -1326,8 +1322,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"${TARGET_BUILD_DIR}/S2iCodeModule.framework/**",
 					"$(SRCROOT)/**",
+					"$(inherited)/**",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1392,8 +1388,8 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"${TARGET_BUILD_DIR}/S2iCodeModule.framework/**",
 					"$(SRCROOT)/**",
+					"$(inherited)/**",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1418,17 +1414,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C96C59233EE40489AFE0B89 /* Pods-ClothingSecurity.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9M58D95D36;
+				DEVELOPMENT_TEAM = AUSFNXNYA2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ ",
-					"$(PROJECT_DIR)/ClothingSecurity/resource",
-					"$(SRCROOT)",
+					"$(inherited)/**",
+					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ /**",
+					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/ClothingSecurity/resource/**",
 				);
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1501,17 +1498,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E1F02F363D9AC4716C70A67 /* Pods-ClothingSecurity.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9M58D95D36;
+				DEVELOPMENT_TEAM = AUSFNXNYA2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ ",
-					"$(PROJECT_DIR)/ClothingSecurity/resource",
-					"$(SRCROOT)",
+					"$(inherited)/**",
+					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ /**",
+					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/ClothingSecurity/resource/**",
 				);
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
