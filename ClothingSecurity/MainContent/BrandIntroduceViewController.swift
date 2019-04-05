@@ -87,7 +87,7 @@ class BrandIntroduceViewController: BaseViewController {
         let label = UILabel()
         label.font = systemFontSize(fontSize: 14)
         label.textColor = UIColor(hexString: "#bfbebe")
-        label.text = "SOMETHING DIFFERENT"
+        label.text = "企业背景"
         return label
     }()
     
@@ -120,6 +120,8 @@ class BrandIntroduceViewController: BaseViewController {
         logo.image = imageNamed("image_brand_bottom")
         return logo
     }()
+    
+    private let backContent = "熊爸爸是日本美妆企业，这次展会他们带来了当家花旦\n——LABEAUTY水母面膜，同时他们还公开了这款面膜\n所应用到的生物科技——生物萃取技术。他们萃取了世\n界上永不死的灯塔水母干细胞制成了这款产品"
     
     private let englishContent = "Pursuit the 1 % Life\nConcept There are 80% of the people in the world lead\nnormal lives.\nAnd 20 % of the people will pursuit for what they want.\nMaybe only 1 % of them made it to the end.\nLuckily,they're the ones who successed.\nHoping we can be that 1 %.\nBeeDee as an original designer brand, stick to\ninnovation, stick to originalityTo share what we want.\nWe want to pass on a different design concept to those\nof you who want it.\nThanks to the 1 %  who will always be with us."
     

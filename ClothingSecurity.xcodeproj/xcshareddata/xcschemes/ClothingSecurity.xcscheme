@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B35DBB09216C783A00CAFDAD"
-               BuildableName = "ClothingSecurity.app"
-               BlueprintName = "ClothingSecurity"
+               BuildableName = "Labeauty.app"
+               BlueprintName = "Labeauty"
                ReferencedContainer = "container:ClothingSecurity.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -53,8 +53,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B35DBB09216C783A00CAFDAD"
-            BuildableName = "ClothingSecurity.app"
-            BlueprintName = "ClothingSecurity"
+            BuildableName = "Labeauty.app"
+            BlueprintName = "Labeauty"
             ReferencedContainer = "container:ClothingSecurity.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B35DBB09216C783A00CAFDAD"
-            BuildableName = "ClothingSecurity.app"
-            BlueprintName = "ClothingSecurity"
+            BuildableName = "Labeauty.app"
+            BlueprintName = "Labeauty"
             ReferencedContainer = "container:ClothingSecurity.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -95,8 +95,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B35DBB09216C783A00CAFDAD"
-            BuildableName = "ClothingSecurity.app"
-            BlueprintName = "ClothingSecurity"
+            BuildableName = "Labeauty.app"
+            BlueprintName = "Labeauty"
             ReferencedContainer = "container:ClothingSecurity.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

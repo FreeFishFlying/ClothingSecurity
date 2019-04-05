@@ -60,7 +60,7 @@ class PopularWearCell: UITableViewCell {
         }
     }
     
-    private let button: HeaderCellButton = HeaderCellButton("人气穿搭")
+    private let button: HeaderCellButton = HeaderCellButton("视频展示")
     
     private let imageContentView: UIImageView = {
         let imageView =  UIImageView()

@@ -22,6 +22,11 @@ class NormalTableViewCell: Cell<String>, CellType {
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-15)
         }
+        addSubview(subLabel)
+        subLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.equalTo(nextIcon.snp.left).offset(-10)
+        }
         addSubview(line)
         line.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -33,6 +38,12 @@ class NormalTableViewCell: Cell<String>, CellType {
     var name: String? {
         didSet {
             nameLabel.text = name
+        }
+    }
+    
+    var subContent: String? {
+        didSet {
+            subLabel.text = subContent
         }
     }
     
@@ -53,6 +64,13 @@ class NormalTableViewCell: Cell<String>, CellType {
         let line = UIImageView()
         line.backgroundColor = UIColor(red: 229.0 / 255.0, green: 229.0 / 255.0, blue: 229.0 / 255.0, alpha: 1.0)
         return line
+    }()
+    
+    private let subLabel: UILabel = {
+        let label = UILabel()
+        label.font = systemFontSize(fontSize: 14)
+        label.textColor = UIColor(hexString: "#666666")
+        return label
     }()
 }
 

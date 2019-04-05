@@ -60,8 +60,8 @@ extension UIBarButtonItem {
 class DarkKeyButton: UIButton {
     init(title: String) {
         super.init(frame: .zero)
-        backgroundColor = UIColor.black
-        setTitleColor(UIColor(hexString: "#ffef04"), for: .normal)
+        setBackgroundImage(imageNamed("Loginbutton"), for: .normal)
+        setTitleColor(UIColor(hexString: "#ffffff"), for: .normal)
         layer.cornerRadius = 22
         layer.masksToBounds = true
         setTitle(title, for: .normal)

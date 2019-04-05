@@ -37,7 +37,7 @@ class BrandIntroductionCell: UITableViewCell {
         addSubview(logo)
         logo.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-30)
-            make.height.equalTo(61)
+            make.height.equalTo(67)
             make.width.equalTo(67)
             make.centerY.equalTo(backView.snp.centerY).offset(-10)
         }

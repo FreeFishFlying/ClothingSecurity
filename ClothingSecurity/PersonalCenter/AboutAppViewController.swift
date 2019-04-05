@@ -33,18 +33,13 @@ class AboutAppViewController: GroupedFormViewController {
             make.centerX.equalToSuperview()
             make.centerY.equalTo(containerView.snp.centerY).offset(-10)
         }
-        containerView.addSubview(versionLabel)
-        versionLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(icon.snp.bottom).offset(15)
-        }
     }
     
     private func configTB() {
         tableView.snp.remakeConstraints { make in
             make.top.equalTo(containerView.snp.bottom)
             make.left.right.equalToSuperview()
-            make.height.equalTo(134)
+            make.height.equalTo(201)
         }
         tableView.isScrollEnabled = false
         tableView.backgroundColor = UIColor.white
@@ -61,6 +56,12 @@ class AboutAppViewController: GroupedFormViewController {
                     let controller = AppDescriptionViewController()
                     self.navigationController?.pushViewController(controller, animated: true)
                 })
+        }
+        form +++ fixHeightHeaderSection(height: 0)
+            <<< NormalTableViewCellRow { row in
+                row.cell.height = { 67 }
+                row.cell.name = "版本信息"
+                row.cell.subContent = "版本 V" + (Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalTableViewCellRow { row in
@@ -89,7 +90,7 @@ class AboutAppViewController: GroupedFormViewController {
     
     private let icon: UIImageView = {
         let icon = UIImageView()
-        icon.image = imageNamed("ic_brand_logo")
+        icon.image = imageNamed("login_logo")
         return icon
     }()
     

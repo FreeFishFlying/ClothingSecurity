@@ -126,13 +126,13 @@ class NormalSafeAccounbtVerifyCell: Cell<String>, CellType {
         didSet {
             if let enalbe = buttonEnable {
                 verifyButton.isEnabled = enalbe
-                if enalbe {
-                    verifyButton.backgroundColor = UIColor.black
-                    verifyButton.setTitleColor(UIColor(red: 255.0 / 255.0, green: 239.0 / 255.0, blue: 4.0 / 255.0, alpha: 1.0), for: .normal)
-                } else {
-                    verifyButton.backgroundColor = UIColor(hexString: "#d9d9d9")
-                    verifyButton.setTitleColor(UIColor.white, for: .normal)
-                }
+//                if enalbe {
+//                    verifyButton.backgroundColor = UIColor.black
+//                    verifyButton.setTitleColor(UIColor(red: 255.0 / 255.0, green: 239.0 / 255.0, blue: 4.0 / 255.0, alpha: 1.0), for: .normal)
+//                } else {
+//                    verifyButton.backgroundColor = UIColor(hexString: "#d9d9d9")
+//                    verifyButton.setTitleColor(UIColor.white, for: .normal)
+//                }
             }
         }
     }
@@ -193,10 +193,12 @@ class NormalSafeAccounbtVerifyCell: Cell<String>, CellType {
     private let verifyButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = systemFontSize(fontSize: 15)
-        button.setTitleColor(UIColor(red: 255.0 / 255.0, green: 239.0 / 255.0, blue: 4.0 / 255.0, alpha: 1.0), for: .normal)
+        button.setTitleColor(UIColor(red: 139.0 / 255.0, green: 139.0 / 255.0, blue: 141.0 / 255.0, alpha: 1.0), for: .normal)
         button.layer.cornerRadius = 17
         button.layer.masksToBounds = true
-        button.backgroundColor = UIColor.black
+        button.backgroundColor = UIColor.white
+        button.layer.borderWidth = 0.5
+        button.layer.borderColor = UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0).cgColor
         return button
     }()
 }

@@ -57,9 +57,10 @@ class ClothingSecurityViewController: BaseViewController {
         let btn = UIButton()
         btn.backgroundColor = UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1.0)
         btn.setImage(imageNamed("scan"), for: .normal)
+        btn.setBackgroundImage(imageNamed("Loginbutton"), for: .normal)
         btn.titleLabel?.font = UIFont(name: "PingFangSC-Medium", size: 17.0) ?? systemFontSize(fontSize: 17)
         btn.setTitle("  开始检测", for: .normal)
-        btn.setTitleColor(UIColor(red: 255.0 / 255.0, green: 239.0 / 255.0, blue: 4.0 / 255.0, alpha: 1.0), for: .normal)
+        btn.setTitleColor(UIColor.white, for: .normal)
         btn.layer.cornerRadius = 22
         btn.layer.masksToBounds = true
         return btn

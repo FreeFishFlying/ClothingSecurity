@@ -144,6 +144,7 @@
 		B3E0D6A721986EAD00CF5B63 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */; };
 		B3F2B3B82180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */; };
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
+		B3F341072257968C00F64948 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F341062257968C00F64948 /* ScanResultViewController.swift */; };
 		B3F61788219688870051926E /* DetailPopularWearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F61787219688870051926E /* DetailPopularWearViewController.swift */; };
 		B3F6178A21968C1C0051926E /* DetailPopularWearPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */; };
 		B3F6178C21969D980051926E /* BaseFavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178B21969D980051926E /* BaseFavouriteViewController.swift */; };
@@ -271,7 +272,7 @@
 		B34638AD21835C0F002B1CF3 /* BaseLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLoginViewController.swift; sourceTree = "<group>"; };
 		B34638AF218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompleteMaterialViewController+Cell.swift"; sourceTree = "<group>"; };
 		B34638B121837286002B1CF3 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
-		B35DBB0A216C783A00CAFDAD /* ClothingSecurity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothingSecurity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B35DBB0A216C783A00CAFDAD /* Labeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Labeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B35DBB0D216C783A00CAFDAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B35DBB0F216C783A00CAFDAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B35DBB12216C783A00CAFDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -336,6 +337,7 @@
 		B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		B3F2B3B72180D4BD0055DC0E /* PersonalCenterViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalCenterViewController+Extension.swift"; sourceTree = "<group>"; };
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
+		B3F341062257968C00F64948 /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
 		B3F61787219688870051926E /* DetailPopularWearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearViewController.swift; sourceTree = "<group>"; };
 		B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearPacket.swift; sourceTree = "<group>"; };
 		B3F6178B21969D980051926E /* BaseFavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFavouriteViewController.swift; sourceTree = "<group>"; };
@@ -699,7 +701,7 @@
 		B35DBB0B216C783A00CAFDAD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B35DBB0A216C783A00CAFDAD /* ClothingSecurity.app */,
+				B35DBB0A216C783A00CAFDAD /* Labeauty.app */,
 				B35DBB1E216C783D00CAFDAD /* ClothingSecurityTests.xctest */,
 				B35DBB29216C783D00CAFDAD /* ClothingSecurityUITests.xctest */,
 			);
@@ -790,6 +792,7 @@
 				B39C99C221C14822005605DA /* HideBarViewController.swift */,
 				B364D75F21819CD50081593D /* ClothingSecurityViewController.swift */,
 				B364D76021819CD50081593D /* ScanningViewController.swift */,
+				B3F341062257968C00F64948 /* ScanResultViewController.swift */,
 			);
 			path = ClothingSecurity;
 			sourceTree = "<group>";
@@ -884,9 +887,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B35DBB09216C783A00CAFDAD /* ClothingSecurity */ = {
+		B35DBB09216C783A00CAFDAD /* Labeauty */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B35DBB32216C783D00CAFDAD /* Build configuration list for PBXNativeTarget "ClothingSecurity" */;
+			buildConfigurationList = B35DBB32216C783D00CAFDAD /* Build configuration list for PBXNativeTarget "Labeauty" */;
 			buildPhases = (
 				3E000A38063A4AA2ED7B3706 /* [CP] Check Pods Manifest.lock */,
 				B35DBB06216C783A00CAFDAD /* Sources */,
@@ -900,9 +903,9 @@
 			);
 			dependencies = (
 			);
-			name = ClothingSecurity;
+			name = Labeauty;
 			productName = ClothingSecurity;
-			productReference = B35DBB0A216C783A00CAFDAD /* ClothingSecurity.app */;
+			productReference = B35DBB0A216C783A00CAFDAD /* Labeauty.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B35DBB1D216C783D00CAFDAD /* ClothingSecurityTests */ = {
@@ -978,7 +981,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B35DBB09216C783A00CAFDAD /* ClothingSecurity */,
+				B35DBB09216C783A00CAFDAD /* Labeauty */,
 				B35DBB1D216C783D00CAFDAD /* ClothingSecurityTests */,
 				B35DBB28216C783D00CAFDAD /* ClothingSecurityUITests */,
 			);
@@ -1148,6 +1151,7 @@
 				B3447A73218CC051005E6EF8 /* CategoryListPacket.swift in Sources */,
 				B3AFD589218F27F100D54F34 /* DetailPriceAndCollectCell.swift in Sources */,
 				B3AFD58B218F3E9A00D54F34 /* DetailRichGoodCell.swift in Sources */,
+				B3F341072257968C00F64948 /* ScanResultViewController.swift in Sources */,
 				B364D76921819CD50081593D /* ScanningViewController.swift in Sources */,
 				B3447A77218CC1E6005E6EF8 /* SearchCategoryViewModel.swift in Sources */,
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
@@ -1262,12 +1266,12 @@
 /* Begin PBXTargetDependency section */
 		B35DBB20216C783D00CAFDAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B35DBB09216C783A00CAFDAD /* ClothingSecurity */;
+			target = B35DBB09216C783A00CAFDAD /* Labeauty */;
 			targetProxy = B35DBB1F216C783D00CAFDAD /* PBXContainerItemProxy */;
 		};
 		B35DBB2B216C783D00CAFDAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B35DBB09216C783A00CAFDAD /* ClothingSecurity */;
+			target = B35DBB09216C783A00CAFDAD /* Labeauty */;
 			targetProxy = B35DBB2A216C783D00CAFDAD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1419,7 +1423,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AUSFNXNYA2;
+				DEVELOPMENT_TEAM = YQ9TC8RR69;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
@@ -1483,7 +1487,7 @@
 					"-fobjc-arc",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = org.beedee.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.labeauty.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ClothingSecurity/Lib/ClothingSecurity-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
@@ -1503,7 +1507,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AUSFNXNYA2;
+				DEVELOPMENT_TEAM = YQ9TC8RR69;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
@@ -1567,7 +1571,7 @@
 					"-fobjc-arc",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = org.beedee.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.labeauty.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ClothingSecurity/Lib/ClothingSecurity-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
@@ -1671,7 +1675,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B35DBB32216C783D00CAFDAD /* Build configuration list for PBXNativeTarget "ClothingSecurity" */ = {
+		B35DBB32216C783D00CAFDAD /* Build configuration list for PBXNativeTarget "Labeauty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B35DBB33216C783D00CAFDAD /* Debug */,
