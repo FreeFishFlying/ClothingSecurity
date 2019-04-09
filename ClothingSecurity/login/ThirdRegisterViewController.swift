@@ -16,7 +16,7 @@ class ThirdRegisterViewController: RegisterViewController {
     
     override func complete(_ user: UserItem?) {
         if let user = user {
-            LoginState.shared.hasLogin = true
+            LoginState.shared.hasLogin.value = true
             UserItem.save(user)
             LoginAndRegisterFacade.shared.userChangePip.input.send(value: user)
         }

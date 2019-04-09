@@ -30,7 +30,7 @@ class ThirdloginFacade: NSObject {
             if let user = data.userItem {
                 if user.role == "USER" {
                     UserItem.save(user)
-                    LoginState.shared.hasLogin = true
+                    LoginState.shared.hasLogin.value = true
                     LoginAndRegisterFacade.shared.userChangePip.input.send(value: user)
                     self.thirdLoginSuceessSignal.input.send(value: true)
                 } else if user.role == "OPEN_USER" {

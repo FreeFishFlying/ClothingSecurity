@@ -191,7 +191,7 @@ extension DetailGoodViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func collect() {
-        if LoginState.shared.hasLogin {
+        if LoginState.shared.hasLogin.value {
             if let model = viewModel, model.isCollect {
                  GoodsFacade.shared.unCollect(id: id, type: CollectType.goods).startWithResult { _ in
                 }

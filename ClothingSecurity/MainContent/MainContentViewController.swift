@@ -15,6 +15,12 @@ class MainContentViewController: BaseViewController {
     var bannerList = [Banner]()
     var dataSource = [Any]()
     fileprivate var networkReachabilityManager: NetworkReachabilityManager?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = imageHeader

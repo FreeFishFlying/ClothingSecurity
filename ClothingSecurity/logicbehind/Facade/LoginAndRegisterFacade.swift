@@ -34,7 +34,7 @@ class LoginAndRegisterFacade: NSObject {
     func login(mobile: String, password: String) -> SignalProducer<LoginResponseData, NSError> {
         return LoginPacket(mobile: mobile, pd: password).send().on(value: { response in
             if response.isSuccess() {
-                LoginState.shared.hasLogin = true
+                LoginState.shared.hasLogin.value = true
             }
         })
     }

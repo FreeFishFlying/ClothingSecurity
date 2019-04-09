@@ -12,6 +12,28 @@ class ScanResultViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "检测结果"
+        view.addSubview(backView)
+        backView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(50)
+        }
+        view.addSubview(labContent)
+        labContent.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(backView.snp.bottom).offset(30)
+        }
+        view.addSubview(button)
+        button.snp.makeConstraints { make in
+            make.top.equalTo(labContent.snp.bottom).offset(80)
+            make.left.equalToSuperview().offset(48)
+            make.right.equalToSuperview().offset(-48)
+            make.height.equalTo(44)
+        }
+        button.addTarget(self, action: #selector(backClick), for: .touchUpInside)
+    }
+    
+    @objc private func backClick() {
+        navigationController?.popViewController(animated: true)
     }
     
     private let button = DarkKeyButton(title: "返回")

@@ -82,7 +82,7 @@ class CompleteMaterialViewController: BaseLoginViewController {
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
                 if value.isSuccess() {
-                    LoginState.shared.hasLogin = true
+                    LoginState.shared.hasLogin.value = true
                     self.navigationController?.dismiss(animated: true, completion: nil)
                 }
             }

@@ -44,10 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, TencentSes
     
     private func updateAuthInfo() {
         if UserItem.current() != nil {
-            LoginState.shared.hasLogin = true
+            LoginState.shared.hasLogin.value = true
             PersonCenterFacade.shared.updateAuthInfo()
         } else {
-            LoginState.shared.hasLogin = false
+            LoginState.shared.hasLogin.value = false
         }
     }
     

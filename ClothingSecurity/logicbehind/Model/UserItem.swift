@@ -8,10 +8,11 @@
 
 import Foundation
 import SwiftyJSON
+import ReactiveSwift
 
 class LoginState: NSObject {
     @objc public static let shared = LoginState()
-    public var hasLogin: Bool = false
+    public var hasLogin: MutableProperty = MutableProperty<Bool>(false)
 }
 
 class UserItem: NSObject, NSCoding {
@@ -127,7 +128,7 @@ class UserItem: NSObject, NSCoding {
     class func loginOut() {
         let clearUser = UserItem()
         UserItem.save(clearUser)
-        LoginState.shared.hasLogin = false
+        LoginState.shared.hasLogin.value = false
         UserDefaults.standard.set(nil, forKey: "authorization")
         UserDefaults.standard.synchronize()
         LoginAndRegisterFacade.shared.userChangePip.input.send(value: nil)

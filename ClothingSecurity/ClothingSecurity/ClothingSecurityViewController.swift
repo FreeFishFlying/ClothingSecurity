@@ -67,22 +67,24 @@ class ClothingSecurityViewController: BaseViewController {
     }()
     
     @objc private func scanning() {
-        if LoginState.shared.hasLogin {
-            S2iCodeModule.shared()?.start(within: UIApplication.shared.keyWindow, uiNavigationController: self.navigationController)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                let controllers = self.navigationController?.viewControllers;
-                if let controller = controllers?.last {
-                    controller.navigationController?.navigationBar.isHidden = true
-                    controller.navigationController?.setNavigationBarHidden(true, animated: false)
-                    controller.fd_interactivePopDisabled = true
-                }
-            }
-        } else {
-            let controller = LoginViewController()
-            let nav = UINavigationController(rootViewController: controller)
-            navigationController?.present(nav, animated: true, completion: nil)
-        }
-        
+//        if LoginState.shared.hasLogin {
+//            S2iCodeModule.shared()?.start(within: UIApplication.shared.keyWindow, uiNavigationController: self.navigationController)
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                let controllers = self.navigationController?.viewControllers;
+//                if let controller = controllers?.last {
+//                    controller.navigationController?.navigationBar.isHidden = true
+//                    controller.navigationController?.setNavigationBarHidden(true, animated: false)
+//                    controller.fd_interactivePopDisabled = true
+//                }
+//            }
+//        } else {
+//            let controller = LoginViewController()
+//            let nav = UINavigationController(rootViewController: controller)
+//            navigationController?.present(nav, animated: true, completion: nil)
+//        }
+        let controller = ScanResultViewController()
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

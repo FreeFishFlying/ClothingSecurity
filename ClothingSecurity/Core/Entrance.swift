@@ -23,7 +23,7 @@ class Entrance: NSObject {
         clothController.tabBarItem = ESTabBarItem(title: "商品溯源", image: imageNamed("ic_security"), selectedImage: imageNamed("ic_security_select"))
         styleTabbar(clothController.tabBarItem)
         let clothNav = ThemeNavigationController(rootViewController: clothController)
-        let personalController = PersonalCenterViewController()
+        let personalController = PersonalViewController()
         personalController.tabBarItem = ESTabBarItem(title: "我的", image: imageNamed("ic_personal"), selectedImage: imageNamed("ic_personal_select"))
         styleTabbar(personalController.tabBarItem)
         let personNav = ThemeNavigationController(rootViewController: personalController)

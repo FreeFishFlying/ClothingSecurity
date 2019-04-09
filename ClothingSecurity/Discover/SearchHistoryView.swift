@@ -115,6 +115,10 @@ class SingleSearchHistoryItem: UIView {
     var onClick: ((String) -> Void)?
     override init(frame: CGRect) {
         super.init(frame: frame)
+        layer.addSublayer(gradientLayer)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: 85, height: 28)
+        layer.masksToBounds = true
+        layer.cornerRadius = 2
         addSubview(container)
         container.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -125,6 +129,10 @@ class SingleSearchHistoryItem: UIView {
         }
         let tap = UITapGestureRecognizer(target: self, action: #selector(clickKeyword))
         container.addGestureRecognizer(tap)
+    }
+    
+    func setLayer() {
+        
     }
     
     @objc private func clickKeyword() {
@@ -145,17 +153,25 @@ class SingleSearchHistoryItem: UIView {
     
     private let container: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "#000000")
         view.layer.cornerRadius = 2
         view.layer.masksToBounds = true
         view.isUserInteractionEnabled = true
         return view
     }()
     
+    private let gradientLayer: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.colors = [UIColor(hexString: "#b1bfe5").cgColor, UIColor(hexString: "#cbdee0").cgColor]
+        gradientLayer.locations = [0.5, 1.0]
+        return gradientLayer
+    }()
+    
     private let label: UILabel = {
         let label = UILabel()
         label.font = systemFontSize(fontSize: 14)
-        label.textColor = UIColor(hexString: "#ffef04")
+        label.textColor = UIColor.white
         label.clipsToBounds = true
         label.lineBreakMode = .byTruncatingTail
         label.textAlignment = .center

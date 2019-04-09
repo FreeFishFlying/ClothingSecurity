@@ -162,7 +162,7 @@ class FavouritePopularWearController: BaseViewController, UITableViewDelegate, U
     }
     
     private func collect(_ model: ClothesPopularImageModel) {
-        if LoginState.shared.hasLogin {
+        if LoginState.shared.hasLogin.value {
             if  model.isCollect {
                 GoodsFacade.shared.unCollect(id: model.id, type: CollectType.outfit).startWithResult { _ in
                 }
