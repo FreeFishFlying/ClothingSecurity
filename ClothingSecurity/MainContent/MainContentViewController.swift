@@ -69,6 +69,7 @@ class MainContentViewController: BaseViewController {
         GoodsFacade.shared.bannerList().startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
+            self.bannerList.removeAll()
             self.bannerList.append(contentsOf: value.data)
             let urls = self.bannerList.map({$0.image})
             self.cycleView.setUrlsGroup(urls)
