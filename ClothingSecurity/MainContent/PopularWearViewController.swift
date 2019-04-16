@@ -146,7 +146,7 @@ class PopularWearViewController: BaseViewController, UITableViewDelegate, UITabl
         }
         if section == 0 {
             if videoModel != nil {
-                label.text = "衣服制作视频"
+                label.text = "BEEDEE 2018 S/S Concept Video "
             } else {
                 return nil
             }
