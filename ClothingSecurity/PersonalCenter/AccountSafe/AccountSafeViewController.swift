@@ -30,7 +30,7 @@ class AccountSafeViewController: GroupedFormViewController {
         tableView.snp.remakeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)
             make.left.right.equalToSuperview()
-            make.height.equalTo(270)
+            make.height.equalTo(390)
         }
         view.addSubview(button)
         button.snp.makeConstraints { make in
@@ -121,6 +121,24 @@ class AccountSafeViewController: GroupedFormViewController {
                     row.cell.height = { 67 }
             }
         }
+        form +++ fixHeightHeaderSection(height: 0)
+            <<< SafeAccountCellRow { row in
+                row.cell.title = "填写地址"
+                row.cell.showIcon = false
+                row.onCellSelection({ [weak self] (_, _) in
+                    
+                })
+                row.cell.height = { 67 }
+        }
+        form +++ fixHeightHeaderSection(height: 0)
+            <<< SafeAccountCellRow { row in
+                row.cell.title = "检查更新"
+                row.cell.showIcon = false
+                row.onCellSelection({ [weak self] (_, _) in
+                    
+                })
+                row.cell.height = { 67 }
+        }
     }
     
     private func uploadImage() {
@@ -135,7 +153,7 @@ class AccountSafeViewController: GroupedFormViewController {
         })
     }
     
-    private let button: DarkKeyButton = DarkKeyButton(title: "退出登录")
+    private let button: DarkKeyButton = DarkKeyButton(title: "退出当前账号")
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.001

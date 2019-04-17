@@ -46,7 +46,7 @@ class BaseViewController: UIViewController {
     }
     
     let imageHeader: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 109, height: 20))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 71, height: 27))
         return view
     }()
     

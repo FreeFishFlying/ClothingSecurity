@@ -13,7 +13,7 @@ import Result
 import SwiftyJSON
 import XCGLogger
 
-let httpRootUrl = "https://api.beedeemade.com"
+let httpRootUrl = "https://api.labeauty.yituizhineng.top"
 //"https://api.beedee.yituizhineng.top"
 
 enum DeltaDataType: String {
@@ -89,7 +89,7 @@ open class HttpRequestPacket<T: HttpResponseData> {
         // TODO: config base server url
         var systemInfo = utsname()
         uname(&systemInfo)
-        var headers: [String: String] = ["X-App-Version": "BeeDee/\(appVersion)" + " " + "iOS/\(sysVersion)"]
+        var headers: [String: String] = ["X-App-Version": "LaBeauty/\(appVersion)" + " " + "iOS/\(sysVersion)"]
         if let authorization = authorization() {
             headers["authorization"] = authorization
         }

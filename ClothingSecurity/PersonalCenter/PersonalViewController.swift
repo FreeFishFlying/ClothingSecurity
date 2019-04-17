@@ -23,6 +23,23 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
         tableView.dataSource = self
         configUI()
         registerEvent()
+        addTapClick()
+        self.currentUser = UserItem.current()
+    }
+    
+    private func addTapClick() {
+        let tap_0 = UITapGestureRecognizer(target: self, action: #selector(tap))
+        logo.addGestureRecognizer(tap_0)
+        let tap_1 = UITapGestureRecognizer(target: self, action: #selector(tap))
+        nameLabel.addGestureRecognizer(tap_1)
+    }
+    
+    @objc private func tap() {
+        if !LoginState.shared.hasLogin.value {
+            let controller = LoginViewController()
+            let nav = UINavigationController(rootViewController: controller)
+            navigationController?.present(nav, animated: true, completion: nil)
+        }
     }
     
     private func configUI() {
@@ -92,6 +109,8 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
         let logo = UIImageView()
         logo.image = imageNamed("Defaulthead")
         logo.isUserInteractionEnabled = true
+        logo.layer.cornerRadius = 31.0
+        logo.layer.masksToBounds = true
         return logo
     }()
     
@@ -100,6 +119,7 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
         label.text = "登录/注册"
         label.font = systemFontSize(fontSize: 25)
         label.textColor = UIColor(hexString: "#424242")
+        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -165,7 +185,21 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
                     controller.hidesBottomBarWhenPushed = true
                     self?.navigationController?.pushViewController(controller, animated: true)
                 }
-                
+                else if indexPath.row == 1 {
+                    
+                } else if indexPath.row == 2 {
+                    if LoginState.shared.hasLogin.value {
+                        let controller = AccountSafeViewController()
+                        controller.hidesBottomBarWhenPushed = true
+                        self?.navigationController?.pushViewController(controller, animated: true)
+                    } else {
+                        self?.onLogin()
+                    }
+                } else {
+                    let controller = AboutAppViewController()
+                    controller.hidesBottomBarWhenPushed = true
+                    self?.navigationController?.pushViewController(controller, animated: true)
+                }
             }
             return cell
         }

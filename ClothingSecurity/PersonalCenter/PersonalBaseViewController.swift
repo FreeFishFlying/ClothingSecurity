@@ -58,6 +58,7 @@ class PersonalBaseViewController: BaseViewController {
     
     public let container: UIImageView = {
         let view = UIImageView()
+        view.isUserInteractionEnabled = true
         view.image = imageNamed("headerBack")
         return view
     }()

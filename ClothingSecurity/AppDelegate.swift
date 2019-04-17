@@ -10,8 +10,16 @@ import UIKit
 import FDFullscreenPopGesture
 import S2iCodeModule
 import HUD
+
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, TencentSessionDelegate, WeiboSDKDelegate {
+    
+    enum ThirdLogin: String {
+        case WX = "wx427a43532ca341f2"
+        case Tencent = "1107909602"
+        case WB = "2096526831"
+    }
     
     var window: UIWindow?
     
@@ -52,9 +60,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, TencentSes
     }
     
     private func regiesterOtherLink() {
-        WXApi.registerApp("wx7266547dcee7b1b6")
-        tencentAuth = TencentOAuth(appId: "1107909602", andDelegate: self)
-        WeiboSDK.registerApp("2096526831")
+        WXApi.registerApp(ThirdLogin.WX.rawValue)
+        tencentAuth = TencentOAuth(appId: ThirdLogin.Tencent.rawValue, andDelegate: self)
+        WeiboSDK.registerApp(ThirdLogin.WB.rawValue)
         WeiboSDK.enableDebugMode(true)
     }
     
@@ -94,29 +102,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, TencentSes
     }
     
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        if url.scheme == "wx7266547dcee7b1b6" {
+        if url.scheme == ThirdLogin.WX.rawValue {
             return WXApi.handleOpen(url, delegate: self)
-        } else if url.scheme == "tencent1107909602" {
+        } else if url.scheme == ("tencent" + ThirdLogin.Tencent.rawValue) {
             return TencentOAuth.handleOpen(url)
-        } else if url.scheme == "wb2096526831" {
+        } else if url.scheme == ("wb" + ThirdLogin.WB.rawValue) {
             return WeiboSDK.handleOpen(url, delegate: self)
         }
         return true
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        if url.scheme == "wx7266547dcee7b1b6" {
+        if url.scheme == ThirdLogin.WX.rawValue {
            return WXApi.handleOpen(url, delegate: self)
-        } else if url.scheme == "tencent1107909602" {
+        } else if url.scheme == ("tencent" + ThirdLogin.Tencent.rawValue) {
             return TencentOAuth.handleOpen(url)
-        } else if url.scheme == "wb2096526831" {
+        } else if url.scheme == ("wb" + ThirdLogin.WB.rawValue) {
             return WeiboSDK.handleOpen(url, delegate: self)
         }
         return true
     }
     
      func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if url.scheme == "wx7266547dcee7b1b6" {
+        if url.scheme == ThirdLogin.WX.rawValue {
             return WXApi.handleOpen(url, delegate: self)
         }
         if let urlKey: String = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String {

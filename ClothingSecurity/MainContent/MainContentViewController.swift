@@ -105,7 +105,7 @@ class MainContentViewController: BaseViewController {
     }()
     
     private let titleView: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 109, height: 20))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 71, height: 27))
         imageView.image = imageNamed("logo")
         imageView.contentMode = .scaleToFill
         return imageView
