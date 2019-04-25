@@ -77,7 +77,6 @@ class BrandIntroductionCell: UITableViewCell {
     
     func render(_ model: BrandIntroductionModel) {
         brandLabel.text = model.title
-        explainLabel.text = model.explain
         contentLabel.text = model.content
         backView.layoutIfNeeded()
         layoutIfNeeded()

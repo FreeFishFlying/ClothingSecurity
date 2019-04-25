@@ -16,11 +16,9 @@ class BrandIntroductionModel: NSObject {
         getHeight()
     }
     
-    let title: String = "BEEDEE"
+    let title: String = "ANCILA"
     
-    let explain: String = "Pursuit the 1% Life, something different."
-    
-    let content: String = "追求1%的生活理念\nBeeDee作为设计师原创品牌，坚持创新\n坚持原创追求我们想要的感觉。"
+    let content: String = "林之野在《琥珀屋》中说过\n “一个女人只有二十年的生命，其余的时间都在衰老。”\nAANCILA品牌自2013年成立以来，\n一直遵从内心本真，与时间对抗，与美丽为伍。"
     
     private func getHeight() {
         let width = ScreenWidth - 35 - 114
@@ -30,8 +28,6 @@ class BrandIntroductionModel: NSObject {
         var contentHeight: CGFloat = 20
         contentHeight += getTextHeigh(textStr: title, font: systemFontSize(fontSize: 15), width: width)
         contentHeight += 4
-        contentHeight += getTextHeigh(textStr: explain, font: systemFontSize(fontSize: 12), width: width)
-        contentHeight += 8
         contentHeight += getTextHeigh(textStr: content, font: systemFontSize(fontSize: 12), width: width)
         contentHeight += 18
         contentViewHeight = contentHeight
