@@ -10,7 +10,7 @@ import Foundation
 import Core
 import Eureka
 import SnapKit
-class PersonalBaseViewController: BaseViewController {
+class  PersonalBaseViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class PersonalBaseViewController: BaseViewController {
         view.bringSubviewToFront(tableView)
     }
     
-    private func configContainer() {
+    public func configContainer() {
         view.addSubview(container)
         container.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
@@ -36,7 +36,7 @@ class PersonalBaseViewController: BaseViewController {
         }
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(160)
+            make.top.equalToSuperview().offset(173)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
             make.bottom.equalToSuperview()

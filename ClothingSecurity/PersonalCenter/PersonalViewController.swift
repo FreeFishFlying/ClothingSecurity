@@ -181,7 +181,7 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
             }
             cell.onClickCell = { [weak self]  in
                 if indexPath.row == 0 {
-                    let controller = LotteryViewController()
+                    let controller = MyIntegralViewController()
                     controller.hidesBottomBarWhenPushed = true
                     self?.navigationController?.pushViewController(controller, animated: true)
                 }

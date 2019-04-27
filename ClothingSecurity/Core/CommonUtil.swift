@@ -65,6 +65,7 @@ class DarkKeyButton: UIButton {
         layer.cornerRadius = 22
         layer.masksToBounds = true
         setTitle(title, for: .normal)
+        showsTouchWhenHighlighted = true
     }
     
     required init?(coder aDecoder: NSCoder) {
