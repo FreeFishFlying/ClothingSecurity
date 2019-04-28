@@ -11,9 +11,14 @@ import Foundation
 
 class MyIntegralViewController: PersonalBaseViewController {
     var dataSources: [IntegralItem] = []
+    var direction: WalletDirection = .In
     override func viewDidLoad() {
         super.viewDidLoad()
         headerTitle = "我的积分"
+        tableView.register(IntegralRecordCell.self, forCellReuseIdentifier: "IntegralRecordCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .singleLine
         container.addSubview(backButton)
         backButton.snp.makeConstraints { make in
             make.centerY.equalTo(headerView)
@@ -51,8 +56,16 @@ class MyIntegralViewController: PersonalBaseViewController {
         }
         recordView.onClickRecordView = { [weak self] value in
             guard let `self` = self else { return }
-            print(value)
+            self.direction = value == 0 ? .In : .Out
+            self.getWalletLog(page: 0)
         }
+        
+        IntegralFacade.shared.sign().startWithResult({ [weak self] result in
+            guard let `self` = self else { return }
+            if self.direction == WalletDirection.In {
+                self.getWalletLog(page: 0)
+            }
+        })
         
         IntegralFacade.shared.bonusPoint().startWithResult { [weak self] result in
             guard let `self` = self else { return }
@@ -60,10 +73,18 @@ class MyIntegralViewController: PersonalBaseViewController {
             self.resultLabel.text = value.bonusPoints
         }
         
-        IntegralFacade.shared.walletLog(page: 0).startWithResult { [weak self] result in
+        getWalletLog(page: 0)
+    }
+    
+    private func getWalletLog(page: Int) {
+        IntegralFacade.shared.walletLog(page: page, direction: direction).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
-            self.dataSources = value.data
+            if value.first {
+                self.dataSources.removeAll()
+                
+            }
+            self.dataSources.append(contentsOf: value.data)
             self.tableView.reloadData()
         }
     }
@@ -109,4 +130,29 @@ class MyIntegralViewController: PersonalBaseViewController {
     private let clickButton: DarkKeyButton = DarkKeyButton(title: "抽奖")
     
     private let recordView: SwitchRecordView = SwitchRecordView()
+}
+
+extension MyIntegralViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSources.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 68
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IntegralRecordCell", for: indexPath) as! IntegralRecordCell
+        cell.model = (item: dataSources[indexPath.row], type: direction)
+        return cell
+    }
 }

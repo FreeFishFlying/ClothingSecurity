@@ -31,16 +31,27 @@ class LotteryViewController: BaseViewController {
             make.top.left.right.equalToSuperview()
             make.height.equalTo(517)
         }
+        scroolView.addSubview(titleImage)
+        titleImage.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(40)
+            make.centerX.equalToSuperview()
+        }
         scroolView.addSubview(container)
         container.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(144)
             make.width.height.equalTo(346)
             make.centerX.equalToSuperview()
         }
-        scroolView.addSubview(titleImage)
-        titleImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(40)
+        scroolView.addSubview(tipView)
+        tipView.snp.makeConstraints { make in
+            make.bottom.equalTo(container.snp.top).offset(14)
             make.centerX.equalToSuperview()
+            make.width.equalTo(143)
+            make.height.equalTo(28)
+        }
+        tipView.addSubview(tipLabel)
+        tipLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
     
@@ -61,6 +72,30 @@ class LotteryViewController: BaseViewController {
         let view = UIImageView()
         view.image = imageNamed("luckTitle")
         return view
+    }()
+    
+    private let tipView: UIView = {
+        let style = UIView()
+        style.layer.cornerRadius = 14
+        style.layer.backgroundColor = UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0).cgColor
+        style.alpha = 1
+        return style
+    }()
+    
+    private let tipLabel: UILabel = {
+        let label = UILabel()
+        let attributedString = NSMutableAttributedString(string: "100积分/次")
+        attributedString.addAttributes([
+            NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 14.0)!,
+            NSAttributedString.Key.foregroundColor:UIColor(red: 116.0 / 255.0, green: 171.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)
+            ], range: NSRange(location: 0, length: 7))
+        label.attributedText = attributedString
+        return label
+    }()
+    
+    private let activityTitle: UILabel = {
+        let label = UILabel()
+        return label
     }()
 }
 

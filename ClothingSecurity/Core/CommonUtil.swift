@@ -113,3 +113,9 @@ func getTextHeigh(textStr: String, font: UIFont, width: CGFloat) -> CGFloat {
     let stringSize = normalText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic, context:nil).size
     return stringSize.height
 }
+
+func changeTimeStamp(_ time: TimeInterval) -> String {
+    let dateformatter = DateFormatter()
+     dateformatter.dateFormat = "yyyy-MM-dd HH:mm"
+    return dateformatter.string(from: Date(timeIntervalSince1970: time/1000))
+}

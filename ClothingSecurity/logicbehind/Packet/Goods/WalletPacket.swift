@@ -58,15 +58,17 @@ class WalletLogResponseData: HttpResponseData {
 
 class WalletLogPacket: HttpRequestPacket<WalletLogResponseData> {
     let page: Int
-    init(page: Int) {
+    let direction: WalletDirection
+    init(page: Int, direction: WalletDirection) {
         self.page = page
+        self.direction = direction
     }
     
     required public init() {
         fatalError("init() has not been implemented")
     }
     override func requestUrl() -> URL {
-        return URL(string: "/wallet/log/list?page=\(page)&size=10")!
+        return URL(string: "/wallet/log/list?page=\(page)&size=10&direction=\(direction.rawValue)")!
         
     }
     override func httpMethod() -> HTTPMethod {
@@ -89,7 +91,7 @@ class WalletSignResponseData: HttpResponseData {
 
 class WalletSignPacket: HttpRequestPacket<WalletSignResponseData> {
     override func requestUrl() -> URL {
-        return URL(string: "/wallet/get")!
+        return URL(string: "/task/sign")!
         
     }
     override func httpMethod() -> HTTPMethod {

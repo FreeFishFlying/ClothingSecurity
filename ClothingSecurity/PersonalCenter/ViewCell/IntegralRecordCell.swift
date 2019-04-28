@@ -11,6 +11,7 @@ import Foundation
 class IntegralRecordCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,6 +22,7 @@ class IntegralRecordCell: UITableViewCell {
         addSubview(nameLabel)
         addSubview(timeLabel)
         addSubview(valueLabel)
+        addSubview(line)
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(15)
             make.left.equalToSuperview().offset(22)
@@ -31,7 +33,25 @@ class IntegralRecordCell: UITableViewCell {
         }
         valueLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(18)
+            make.right.equalToSuperview().offset(-18)
+        }
+        line.snp.makeConstraints { make in
+            make.left.bottom.right.equalToSuperview()
+            make.height.equalTo(1)
+        }
+    }
+    
+    var model: (item: IntegralItem?, type: WalletDirection)? {
+        didSet {
+            if let model = model, let item = model.item {
+                timeLabel.text = changeTimeStamp(item.createTime)
+                nameLabel.text = item.remark
+                if model.type == .In {
+                    valueLabel.text = "+\(item.changed)"
+                } else {
+                    valueLabel.text = "-\(item.changed)"
+                }
+            }
         }
     }
     
@@ -54,5 +74,12 @@ class IntegralRecordCell: UITableViewCell {
         label.textColor = UIColor(red: 176.0 / 255.0, green: 205.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
         label.font = systemFontSize(fontSize: 18)
         return label
+    }()
+    
+    private let line: UIView = {
+        let style = UIView()
+        style.layer.backgroundColor = UIColor(red: 239.0 / 255.0, green: 239.0 / 255.0, blue: 239.0 / 255.0, alpha: 1.0).cgColor
+        style.alpha = 1
+        return style
     }()
 }

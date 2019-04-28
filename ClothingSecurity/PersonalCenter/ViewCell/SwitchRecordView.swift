@@ -10,6 +10,7 @@ import Foundation
 
 class SwitchRecordView: UIView {
     var onClickRecordView: ((Int) -> Void)?
+    var onSign: (() -> Void)?
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.clear
@@ -62,11 +63,21 @@ class SwitchRecordView: UIView {
         configState(0)
         firstButton.addTarget(self, action: #selector(click(_ :)), for: .touchUpInside)
         secondButton.addTarget(self, action: #selector(click(_ :)), for: .touchUpInside)
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(clickSign))
+        tipView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func clickSign() {
+        onSign?()
     }
     
     @objc private func click(_ sender: UIButton) {
         configState(sender.tag)
         onClickRecordView?(sender.tag)
+    }
+    
+    func setTipView(_ hide: Bool) {
+        tipView.isHidden = hide
     }
     
     func configState(_ tag: Int) {
@@ -114,6 +125,7 @@ class SwitchRecordView: UIView {
         style.layer.cornerRadius = 10
         style.layer.backgroundColor = UIColor(red: 180.0 / 255.0, green: 195.0 / 255.0, blue: 228.0 / 255.0, alpha: 1.0).cgColor
         style.alpha = 0.6
+        style.isUserInteractionEnabled = true
         return style
     }()
     

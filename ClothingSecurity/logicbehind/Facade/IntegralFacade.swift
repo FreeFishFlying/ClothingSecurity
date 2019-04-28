@@ -12,6 +12,11 @@ import Result
 import Mesh
 import SwiftyJSON
 
+enum WalletDirection: String {
+    case In = "IN"
+    case Out = "OUT"
+}
+
 class IntegralFacade: NSObject {
     @objc public static let shared = IntegralFacade()
     
@@ -19,8 +24,8 @@ class IntegralFacade: NSObject {
         return WalletRecordPacket().send().on()
     }
     
-    func walletLog(page: Int) -> SignalProducer<WalletLogResponseData, NSError> {
-        return WalletLogPacket(page: page).send().on()
+    func walletLog(page: Int, direction: WalletDirection) -> SignalProducer<WalletLogResponseData, NSError> {
+        return WalletLogPacket(page: page, direction: direction).send().on()
     }
     
     func sign() -> SignalProducer<WalletSignResponseData, NSError> {
