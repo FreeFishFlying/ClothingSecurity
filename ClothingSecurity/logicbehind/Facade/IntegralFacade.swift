@@ -31,4 +31,8 @@ class IntegralFacade: NSObject {
     func sign() -> SignalProducer<WalletSignResponseData, NSError> {
         return WalletSignPacket().send().on()
     }
+    
+    func prizeDraw() -> SignalProducer<PrizeDrawResponseData, NSError> {
+        return PrizeDrawPacket().send().on()
+    }
 }

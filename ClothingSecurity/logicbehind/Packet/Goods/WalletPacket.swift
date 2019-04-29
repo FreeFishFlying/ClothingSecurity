@@ -11,6 +11,8 @@ import Mesh
 import ReactiveSwift
 import SwiftyJSON
 
+//总积分
+
 class WalletResponseData: HttpResponseData {
     var bonusPoints: String = ""
     required init(json: JSON?) {
@@ -33,6 +35,8 @@ class WalletRecordPacket: HttpRequestPacket<WalletResponseData> {
         return .get
     }
 }
+
+//  积分详情
 
 class WalletLogResponseData: HttpResponseData {
     var page: Int = 0
@@ -76,6 +80,7 @@ class WalletLogPacket: HttpRequestPacket<WalletLogResponseData> {
     }
 }
 
+//  签到
 class WalletSignResponseData: HttpResponseData {
     var data: IntegralItem?
     required init(json: JSON?) {
@@ -92,6 +97,36 @@ class WalletSignResponseData: HttpResponseData {
 class WalletSignPacket: HttpRequestPacket<WalletSignResponseData> {
     override func requestUrl() -> URL {
         return URL(string: "/task/sign")!
+        
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
+    }
+}
+
+//抽奖
+
+class PrizeDrawResponseData: HttpResponseData {
+    var prizes: [Prize] = []
+    var prizeIndex: Int = 0
+    required init(json: JSON?) {
+        super.init(json: json)
+        if let json = json {
+            let jsonValue = json["data"]
+            if !jsonValue.isEmpty {
+                prizeIndex = jsonValue["prizes"].intValue
+                let list = jsonValue["prizes"].arrayValue
+                list.forEach({ js in
+                    prizes.append(Prize(json: js))
+                })
+            }
+        }
+    }
+}
+
+class PrizeDrawPacket: HttpRequestPacket<PrizeDrawResponseData> {
+    override func requestUrl() -> URL {
+        return URL(string: "/prize/draw")!
         
     }
     override func httpMethod() -> HTTPMethod {

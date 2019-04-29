@@ -89,6 +89,9 @@
 		B34638AE21835C0F002B1CF3 /* BaseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34638AD21835C0F002B1CF3 /* BaseLoginViewController.swift */; };
 		B34638B0218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34638AF218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift */; };
 		B34638B221837286002B1CF3 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34638B121837286002B1CF3 /* ForgetPasswordViewController.swift */; };
+		B35DA8DE22772AAB009EBCE0 /* TipsOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DA8DD22772AAB009EBCE0 /* TipsOrderView.swift */; };
+		B35DA8E022774127009EBCE0 /* Prize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DA8DF22774127009EBCE0 /* Prize.swift */; };
+		B35DA8E222774DFA009EBCE0 /* PrizeReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DA8E122774DFA009EBCE0 /* PrizeReminder.swift */; };
 		B35DBB0E216C783A00CAFDAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB0D216C783A00CAFDAD /* AppDelegate.swift */; };
 		B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DBB0F216C783A00CAFDAD /* ViewController.swift */; };
 		B35DBB13216C783A00CAFDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35DBB11216C783A00CAFDAD /* Main.storyboard */; };
@@ -283,6 +286,9 @@
 		B34638AD21835C0F002B1CF3 /* BaseLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLoginViewController.swift; sourceTree = "<group>"; };
 		B34638AF218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompleteMaterialViewController+Cell.swift"; sourceTree = "<group>"; };
 		B34638B121837286002B1CF3 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		B35DA8DD22772AAB009EBCE0 /* TipsOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsOrderView.swift; sourceTree = "<group>"; };
+		B35DA8DF22774127009EBCE0 /* Prize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prize.swift; sourceTree = "<group>"; };
+		B35DA8E122774DFA009EBCE0 /* PrizeReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeReminder.swift; sourceTree = "<group>"; };
 		B35DBB0A216C783A00CAFDAD /* Labeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Labeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B35DBB0D216C783A00CAFDAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B35DBB0F216C783A00CAFDAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -465,8 +471,8 @@
 		B31C0C2222590E7F00C815F4 /* Integral */ = {
 			isa = PBXGroup;
 			children = (
-				B31C0C2322590EF200C815F4 /* LotteryViewController.swift */,
 				B3675E692273F992005E6F4D /* MyIntegralViewController.swift */,
+				B31C0C2322590EF200C815F4 /* LotteryViewController.swift */,
 			);
 			path = Integral;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				B340BE71218D671A006FB78D /* SubCategory.swift */,
 				B377C35D2190905500114A25 /* VideoModel.swift */,
 				B3675E732274A594005E6F4D /* IntegralItem.swift */,
+				B35DA8DF22774127009EBCE0 /* Prize.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -892,6 +899,8 @@
 				B3C2C1732271DF2C00F22817 /* FeedbackCell.swift */,
 				B3675E6B22748862005E6F4D /* SwitchRecordView.swift */,
 				B3675E6D22749FF2005E6F4D /* IntegralRecordCell.swift */,
+				B35DA8DD22772AAB009EBCE0 /* TipsOrderView.swift */,
+				B35DA8E122774DFA009EBCE0 /* PrizeReminder.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -1241,7 +1250,9 @@
 				B3B1AD162189AE9D001BBB32 /* ChangePasswordPacket.swift in Sources */,
 				B3447A67218C97EA005E6EF8 /* BannerListPacket.swift in Sources */,
 				B340BE76218D772B006FB78D /* DetailCategoryGoodCell.swift in Sources */,
+				B35DA8E022774127009EBCE0 /* Prize.swift in Sources */,
 				B39C99D121C149C8005605DA /* SLQRCodeHelper.swift in Sources */,
+				B35DA8E222774DFA009EBCE0 /* PrizeReminder.swift in Sources */,
 				B31E7DE42191AE2D003653EC /* ClothesMakingVideoCell.swift in Sources */,
 				B3248D2921880A6A00BF7485 /* ZCycleLayout.swift in Sources */,
 				B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */,
@@ -1280,6 +1291,7 @@
 				B322EFEE216F2D0B0077EE02 /* SLQRCodeHelper.swift in Sources */,
 				B31C0C2122583C6800C815F4 /* PersonalViewController.swift in Sources */,
 				B3C2C1742271DF2C00F22817 /* FeedbackCell.swift in Sources */,
+				B35DA8DE22772AAB009EBCE0 /* TipsOrderView.swift in Sources */,
 				B35DBB0E216C783A00CAFDAD /* AppDelegate.swift in Sources */,
 				B3248D2721880A6A00BF7485 /* ZCycleView.swift in Sources */,
 				B3BBEE682181B7BB00F5FA47 /* ParallaxHeaderMode.swift in Sources */,

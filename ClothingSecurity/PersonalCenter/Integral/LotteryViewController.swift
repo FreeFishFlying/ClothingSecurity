@@ -15,16 +15,17 @@ class LotteryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "积分抽奖"
+        automaticallyAdjustsScrollViewInsets = false
         configLottery()
     }
     
     private func configLottery() {
         view.addSubview(scroolView)
         scroolView.backgroundColor = UIColor(hexString: "#FFF3F3")
+        scroolView.frame.size.width = ScreenWidth
         scroolView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)
             make.left.right.bottom.equalToSuperview()
-            make.width.equalTo(ScreenWidth)
         }
         scroolView.addSubview(bgView)
         bgView.snp.makeConstraints { make in
@@ -53,6 +54,49 @@ class LotteryViewController: BaseViewController {
         tipLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+        scroolView.addSubview(activityTitleLabel)
+        activityTitleLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(bgView.snp.bottom).offset(22)
+        }
+        scroolView.addSubview(firstTip)
+        firstTip.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(35)
+            make.top.equalTo(activityTitleLabel.snp.bottom).offset(19)
+            make.width.height.equalTo(15)
+        }
+        scroolView.addSubview(firstTipLabel)
+        firstTipLabel.snp.makeConstraints { make in
+            make.left.equalTo(firstTip.snp.right).offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.top.equalTo(firstTip).offset(-3)
+        }
+        scroolView.addSubview(secondTip)
+        secondTip.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(35)
+            make.top.equalTo(firstTip.snp.bottom).offset(17)
+            make.width.height.equalTo(15)
+        }
+        scroolView.addSubview(secondTipLabel)
+        secondTipLabel.snp.makeConstraints { make in
+            make.top.equalTo(secondTip.snp.top).offset(-3)
+            make.left.equalTo(secondTip.snp.right).offset(10)
+            make.right.equalToSuperview().offset(-10)
+        }
+        scroolView.addSubview(thirdTip)
+        thirdTip.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(35)
+            make.top.equalTo(secondTipLabel.snp.bottom).offset(14)
+            make.width.height.equalTo(15)
+        }
+        scroolView.addSubview(thirdTipLabel)
+        thirdTipLabel.snp.makeConstraints { make in
+            make.top.equalTo(thirdTip.snp.top).offset(-3)
+            make.left.equalTo(thirdTip.snp.right).offset(10)
+            make.right.equalToSuperview().offset(-10)
+        }
+        view.layoutIfNeeded()
+        scroolView.contentSize = CGSize(width: 0, height: 772)
     }
     
     private let container: LotteryContainer = LotteryContainer()
@@ -65,6 +109,7 @@ class LotteryViewController: BaseViewController {
     
     private let scroolView: UIScrollView = {
         let scrool = UIScrollView()
+        scrool.isScrollEnabled = true
         return scrool
     }()
     
@@ -93,8 +138,61 @@ class LotteryViewController: BaseViewController {
         return label
     }()
     
-    private let activityTitle: UILabel = {
+    private let activityTitleLabel: UILabel = {
         let label = UILabel()
+        let attributedString = NSMutableAttributedString(string: "活动说明")
+        attributedString.addAttributes([
+            NSAttributedString.Key.font: UIFont(name: "PingFangSC-Semibold", size: 17.0)!,
+            NSAttributedString.Key.foregroundColor:UIColor(red: 176.0 / 255.0, green: 205.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0)
+            ], range: NSRange(location: 0, length: 2))
+        attributedString.addAttributes([
+            NSAttributedString.Key.font: UIFont(name: "PingFangSC-Semibold", size: 17.0)!,
+            NSAttributedString.Key.foregroundColor:UIColor(red: 139.0 / 255.0, green: 139.0 / 255.0, blue: 141.0 / 255.0, alpha: 1.0)
+            ], range: NSRange(location: 2, length: 2))
+        label.attributedText = attributedString
+        return label
+    }()
+    
+    private let firstTip: TipsOrderView = {
+        let tip = TipsOrderView()
+        tip.order = "1"
+        return tip
+    }()
+    
+    private let firstTipLabel: UILabel = {
+        let label = UILabel()
+        label.text = "如果您获得的积分将自动存入您的账户内；"
+        label.font = systemFontSize(fontSize: 14)
+        label.textColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
+        return label
+    }()
+    
+    private let secondTip: TipsOrderView = {
+        let tip = TipsOrderView()
+        tip.order = "2"
+        return tip
+    }()
+    
+    private let secondTipLabel: UILabel = {
+        let label = UILabel()
+        label.text = "如果您获得的是实物奖品，请您及时填写地址我们将送到您的手上；"
+        label.font = systemFontSize(fontSize: 14)
+        label.numberOfLines = 0
+        label.textColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
+        return label
+    }()
+    
+    private let thirdTip: TipsOrderView = {
+        let tip = TipsOrderView()
+        tip.order = "3"
+        return tip
+    }()
+    
+    private let thirdTipLabel: UILabel = {
+        let label = UILabel()
+        label.text = "本次活动最终解释权归我公司所有。"
+        label.font = systemFontSize(fontSize: 14)
+        label.textColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         return label
     }()
 }
@@ -193,6 +291,19 @@ class LotteryContainer: UIView {
         let totalNumber = Int.randomIntNumber(lower: 8, upper: 15)
         print(totalNumber)
         start(totalNumber)
+        DispatchQueue.main.asyncAfter(deadline: .now() + (Double(totalNumber)) * (0.8/4.0)) {
+            IntegralFacade.shared.prizeDraw().startWithResult({ [weak self] result in
+                guard let `self` = self else { return }
+                guard let value = result.value else { return }
+                if let prize = value.prizes.first {
+                    self.handleWithValue(prize)
+                }
+            })
+        }
+    }
+    
+    func handleWithValue(_ item: Prize) {
+        
     }
     
     //算法： 1.转3圈， 然后从0 -> 8随机
