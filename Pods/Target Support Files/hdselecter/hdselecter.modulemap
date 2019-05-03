@@ -1,0 +1,6 @@
+framework module hdselecter {
+  umbrella header "hdselecter-umbrella.h"
+
+  export *
+  module * { export * }
+}
