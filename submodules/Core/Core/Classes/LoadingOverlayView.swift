@@ -301,7 +301,11 @@ class LoadingOverlayViewLayer: CALayer {
             context.setLineWidth(2)
 
             let mainLine: [CGPoint] = [CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter - height) / 2.0 + lineWidth / 2.0), CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter + height) / 2.0 - lineWidth / 2.0)]
-            let arrowLine: [CGPoint] = [CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0 - width / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0 - width / 2.0), CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0), CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0), CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0 + width / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0 - width / 2.0)]
+            let firstPoint = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0 - width / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0 - width / 2.0)
+            let secondPoint = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0)
+            let thirdPoint = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0)
+            let forthPoint = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0 + width / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0 - width / 2.0)
+            let arrowLine: [CGPoint] = [firstPoint, secondPoint, thirdPoint, forthPoint]
 
             context.setStrokeColor(UIColor.clear.cgColor)
             context.strokeLineSegments(between: mainLine)

@@ -186,6 +186,13 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
                     self?.navigationController?.pushViewController(controller, animated: true)
                 }
                 else if indexPath.row == 1 {
+                    if LoginState.shared.hasLogin.value {
+                        let controller = MyDiscountCouponViewController()
+                        controller.hidesBottomBarWhenPushed = true
+                        self?.navigationController?.pushViewController(controller, animated: true)
+                    } else {
+                        self?.onLogin()
+                    }
                     
                 } else if indexPath.row == 2 {
                     if LoginState.shared.hasLogin.value {

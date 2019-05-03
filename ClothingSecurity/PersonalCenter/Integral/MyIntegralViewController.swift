@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import MJRefresh
 
 
 class MyIntegralViewController: PersonalBaseViewController {
     var dataSources: [IntegralItem] = []
     var direction: WalletDirection = .In
+    var page: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         headerTitle = "我的积分"
@@ -19,6 +21,12 @@ class MyIntegralViewController: PersonalBaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
+        
+        tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: { [weak self] in
+            guard let `self` = self else { return }
+             self.getWalletLog(page: self.page)
+        })
+        tableView.mj_footer.beginRefreshing()
         container.addSubview(backButton)
         backButton.snp.makeConstraints { make in
             make.centerY.equalTo(headerView)
@@ -57,14 +65,11 @@ class MyIntegralViewController: PersonalBaseViewController {
         recordView.onClickRecordView = { [weak self] value in
             guard let `self` = self else { return }
             self.direction = value == 0 ? .In : .Out
-            self.getWalletLog(page: 0)
+            self.page = 0
+            self.getWalletLog(page: self.page)
         }
         
-        IntegralFacade.shared.sign().startWithResult({ [weak self] result in
-            guard let `self` = self else { return }
-            if self.direction == WalletDirection.In {
-                self.getWalletLog(page: 0)
-            }
+        IntegralFacade.shared.sign().startWithResult({_ in
         })
         
         IntegralFacade.shared.bonusPoint().startWithResult { [weak self] result in
@@ -72,20 +77,26 @@ class MyIntegralViewController: PersonalBaseViewController {
             guard let value = result.value else { return }
             self.resultLabel.text = value.bonusPoints
         }
-        
-        getWalletLog(page: 0)
     }
     
     private func getWalletLog(page: Int) {
         IntegralFacade.shared.walletLog(page: page, direction: direction).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
-            if value.first {
+            if self.page == 0 {
                 self.dataSources.removeAll()
-                
             }
+            self.page += 1
+            if value.last {
+             self.tableView.mj_footer.endRefreshingWithNoMoreData()
+             } else {
+             
+             self.tableView.mj_footer.resetNoMoreData()
+             }
             self.dataSources.append(contentsOf: value.data)
-            self.tableView.reloadData()
+            if !value.data.isEmpty {
+                self.tableView.reloadData()
+            }
         }
     }
     

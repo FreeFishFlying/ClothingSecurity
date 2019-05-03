@@ -114,8 +114,19 @@ func getTextHeigh(textStr: String, font: UIFont, width: CGFloat) -> CGFloat {
     return stringSize.height
 }
 
-func changeTimeStamp(_ time: TimeInterval) -> String {
+func changeTimeStamp(_ time: TimeInterval, _ needMin: Bool = true) -> String {
     let dateformatter = DateFormatter()
-     dateformatter.dateFormat = "yyyy-MM-dd HH:mm"
+    if needMin {
+        dateformatter.dateFormat = "yyyy-MM-dd HH:mm"
+    } else {
+        dateformatter.dateFormat = "yyyy.MM.dd"
+    }
+    
     return dateformatter.string(from: Date(timeIntervalSince1970: time/1000))
+}
+
+func changeReduceDiscount(_ discount: CGFloat) -> String {
+     let count = discount * 10
+    let str = String(format: "%.1f", count)
+    return str
 }

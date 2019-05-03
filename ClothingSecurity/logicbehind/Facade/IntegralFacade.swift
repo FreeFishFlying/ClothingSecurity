@@ -35,4 +35,8 @@ class IntegralFacade: NSObject {
     func prizeDraw() -> SignalProducer<PrizeDrawResponseData, NSError> {
         return PrizeDrawPacket().send().on()
     }
+    
+    func couponList(_ page: Int) -> SignalProducer<CouponResponseData, NSError> {
+        return CouponPacket(page: page).send().on()
+    }
 }

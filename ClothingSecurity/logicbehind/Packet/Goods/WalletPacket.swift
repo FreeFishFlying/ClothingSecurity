@@ -114,7 +114,7 @@ class PrizeDrawResponseData: HttpResponseData {
         if let json = json {
             let jsonValue = json["data"]
             if !jsonValue.isEmpty {
-                prizeIndex = jsonValue["prizes"].intValue
+                prizeIndex = jsonValue["prizeIndex"].intValue
                 let list = jsonValue["prizes"].arrayValue
                 list.forEach({ js in
                     prizes.append(Prize(json: js))
@@ -127,6 +127,179 @@ class PrizeDrawResponseData: HttpResponseData {
 class PrizeDrawPacket: HttpRequestPacket<PrizeDrawResponseData> {
     override func requestUrl() -> URL {
         return URL(string: "/prize/draw")!
+        
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
+    }
+}
+
+//优惠券
+class CouponResponseData: HttpResponseData {
+    var data: [Coupon] = []
+    var page: Int = 0
+    var last: Bool = false
+    var first: Bool = false
+    required init(json: JSON?) {
+        super.init(json: json)
+        if let json = json {
+            let list = json["data"].arrayValue
+            list.forEach { js in
+                let coup = Coupon(json: js)
+                data.append(coup)
+            }
+            page = json["page"].intValue
+            last = json["last"].boolValue
+            first = json["first"].boolValue
+        }
+    }
+}
+
+class CouponPacket: HttpRequestPacket<CouponResponseData> {
+    let page: Int
+    init(page: Int) {
+        self.page = page
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+    
+    override func requestUrl() -> URL {
+        return URL(string: "/coupon/list?page=\(page)&size=10")!
+        
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
+    }
+    
+}
+
+// 查询收货地址
+
+class AddressResponseData: HttpResponseData {
+    var data: [Address] = []
+    var page: Int = 0
+    var last: Bool = false
+    var first: Bool = false
+    required init(json: JSON?) {
+        super.init(json: json)
+        if let json = json {
+            let list = json["data"].arrayValue
+            list.forEach { js in
+                let add = Address(json: js)
+                data.append(add)
+            }
+            page = json["page"].intValue
+            last = json["last"].boolValue
+            first = json["first"].boolValue
+        }
+    }
+}
+
+class AddressPacket: HttpRequestPacket<AddressResponseData> {
+    let page: Int
+    init(page: Int) {
+        self.page = page
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+    
+    override func requestUrl() -> URL {
+        return URL(string: "/address/list?page=\(page)&size=10")!
+        
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
+    }
+}
+
+//新增收货地址
+
+class NewAddressResponseData: HttpResponseData {
+    var address: Address? = nil
+    required init(json: JSON?) {
+        super.init(json: json)
+        if let json = json {
+            if !json["data"].isEmpty {
+                address = Address(json: json["data"])
+            }
+        }
+    }
+}
+
+class NewAddressPacket: HttpRequestPacket<NewAddressResponseData> {
+    let address: Address
+    init(address: Address) {
+        self.address = address
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+    
+    override func requestUrl() -> URL {
+        return URL(string: "/address/create")!
+    }
+    
+    override func httpMethod() -> HTTPMethod {
+        return .post
+    }
+    
+    override func parameterEncoding() -> ParameterEncoding {
+        return JSONEncoding.default
+    }
+    
+    override func requestParameter() -> [String: Any]? {
+        return ["province": address.province, "city": address.city, "area": address.area, "address": address.address, "name": address.name, "mobile": address.mobile, "defaultAddress": address.defaultAddress]
+    }
+}
+
+//更新地址
+
+class UpdateAddressPacket: HttpRequestPacket<NewAddressResponseData> {
+    let address: Address
+    init(address: Address) {
+        self.address = address
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+    
+    override func requestUrl() -> URL {
+        return URL(string: "/address/update")!
+    }
+    
+    override func httpMethod() -> HTTPMethod {
+        return .post
+    }
+    
+    override func parameterEncoding() -> ParameterEncoding {
+        return JSONEncoding.default
+    }
+    
+    override func requestParameter() -> [String: Any]? {
+        return ["id": address.id,"province": address.province, "city": address.city, "area": address.area, "address": address.address, "name": address.name, "mobile": address.mobile, "defaultAddress": address.defaultAddress]
+    }
+}
+
+//删除地址
+
+class DeleteAddressPacket: HttpRequestPacket<HttpResponseData> {
+    let id: Int
+    init(id: Int) {
+        self.id = id
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+    
+    override func requestUrl() -> URL {
+        return URL(string: "/address/delete?id=\(id)")!
         
     }
     override func httpMethod() -> HTTPMethod {

@@ -126,7 +126,8 @@ class AccountSafeViewController: GroupedFormViewController {
                 row.cell.title = "填写地址"
                 row.cell.showIcon = false
                 row.onCellSelection({ [weak self] (_, _) in
-                    
+                    let controller = MyAddressListViewController()
+                    self?.navigationController?.pushViewController(controller, animated: true)
                 })
                 row.cell.height = { 67 }
         }

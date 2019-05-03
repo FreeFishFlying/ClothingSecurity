@@ -49,7 +49,7 @@ class IntegralRecordCell: UITableViewCell {
                 if model.type == .In {
                     valueLabel.text = "+\(item.changed)"
                 } else {
-                    valueLabel.text = "-\(item.changed)"
+                    valueLabel.text = "\(item.changed)"
                 }
             }
         }

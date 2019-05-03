@@ -295,15 +295,20 @@ class LotteryContainer: UIView {
             IntegralFacade.shared.prizeDraw().startWithResult({ [weak self] result in
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
-                if let prize = value.prizes.first {
-                    self.handleWithValue(prize)
-                }
+                print("index = \(value.prizeIndex)")
+                let prize = value.prizes[value.prizeIndex]
+                self.handleWithValue(prize)
             })
         }
     }
     
     func handleWithValue(_ item: Prize) {
-        
+        let reminder = PrizeReminder()
+        reminder.model = item
+        reminder.show()
+        reminder.onGiftButtonClick = { [weak self] gift in
+            guard let `self` = self else { return }
+        }
     }
     
     //算法： 1.转3圈， 然后从0 -> 8随机
