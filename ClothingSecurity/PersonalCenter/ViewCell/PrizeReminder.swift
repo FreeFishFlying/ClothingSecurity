@@ -9,7 +9,7 @@
 import Foundation
 
 class PrizeReminder: UIView {
-    var onGiftButtonClick: ((Prize) -> Void)?
+    var onGiftButtonClick: ((Prize, String) -> Void)?
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
@@ -61,8 +61,8 @@ class PrizeReminder: UIView {
     }
     
     @objc private func onButtonClick() {
-        if let model = model {
-            onGiftButtonClick?(model)
+        if let model = model, let id = logId {
+            onGiftButtonClick?(model, id)
             removeFromSuperview()
         }
     }
@@ -74,6 +74,8 @@ class PrizeReminder: UIView {
     func show() {
         UIApplication.shared.keyWindow?.addSubview(self)
     }
+    
+    var logId: String?
     
     var model: Prize? {
         didSet {

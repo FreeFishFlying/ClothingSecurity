@@ -24,7 +24,6 @@ PODS:
   - ESTabBarController (2.6.2)
   - Eureka (4.2.0)
   - FDFullscreenPopGesture (1.1)
-  - hdselecter (0.0.1)
   - HUD (0.1.0)
   - Kingfisher (4.8.1)
   - Masonry (1.1.0)
@@ -73,7 +72,6 @@ DEPENDENCIES:
   - ESTabBarController (from `submodules/ESTabBarController/`)
   - Eureka (from `submodules/Eureka/`)
   - FDFullscreenPopGesture (from `submodules/FDFullscreenPopGesture/`)
-  - hdselecter
   - HUD (from `submodules/HUD/`)
   - Masonry
   - MediaEditorKit (from `submodules/MediaEditorKit/`)
@@ -94,7 +92,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BaiduMobStatCodeless
-    - hdselecter
     - Kingfisher
     - Masonry
     - ObjcExceptionBridging
@@ -154,7 +151,6 @@ SPEC CHECKSUMS:
   ESTabBarController: 8db71cb7f648747a11f25ede0f91195cb0394c27
   Eureka: 246b17918da454e3b38cc64aea23af2d3463fd81
   FDFullscreenPopGesture: 7e81964528cd8f9419b2ea07189b4d05929b9f22
-  hdselecter: d77d70e01683f5a10ddedb983f8e1095131ca6ef
   HUD: a0622060114bf7b9d75896184789ee16551d8a1e
   Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -175,6 +171,6 @@ SPEC CHECKSUMS:
   XCGLogger: 5a21c8be020a21d0b798937f85c1cdb61a288422
   ZXingObjC: df03d998b10bd2879fed52d1967cc8bb8b575671
 
-PODFILE CHECKSUM: c03d5c9c834db1a74bca778434094c1dd0e1c174
+PODFILE CHECKSUM: 135a8a18d30597b01173a9e09b6b681a55352ead
 
 COCOAPODS: 1.5.2

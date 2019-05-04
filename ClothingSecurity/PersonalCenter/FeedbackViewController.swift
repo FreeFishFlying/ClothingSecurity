@@ -10,47 +10,42 @@ import Foundation
 import UIKit
 import Core
 import HUD
-class FeedbackViewController: GroupedFormViewController {
+class FeedbackViewController: BaseViewController {
     private let maxNumber = "200"
+    var dataSources: [FeedBack] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "投诉建议"
+        configData()
         configUI()
         autoHideKeyboard = true
     }
     
     private func configUI() {
         view.backgroundColor = UIColor(red: 247/255.0, green: 247/255.0, blue: 247/255.0, alpha: 1)
-        view.addSubview(container)
-  
-//        view.addSubview(textView)
-//        textView.snp.makeConstraints { make in
-//            make.top.equalTo(safeAreaTopLayoutGuide)
-//            make.left.equalToSuperview().offset(15)
-//            make.right.equalToSuperview().offset(-15)
-//            make.height.equalTo(260)
-//        }
-//        view.addSubview(sureButton)
-//        sureButton.snp.makeConstraints { make in
-//            make.top.equalTo(container.snp.bottom).offset(50)
-//            make.left.equalToSuperview().offset(46)
-//            make.right.equalToSuperview().offset(-46)
-//            make.height.equalTo(44)
-//        }
-//        sureButton.addTarget(self, action: #selector(sure), for: .touchUpInside)
-//        textView.getInputTextView().makeLimit(length: 200, signal: textView.textValues.map { $0.1 })
-//        textView.attributedPlaceholder = NSAttributedString(string: "请输入您的详细问题，我们将为你尽快解决。", attributes: [NSAttributedString.Key.font: systemFontSize(fontSize: 15), NSAttributedString.Key.foregroundColor: UIColor(hexString: "#bfbfbf")])
-//        textView.textValues.observeValues { [weak self] (view, content) in
-//            guard let `self` = self else { return }
-//        }
-//        textView.returnKeyType = UIReturnKeyType.done
-//        textView.shouldChangeTextInRange = { [weak self] _, text in
-//            if text == "\n" {
-//                self?.textView.resignFirstResponder()
-//                return false
-//            }
-//            return true
-//        }
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaTopLayoutGuide)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(212)
+        }
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(textView)
+        textView.snp.makeConstraints { make in
+            make.top.equalTo(tableView.snp.bottom)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(145)
+        }
+    }
+    
+    private func configData() {
+        let first = FeedBack(category: "功能异常", content: "不能正常使用现有功能", isChoosed: false)
+        let second = FeedBack(category: "使用建议", content: "用的不满意的地方都踢过来吧", isChoosed: false)
+        let third = FeedBack(category: "功能需求", content: "现有功能不能满足", isChoosed: false)
+        dataSources.append(first)
+        dataSources.append(second)
+        dataSources.append(third)
     }
      
     @objc func sure() {
@@ -70,18 +65,94 @@ class FeedbackViewController: GroupedFormViewController {
         }
     }
     
-    private let container: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.white
-        return view
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(FeedBackCell.self, forCellReuseIdentifier: "FeedBackCell")
+        tableView.backgroundView = nil
+        tableView.backgroundColor = UIColor.clear
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.isScrollEnabled = false
+        return tableView
     }()
     
     private let textView: GrowingTextView = {
         let textView = GrowingTextView()
         textView.backgroundColor = UIColor.white
-        textView.placeholder = "请输入您的详细问题，我们将为你尽快解决。"
+        textView.placeholder = "如果您对我们有什么建议、想法和期望，请告诉我们。"
         return textView
     }()
     
     private let sureButton = DarkKeyButton(title: "立即提交")
+}
+
+extension FeedbackViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40.0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSources.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 40))
+        view.backgroundColor = UIColor.clear
+        let label = UILabel()
+        label.textColor = UIColor(red: 139.0 / 255.0, green: 139.0 / 255.0, blue: 141.0 / 255.0, alpha: 1.0)
+        label.font = UIFont(name: "PingFangSC-Regular", size: 14.0)
+        label.text = "问题类型"
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(14)
+        }
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 40))
+        view.backgroundColor = UIColor.clear
+        let label = UILabel()
+        label.textColor = UIColor(red: 139.0 / 255.0, green: 139.0 / 255.0, blue: 141.0 / 255.0, alpha: 1.0)
+        label.font = UIFont(name: "PingFangSC-Regular", size: 14.0)
+        label.text = "详情描述"
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(14)
+        }
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedBackCell", for: indexPath) as! FeedBackCell
+        cell.feedBack = dataSources[indexPath.row]
+        cell.onSelectOption = { [weak self] feed in
+            guard let `self` = self else { return }
+            self.handleDataSources(feed)
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = dataSources[indexPath.row]
+        handleDataSources(item)
+    }
+    
+    func handleDataSources(_ value: FeedBack) {
+        dataSources.forEach { item in
+            if item.category != value.category {
+                item.isChoosed = false
+            } else {
+                item.isChoosed = !item.isChoosed
+            }
+        }
+        self.tableView.reloadData()
+    }
+    
 }

@@ -11,6 +11,8 @@ import MJRefresh
 
 class MyAddressListViewController: BaseViewController {
     var dataSources: [Address] = []
+    var onSelectAddress: ((Address) -> Void)?
+    var needClickBack: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "我的地址"
@@ -20,20 +22,39 @@ class MyAddressListViewController: BaseViewController {
             make.top.equalTo(safeAreaTopLayoutGuide)
             make.left.bottom.right.equalToSuperview()
         }
-        AddressFacade.shared.addressList(0).startWithResult { [weak self] result in
+        tableView.delegate = self
+        tableView.dataSource = self
+        loadData(0)
+        AddressFacade.shared.addressWillRefresh().observeValues { value in
+            if value {
+                self.loadData(0)
+            }
+        }
+    }
+    
+    func loadData(_ page: Int) {
+        AddressFacade.shared.addressList(page).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
+            if value.first {
+                self.dataSources.removeAll()
+            }
             self.dataSources.append(contentsOf: value.data)
             self.tableView.reloadData()
             if self.dataSources.isEmpty {
                 self.tableView.isHidden = true
                 self.configEmptyView()
+            } else {
+                self.tableView.isHidden = false
+                self.emptyView.isHidden = true
             }
         }
     }
     
     private func configEmptyView() {
+        emptyView.removeFromSuperview()
         view.addSubview(emptyView)
+        emptyView.isHidden = false
         emptyView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)
             make.left.bottom.right.equalToSuperview()
@@ -59,7 +80,7 @@ class MyAddressListViewController: BaseViewController {
     }
     
     @objc private func addAdddress() {
-        let controller = AddAddressViewController()
+        let controller = AddAddressViewController(Address(json: nil))
         navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -104,9 +125,46 @@ class MyAddressListViewController: BaseViewController {
         button.layer.masksToBounds = true
         return button
     }()
+    
+    private let tableButton: UIButton = {
+        let button = UIButton()
+        button.layer.borderColor = UIColor(red: 176.0 / 255.0, green: 205.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0).cgColor
+        button.layer.borderWidth = 1
+        button.backgroundColor = UIColor.white
+        button.setTitle("+ 添加收货地址", for: .normal)
+        button.setTitleColor(UIColor(red: 176.0 / 255.0, green: 205.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0), for: .normal)
+        button.layer.cornerRadius = 22.5
+        button.layer.masksToBounds = true
+        return button
+    }()
 }
 
 extension MyAddressListViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 90
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if dataSources.isEmpty {
+            return nil
+        }
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 90))
+        view.addSubview(tableButton)
+        tableButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(45)
+            make.left.equalToSuperview().offset(47)
+            make.right.equalToSuperview().offset(-47)
+            make.height.equalTo(45)
+        }
+        tableButton.addTarget(self, action: #selector(addAdddress), for: .touchUpInside)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 136.0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSources.count
     }
@@ -114,6 +172,41 @@ extension MyAddressListViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell", for: indexPath) as! AddressCell
         cell.address = dataSources[indexPath.row]
+        cell.onSetDefaultAddress = { [weak self] address in
+            self?.setDefaultAddress(address)
+        }
+        
+        cell.onEditAddress = { [weak self] address in
+            self?.editAddress(address)
+        }
+        
+        cell.onDeleteAddress = { [weak self] address in
+            self?.deleteAddress(address)
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let address = dataSources[indexPath.row]
+        onSelectAddress?(address)
+        if needClickBack {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    private func setDefaultAddress(_ address: Address) {
+        address.defaultAddress = !address.defaultAddress
+        AddressFacade.shared.updateAddress(address).startWithResult { _ in
+        }
+    }
+    
+    private func editAddress(_ address: Address) {
+        let controller = AddAddressViewController(address)
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    private func deleteAddress(_ address: Address) {
+        AddressFacade.shared.deleteAddress(address.id).startWithResult { _ in
+        }
     }
 }

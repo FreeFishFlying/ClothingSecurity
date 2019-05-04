@@ -26,5 +26,4 @@ target 'ClothingSecurity' do
     pod 'WechatOpenSDK'
     pod 'Masonry'
     pod 'BaiduMobStatCodeless'
-    pod 'hdselecter'
 end

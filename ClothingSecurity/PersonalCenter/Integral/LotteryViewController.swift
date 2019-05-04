@@ -295,19 +295,24 @@ class LotteryContainer: UIView {
             IntegralFacade.shared.prizeDraw().startWithResult({ [weak self] result in
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
-                print("index = \(value.prizeIndex)")
                 let prize = value.prizes[value.prizeIndex]
-                self.handleWithValue(prize)
+                if let log = value.log {
+                    self.handleWithValue(prize, log.prizeId)
+                }
             })
         }
     }
     
-    func handleWithValue(_ item: Prize) {
+    func handleWithValue(_ item: Prize, _ id: String) {
         let reminder = PrizeReminder()
         reminder.model = item
+        reminder.logId = id
         reminder.show()
-        reminder.onGiftButtonClick = { [weak self] gift in
-            guard let `self` = self else { return }
+        reminder.onGiftButtonClick = { gift, id in
+            if gift.targetType == .gift {
+                let controller = PickUpImmediatelyController(gift, id)
+                currentNavigationController()?.pushViewController(controller, animated: true)
+            }
         }
     }
     

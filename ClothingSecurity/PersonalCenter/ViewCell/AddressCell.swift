@@ -9,10 +9,35 @@
 import Foundation
 
 class AddressCell: UITableViewCell {
+    var onSetDefaultAddress: ((Address) -> Void)?
+    var onEditAddress: ((Address) -> Void)?
+    var onDeleteAddress: ((Address) -> Void)?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.clear
         selectionStyle = .none
+        configUI()
+        defaultButton.addTarget(self, action: #selector(setDefaultAddress), for: .touchUpInside)
+        editButton.addTarget(self, action: #selector(editAddress), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(deleteAddress), for: .touchUpInside)
+    }
+    
+    @objc private func setDefaultAddress() {
+        if let address = address {
+            onSetDefaultAddress?(address)
+        }
+    }
+    
+    @objc private func editAddress() {
+        if let address = address {
+            onEditAddress?(address)
+        }
+    }
+    
+    @objc private func deleteAddress() {
+        if let address = address {
+            onDeleteAddress?(address)
+        }
     }
     
     private func configUI() {
@@ -48,16 +73,22 @@ class AddressCell: UITableViewCell {
         defaultButton.snp.makeConstraints { make in
             make.top.equalTo(line.snp.bottom).offset(10)
             make.left.equalToSuperview().offset(15)
+            make.width.equalTo(90)
+            make.height.equalTo(24)
         }
         container.addSubview(deleteButton)
         deleteButton.snp.makeConstraints { make in
-            make.top.equalTo(line.snp.bottom).offset(10)
+            make.top.equalTo(line.snp.bottom).offset(12)
             make.right.equalToSuperview().offset(-15)
+            make.width.equalTo(70)
+            make.height.equalTo(24)
         }
         container.addSubview(editButton)
         editButton.snp.makeConstraints { make in
-            make.top.equalTo(line.snp.bottom).offset(10)
+            make.top.equalTo(line.snp.bottom).offset(12)
             make.right.equalTo(deleteButton.snp.left).offset(-20)
+            make.width.equalTo(70)
+            make.height.equalTo(24)
         }
     }
     
@@ -66,7 +97,14 @@ class AddressCell: UITableViewCell {
             if let address = address {
                 nameLabel.text = address.name
                 mobileLabel.text = address.mobile
-                addressLabel.text = address.address
+                addressLabel.text = address.detailedAddress
+                if address.defaultAddress {
+                    defaultButton.setTitleColor(UIColor(red: 176.0 / 255.0, green: 205.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0), for: .normal)
+                    defaultButton.setImage(imageNamed("hook"), for: .normal)
+                } else {
+                    defaultButton.setTitleColor(UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0), for: .normal)
+                    defaultButton.setImage(imageNamed("gender"), for: .normal)
+                }
             }
         }
     }
@@ -105,8 +143,11 @@ class AddressCell: UITableViewCell {
     private let defaultButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = systemFontSize(fontSize: 13)
+        button.setTitleColor(UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0), for: .normal)
         button.setImage(imageNamed("gender"), for: .normal)
         button.setTitle("默认地址", for: .normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
         return button
     }()
     
@@ -116,8 +157,8 @@ class AddressCell: UITableViewCell {
         button.setTitleColor(UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0), for: .normal)
         button.setImage(imageNamed("edit"), for: .normal)
         button.setTitle("编辑", for: .normal)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
         return button
     }()
     
@@ -127,8 +168,8 @@ class AddressCell: UITableViewCell {
         button.setTitleColor(UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0), for: .normal)
         button.setImage(imageNamed("Deletebutton"), for: .normal)
         button.setTitle("删除", for: .normal)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
         return button
     }()
     

@@ -123,6 +123,18 @@
 		B39C99CD21C1497B005605DA /* SLScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C99CB21C1497B005605DA /* SLScannerView.swift */; };
 		B39C99D021C149C8005605DA /* SLQRCodeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C99CE21C149C8005605DA /* SLQRCodeConfig.swift */; };
 		B39C99D121C149C8005605DA /* SLQRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C99CF21C149C8005605DA /* SLQRCodeHelper.swift */; };
+		B3A80886227D2ECC00EE069E /* HDSelecterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8087C227D2ECC00EE069E /* HDSelecterView.m */; };
+		B3A80887227D2ECC00EE069E /* HDSelecterTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8087D227D2ECC00EE069E /* HDSelecterTabView.m */; };
+		B3A80888227D2ECC00EE069E /* HDSelecterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8087F227D2ECC00EE069E /* HDSelecterViewController.m */; };
+		B3A80889227D2ECC00EE069E /* hdselecter.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B3A80880227D2ECC00EE069E /* hdselecter.bundle */; };
+		B3A8088A227D2ECC00EE069E /* HDSelecterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A80881227D2ECC00EE069E /* HDSelecterModel.m */; };
+		B3A8088B227D2ECC00EE069E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B3A80884227D2ECC00EE069E /* LICENSE */; };
+		B3A8088C227D2ECC00EE069E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B3A80885227D2ECC00EE069E /* README.md */; };
+		B3A8088E227D645B00EE069E /* PickUpImmediatelyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8088D227D645B00EE069E /* PickUpImmediatelyController.swift */; };
+		B3A80890227D7AAF00EE069E /* SigleAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A8088F227D7AAF00EE069E /* SigleAddressCell.swift */; };
+		B3A80894227D807F00EE069E /* SignleGiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A80893227D807F00EE069E /* SignleGiftCell.swift */; };
+		B3A80896227D994700EE069E /* PickUpSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A80895227D994700EE069E /* PickUpSuccessController.swift */; };
+		B3A80898227DB11400EE069E /* FeedBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A80897227DB11400EE069E /* FeedBack.swift */; };
 		B3AFD581218E9DCB00D54F34 /* LatestMainPushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */; };
 		B3AFD583218EBFD400D54F34 /* LatestMainPushPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD582218EBFD400D54F34 /* LatestMainPushPacket.swift */; };
 		B3AFD585218EBFE700D54F34 /* SearchByKeywordPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFD584218EBFE700D54F34 /* SearchByKeywordPacket.swift */; };
@@ -339,6 +351,22 @@
 		B39C99CB21C1497B005605DA /* SLScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLScannerView.swift; sourceTree = "<group>"; };
 		B39C99CE21C149C8005605DA /* SLQRCodeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLQRCodeConfig.swift; sourceTree = "<group>"; };
 		B39C99CF21C149C8005605DA /* SLQRCodeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLQRCodeHelper.swift; sourceTree = "<group>"; };
+		B3A8087B227D2ECC00EE069E /* HDSelecterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSelecterViewController.h; sourceTree = "<group>"; };
+		B3A8087C227D2ECC00EE069E /* HDSelecterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSelecterView.m; sourceTree = "<group>"; };
+		B3A8087D227D2ECC00EE069E /* HDSelecterTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSelecterTabView.m; sourceTree = "<group>"; };
+		B3A8087E227D2ECC00EE069E /* HDSelecterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSelecterModel.h; sourceTree = "<group>"; };
+		B3A8087F227D2ECC00EE069E /* HDSelecterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSelecterViewController.m; sourceTree = "<group>"; };
+		B3A80880227D2ECC00EE069E /* hdselecter.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = hdselecter.bundle; sourceTree = "<group>"; };
+		B3A80881227D2ECC00EE069E /* HDSelecterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSelecterModel.m; sourceTree = "<group>"; };
+		B3A80882227D2ECC00EE069E /* HDSelecterTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSelecterTabView.h; sourceTree = "<group>"; };
+		B3A80883227D2ECC00EE069E /* HDSelecterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSelecterView.h; sourceTree = "<group>"; };
+		B3A80884227D2ECC00EE069E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		B3A80885227D2ECC00EE069E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B3A8088D227D645B00EE069E /* PickUpImmediatelyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpImmediatelyController.swift; sourceTree = "<group>"; };
+		B3A8088F227D7AAF00EE069E /* SigleAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigleAddressCell.swift; sourceTree = "<group>"; };
+		B3A80893227D807F00EE069E /* SignleGiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignleGiftCell.swift; sourceTree = "<group>"; };
+		B3A80895227D994700EE069E /* PickUpSuccessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpSuccessController.swift; sourceTree = "<group>"; };
+		B3A80897227DB11400EE069E /* FeedBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBack.swift; sourceTree = "<group>"; };
 		B3AFD580218E9DCB00D54F34 /* LatestMainPushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushViewController.swift; sourceTree = "<group>"; };
 		B3AFD582218EBFD400D54F34 /* LatestMainPushPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMainPushPacket.swift; sourceTree = "<group>"; };
 		B3AFD584218EBFE700D54F34 /* SearchByKeywordPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByKeywordPacket.swift; sourceTree = "<group>"; };
@@ -496,6 +524,7 @@
 			children = (
 				B3675E692273F992005E6F4D /* MyIntegralViewController.swift */,
 				B31C0C2322590EF200C815F4 /* LotteryViewController.swift */,
+				B3A80895227D994700EE069E /* PickUpSuccessController.swift */,
 			);
 			path = Integral;
 			sourceTree = "<group>";
@@ -596,6 +625,7 @@
 				B35DA8DF22774127009EBCE0 /* Prize.swift */,
 				B33E82E022797180008342B3 /* Coupon.swift */,
 				B3C14F70227C4C59006D088C /* Address.swift */,
+				B3A80897227DB11400EE069E /* FeedBack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -625,6 +655,7 @@
 		B32FD61721AE3115007BE7DB /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				B3A80878227D2ECC00EE069E /* hdselecter */,
 				B32FD64621AE795D007BE7DB /* Weibo */,
 				B32FD64321AE6E21007BE7DB /* QQ  */,
 				B32FD62E21AE3535007BE7DB /* WeChatSDK1.8.3_NoPay */,
@@ -898,6 +929,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B3A80878227D2ECC00EE069E /* hdselecter */ = {
+			isa = PBXGroup;
+			children = (
+				B3A80879227D2ECC00EE069E /* hdselecter */,
+				B3A80884227D2ECC00EE069E /* LICENSE */,
+				B3A80885227D2ECC00EE069E /* README.md */,
+			);
+			path = hdselecter;
+			sourceTree = "<group>";
+		};
+		B3A80879227D2ECC00EE069E /* hdselecter */ = {
+			isa = PBXGroup;
+			children = (
+				B3A8087A227D2ECC00EE069E /* hdselecter */,
+			);
+			path = hdselecter;
+			sourceTree = "<group>";
+		};
+		B3A8087A227D2ECC00EE069E /* hdselecter */ = {
+			isa = PBXGroup;
+			children = (
+				B3A8087B227D2ECC00EE069E /* HDSelecterViewController.h */,
+				B3A8087C227D2ECC00EE069E /* HDSelecterView.m */,
+				B3A8087D227D2ECC00EE069E /* HDSelecterTabView.m */,
+				B3A8087E227D2ECC00EE069E /* HDSelecterModel.h */,
+				B3A8087F227D2ECC00EE069E /* HDSelecterViewController.m */,
+				B3A80880227D2ECC00EE069E /* hdselecter.bundle */,
+				B3A80881227D2ECC00EE069E /* HDSelecterModel.m */,
+				B3A80882227D2ECC00EE069E /* HDSelecterTabView.h */,
+				B3A80883227D2ECC00EE069E /* HDSelecterView.h */,
+			);
+			path = hdselecter;
+			sourceTree = "<group>";
+		};
 		B3B1AD122189AE9D001BBB32 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -935,6 +1000,7 @@
 			children = (
 				B3C14F6E227C46F2006D088C /* MyAddressListViewController.swift */,
 				B3C14F76227C7346006D088C /* AddAddressViewController.swift */,
+				B3A8088D227D645B00EE069E /* PickUpImmediatelyController.swift */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -949,6 +1015,8 @@
 				B35DA8E122774DFA009EBCE0 /* PrizeReminder.swift */,
 				B33E82E2227978B2008342B3 /* CouponCell.swift */,
 				B3C14F72227C5590006D088C /* AddressCell.swift */,
+				B3A8088F227D7AAF00EE069E /* SigleAddressCell.swift */,
+				B3A80893227D807F00EE069E /* SignleGiftCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -1093,9 +1161,12 @@
 			files = (
 				B3C95B0F2243BEAD0036C5D6 /* FrameWorkLocal.json in Resources */,
 				B35DBB15216C783D00CAFDAD /* Assets.xcassets in Resources */,
+				B3A8088C227D2ECC00EE069E /* README.md in Resources */,
 				B39C99CC21C1497B005605DA /* SWQRCode.bundle in Resources */,
 				B35DBB13216C783A00CAFDAD /* Main.storyboard in Resources */,
+				B3A80889227D2ECC00EE069E /* hdselecter.bundle in Resources */,
 				B32FD64B21AE795D007BE7DB /* WeiboSDK.bundle in Resources */,
+				B3A8088B227D2ECC00EE069E /* LICENSE in Resources */,
 				B32FD63421AE3535007BE7DB /* README.txt in Resources */,
 				B322EFF2216F31800077EE02 /* SWQRCode.bundle in Resources */,
 			);
@@ -1183,7 +1254,6 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/ZXingObjC/ZXingObjC.framework",
-				"${BUILT_PRODUCTS_DIR}/hdselecter/hdselecter.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1206,7 +1276,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZXingObjC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hdselecter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1241,13 +1310,16 @@
 				B34638B221837286002B1CF3 /* ForgetPasswordViewController.swift in Sources */,
 				B31C0C2422590EF200C815F4 /* LotteryViewController.swift in Sources */,
 				B377C3602190936F00114A25 /* DesignHotListPacket.swift in Sources */,
+				B3A80890227D7AAF00EE069E /* SigleAddressCell.swift in Sources */,
 				B340BE80218E0AB9006FB78D /* DetailSearchedGoodCell.swift in Sources */,
 				B35DBB46216C9A6D00CAFDAD /* LoginViewController.swift in Sources */,
 				B30FD8522186117C0004BABB /* ChangeMobileViewController.swift in Sources */,
+				B3A80888227D2ECC00EE069E /* HDSelecterViewController.m in Sources */,
 				B3248D3021880E6F00BF7485 /* AppAuthorizationUtil.swift in Sources */,
 				B3AFD587218EC02300D54F34 /* DetailGoodPacket.swift in Sources */,
 				B3BAFEE921AAC876008DB251 /* PersonalFeedbackPacket.swift in Sources */,
 				B3B1AD172189AE9D001BBB32 /* AuthUserInfoPacket.swift in Sources */,
+				B3A8088E227D645B00EE069E /* PickUpImmediatelyController.swift in Sources */,
 				B3675E6C22748862005E6F4D /* SwitchRecordView.swift in Sources */,
 				B30E01EE218B6AF6005F2C0C /* Good.swift in Sources */,
 				B3F6178A21968C1C0051926E /* DetailPopularWearPacket.swift in Sources */,
@@ -1272,6 +1344,7 @@
 				B32612532186DFD1002A2E51 /* UserItem.swift in Sources */,
 				B3675E722274A2B3005E6F4D /* WalletPacket.swift in Sources */,
 				B33E82E122797180008342B3 /* Coupon.swift in Sources */,
+				B3A80886227D2ECC00EE069E /* HDSelecterView.m in Sources */,
 				B3BBEE6D2181D33F00F5FA47 /* LoginViewController+Extension.swift in Sources */,
 				B3AFD58D218F3EF800D54F34 /* DetailRichGoodModel.swift in Sources */,
 				B30E01E5218B5684005F2C0C /* PopularWearModel.swift in Sources */,
@@ -1282,6 +1355,7 @@
 				B3B1AD0D2189AA50001BBB32 /* ChangePasswordViewController.swift in Sources */,
 				B33E82DF22796F00008342B3 /* MyDiscountCouponViewController.swift in Sources */,
 				B32256DE218B33020032A019 /* BrandIntroductionCell.swift in Sources */,
+				B3A8088A227D2ECC00EE069E /* HDSelecterModel.m in Sources */,
 				B3675E742274A594005E6F4D /* IntegralItem.swift in Sources */,
 				B3E0D6A721986EAD00CF5B63 /* AboutAppViewController.swift in Sources */,
 				B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */,
@@ -1295,6 +1369,7 @@
 				B30D81AC219C6D3600423C7E /* FeedbackViewController.swift in Sources */,
 				B3E0D6A32197CBAA00CF5B63 /* SegmentView.swift in Sources */,
 				B3F6178E2196A0770051926E /* FavouritePopularWearController.swift in Sources */,
+				B3A80887227D2ECC00EE069E /* HDSelecterTabView.m in Sources */,
 				B3F617922196A1870051926E /* CollectListPacket.swift in Sources */,
 				B31E7DEA2191E633003653EC /* ClothesPopularImageCell.swift in Sources */,
 				B32FD63D21AE4850007BE7DB /* ThirdloginFacade.swift in Sources */,
@@ -1346,6 +1421,7 @@
 				B340BE7E218DD5BD006FB78D /* DiscoverResultViewController.swift in Sources */,
 				B340BE7A218DBDBA006FB78D /* DetailGoodViewController.swift in Sources */,
 				B30E01F0218B6F96005F2C0C /* GoodsFacade.swift in Sources */,
+				B3A80894227D807F00EE069E /* SignleGiftCell.swift in Sources */,
 				B3B1AD0521899193001BBB32 /* ForgetPasswordPacket.swift in Sources */,
 				B322EFEE216F2D0B0077EE02 /* SLQRCodeHelper.swift in Sources */,
 				B31C0C2122583C6800C815F4 /* PersonalViewController.swift in Sources */,
@@ -1358,6 +1434,8 @@
 				B3B1AD182189AE9D001BBB32 /* ChangeMobilePacket.swift in Sources */,
 				B3248D2A21880A6A00BF7485 /* ZPageControl.swift in Sources */,
 				B3B62FC4216DCC1B0006A39E /* DiscoverViewController.swift in Sources */,
+				B3A80898227DB11400EE069E /* FeedBack.swift in Sources */,
+				B3A80896227D994700EE069E /* PickUpSuccessController.swift in Sources */,
 				B3C14F73227C5590006D088C /* AddressCell.swift in Sources */,
 				B3248D342188322000BF7485 /* ImageModel.swift in Sources */,
 				B39C99C421C14822005605DA /* HideBarViewController.swift in Sources */,

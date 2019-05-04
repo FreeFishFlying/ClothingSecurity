@@ -109,12 +109,14 @@ class WalletSignPacket: HttpRequestPacket<WalletSignResponseData> {
 class PrizeDrawResponseData: HttpResponseData {
     var prizes: [Prize] = []
     var prizeIndex: Int = 0
+    var log: prizeLog?
     required init(json: JSON?) {
         super.init(json: json)
         if let json = json {
             let jsonValue = json["data"]
             if !jsonValue.isEmpty {
                 prizeIndex = jsonValue["prizeIndex"].intValue
+                log = prizeLog.init(json: jsonValue["prizeLog"])
                 let list = jsonValue["prizes"].arrayValue
                 list.forEach({ js in
                     prizes.append(Prize(json: js))
@@ -289,8 +291,8 @@ class UpdateAddressPacket: HttpRequestPacket<NewAddressResponseData> {
 //删除地址
 
 class DeleteAddressPacket: HttpRequestPacket<HttpResponseData> {
-    let id: Int
-    init(id: Int) {
+    let id: String
+    init(id: String) {
         self.id = id
     }
     
@@ -300,6 +302,29 @@ class DeleteAddressPacket: HttpRequestPacket<HttpResponseData> {
     
     override func requestUrl() -> URL {
         return URL(string: "/address/delete?id=\(id)")!
+        
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
+    }
+}
+
+//绑定收货地址
+
+class BindAddressPacket: HttpRequestPacket<HttpResponseData> {
+    let prizeId: String
+    let addressId: String
+    init(prizeId: String, addressId: String) {
+        self.prizeId = prizeId
+        self.addressId = addressId
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+    
+    override func requestUrl() -> URL {
+        return URL(string: "/prize/log/bind_address?prizeLogId=\(prizeId)&addressId=\(addressId)")!
         
     }
     override func httpMethod() -> HTTPMethod {

@@ -7,3 +7,4 @@
 #import <TencentOpenAPI/QQApiInterfaceObject.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import "WeiboSDK.h"
+#import "HDSelecterViewController.h"

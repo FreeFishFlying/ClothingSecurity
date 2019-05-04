@@ -15,6 +15,24 @@ enum TargetType: String {
     case coupon = "COUPON"
 }
 
+class prizeLog: NSObject {
+    var updateTime: TimeInterval = 0
+    var userId: String = ""
+    var name: String = ""
+    var prizeId: String = ""
+    var createTime: TimeInterval = 0
+    var id: String = ""
+    
+    init(json: JSON) {
+        updateTime = json["updateTime"].doubleValue
+        userId = json["userId"].stringValue
+        name = json["name"].stringValue
+        prizeId = json["prizeId"].stringValue
+        createTime = json["createTime"].doubleValue
+        id = json["id"].stringValue
+    }
+}
+
 class Prize: NSObject {
     var id: String = ""
     var createTime: TimeInterval = 0

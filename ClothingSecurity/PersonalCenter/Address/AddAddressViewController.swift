@@ -7,9 +7,18 @@
 //
 
 import Foundation
-
+import HUD
 class AddAddressViewController: BaseViewController {
-    var addrss: Address = Address(json: nil)
+    var addrss: Address
+    init(_ address: Address) {
+        self.addrss = address
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "填写地址"
@@ -19,67 +28,77 @@ class AddAddressViewController: BaseViewController {
     
     private func configUI() {
         view.addSubview(scroll)
+        scroll.addSubview(nameLabel)
+        scroll.addSubview(nameTF)
+        scroll.addSubview(mobileLabel)
+        scroll.addSubview(mobileTF)
+        scroll.addSubview(detailLabel)
+        scroll.addSubview(contentView)
+        scroll.addSubview(addressLabel)
+        scroll.addSubview(addressTF)
+        scroll.addSubview(button)
+        configContentView()
         scroll.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)
-            make.left.bottom.right.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
-        scroll.contentSize = CGSize(width: 0, height: 0)
-        scroll.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make  in
             make.top.equalTo(safeAreaTopLayoutGuide).offset(15)
             make.left.equalToSuperview().offset(15)
         }
-        scroll.addSubview(nameTF)
         nameTF.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
             make.height.equalTo(40)
         }
-        scroll.addSubview(mobileLabel)
         mobileLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15)
             make.top.equalTo(nameTF.snp.bottom).offset(16)
         }
-        scroll.addSubview(mobileTF)
         mobileTF.snp.makeConstraints { make in
             make.top.equalTo(mobileLabel.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
             make.height.equalTo(40)
         }
-        scroll.addSubview(detailLabel)
         detailLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15)
             make.top.equalTo(mobileTF.snp.bottom).offset(16)
         }
-        scroll.addSubview(contentView)
         contentView.snp.makeConstraints { make in
             make.top.equalTo(detailLabel.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
             make.height.equalTo(40)
         }
-        scroll.addSubview(addressLabel)
         addressLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15)
             make.top.equalTo(contentView.snp.bottom).offset(16)
         }
-        scroll.addSubview(addressTF)
+        addressTF.delegate = self
         addressTF.snp.makeConstraints { make in
             make.top.equalTo(addressLabel.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
             make.height.equalTo(40)
         }
-        scroll.addSubview(button)
         button.snp.makeConstraints { make in
+            make.top.equalTo(addressTF.snp.bottom).offset(30)
             make.left.equalToSuperview().offset(48)
             make.right.equalToSuperview().offset(-48)
             make.height.equalTo(45)
-            make.bottom.equalToSuperview().offset(-40)
         }
-        configContentView()
+        scroll.contentSize = CGSize(width: 0, height: 0)
+        button.addTarget(self, action: #selector(onCreateNewAddress), for: .touchUpInside)
+        nameTF.text = addrss.name
+        mobileTF.text = addrss.mobile
+        addressTF.text = addrss.address
+        provinceLabel.text = addrss.province
+        cityLabel.text = addrss.city
+        countryLabel.text = addrss.area
     }
     
     private func configContentView() {
@@ -116,10 +135,82 @@ class AddAddressViewController: BaseViewController {
             make.bottom.equalToSuperview()
             make.right.equalToSuperview()
         }
+        let tap = UITapGestureRecognizer(target: self, action: #selector(chooseAddrss))
+        provinceLabel.addGestureRecognizer(tap)
+        let tap_1 = UITapGestureRecognizer(target: self, action: #selector(chooseAddrss))
+        cityLabel.addGestureRecognizer(tap_1)
+        let tap_2 = UITapGestureRecognizer(target: self, action: #selector(chooseAddrss))
+        countryLabel.addGestureRecognizer(tap_2)
+    }
+    
+    @objc private func chooseAddrss() {
+        let controller = HDSelecterViewController.init(defualtProvince: "", city: "", districts: "")!
+        controller.title = "请选择地址"
+        controller.completeSelectBlock = { [weak self] provice, city, districts in
+            guard let `self` = self else { return }
+            if let provice = provice {
+                self.addrss.province = provice
+            }
+            if let city = city {
+                self.addrss.city = city
+            }
+            if let districts = districts {
+                self.addrss.area = districts
+            }
+            self.loadContentData()
+            self.dismiss(animated: true, completion: nil)
+        }
+        present(controller, animated: true, completion: nil)
+    }
+    
+    @objc private func onCreateNewAddress() {
+        addrss.name = nameTF.text ?? ""
+        addrss.mobile = mobileTF.text ?? ""
+        addrss.address = addressTF.text ?? ""
+        if addrss.name.isEmpty {
+            HUD.flashError(title: "请填写收货姓名")
+            return
+        }
+        if addrss.mobile.isEmpty {
+            HUD.flashError(title: "请填写手机号码")
+            return
+        }
+        if addrss.province.isEmpty || addrss.city.isEmpty || addrss.area.isEmpty {
+            HUD.flashError(title: "请选择收货地址")
+            return
+        }
+        if addrss.address.isEmpty {
+            HUD.flashError(title: "请输入详细地址")
+            return
+        }
+        if addrss.id.isEmpty {
+            AddressFacade.shared.createAddress(addrss).startWithResult { [weak self] response in
+                guard let `self` = self else { return }
+                guard let value = response.value else { return }
+                if value.isSuccess() {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        } else {
+            AddressFacade.shared.updateAddress(addrss).startWithResult { [weak self] response in
+                guard let `self` = self else { return }
+                guard let value = response.value else { return }
+                if value.isSuccess() {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+    }
+    
+    private func loadContentData() {
+        provinceLabel.text = self.addrss.province
+        cityLabel.text = self.addrss.city
+        countryLabel.text = self.addrss.area
     }
     
     private let scroll: UIScrollView = {
         let scroll = UIScrollView()
+        scroll.isScrollEnabled = true
         return scroll
     }()
     
@@ -129,6 +220,8 @@ class AddAddressViewController: BaseViewController {
         tf.font = systemFontSize(fontSize: 12)
         tf.layer.borderWidth = 0.5
         tf.layer.borderColor = UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0).cgColor
+        tf.leftView = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
+        tf.leftViewMode = UITextField.ViewMode.always
         tf.placeholder = " 请填写收货人姓名"
         return tf
     }()
@@ -146,6 +239,8 @@ class AddAddressViewController: BaseViewController {
         tf.font = systemFontSize(fontSize: 12)
         tf.layer.borderWidth = 0.5
         tf.layer.borderColor = UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0).cgColor
+        tf.leftView = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
+        tf.leftViewMode = UITextField.ViewMode.always
         tf.placeholder = " 请填写手机号码"
         return tf
     }()
@@ -165,7 +260,7 @@ class AddAddressViewController: BaseViewController {
     
     private let detailLabel: UILabel = {
         let label = UILabel()
-        label.text = "收货人"
+        label.text = "省/市/区"
         label.font = UIFont(name: "PingFangSC-Regular", size: 14.0)
         label.textColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         return label
@@ -176,7 +271,10 @@ class AddAddressViewController: BaseViewController {
         tf.layer.borderWidth = 0.5
         tf.font = systemFontSize(fontSize: 12)
         tf.layer.borderColor = UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0).cgColor
+        tf.leftView = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
+        tf.leftViewMode = UITextField.ViewMode.always
         tf.placeholder = " 请输入详细地址"
+        tf.tag = 999
         return tf
     }()
     
@@ -197,6 +295,8 @@ class AddAddressViewController: BaseViewController {
         label.layer.borderColor = UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0).cgColor
         label.layer.borderWidth = 0.5
         label.textAlignment = .center
+        label.isUserInteractionEnabled = true
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -207,6 +307,8 @@ class AddAddressViewController: BaseViewController {
         label.layer.borderColor = UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0).cgColor
         label.layer.borderWidth = 0.5
         label.textAlignment = .center
+        label.isUserInteractionEnabled = true
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -217,6 +319,8 @@ class AddAddressViewController: BaseViewController {
         label.layer.borderColor = UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0).cgColor
         label.layer.borderWidth = 0.5
         label.textAlignment = .center
+        label.isUserInteractionEnabled = true
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -240,4 +344,20 @@ class AddAddressViewController: BaseViewController {
         icon.contentMode = UIView.ContentMode.scaleAspectFill
         return icon
     }()
+}
+
+extension AddAddressViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.tag == 999 {
+            scroll.setContentOffset(CGPoint(x: 0, y: -60), animated: true)
+            scroll.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.tag == 999 {
+            scroll.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            scroll.layoutIfNeeded()
+        }
+    }
 }
