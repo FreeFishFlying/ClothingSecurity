@@ -331,3 +331,30 @@ class BindAddressPacket: HttpRequestPacket<HttpResponseData> {
         return .get
     }
 }
+
+class FeedbackPacket: HttpRequestPacket<HttpResponseData> {
+    let params: [String: String]
+    init(params: [String: String]) {
+        self.params = params
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+    
+    override func requestUrl() -> URL {
+        return URL(string: "/feedback/post")!
+    }
+    
+    override func httpMethod() -> HTTPMethod {
+        return .post
+    }
+    
+    override func parameterEncoding() -> ParameterEncoding {
+        return JSONEncoding.default
+    }
+    
+    override func requestParameter() -> [String: Any]? {
+        return params
+    }
+}
