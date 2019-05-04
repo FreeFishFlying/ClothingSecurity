@@ -37,6 +37,25 @@ class FeedbackViewController: BaseViewController {
             make.left.right.equalToSuperview()
             make.height.equalTo(145)
         }
+        let attributedString = NSMutableAttributedString(string: "如果您对我们有什么建议、想法和期望，请告诉我们。")
+        attributedString.addAttributes([
+            NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 14.135)!,
+            NSAttributedString.Key.foregroundColor:UIColor(red: 139.0 / 255.0, green: 139.0 / 255.0, blue: 141.0 / 255.0, alpha: 1.0)
+            ], range: NSRange(location: 0, length: 24))
+        textView.attributedPlaceholder = attributedString
+        view.addSubview(telephoneView)
+        telephoneView.snp.makeConstraints { make in
+            make.top.equalTo(textView.snp.bottom)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(50)
+        }
+        view.addSubview(sureButton)
+        sureButton.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(48)
+            make.right.equalToSuperview().offset(-48)
+            make.height.equalTo(45)
+            make.bottom.equalToSuperview().offset(-40)
+        }
     }
     
     private func configData() {
@@ -81,6 +100,8 @@ class FeedbackViewController: BaseViewController {
         textView.placeholder = "如果您对我们有什么建议、想法和期望，请告诉我们。"
         return textView
     }()
+    
+    private let telephoneView: TelephoneView = TelephoneView()
     
     private let sureButton = DarkKeyButton(title: "立即提交")
 }
@@ -154,5 +175,71 @@ extension FeedbackViewController: UITableViewDataSource, UITableViewDelegate {
         }
         self.tableView.reloadData()
     }
+}
+
+class TelephoneView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(topLine)
+        backgroundColor = UIColor.white
+        topLine.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(0.5)
+        }
+        addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(65)
+        }
+        addSubview(seperateLine)
+        seperateLine.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.equalTo(nameLabel.snp.right)
+            make.width.equalTo(0.5)
+        }
+        addSubview(textFiled)
+        textFiled.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalTo(seperateLine.snp.right).offset(15)
+            make.right.equalToSuperview().offset(-15)
+        }
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private let topLine: UIView = {
+        let style = UIView()
+        style.layer.backgroundColor = UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0).cgColor
+        style.alpha = 1
+        return style
+    }()
+    
+    private let seperateLine: UIView = {
+        let style = UIView()
+        style.layer.backgroundColor = UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0).cgColor
+        style.alpha = 1
+        return style
+    }()
+    
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        let attributedString = NSMutableAttributedString(string: "手机号")
+        attributedString.addAttributes([
+            NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Medium", size: 14.135)!,
+            NSAttributedString.Key.foregroundColor:UIColor(red: 35.0 / 255.0, green: 24.0 / 255.0, blue: 21.0 / 255.0, alpha: 1.0)
+            ], range: NSRange(location: 0, length: 3))
+        label.attributedText = attributedString
+        return label
+    }()
+    
+    private let textFiled: UITextField = {
+        let tf = UITextField()
+        tf.font = systemFontSize(fontSize: 14)
+        tf.placeholder = "方便我们更快向你反馈哦~"
+        return tf
+    }()
 }
