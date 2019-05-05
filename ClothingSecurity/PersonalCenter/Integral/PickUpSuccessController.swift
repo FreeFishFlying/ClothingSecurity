@@ -48,7 +48,7 @@ class PickUpSuccessController: BaseViewController {
     }
     
     @objc private func onClickBack() {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private let icon: UIImageView = {
@@ -77,6 +77,7 @@ class PickUpSuccessController: BaseViewController {
             ], range: NSRange(location: 0, length: 23))
         label.attributedText = attributedString
         label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
     

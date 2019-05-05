@@ -35,7 +35,7 @@ class MyIntegralViewController: PersonalBaseViewController {
         backButton.addTarget(self, action: #selector(clickBack), for: .touchUpInside)
         container.addSubview(integarlLabel)
         integarlLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(62)
+            make.top.equalTo(backButton.snp.bottom).offset(27)
             make.left.equalToSuperview().offset(42)
         }
         container.addSubview(resultLabel)
@@ -46,7 +46,7 @@ class MyIntegralViewController: PersonalBaseViewController {
         container.addSubview(clickButton)
         clickButton.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-10)
-            make.top.equalToSuperview().offset(89)
+            make.top.equalTo(backButton.snp.bottom).offset(43)
             make.width.equalTo(122)
             make.height.equalTo(35)
         }

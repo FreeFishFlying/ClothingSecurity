@@ -14,6 +14,9 @@ import SwiftyJSON
 
 class PersonCenterFacade: NSObject {
     @objc public static let shared = PersonCenterFacade()
+
+    private let refreshNotification = Signal<Bool, NoError>.pipe()
+
     func logout() {
         LoginOutPacket().sendImmediately()
     }
@@ -72,7 +75,27 @@ class PersonCenterFacade: NSObject {
         return UpdateUserPacket(info: value).send()
     }
     
-    func feedback(content: String)  -> SignalProducer<HttpResponseData, NSError> {
-        return PersonalFeedbackPacket(content: content).send()
+    func feedback(content: [String: String])  -> SignalProducer<HttpResponseData, NSError> {
+        return FeedbackPacket(params: content).send().on()
+    }
+
+    func notificationList(_ page: Int) -> SignalProducer<NotificationResponseData, NSError> {
+        return NotificationPacket(page).send().on()
+    }
+
+    func unreadNotification() -> SignalProducer<UnreadNotificationResponseData, NSError> {
+        return UnreadNotificationPacket().send().on()
+    }
+
+    func readNotification() -> SignalProducer<HttpResponseData, NSError> {
+        return NotificationReadPacket().send().on(value: { response in
+            if response.isSuccess() {
+                self.refreshNotification.input.send(value: true)
+            }
+        })
+    }
+
+    func willRefreshNotification() -> Signal<Bool, NoError> {
+        return refreshNotification.output
     }
 }

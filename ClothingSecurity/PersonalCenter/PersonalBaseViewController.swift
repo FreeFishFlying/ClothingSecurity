@@ -26,17 +26,37 @@ class  PersonalBaseViewController: BaseViewController {
     public func configContainer() {
         view.addSubview(container)
         container.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+            make.top.equalTo(0)
+            make.left.right.equalToSuperview()
             make.height.equalTo(235)
+            if #available(iOS 11, *) {
+                let safeAreaTop = UIApplication.shared.keyWindow!.safeAreaInsets.top
+                if safeAreaTop > 0 {
+                    make.height.equalTo(235 + safeAreaTop)
+                } else {
+                    make.height.equalTo(235)
+                }
+            } else {
+                make.top.equalTo(235)
+            }
         }
         container.addSubview(headerView)
         headerView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(29)
+            make.top.equalTo(safeAreaTopLayoutGuide)
         }
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(173)
+            if #available(iOS 11, *) {
+                let safeAreaTop = UIApplication.shared.keyWindow!.safeAreaInsets.top
+                if safeAreaTop > 0 {
+                    make.top.equalTo(173 + safeAreaTop)
+                } else {
+                    make.height.equalTo(173)
+                }
+            } else {
+                make.top.equalTo(173)
+            }
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
             make.bottom.equalToSuperview()

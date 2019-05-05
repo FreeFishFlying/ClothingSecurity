@@ -56,6 +56,7 @@ class FeedbackViewController: BaseViewController {
             make.height.equalTo(45)
             make.bottom.equalToSuperview().offset(-40)
         }
+        sureButton.addTarget(self, action: #selector(sure), for: .touchUpInside)
     }
     
     private func configData() {
@@ -68,19 +69,27 @@ class FeedbackViewController: BaseViewController {
     }
      
     @objc func sure() {
-        if  !self.textView.text.isEmpty {
-            PersonCenterFacade.shared.feedback(content: self.textView.text).startWithResult { [weak self] result in
+        if let item = dataSources.first(where: {$0.isChoosed}) {
+            if self.textView.text.isEmpty {
+                HUD.tip(text: "请输入内容")
+                return
+            }
+            var params: [String: String] = ["content": self.textView.text, "category": item.category]
+            if let contact = telephoneView.content() {
+                params["contact"] = contact
+            }
+            PersonCenterFacade.shared.feedback(content: params).startWithResult { [weak self] result in
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
                 if value.isSuccess() {
-                    self.navigationController?.popViewController(animated: true)
-                    HUD.flashSuccess(title: "提交成功")
-                } else {
-                    HUD.flashError(title: "提交失败")
+                    let controller = PickUpSuccessController()
+                    controller.isSupport = true
+                    self.navigationController?.pushViewController(controller, animated: true)
                 }
             }
         } else {
-            HUD.tip(text: "请输入内容")
+            HUD.flashError(title: "请选择反馈类型")
+            return
         }
     }
     
@@ -204,6 +213,10 @@ class TelephoneView: UIView {
             make.left.equalTo(seperateLine.snp.right).offset(15)
             make.right.equalToSuperview().offset(-15)
         }
+    }
+
+    func content() -> String? {
+        return textFiled.text
     }
     
     required init?(coder aDecoder: NSCoder) {

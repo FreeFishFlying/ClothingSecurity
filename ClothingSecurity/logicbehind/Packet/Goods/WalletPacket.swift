@@ -210,7 +210,7 @@ class AddressPacket: HttpRequestPacket<AddressResponseData> {
     }
     
     override func requestUrl() -> URL {
-        return URL(string: "/address/list?page=\(page)&size=10")!
+        return URL(string: "/address/list?page=\(page)&size=100")!
         
     }
     override func httpMethod() -> HTTPMethod {
@@ -332,6 +332,8 @@ class BindAddressPacket: HttpRequestPacket<HttpResponseData> {
     }
 }
 
+//投诉建议
+
 class FeedbackPacket: HttpRequestPacket<HttpResponseData> {
     let params: [String: String]
     init(params: [String: String]) {
@@ -356,5 +358,83 @@ class FeedbackPacket: HttpRequestPacket<HttpResponseData> {
     
     override func requestParameter() -> [String: Any]? {
         return params
+    }
+}
+
+
+//通知消息
+
+class NotificationResponseData: HttpResponseData {
+    var page: Int = 0
+    var last: Bool = false
+    var first: Bool = false
+    var data: [Notification] = []
+
+    required init(json: JSON?) {
+        super.init(json: json)
+        if let json = json {
+            page = json["page"].intValue
+            last = json["last"].boolValue
+            first = json["first"].boolValue
+            let list = json["data"].arrayValue
+            list.forEach { js in
+                data.append(Notification(json: js))
+            }
+        }
+    }
+}
+
+class NotificationPacket: HttpRequestPacket<NotificationResponseData> {
+    let page: Int
+    init(_ page: Int) {
+        self.page = page
+    }
+
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+
+    override func requestUrl() -> URL {
+        return URL(string: "/notice/list?page=\(page)")!
+
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
+    }
+}
+
+// 读通知消息
+
+class NotificationReadPacket: HttpRequestPacket<HttpResponseData> {
+
+    override func requestUrl() -> URL {
+        return URL(string: "/notice/read")!
+
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
+    }
+}
+
+// 未读通知消息计数
+
+class UnreadNotificationResponseData: HttpResponseData {
+    var count: Int = 0
+    required init(json: JSON?) {
+        super.init(json: json)
+        if let json = json {
+            let data = json["data"]
+            count = data["value"].intValue
+        }
+    }
+}
+
+class UnreadNotificationPacket: HttpRequestPacket<UnreadNotificationResponseData> {
+    override func requestUrl() -> URL {
+        return URL(string: "/notice/count_unread")!
+
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
     }
 }

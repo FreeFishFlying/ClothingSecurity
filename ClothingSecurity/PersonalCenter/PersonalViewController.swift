@@ -13,6 +13,7 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
+        loadUnread()
     }
     
     override func viewDidLoad() {
@@ -25,8 +26,25 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
         registerEvent()
         addTapClick()
         self.currentUser = UserItem.current()
+        PersonCenterFacade.shared.willRefreshNotification().observeValues { [weak self] value in
+            if value {
+                self?.loadUnread()
+            }
+        }
     }
-    
+
+    private func loadUnread() {
+        PersonCenterFacade.shared.unreadNotification().startWithResult { [weak self] result in
+            guard let `self` = self else { return }
+            guard let value = result.value else { return }
+            if value.count > 0 {
+                self.readView.isHidden = false
+            } else {
+                self.readView.isHidden = true
+            }
+        }
+    }
+
     private func addTapClick() {
         let tap_0 = UITapGestureRecognizer(target: self, action: #selector(tap))
         logo.addGestureRecognizer(tap_0)
@@ -44,13 +62,17 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
     
     private func configUI() {
         container.addSubview(logo)
+        container.addSubview(newButton)
         container.addSubview(nameLabel)
         container.addSubview(accountLabel)
-        container.addSubview(newButton)
         logo.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(15)
             make.top.equalToSuperview().offset(86)
             make.height.width.equalTo(62)
+        }
+        newButton.snp.makeConstraints { make in
+            make.top.equalTo(logo.snp.top)
+            make.right.equalToSuperview().offset(-25)
         }
         nameLabel.snp.makeConstraints { make in
             make.left.equalTo(logo.snp.right).offset(12)
@@ -60,7 +82,19 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
             make.left.equalTo(logo.snp.right).offset(12)
             make.top.equalTo(nameLabel.snp.bottom).offset(10)
         }
-        
+        newButton.addTarget(self, action: #selector(notificationList), for: .touchUpInside)
+        newButton.addSubview(readView)
+        readView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.height.width.equalTo(5)
+        }
+    }
+
+    @objc private func notificationList() {
+        let controller = NotificationViewController()
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     var currentUser: UserItem? {
@@ -76,7 +110,6 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
                 nameLabel.snp.remakeConstraints { make in
                     make.left.equalTo(logo.snp.right).offset(12)
                     make.bottom.equalTo(logo.snp.centerY).offset(5)
-                    make.right.equalToSuperview().offset(-15)
                 }
             } else {
                 nameLabel.text = "登录/注册"
@@ -133,7 +166,15 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
     private let newButton: UIButton = {
         let button = UIButton()
         button.setImage(imageNamed("news"), for: .normal)
+        button.hitTestEdgeInsets = UIEdgeInsets(top: -5, left: -5, bottom: -5, right: -5)
         return button
+    }()
+
+    private let readView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 2.5
+        view.layer.masksToBounds = true
+        return view
     }()
     
     private func onLogin() {

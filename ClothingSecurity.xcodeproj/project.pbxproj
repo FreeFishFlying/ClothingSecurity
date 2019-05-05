@@ -92,6 +92,9 @@
 		B34638AE21835C0F002B1CF3 /* BaseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34638AD21835C0F002B1CF3 /* BaseLoginViewController.swift */; };
 		B34638B0218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34638AF218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift */; };
 		B34638B221837286002B1CF3 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34638B121837286002B1CF3 /* ForgetPasswordViewController.swift */; };
+		B346B591227E772F00B2DB52 /* NotificitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346B590227E772F00B2DB52 /* NotificitionCell.swift */; };
+		B346B593227E7FEB00B2DB52 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346B592227E7FEB00B2DB52 /* NotificationViewController.swift */; };
+		B346B595227E80D500B2DB52 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346B594227E80D500B2DB52 /* Notification.swift */; };
 		B35DA8DE22772AAB009EBCE0 /* TipsOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DA8DD22772AAB009EBCE0 /* TipsOrderView.swift */; };
 		B35DA8E022774127009EBCE0 /* Prize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DA8DF22774127009EBCE0 /* Prize.swift */; };
 		B35DA8E222774DFA009EBCE0 /* PrizeReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35DA8E122774DFA009EBCE0 /* PrizeReminder.swift */; };
@@ -313,6 +316,9 @@
 		B34638AD21835C0F002B1CF3 /* BaseLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLoginViewController.swift; sourceTree = "<group>"; };
 		B34638AF218363FC002B1CF3 /* CompleteMaterialViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompleteMaterialViewController+Cell.swift"; sourceTree = "<group>"; };
 		B34638B121837286002B1CF3 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		B346B590227E772F00B2DB52 /* NotificitionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificitionCell.swift; sourceTree = "<group>"; };
+		B346B592227E7FEB00B2DB52 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		B346B594227E80D500B2DB52 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B35DA8DD22772AAB009EBCE0 /* TipsOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsOrderView.swift; sourceTree = "<group>"; };
 		B35DA8DF22774127009EBCE0 /* Prize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prize.swift; sourceTree = "<group>"; };
 		B35DA8E122774DFA009EBCE0 /* PrizeReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeReminder.swift; sourceTree = "<group>"; };
@@ -417,7 +423,6 @@
 		B3FCEEC52182091200DA52E2 /* LoginViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Cell.swift"; sourceTree = "<group>"; };
 		B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B46ABE2E877479909907E94E /* Pods_ClothingSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E179761B8E5F30806FAA0963 /* Pods_Labeauty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Labeauty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -626,6 +631,7 @@
 				B33E82E022797180008342B3 /* Coupon.swift */,
 				B3C14F70227C4C59006D088C /* Address.swift */,
 				B3A80897227DB11400EE069E /* FeedBack.swift */,
+				B346B594227E80D500B2DB52 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -750,6 +756,7 @@
 				B30D81A9219C57DB00423C7E /* AppDescriptionViewController.swift */,
 				B30D81AB219C6D3600423C7E /* FeedbackViewController.swift */,
 				B31C0C1E2258331200C815F4 /* PersonalBaseViewController.swift */,
+				B346B592227E7FEB00B2DB52 /* NotificationViewController.swift */,
 			);
 			path = PersonalCenter;
 			sourceTree = "<group>";
@@ -1017,6 +1024,7 @@
 				B3C14F72227C5590006D088C /* AddressCell.swift */,
 				B3A8088F227D7AAF00EE069E /* SigleAddressCell.swift */,
 				B3A80893227D807F00EE069E /* SignleGiftCell.swift */,
+				B346B590227E772F00B2DB52 /* NotificitionCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -1045,7 +1053,6 @@
 				B32FD62221AE32FB007BE7DB /* libz.tbd */,
 				B32FD62021AE32EE007BE7DB /* SystemConfiguration.framework */,
 				B46ABE2E877479909907E94E /* Pods_ClothingSecurity.framework */,
-				E179761B8E5F30806FAA0963 /* Pods_Labeauty.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1316,6 +1323,7 @@
 				B30FD8522186117C0004BABB /* ChangeMobileViewController.swift in Sources */,
 				B3A80888227D2ECC00EE069E /* HDSelecterViewController.m in Sources */,
 				B3248D3021880E6F00BF7485 /* AppAuthorizationUtil.swift in Sources */,
+				B346B591227E772F00B2DB52 /* NotificitionCell.swift in Sources */,
 				B3AFD587218EC02300D54F34 /* DetailGoodPacket.swift in Sources */,
 				B3BAFEE921AAC876008DB251 /* PersonalFeedbackPacket.swift in Sources */,
 				B3B1AD172189AE9D001BBB32 /* AuthUserInfoPacket.swift in Sources */,
@@ -1339,6 +1347,7 @@
 				B33E82E52279CCCA008342B3 /* DetailCouponViewController.swift in Sources */,
 				B3B1AD0921899944001BBB32 /* DetailMobileViewController.swift in Sources */,
 				B322EFE5216F1C8E0077EE02 /* CommonUtil.swift in Sources */,
+				B346B593227E7FEB00B2DB52 /* NotificationViewController.swift in Sources */,
 				B3FCEEC821821FFD00DA52E2 /* RegisterViewController.swift in Sources */,
 				B34638AC21835AFC002B1CF3 /* CompleteMaterialViewController.swift in Sources */,
 				B32612532186DFD1002A2E51 /* UserItem.swift in Sources */,
@@ -1389,6 +1398,7 @@
 				B3BBEE6A2181B7BB00F5FA47 /* UIView+Blur.swift in Sources */,
 				B3BAFEEB21AACC18008DB251 /* GoodSearchTermPacket.swift in Sources */,
 				B377C35A219079A500114A25 /* UnCollectGoodPacket.swift in Sources */,
+				B346B595227E80D500B2DB52 /* Notification.swift in Sources */,
 				B340BE72218D671A006FB78D /* SubCategory.swift in Sources */,
 				B3BBEE692181B7BB00F5FA47 /* UIScrollView+ParallaxHeader.swift in Sources */,
 				B30FD84E21860B9E0004BABB /* AccountSafeViewController+Cell.swift in Sources */,
@@ -1621,7 +1631,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ9TC8RR69;
+				DEVELOPMENT_TEAM = 9M58D95D36;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
@@ -1705,7 +1715,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YQ9TC8RR69;
+				DEVELOPMENT_TEAM = 9M58D95D36;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",

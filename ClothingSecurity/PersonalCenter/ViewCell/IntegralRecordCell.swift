@@ -11,6 +11,7 @@ import Foundation
 class IntegralRecordCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         configUI()
     }
     
