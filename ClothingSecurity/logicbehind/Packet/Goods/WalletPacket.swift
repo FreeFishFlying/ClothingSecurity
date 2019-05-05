@@ -438,3 +438,40 @@ class UnreadNotificationPacket: HttpRequestPacket<UnreadNotificationResponseData
         return .get
     }
 }
+
+
+//二维码溯源
+
+class CommodityResponseData: HttpResponseData {
+    var arrs: [GoodAttr] = []
+    var agency: Agency?
+    required init(json: JSON?) {
+        super.init(json: json)
+        if let json = json {
+            let list = json["data"]["attrs"].arrayValue
+            list.forEach { js in
+                arrs.append(GoodAttr(json: js))
+            }
+            agency = Agency.init(json: json["data"]["agency"])
+        }
+    }
+}
+
+
+class  CommodityPacket: HttpRequestPacket<CommodityResponseData> {
+    let code: String
+    init(_ code: String) {
+        self.code = code
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+    override func requestUrl() -> URL {
+        return URL(string: "/commodity/get_by_code?code=\(code)")!
+        
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
+    }
+}

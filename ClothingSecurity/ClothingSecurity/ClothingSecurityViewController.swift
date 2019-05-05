@@ -82,7 +82,7 @@ class ClothingSecurityViewController: BaseViewController {
 //            let nav = UINavigationController(rootViewController: controller)
 //            navigationController?.present(nav, animated: true, completion: nil)
 //        }
-        let controller = ScanResultViewController()
+        let controller = ScanningViewController()
         controller.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(controller, animated: true)
     }

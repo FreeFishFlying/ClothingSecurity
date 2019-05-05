@@ -129,6 +129,12 @@ extension ScanningViewController {
     /// - Parameter value: 扫描结果
     func handle(value: String) {
         print("handle === \(value)")
+        PersonCenterFacade.shared.commodity(value).startWithResult { [weak self] result in
+            guard let `self` = self else { return }
+            guard let value = result.value else { return }
+            let controller = ScanResultViewController(value)
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     /// 相册选取图片无法读取数据

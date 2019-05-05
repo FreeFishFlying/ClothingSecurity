@@ -48,7 +48,27 @@ class NotificationViewController: BaseViewController {
             if !value.data.isEmpty {
                 self.tableView.reloadData()
             }
+            if self.list.isEmpty {
+                self.configEmptyView()
+            } else {
+                self.removeEmptyState()
+            }
         }
+    }
+    
+    private func configEmptyView() {
+        messageEmptyView.removeFromSuperview()
+        tableView.isHidden = true
+        view.addSubview(messageEmptyView)
+        messageEmptyView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaTopLayoutGuide)
+            make.left.bottom.right.equalToSuperview()
+        }
+    }
+    
+    private func removeEmptyState() {
+        messageEmptyView.removeFromSuperview()
+        tableView.isHidden = false
     }
 
     private let tableView: UITableView = {
@@ -58,6 +78,13 @@ class NotificationViewController: BaseViewController {
         table.backgroundView = nil
         table.register(NotificitionCell.self, forCellReuseIdentifier: "NotificitionCell")
         return table
+    }()
+    
+    private let messageEmptyView: EmptyGiftView = {
+        let view = EmptyGiftView()
+        view.content = "亲，你还没有消息哦"
+        view.imageName = "nomessage"
+        return view
     }()
 }
 

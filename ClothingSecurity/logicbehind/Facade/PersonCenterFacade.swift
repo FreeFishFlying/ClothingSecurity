@@ -98,4 +98,10 @@ class PersonCenterFacade: NSObject {
     func willRefreshNotification() -> Signal<Bool, NoError> {
         return refreshNotification.output
     }
+    
+    //溯源
+    
+    func commodity(_ code: String) -> SignalProducer<CommodityResponseData, NSError> {
+        return CommodityPacket(code).send().on()
+    }
 }

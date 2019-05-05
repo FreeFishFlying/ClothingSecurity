@@ -126,6 +126,8 @@
 		B39C99CD21C1497B005605DA /* SLScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C99CB21C1497B005605DA /* SLScannerView.swift */; };
 		B39C99D021C149C8005605DA /* SLQRCodeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C99CE21C149C8005605DA /* SLQRCodeConfig.swift */; };
 		B39C99D121C149C8005605DA /* SLQRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C99CF21C149C8005605DA /* SLQRCodeHelper.swift */; };
+		B3A27501227F22BA002D3809 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A27500227F22BA002D3809 /* ScanResultViewController.swift */; };
+		B3A27503227F250E002D3809 /* Agency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A27502227F250E002D3809 /* Agency.swift */; };
 		B3A80886227D2ECC00EE069E /* HDSelecterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8087C227D2ECC00EE069E /* HDSelecterView.m */; };
 		B3A80887227D2ECC00EE069E /* HDSelecterTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8087D227D2ECC00EE069E /* HDSelecterTabView.m */; };
 		B3A80888227D2ECC00EE069E /* HDSelecterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8087F227D2ECC00EE069E /* HDSelecterViewController.m */; };
@@ -178,7 +180,7 @@
 		B3E0D6A32197CBAA00CF5B63 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */; };
 		B3E0D6A721986EAD00CF5B63 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */; };
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
-		B3F341072257968C00F64948 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F341062257968C00F64948 /* ScanResultViewController.swift */; };
+		B3F341072257968C00F64948 /* ScanNoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F341062257968C00F64948 /* ScanNoResultViewController.swift */; };
 		B3F61788219688870051926E /* DetailPopularWearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F61787219688870051926E /* DetailPopularWearViewController.swift */; };
 		B3F6178A21968C1C0051926E /* DetailPopularWearPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */; };
 		B3F6178C21969D980051926E /* BaseFavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178B21969D980051926E /* BaseFavouriteViewController.swift */; };
@@ -357,6 +359,8 @@
 		B39C99CB21C1497B005605DA /* SLScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLScannerView.swift; sourceTree = "<group>"; };
 		B39C99CE21C149C8005605DA /* SLQRCodeConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLQRCodeConfig.swift; sourceTree = "<group>"; };
 		B39C99CF21C149C8005605DA /* SLQRCodeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLQRCodeHelper.swift; sourceTree = "<group>"; };
+		B3A27500227F22BA002D3809 /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
+		B3A27502227F250E002D3809 /* Agency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agency.swift; sourceTree = "<group>"; };
 		B3A8087B227D2ECC00EE069E /* HDSelecterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSelecterViewController.h; sourceTree = "<group>"; };
 		B3A8087C227D2ECC00EE069E /* HDSelecterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSelecterView.m; sourceTree = "<group>"; };
 		B3A8087D227D2ECC00EE069E /* HDSelecterTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSelecterTabView.m; sourceTree = "<group>"; };
@@ -413,7 +417,7 @@
 		B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
-		B3F341062257968C00F64948 /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
+		B3F341062257968C00F64948 /* ScanNoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanNoResultViewController.swift; sourceTree = "<group>"; };
 		B3F61787219688870051926E /* DetailPopularWearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearViewController.swift; sourceTree = "<group>"; };
 		B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearPacket.swift; sourceTree = "<group>"; };
 		B3F6178B21969D980051926E /* BaseFavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFavouriteViewController.swift; sourceTree = "<group>"; };
@@ -632,6 +636,7 @@
 				B3C14F70227C4C59006D088C /* Address.swift */,
 				B3A80897227DB11400EE069E /* FeedBack.swift */,
 				B346B594227E80D500B2DB52 /* Notification.swift */,
+				B3A27502227F250E002D3809 /* Agency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -904,7 +909,8 @@
 				B39C99C221C14822005605DA /* HideBarViewController.swift */,
 				B364D75F21819CD50081593D /* ClothingSecurityViewController.swift */,
 				B364D76021819CD50081593D /* ScanningViewController.swift */,
-				B3F341062257968C00F64948 /* ScanResultViewController.swift */,
+				B3F341062257968C00F64948 /* ScanNoResultViewController.swift */,
+				B3A27500227F22BA002D3809 /* ScanResultViewController.swift */,
 			);
 			path = ClothingSecurity;
 			sourceTree = "<group>";
@@ -1335,7 +1341,7 @@
 				B3AFD589218F27F100D54F34 /* DetailPriceAndCollectCell.swift in Sources */,
 				B3AFD58B218F3E9A00D54F34 /* DetailRichGoodCell.swift in Sources */,
 				B33E82E3227978B2008342B3 /* CouponCell.swift in Sources */,
-				B3F341072257968C00F64948 /* ScanResultViewController.swift in Sources */,
+				B3F341072257968C00F64948 /* ScanNoResultViewController.swift in Sources */,
 				B364D76921819CD50081593D /* ScanningViewController.swift in Sources */,
 				B3447A77218CC1E6005E6EF8 /* SearchCategoryViewModel.swift in Sources */,
 				B3B62FCA216DDDB70006A39E /* ThemeNavigationController.swift in Sources */,
@@ -1371,6 +1377,7 @@
 				B3447A6B218C9818005E6EF8 /* Banner.swift in Sources */,
 				B364D76821819CD50081593D /* ClothingSecurityViewController.swift in Sources */,
 				B3AFD585218EBFE700D54F34 /* SearchByKeywordPacket.swift in Sources */,
+				B3A27501227F22BA002D3809 /* ScanResultViewController.swift in Sources */,
 				B32256E0218B33260032A019 /* PopularWeasrCell.swift in Sources */,
 				B35DBB10216C783A00CAFDAD /* ViewController.swift in Sources */,
 				B3B62FC2216DCBE30006A39E /* ClothingSecurityViewController.swift in Sources */,
@@ -1424,6 +1431,7 @@
 				B3AFD581218E9DCB00D54F34 /* LatestMainPushViewController.swift in Sources */,
 				B377C358219077B100114A25 /* CollectGoodPacket.swift in Sources */,
 				B30E01E3218B4BA3005F2C0C /* BrandIntroductionModel.swift in Sources */,
+				B3A27503227F250E002D3809 /* Agency.swift in Sources */,
 				B322EFF0216F2EFA0077EE02 /* SLScannerView.swift in Sources */,
 				B3380ACD21BE504F003A8C71 /* RegisterAgreementWebViewController.swift in Sources */,
 				B3447A79218CC32A005E6EF8 /* SearchCategoryCell.swift in Sources */,

@@ -72,7 +72,7 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
                     self.configGiftEmptyView()
                 }
             } else {
-                self.tableView.isHidden = false
+                self.removeEmptyState()
             }
         }
     }
@@ -95,6 +95,12 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
             make.top.equalTo(giftView.snp.bottom)
             make.left.bottom.right.equalToSuperview()
         }
+    }
+    
+    private func removeEmptyState() {
+        giftEmptyView.removeFromSuperview()
+        discountEmptyView.removeFromSuperview()
+        tableView.isHidden = false
     }
     
     private let giftView: GiftRecordView = GiftRecordView()
