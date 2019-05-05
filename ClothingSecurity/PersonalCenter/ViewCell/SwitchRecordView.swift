@@ -8,6 +8,24 @@
 
 import Foundation
 
+class GiftRecordView: SwitchRecordView{
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        container.snp.updateConstraints { make in
+            make.top.equalToSuperview()
+        }
+        setTipView(true)
+        firstButton.setTitle("优惠券", for: .normal)
+        firstButton.setTitle("优惠券", for: .selected)
+        secondButton.setTitle("实物奖品", for: .normal)
+        secondButton.setTitle("实物奖品", for: .selected)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class SwitchRecordView: UIView {
     var onClickRecordView: ((Int) -> Void)?
     var onSign: (() -> Void)?
@@ -98,7 +116,7 @@ class SwitchRecordView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let firstButton: UIButton = {
+    let firstButton: UIButton = {
         let button = UIButton()
         button.setTitle("积分获得记录", for: .normal)
         button.setTitle("积分获得记录", for: .selected)
@@ -109,7 +127,7 @@ class SwitchRecordView: UIView {
         return button
     }()
     
-    private let secondButton: UIButton = {
+    let secondButton: UIButton = {
         let button = UIButton()
         button.setTitle("积分消费记录", for: .normal)
         button.setTitle("积分消费记录", for: .selected)
@@ -141,7 +159,7 @@ class SwitchRecordView: UIView {
         return label
     }()
     
-    private let container: UIView = {
+    let container: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white
         return view

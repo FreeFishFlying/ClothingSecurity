@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Core
 import HUD
-class FeedbackViewController: BaseViewController {
+class FeedbackViewController: BaseViewController, UITextFieldDelegate {
     private let maxNumber = "200"
     var dataSources: [FeedBack] = []
     override func viewDidLoad() {
@@ -49,6 +49,7 @@ class FeedbackViewController: BaseViewController {
             make.left.right.equalToSuperview()
             make.height.equalTo(50)
         }
+        telephoneView.textFiled.delegate = self
         view.addSubview(sureButton)
         sureButton.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(48)
@@ -113,6 +114,20 @@ class FeedbackViewController: BaseViewController {
     private let telephoneView: TelephoneView = TelephoneView()
     
     private let sureButton = DarkKeyButton(title: "立即提交")
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        tableView.snp.updateConstraints { make in
+            make.top.equalTo(safeAreaTopLayoutGuide).offset(-100)
+        }
+        tableView.layoutIfNeeded()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        tableView.snp.updateConstraints { make in
+            make.top.equalTo(safeAreaTopLayoutGuide)
+        }
+        tableView.layoutIfNeeded()
+    }
 }
 
 extension FeedbackViewController: UITableViewDataSource, UITableViewDelegate {
@@ -249,7 +264,7 @@ class TelephoneView: UIView {
         return label
     }()
     
-    private let textFiled: UITextField = {
+    let textFiled: UITextField = {
         let tf = UITextField()
         tf.font = systemFontSize(fontSize: 14)
         tf.placeholder = "方便我们更快向你反馈哦~"

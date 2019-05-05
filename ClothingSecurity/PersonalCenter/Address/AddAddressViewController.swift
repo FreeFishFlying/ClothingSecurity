@@ -27,23 +27,16 @@ class AddAddressViewController: BaseViewController {
     }
     
     private func configUI() {
-        view.addSubview(scroll)
-        scroll.addSubview(nameLabel)
-        scroll.addSubview(nameTF)
-        scroll.addSubview(mobileLabel)
-        scroll.addSubview(mobileTF)
-        scroll.addSubview(detailLabel)
-        scroll.addSubview(contentView)
-        scroll.addSubview(addressLabel)
-        scroll.addSubview(addressTF)
-        scroll.addSubview(button)
+        view.addSubview(nameLabel)
+        view.addSubview(nameTF)
+        view.addSubview(mobileLabel)
+        view.addSubview(mobileTF)
+        view.addSubview(detailLabel)
+        view.addSubview(contentView)
+        view.addSubview(addressLabel)
+        view.addSubview(addressTF)
+        view.addSubview(button)
         configContentView()
-        scroll.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaTopLayoutGuide)
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
-            make.bottom.equalToSuperview()
-        }
         nameLabel.snp.makeConstraints { make  in
             make.top.equalTo(safeAreaTopLayoutGuide).offset(15)
             make.left.equalToSuperview().offset(15)
@@ -91,7 +84,6 @@ class AddAddressViewController: BaseViewController {
             make.right.equalToSuperview().offset(-48)
             make.height.equalTo(45)
         }
-        scroll.contentSize = CGSize(width: 0, height: 0)
         button.addTarget(self, action: #selector(onCreateNewAddress), for: .touchUpInside)
         nameTF.text = addrss.name
         mobileTF.text = addrss.mobile
@@ -207,12 +199,6 @@ class AddAddressViewController: BaseViewController {
         cityLabel.text = self.addrss.city
         countryLabel.text = self.addrss.area
     }
-    
-    private let scroll: UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.isScrollEnabled = true
-        return scroll
-    }()
     
     private let nameTF: UITextField = {
         let tf = UITextField()
@@ -349,15 +335,17 @@ class AddAddressViewController: BaseViewController {
 extension AddAddressViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.tag == 999 {
-            scroll.setContentOffset(CGPoint(x: 0, y: -60), animated: true)
-            scroll.layoutIfNeeded()
+            nameLabel.snp.updateConstraints { make in
+                make.top.equalTo(safeAreaTopLayoutGuide).offset(-70)
+            }
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.tag == 999 {
-            scroll.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-            scroll.layoutIfNeeded()
+            nameLabel.snp.updateConstraints { make in
+                make.top.equalTo(safeAreaTopLayoutGuide).offset(15)
+            }
         }
     }
 }
