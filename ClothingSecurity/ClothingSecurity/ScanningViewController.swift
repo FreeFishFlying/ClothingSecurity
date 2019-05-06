@@ -132,8 +132,13 @@ extension ScanningViewController {
         PersonCenterFacade.shared.commodity(value).startWithResult { [weak self] result in
             guard let `self` = self else { return }
             guard let value = result.value else { return }
-            let controller = ScanResultViewController(value)
-            self.navigationController?.pushViewController(controller, animated: true)
+            if value.isSuccess() {
+                let controller = ScanResultViewController(value)
+                self.navigationController?.pushViewController(controller, animated: true)
+            } else {
+                let controller = ScanNoResultViewController()
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
         }
     }
     
