@@ -4,13 +4,13 @@
     "themeColor":"28AF63",
     "homeFont":16,
     "showSettings":true,
-    "webServiceToken":"c86e5d02-bcfd-47b1-8a04-7c88382e42e7",
+    "webServiceToken":"cd36dace-c171-45c7-98b8-4a9c3e18a62c",
     "showResult":true,
     "showLevel":true,
     "forcedFlash":true,
-    "webServiceUrl":"https://svc-kxzt-beedee.s2icode.com/api/svc",
+    "webServiceUrl":"https://svc-sinoac-api.s2icode.com/api/svc",
     "changeLanguage": true,
-    "feedbackUrl":"https://www.wjx.cn/jq/32649677.aspx",
+    "feedbackUrl":"",
     "type": "MultiPolygon",
     "coordinates": [
     

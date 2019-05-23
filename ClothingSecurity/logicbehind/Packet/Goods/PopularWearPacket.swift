@@ -21,25 +21,24 @@ class PopularWearResponse: HttpResponseData {
     required init(json: JSON?) {
         super.init(json: json)
         if let json = json {
-            let data = json["data"]
-            if let contentJson = data["content"].array {
-                contentJson.forEach { item in
+            if let data = json["data"].array {
+                data.forEach { item in
                     content.append(Good(json: item))
                 }
             }
-            if let page = data["page"].int {
+            if let page = json["page"].int {
                 self.page = page
             }
-            if let size = data["size"].int {
+            if let size = json["size"].int {
                 self.size = size
             }
-            if let total = data["total"].int {
+            if let total = json["total"].int {
                 self.total = total
             }
-            if let last = data["last"].bool {
+            if let last = json["last"].bool {
                 self.last = last
             }
-            if let first = data["first"].bool {
+            if let first = json["first"].bool {
                 self.first = first
             }
         }
