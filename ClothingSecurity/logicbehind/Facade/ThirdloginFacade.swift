@@ -28,7 +28,7 @@ class ThirdloginFacade: NSObject {
     func login(code: String, type: ThirdType) -> SignalProducer<LoginResponseData, NSError> {
         return ThirdLoginPacket(code: code, type: type).send().on(value: { data in
             if let user = data.userItem {
-                if user.role == "USER" {
+                if user.role == "USER" || user.role == "ADMIN"{
                     UserItem.save(user)
                     LoginState.shared.hasLogin.value = true
                     LoginAndRegisterFacade.shared.userChangePip.input.send(value: user)

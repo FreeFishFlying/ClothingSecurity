@@ -70,15 +70,19 @@ class LoginViewController: BaseLoginViewController {
         ThirdloginFacade.shared.willRegister().observeResult { [weak self] result in
             guard let value = result.value else { return }
             if value {
-                let controller = ThirdRegisterViewController()
-                self?.navigationController?.pushViewController(controller, animated: true)
+                DispatchQueue.main.async {
+                    let controller = ThirdRegisterViewController()
+                    self?.navigationController?.pushViewController(controller, animated: true)
+                }
             }
         }
         
         ThirdloginFacade.shared.thirdLoginSucess().observeResult { [weak self] result in
             guard let value = result.value else { return }
             if value {
-                self?.navigationController?.dismiss(animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self?.navigationController?.dismiss(animated: true, completion: nil)
+                }
             }
         }
         

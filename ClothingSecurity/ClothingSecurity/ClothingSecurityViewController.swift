@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import SnapKit
-//import S2iCodeModule
+import S2iCodeModule
+import AlertController
+import Core
+import ActionSheet
 class ClothingSecurityViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,26 +68,51 @@ class ClothingSecurityViewController: BaseViewController {
         btn.layer.masksToBounds = true
         return btn
     }()
-    
-    @objc private func scanning() {
-//        if LoginState.shared.hasLogin {
-//            S2iCodeModule.shared()?.start(within: UIApplication.shared.keyWindow, uiNavigationController: self.navigationController)
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-//                let controllers = self.navigationController?.viewControllers;
-//                if let controller = controllers?.last {
-//                    controller.navigationController?.navigationBar.isHidden = true
-//                    controller.navigationController?.setNavigationBarHidden(true, animated: false)
-//                    controller.fd_interactivePopDisabled = true
-//                }
-//            }
-//        } else {
-//            let controller = LoginViewController()
-//            let nav = UINavigationController(rootViewController: controller)
-//            navigationController?.present(nav, animated: true, completion: nil)
-//        }
+
+    func scicode() {
+        S2iCodeModule.shared()?.start(within: UIApplication.shared.keyWindow, uiNavigationController: self.navigationController)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            let controllers = self.navigationController?.viewControllers;
+            if let controller = controllers?.last {
+                controller.navigationController?.navigationBar.isHidden = true
+                controller.navigationController?.setNavigationBarHidden(true, animated: false)
+                controller.fd_interactivePopDisabled = true
+            }
+        }
+    }
+
+    func scan() {
         let controller = ScanningViewController()
         controller.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(controller, animated: true)
+    }
+
+    @objc private func scanning() {
+
+        if LoginState.shared.hasLogin.value {
+            if UserItem.current()?.role == "ADMIN" {
+                let actionsheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+                actionsheet.addButton(title: "防伪") {
+                    DispatchQueue.main.async {
+                        self.scicode()
+                    }
+                }
+                actionsheet.addButton(title: "溯源") {
+                    DispatchQueue.main.async {
+                        self.scan()
+                    }
+                }
+                actionsheet.addButton(title: "取消") {
+                }
+                self.present(actionsheet, animated: true, completion: nil)
+            } else {
+                scicode()
+            }
+        } else {
+            let controller = LoginViewController()
+            let nav = UINavigationController(rootViewController: controller)
+            navigationController?.present(nav, animated: true, completion: nil)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
