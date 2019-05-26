@@ -16,7 +16,10 @@ import Mesh
 import SwiftyJSON
 
 class AccountSafeViewController: GroupedFormViewController {
+    
+    
     var userItem = UserItem.current()
+    var isNotification: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -46,6 +49,21 @@ class AccountSafeViewController: GroupedFormViewController {
         super.viewWillAppear(animated)
     }
     
+    func isUserNotificationEnable() -> Bool {
+        // 判断用户是否允许接收通知
+        var isEnable = false
+        if Float(UIDevice.current.systemVersion) ?? 0.0 >= 8.0 {
+            // iOS版本 >=8.0 处理逻辑
+            let setting: UIUserNotificationSettings? = UIApplication.shared.currentUserNotificationSettings
+            isEnable = (nil == setting?.types) ? false : true
+        } else {
+            // iOS版本 <8.0 处理逻辑
+            let type: UIRemoteNotificationType = UIApplication.shared.enabledRemoteNotificationTypes()
+            isEnable = (0 == Int(type.rawValue)) ? false : true
+        }
+        return isEnable
+    }
+    
     @objc func loginOut() {
         UserItem.loginOut()
         PersonCenterFacade.shared.logout()
@@ -68,6 +86,7 @@ class AccountSafeViewController: GroupedFormViewController {
             <<< SafeAccountCellRow { row in
                 row.cell.title = "头像"
                 row.cell.showIcon = true
+                row.cell.showNext = true
                 row.cell.url = userItem?.avatar
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
@@ -82,6 +101,7 @@ class AccountSafeViewController: GroupedFormViewController {
             <<< SafeAccountCellRow { row in
                 row.cell.title = "昵称"
                 row.cell.showIcon = false
+                row.cell.showNext = true
                 row.cell.content = userItem?.nickName
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
@@ -97,6 +117,7 @@ class AccountSafeViewController: GroupedFormViewController {
             <<< SafeAccountCellRow { row in
                 row.cell.title = "绑定手机号"
                 row.cell.showIcon = false
+                row.cell.showNext = true
                 row.cell.content = userItem?.mobile
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
@@ -113,6 +134,7 @@ class AccountSafeViewController: GroupedFormViewController {
                 <<< SafeAccountCellRow { row in
                     row.cell.title = "修改密码"
                     row.cell.showIcon = false
+                    row.cell.showNext = true
                     row.onCellSelection({ [weak self] (_, _) in
                         guard let `self` = self else { return }
                         let controller = ChangePasswordViewController()
@@ -125,6 +147,7 @@ class AccountSafeViewController: GroupedFormViewController {
             <<< SafeAccountCellRow { row in
                 row.cell.title = "填写地址"
                 row.cell.showIcon = false
+                row.cell.showNext = true
                 row.onCellSelection({ [weak self] (_, _) in
                     let controller = MyAddressListViewController()
                     self?.navigationController?.pushViewController(controller, animated: true)
@@ -135,11 +158,24 @@ class AccountSafeViewController: GroupedFormViewController {
             <<< SafeAccountCellRow { row in
                 row.cell.title = "检查更新"
                 row.cell.showIcon = false
+                row.cell.showNext = true
                 row.onCellSelection({ [weak self] (_, _) in
                     
                 })
                 row.cell.height = { 67 }
         }
+//        form +++ fixHeightHeaderSection(height: 0)
+//            <<< SafeAccountCellRow { row in
+//                row.cell.title = "是否接收推送消息"
+//                row.cell.showIcon = false
+//                row.cell.showNext = false
+//                row.cell.onSwitchValueChanged = { [weak self] in
+//
+//                }
+//                row.cellUpdate({ [weak self] (cell, _) in
+//                    cell.open = self?.isUserNotificationEnable()
+//                })
+//        }
     }
     
     private func uploadImage() {

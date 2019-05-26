@@ -52,8 +52,11 @@ class DetailRichGoodModel: NSObject {
     }
     
     private func singleUrlToSize(url: String) -> CGSize {
-        var list: [String] = url.components(separatedBy: "_")
-        list.removeFirst()
+        var list: [String] = []
+        let pics : [String] = url.components(separatedBy: "_w")
+        if let pic = pics.last {
+            list = pic.components(separatedBy: "_h")
+        }
         var width: CGFloat = 750
         var height: CGFloat = 1214
         if let widthString = list.first {

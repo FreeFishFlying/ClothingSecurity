@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import S2iCodeModule
 class HideBarViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,6 +13,7 @@ enum TargetType: String {
     case empty = "EMPTY"
     case gift = "GIFT"
     case coupon = "COUPON"
+    case point = "BONUS_POINT"
 }
 
 class prizeLog: NSObject {
@@ -39,8 +40,13 @@ class Prize: NSObject {
     var updateTime: TimeInterval = 0
     var name: String = ""
     var thumb: String = ""
+    var stockNumber: Int = 0
+    var stockTotal: Int = 0
+    var disabled: Bool = false
+    var sendTime: TimeInterval = 0
     var targetId: String = ""
     var targetType: TargetType = .empty
+    var prizeLogId: String = ""
     
     init(json: JSON) {
         id = json["id"].stringValue
@@ -50,5 +56,10 @@ class Prize: NSObject {
         thumb = json["thumb"].stringValue
         targetId = json["targetId"].stringValue
         targetType = TargetType(rawValue: json["targetType"].stringValue) ?? .empty
+        stockNumber = json["stockNumber"].intValue
+        stockTotal = json["stockTotal"].intValue
+        disabled = json["disabled"].boolValue
+        sendTime = json["sendTime"].doubleValue
+        prizeLogId = json["prizeLogId"].stringValue
     }
 }

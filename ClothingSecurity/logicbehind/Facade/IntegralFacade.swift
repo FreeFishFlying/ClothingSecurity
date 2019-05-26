@@ -39,4 +39,8 @@ class IntegralFacade: NSObject {
     func couponList(_ page: Int) -> SignalProducer<CouponResponseData, NSError> {
         return CouponPacket(page: page).send().on()
     }
+    
+    func giftList(_ page: Int) -> SignalProducer<GiftListResponseData, NSError> {
+        return GiftListPacket(page).send().on()
+    }
 }

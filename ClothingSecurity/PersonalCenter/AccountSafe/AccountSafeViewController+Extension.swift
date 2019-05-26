@@ -10,10 +10,17 @@ import Foundation
 import Eureka
 import Core
 class SafeAccountCell: Cell<String>, CellType {
-    
+    var onSwitchValueChanged:( () -> Void)?
     var showIcon: Bool = false {
         didSet {
             icon.isHidden = !showIcon
+        }
+    }
+    
+    var showNext: Bool = true {
+        didSet {
+            nextIcon.isHidden = !showNext
+            switchButton.isHidden = showNext
         }
     }
     
@@ -43,6 +50,14 @@ class SafeAccountCell: Cell<String>, CellType {
         }
     }
     
+    var open: Bool? {
+        didSet{
+            if let value = open {
+                switchButton.isOn = value
+            }
+        }
+    }
+    
     public override func setup() {
         super.setup()
         addSubview(nameLabel)
@@ -55,6 +70,12 @@ class SafeAccountCell: Cell<String>, CellType {
             make.right.equalToSuperview().offset(-15)
             make.centerY.equalToSuperview()
         }
+        addSubview(switchButton)
+        switchButton.snp.makeConstraints { make in
+            make.right.equalTo(nextIcon)
+            make.centerY.equalToSuperview()
+        }
+        switchButton.addTarget(self, action: #selector(switchValueChange), for: .valueChanged)
         addSubview(icon)
         icon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -73,6 +94,10 @@ class SafeAccountCell: Cell<String>, CellType {
             make.height.equalTo(0.5)
         }
         layoutIfNeeded()
+    }
+    
+    @objc private func switchValueChange() {
+        onSwitchValueChanged?()
     }
     
     private let nameLabel: UILabel = {
@@ -100,6 +125,11 @@ class SafeAccountCell: Cell<String>, CellType {
     
     private let nextIcon: UIImageView = {
        return UIImageView(image: imageNamed("icon_right"))
+    }()
+    
+    private let switchButton: UISwitch = {
+        let button = UISwitch()
+        return button
     }()
     
     private let line: UIView = {

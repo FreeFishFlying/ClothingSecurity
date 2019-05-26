@@ -9,6 +9,7 @@
 import Foundation
 
 class SignleGiftCell: UITableViewCell {
+    var onButtonClick: ((Prize) -> Void)?
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.clear
@@ -51,6 +52,26 @@ class SignleGiftCell: UITableViewCell {
             make.left.equalTo(icon.snp.right).offset(10)
             make.top.equalTo(tipLabel.snp.bottom).offset(3)
         }
+        container.addSubview(button)
+        button.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-13)
+            make.right.equalToSuperview().offset(-15)
+            make.width.equalTo(82)
+            make.height.equalTo(25)
+        }
+        button.addTarget(self, action: #selector(click), for: .touchUpInside)
+    }
+    
+    @objc private func click() {
+        if let prize = gift {
+            onButtonClick?(prize)
+        }
+    }
+    
+    var hideButton: Bool = true {
+        didSet {
+            button.isHidden = hideButton
+        }
     }
     
     var gift: Prize? {
@@ -60,8 +81,15 @@ class SignleGiftCell: UITableViewCell {
                 if let url = URL(string: gift.thumb) {
                     icon.kf.setImage(with: url)
                 }
-                let start = changeTimeStamp(gift.createTime, false)
-                let end = changeTimeStamp(gift.updateTime, false)
+            }
+        }
+    }
+    
+    var showTime: TimeInterval? {
+        didSet {
+            if let time = showTime {
+                let start = changeTimeStamp(time)
+                let end = changeTimeStamp(time + 7*24*60*60)
                 timeLabel.text = start + "-" + end
             }
         }
@@ -105,5 +133,13 @@ class SignleGiftCell: UITableViewCell {
         label.textColor = UIColor(red: 165.0 / 255.0, green: 165.0 / 255.0, blue: 165.0 / 255.0, alpha: 1.0)
         label.font = systemFontSize(fontSize: 10)
         return label
+    }()
+    
+    private let button: DarkKeyButton = {
+        let button = DarkKeyButton(title: "立即提货")
+        button.layer.cornerRadius = 12.5
+        button.layer.masksToBounds = true
+        button.titleLabel?.font = systemFontSize(fontSize: 12)
+        return button
     }()
 }

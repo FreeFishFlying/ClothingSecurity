@@ -13,9 +13,11 @@ class PickUpImmediatelyController: BaseViewController, UITableViewDelegate, UITa
     var address: Address?
     let id: String
     let model: Prize
-    init(_ model: Prize, _ id: String) {
+    var log: prizeLog?
+    init(_ model: Prize, _ id: String, _ log: prizeLog? = nil) {
         self.model = model
         self.id = id
+        self.log = log
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -48,7 +50,7 @@ class PickUpImmediatelyController: BaseViewController, UITableViewDelegate, UITa
     
     @objc func bindAddress() {
         if let address = address {
-            AddressFacade.shared.bindPrized(prizeLogId: model.id, addressId: address.id).startWithResult { [weak self] result in
+            AddressFacade.shared.bindPrized(prizeLogId: id, addressId: address.id).startWithResult { [weak self] result in
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
                 if value.isSuccess() {
@@ -105,6 +107,12 @@ class PickUpImmediatelyController: BaseViewController, UITableViewDelegate, UITa
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SignleGiftCell", for: indexPath) as! SignleGiftCell
             cell.gift = model
+            if let log = self.log {
+                cell.showTime = log.createTime
+            } else {
+                cell.showTime = model.sendTime
+            }
+            cell.hideButton = true
             return cell
         }
     }

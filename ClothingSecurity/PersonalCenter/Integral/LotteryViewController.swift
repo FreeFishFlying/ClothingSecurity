@@ -297,20 +297,20 @@ class LotteryContainer: UIView {
                 guard let value = result.value else { return }
                 let prize = value.prizes[value.prizeIndex]
                 if let log = value.log {
-                    self.handleWithValue(prize, log.prizeId)
+                    self.handleWithValue(prize, log)
                 }
             })
         }
     }
     
-    func handleWithValue(_ item: Prize, _ id: String) {
+    func handleWithValue(_ item: Prize, _ log: prizeLog) {
         let reminder = PrizeReminder()
         reminder.model = item
-        reminder.logId = id
+        reminder.log = log
         reminder.show()
-        reminder.onGiftButtonClick = { gift, id in
+        reminder.onGiftButtonClick = { gift, log in
             if gift.targetType == .gift {
-                let controller = PickUpImmediatelyController(gift, id)
+                let controller = PickUpImmediatelyController(gift, log.id, log)
                 currentNavigationController()?.pushViewController(controller, animated: true)
             }
         }
@@ -431,11 +431,11 @@ class LotteryItem: UIImageView {
 }
 
 public extension Int {
-    public static func randomIntNumber(lower: Int = 0,upper: Int = Int(UInt32.max)) -> Int {
+    static func randomIntNumber(lower: Int = 0,upper: Int = Int(UInt32.max)) -> Int {
         return lower + Int(arc4random_uniform(UInt32(upper - lower)))
     }
 
-    public static func randomIntNumber(range: Range<Int>) -> Int {
+    static func randomIntNumber(range: Range<Int>) -> Int {
         return randomIntNumber(lower: range.lowerBound, upper: range.upperBound)
     }
 }

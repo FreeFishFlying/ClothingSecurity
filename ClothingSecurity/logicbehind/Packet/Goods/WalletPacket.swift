@@ -475,3 +475,42 @@ class  CommodityPacket: HttpRequestPacket<CommodityResponseData> {
         return .get
     }
 }
+
+//查询拥有的实物
+
+class GiftListResponseData: HttpResponseData {
+    var data:[Prize] = []
+    var page: Int = 0
+    var last: Bool = false
+    var first: Bool = false
+    required init(json: JSON?) {
+        super.init(json: json)
+        if let json = json {
+            let list = json["data"].arrayValue
+            list.forEach { js in
+                data.append(Prize(json: js))
+            }
+            page = json["page"].intValue
+            last = json["last"].boolValue
+            first = json["first"].boolValue
+        }
+    }
+}
+
+class GiftListPacket: HttpRequestPacket<GiftListResponseData> {
+    let page: Int
+    init(_ page: Int) {
+        self.page = page
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+    override func requestUrl() -> URL {
+        return URL(string: "/gift/list?page=\(page)")!
+        
+    }
+    override func httpMethod() -> HTTPMethod {
+        return .get
+    }
+}

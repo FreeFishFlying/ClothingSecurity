@@ -12,7 +12,9 @@ import MJRefresh
 
 class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     var dataSources: [Coupon] = []
+    var list: [Prize] = []
     var page: Int = 0
+    var type = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "我的礼物"
@@ -29,7 +31,9 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
         }
         giftView.onClickRecordView = { [weak self] value in
             guard let `self` = self else { return }
-            self.couponList(0, type: value)
+            self.type = value
+            self.page = 0
+            self.couponList(self.page, type: value)
         }
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -37,6 +41,7 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
             make.left.bottom.right.equalToSuperview()
         }
         tableView.register(CouponCell.self, forCellReuseIdentifier: "CouponCell")
+        tableView.register(SignleGiftCell.self, forCellReuseIdentifier: "SignleGiftCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
@@ -49,32 +54,62 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
     }
     
     private func couponList(_ page: Int, type: Int) {
-        IntegralFacade.shared.couponList(page).startWithResult { [weak self] result in
-            guard let `self` = self else { return }
-            guard let value = result.value else { return }
-            if self.page == 0 {
-                self.dataSources.removeAll()
-            }
-            self.page += 1
-            if value.last {
-                self.tableView.mj_footer.endRefreshingWithNoMoreData()
-            } else {
-                self.tableView.mj_footer.resetNoMoreData()
-            }
-            self.dataSources.append(contentsOf: value.data)
-            if !value.data.isEmpty {
-                self.tableView.reloadData()
-            }
-            if self.dataSources.isEmpty {
-                if type == 0 {
-                    self.configDiscountEmptyView()
-                } else {
-                    self.configGiftEmptyView()
+        if type == 0 {
+            IntegralFacade.shared.couponList(page).startWithResult { [weak self] result in
+                guard let `self` = self else { return }
+                guard let value = result.value else { return }
+                if self.page == 0 {
+                    self.dataSources.removeAll()
                 }
-            } else {
-                self.removeEmptyState()
+                self.page += 1
+                if value.last {
+                    self.tableView.mj_footer.endRefreshingWithNoMoreData()
+                } else {
+                    self.tableView.mj_footer.resetNoMoreData()
+                }
+                self.dataSources.append(contentsOf: value.data)
+                if !value.data.isEmpty {
+                    self.tableView.reloadData()
+                }
+                if self.dataSources.isEmpty {
+                    if type == 0 {
+                        self.configDiscountEmptyView()
+                    } else {
+                        self.configGiftEmptyView()
+                    }
+                } else {
+                    self.removeEmptyState()
+                }
+            }
+        } else {
+            IntegralFacade.shared.giftList(page).startWithResult { [weak self] result in
+                guard let `self` = self else { return }
+                guard let value = result.value else { return }
+                if self.page == 0 {
+                    self.list.removeAll()
+                }
+                self.page += 1
+                if value.last {
+                    self.tableView.mj_footer.endRefreshingWithNoMoreData()
+                } else {
+                    self.tableView.mj_footer.resetNoMoreData()
+                }
+                self.list.append(contentsOf: value.data)
+                if !value.data.isEmpty {
+                    self.tableView.reloadData()
+                }
+                if self.dataSources.isEmpty {
+                    if type == 0 {
+                        self.configDiscountEmptyView()
+                    } else {
+                        self.configGiftEmptyView()
+                    }
+                } else {
+                    self.removeEmptyState()
+                }
             }
         }
+        
     }
     
     private func configDiscountEmptyView() {
@@ -132,17 +167,38 @@ extension MyDiscountCouponViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 94.0
+        if type == 0 {
+            return 94.0
+        }
+        return 118
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CouponCell", for: indexPath) as! CouponCell
-        cell.model = dataSources[indexPath.row]
-        cell.onCouponClick = { [weak self] model in
-            let controller = DetailCouponViewController.init(model)
-            self?.navigationController?.pushViewController(controller, animated: true)
+        if type == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CouponCell", for: indexPath) as! CouponCell
+            if !self.dataSources.isEmpty {
+                cell.model = dataSources[indexPath.row]
+                cell.onCouponClick = { [weak self] model in
+                    let controller = DetailCouponViewController.init(model)
+                    self?.navigationController?.pushViewController(controller, animated: true)
+                }
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SignleGiftCell", for: indexPath) as! SignleGiftCell
+            if !list.isEmpty {
+                let gift = list[indexPath.row]
+                cell.gift = gift
+                cell.showTime = gift.sendTime
+                cell.hideButton = false
+                cell.onButtonClick = { [weak self] gift in
+                    guard let `self` = self else { return }
+                    let controller = PickUpImmediatelyController.init(gift, gift.prizeLogId)
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
+            }
+            return cell
         }
-        return cell
     }
 }
 

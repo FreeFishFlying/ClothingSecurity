@@ -33,7 +33,7 @@ class NotificitionCell: UITableViewCell {
     private func configUI() {
         addSubview(container)
         container.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
+            make.top.equalToSuperview()
             make.left.bottom.right.equalToSuperview()
         }
         container.addSubview(dot)

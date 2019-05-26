@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
-import S2iCodeModule
+//import S2iCodeModule
 class ClothingSecurityViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()

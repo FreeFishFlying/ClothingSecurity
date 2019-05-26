@@ -74,7 +74,7 @@ class PickUpSuccessController: BaseViewController {
         attributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 12.0)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 139.0 / 255.0, green: 139.0 / 255.0, blue: 141.0 / 255.0, alpha: 0.7)
-            ], range: NSRange(location: 0, length: 23))
+            ], range: NSRange(location: 0, length: 24))
         label.attributedText = attributedString
         label.textAlignment = .center
         label.numberOfLines = 0

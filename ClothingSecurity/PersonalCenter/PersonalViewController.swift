@@ -222,9 +222,13 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
             }
             cell.onClickCell = { [weak self]  in
                 if indexPath.row == 0 {
-                    let controller = MyIntegralViewController()
-                    controller.hidesBottomBarWhenPushed = true
-                    self?.navigationController?.pushViewController(controller, animated: true)
+                    if LoginState.shared.hasLogin.value {
+                        let controller = MyIntegralViewController()
+                        controller.hidesBottomBarWhenPushed = true
+                        self?.navigationController?.pushViewController(controller, animated: true)
+                    } else {
+                        self?.onLogin()
+                    }
                 }
                 else if indexPath.row == 1 {
                     if LoginState.shared.hasLogin.value {

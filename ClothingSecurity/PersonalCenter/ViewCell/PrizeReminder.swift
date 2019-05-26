@@ -9,7 +9,7 @@
 import Foundation
 
 class PrizeReminder: UIView {
-    var onGiftButtonClick: ((Prize, String) -> Void)?
+    var onGiftButtonClick: ((Prize, prizeLog) -> Void)?
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
@@ -61,8 +61,8 @@ class PrizeReminder: UIView {
     }
     
     @objc private func onButtonClick() {
-        if let model = model, let id = logId {
-            onGiftButtonClick?(model, id)
+        if let model = model, let log = log {
+            onGiftButtonClick?(model, log)
             removeFromSuperview()
         }
     }
@@ -75,7 +75,7 @@ class PrizeReminder: UIView {
         UIApplication.shared.keyWindow?.addSubview(self)
     }
     
-    var logId: String?
+    var log: prizeLog?
     
     var model: Prize? {
         didSet {
@@ -100,6 +100,12 @@ class PrizeReminder: UIView {
                     }
                     tipLabel.text = "优惠券请在规定的时间内使用，过期无效"
                     button.setTitle("点击领取", for: .normal)
+                } else if model.targetType == .point {
+                    titleLabel.text = "恭喜您，中奖了！"
+                    if let url = URL(string: model.thumb) {
+                        prizeImage.kf.setImage(with: url)
+                    }
+                    tipLabel.text = "积分已存入您的账户"
                 }
                 configUIWithState(model.targetType)
             }
@@ -125,7 +131,7 @@ class PrizeReminder: UIView {
                 make.top.equalTo(prizeImage.snp.bottom).offset(1)
                 make.centerX.equalToSuperview()
             }
-        } else if state == .coupon {
+        } else if state == .coupon || state == .point {
             prizeImage.snp.makeConstraints { make in
                 make.width.equalTo(148)
                 make.height.equalTo(63)
