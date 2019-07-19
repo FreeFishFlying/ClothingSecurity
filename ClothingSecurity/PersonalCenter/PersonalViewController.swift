@@ -209,7 +209,7 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
                 cell.title = "我的积分"
                 cell.imageName = "my-integral"
             case 1:
-                cell.title = "我的礼物"
+                cell.title = "我的奖品"
                 cell.imageName = "my-Coupon"
             case 2:
                 cell.title = "设置"

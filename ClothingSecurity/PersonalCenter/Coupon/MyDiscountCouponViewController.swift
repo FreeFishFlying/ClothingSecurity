@@ -116,6 +116,7 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
         giftEmptyView.removeFromSuperview()
         discountEmptyView.removeFromSuperview()
         tableView.isHidden = true
+        view.addSubview(discountEmptyView)
         discountEmptyView.snp.makeConstraints { make in
             make.top.equalTo(giftView.snp.bottom)
             make.left.bottom.right.equalToSuperview()
@@ -126,6 +127,7 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
         giftEmptyView.removeFromSuperview()
         discountEmptyView.removeFromSuperview()
         tableView.isHidden = true
+        view.addSubview(giftEmptyView)
         giftEmptyView.snp.makeConstraints { make in
             make.top.equalTo(giftView.snp.bottom)
             make.left.bottom.right.equalToSuperview()
@@ -208,11 +210,11 @@ class EmptyGiftView: UIView {
         addSubview(icon)
         addSubview(contentLabel)
         icon.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(60)
         }
         contentLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
             make.top.equalTo(icon.snp.bottom).offset(60)
         }
     }

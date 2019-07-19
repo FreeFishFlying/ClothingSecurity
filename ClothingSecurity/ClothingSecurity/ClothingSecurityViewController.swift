@@ -52,13 +52,14 @@ class ClothingSecurityViewController: BaseViewController {
         let label = UILabel()
         label.font = systemFontSize(fontSize: 15)
         label.textColor = UIColor(red: 102.0 / 255.0, green: 102.0 / 255.0, blue: 102.0 / 255.0, alpha: 1.0)
-        label.text = "点击开始检测，并对准条形码进行扫描"
+        label.text = "每个防伪码只能正确查询1次，请消费者注意查询结果\n如有疑问，可在关于我们中提交建议"
+        label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
     
     private let button: UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1.0)
         btn.setImage(imageNamed("scan"), for: .normal)
         btn.setBackgroundImage(imageNamed("Loginbutton"), for: .normal)
         btn.titleLabel?.font = UIFont(name: "PingFangSC-Medium", size: 17.0) ?? systemFontSize(fontSize: 17)

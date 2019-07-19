@@ -154,16 +154,16 @@ class AccountSafeViewController: GroupedFormViewController {
                 })
                 row.cell.height = { 67 }
         }
-        form +++ fixHeightHeaderSection(height: 0)
-            <<< SafeAccountCellRow { row in
-                row.cell.title = "检查更新"
-                row.cell.showIcon = false
-                row.cell.showNext = true
-                row.onCellSelection({ [weak self] (_, _) in
-                    
-                })
-                row.cell.height = { 67 }
-        }
+//        form +++ fixHeightHeaderSection(height: 0)
+//            <<< SafeAccountCellRow { row in
+//                row.cell.title = "检查更新"
+//                row.cell.showIcon = false
+//                row.cell.showNext = true
+//                row.onCellSelection({ [weak self] (_, _) in
+//                    
+//                })
+//                row.cell.height = { 67 }
+//        }
 //        form +++ fixHeightHeaderSection(height: 0)
 //            <<< SafeAccountCellRow { row in
 //                row.cell.title = "是否接收推送消息"

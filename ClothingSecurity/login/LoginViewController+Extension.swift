@@ -26,28 +26,36 @@ class ThirdParterView: UIView {
     }
     
     private func configUI() {
-        addSubview(qqButton)
-        qqButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.width.height.equalTo(40)
-        }
-        qqButton.addTarget(self, action: #selector(qqClick), for: .touchUpInside)
+//        addSubview(qqButton)
+//        qqButton.snp.makeConstraints { make in
+//            make.center.equalToSuperview()
+//            make.width.height.equalTo(40)
+//        }
+//        qqButton.addTarget(self, action: #selector(qqClick), for: .touchUpInside)
+//        if WXApi.isWXAppInstalled() {
+//            addSubview(wxButton)
+//            wxButton.snp.makeConstraints { make in
+//                make.centerY.equalToSuperview()
+//                make.right.equalTo(qqButton.snp.left).offset(-43)
+//                make.width.height.equalTo(40)
+//            }
+//            wxButton.addTarget(self, action: #selector(wxClick), for: .touchUpInside)
+//        }
+//        addSubview(wbButton)
+//        wbButton.snp.makeConstraints { make in
+//            make.left.equalTo(qqButton.snp.right).offset(43)
+//            make.centerY.equalToSuperview()
+//            make.width.height.equalTo(40)
+//        }
+//        wbButton.addTarget(self, action: #selector(wbClick), for: .touchUpInside)
         if WXApi.isWXAppInstalled() {
             addSubview(wxButton)
             wxButton.snp.makeConstraints { make in
-                make.centerY.equalToSuperview()
-                make.right.equalTo(qqButton.snp.left).offset(-43)
+                make.center.equalToSuperview()
                 make.width.height.equalTo(40)
             }
             wxButton.addTarget(self, action: #selector(wxClick), for: .touchUpInside)
         }
-        addSubview(wbButton)
-        wbButton.snp.makeConstraints { make in
-            make.left.equalTo(qqButton.snp.right).offset(43)
-            make.centerY.equalToSuperview()
-            make.width.height.equalTo(40)
-        }
-        wbButton.addTarget(self, action: #selector(wbClick), for: .touchUpInside)
     }
     
     @objc func qqClick() {
