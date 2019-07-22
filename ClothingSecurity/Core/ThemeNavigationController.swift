@@ -60,7 +60,7 @@ class ThemeNavigationController: UINavigationController, UINavigationControllerD
         let editButton = UIButton()
         editButton.frame = CGRect(x: 0, y: 0, width: 55, height: 44)
         editButton.setImage(imageNamed("ic_app_back_nor")?.withRenderingMode(.alwaysOriginal) ?? UIImage(), for: .normal)
-        editButton.setTitle("返回", for: .normal)
+        editButton.setTitle(localizedString("back"), for: .normal)
         editButton.setTitleColor(UIColor.black, for: .normal)
         editButton.titleLabel?.font = systemFontSize(fontSize: 15)
         editButton.imageEdgeInsets = UIEdgeInsets(top: 6, left: -5, bottom: 6, right: 30)

@@ -1,0 +1,95 @@
+/* 
+  Localizable.strings
+  ClothingSecurity
+
+  Created by 宋昌鹏 on 2019/7/20.
+  Copyright © 2019 scpUpCloud. All rights reserved.
+*/
+
+"back" = "返回";
+"login" = "登录";
+"register" = "注册";
+"done" = "完成";
+"forgetPassWord" = "忘记密码";
+"accountSafe" = "账户安全";
+"brandIntroduce" = "品牌介绍";
+"APP" = "APP";
+"aboutUs" = "关于我们";
+"feedback" = "问题反馈";
+"suggestions" = "投诉建议";
+"perfectInformation" = "完善资料";
+"verification" = "获取验证码";
+"album" = "相册";
+"sure" = "确定";
+"changeName" = "修改昵称";
+"bindPhone" = "绑定手机号";
+"changePhone" = "更改手机号";
+"changePD" = "更改密码";
+"collection" = "我的收藏";
+"changeSuccess" = "修改成功";
+"testResult" = "检测结果";
+"latestHas" = "最新主推";
+"PopularWear" = "人气穿搭";
+"cancel" = "取消";
+"setting" = "设置";
+"someSuggestion" = "如果您对我们有什么建议，想法和期望，请告诉我们";
+"MyPoints" = "我的积分";
+"availablePoints" = "可用积分";
+"integralDraw" = "积分抽奖";
+"firstLogin" = "每天首次登陆+10积分";
+"everyDraw" = "100积分/次";
+"MyPrize" = "我的奖品";
+"Mycoupon" = "我的优惠券";
+"immediateUse" = "立即使用";
+"coupon" = "优惠券";
+"submitImmediately" = "立即提交";
+"problemType" = "问题类型";
+"detailDescription" = "详情描述";
+"MyMessage" = "我的消息";
+"Mine" = "我的";
+"loginOrRegister" = "登录/注册";
+"dysfunction" = "功能异常";
+"existingFunction" = "不能正常使用现有功能";
+"useAdvice" = "使用建议";
+"someSuggestion" = "不满意的地方都踢过来吧";
+"demand" = "功能需求";
+"meetDemand" = "现有功能不能满足";
+"phoneNumber" = "手机号";
+"dearUser" = "亲爱的用户";
+"availablePoints" = "可用积分";
+"draw" = "抽奖";
+"myAddress" = "我的地址";
+"fillAddress" = "填写地址";
+"defaultAddress" = "默认地址";
+"noCoupons" = "亲，你暂时还没有优惠券哦";
+"noPrize" = "亲，你暂时还没有实物奖品哦";
+"noRecords" = "你还没有消费记录哦";
+"noPoints" = "你还没有获取过几分哦";
+"pickGoods" = "立即提货";
+"congratulations" = "恭喜您，中奖啦！";
+"sorry" = "很遗憾，未中奖";
+"again" = "继续努力，总有可能成为那个幸运儿的";
+"fillAddress" = "中奖礼物请尽快填写地址哦";
+"useQuickly" = "q优惠券请在规定的时间内使用";
+"valid" = "过期无效";
+"save" = "几分已存入您的账户";
+"pickUpGoods" = "立即提货";
+"noAddress" = "你还没有添加地址哦";
+"fillGoodsMessage" = "添加收货信息";
+"pickSuccess" = "提货成功";
+"submitSuccess" = "提交成功";
+"sendSuccess" = "发送成功";
+"registerSuccess" = "注册成功";
+"loginSuccess" = "登录成功";
+"appIntroduce" = "为了净化市场,减少假冒产品给我们顾客及LABEAUTY带来的负面影响和损失,维护企业和ANCILA品牌的形象和声,增强消费者购正规商品的信心,我们亲历推出本款APP。";
+"trait" = "APP特点：";
+"firstTrait" = "1、扫描商品二维码,快速检验真伪。";
+"secondTrait" = "2、完整展示labeauty产品、加深顾客对正品印象。";
+"thirdTrait" = "3、专业的防伪溯源技术保障, 专业技术团队。";
+
+"mainPage" = "首页";
+"discover" = "发现";
+"scan" = "防伪检测";
+"inputphoneNumber" = "请输入手机号";
+
+

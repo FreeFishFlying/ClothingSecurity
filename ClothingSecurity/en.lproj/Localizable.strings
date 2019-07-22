@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  ClothingSecurity
+
+  Created by 宋昌鹏 on 2019/7/20.
+  Copyright © 2019 scpUpCloud. All rights reserved.
+*/
+
+"back" = "返回";
+"login" = "登录";
+"register" = "注册";
+"done" = "完成";
+"forgetPassWord" = "忘记密码";
+"accountSafe" = "账户安全";
+"brandIntroduce" = "品牌介绍";
+"APP" = "APP";
+"aboutUs" = "关于我们";
+"feedback" = "问题反馈";
+"suggestions" = "投诉建议";
+"perfectInformation" = "完善资料";
+"verification" = "获取验证码";
+"album" = "相册";
+"sure" = "确定";
+"changeName" = "修改昵称";
+"bindPhone" = "绑定手机号";
+"changePhone" = "更改手机号";
+"changePD" = "更改密码";
+"collection" = "我的收藏";
+"changeSuccess" = "修改成功";
+"testResult" = "检测结果";
+"latestHas" = "最新主推";
+"PopularWear" = "人气穿搭";
+"cancel" = "取消";
+"setting" = "设置";
+"someSuggestion" = "如果您对我们有什么建议，想法和期望，请告诉我们";
+"MyPoints" = "我的积分";
+"availablePoints" = "可用积分";
+"integralDraw" = "积分抽奖";
+"firstLogin" = "每天首次登陆+10积分";
+"everyDraw" = "100积分/次";
+"MyPrize" = "我的奖品";
+"Mycoupon" = "我的优惠券";
+"immediateUse" = "立即使用";
+"coupon" = "优惠券";
+"submitImmediately" = "立即提交";
+"problemType" = "问题类型";
+"detailDescription" = "详情描述";
+"MyMessage" = "我的消息";
+

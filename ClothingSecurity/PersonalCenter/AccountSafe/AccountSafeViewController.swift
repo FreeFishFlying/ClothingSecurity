@@ -113,6 +113,7 @@ class AccountSafeViewController: GroupedFormViewController {
                     cell.content = self?.userItem?.nickName
                 })
         }
+
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
                 row.cell.title = "绑定手机号"
@@ -154,6 +155,23 @@ class AccountSafeViewController: GroupedFormViewController {
                 })
                 row.cell.height = { 67 }
         }
+
+        form +++ fixHeightHeaderSection(height: 0)
+            <<< SafeAccountCellRow { row in
+                row.cell.title = "语言"
+                row.cell.showIcon = false
+                row.cell.showNext = true
+                row.cell.content = currentLanguage()
+                row.onCellSelection({ [weak self] (_, _) in
+                    guard let `self` = self else { return }
+                    let controller = ChangeUserNameViewController(nickName: self.userItem?.nickName)
+                    self.navigationController?.pushViewController(controller, animated: true)
+                })
+                row.cell.height = { 67 }
+                row.cellUpdate({ [weak self] cell, _ in
+                    cell.content = self?.currentLanguage()
+                })
+        }
 //        form +++ fixHeightHeaderSection(height: 0)
 //            <<< SafeAccountCellRow { row in
 //                row.cell.title = "检查更新"
@@ -176,6 +194,10 @@ class AccountSafeViewController: GroupedFormViewController {
 //                    cell.open = self?.isUserNotificationEnable()
 //                })
 //        }
+    }
+
+    private func currentLanguage() -> String {
+        return "中文"
     }
     
     private func uploadImage() {

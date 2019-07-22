@@ -16,6 +16,7 @@ import XCGLogger
 let httpRootUrl = "https://api.labeauty.yituizhineng.top"
 //"https://api.labeauty.panda.online"
 
+
 enum DeltaDataType: String {
     case add = "ADD"
     case delete = "DELETE"

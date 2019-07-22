@@ -19,7 +19,7 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(NormalCenterCell.self, forCellReuseIdentifier: "NormalCenterCell")
-        headerTitle = "我的"
+        headerTitle = localizedString("Mine")
         tableView.delegate = self
         tableView.dataSource = self
         configUI()
@@ -112,7 +112,7 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
                     make.bottom.equalTo(logo.snp.centerY).offset(5)
                 }
             } else {
-                nameLabel.text = "登录/注册"
+                nameLabel.text = localizedString("loginOrRegister")
                 accountLabel.text = nil
                 logo.image = imageNamed("Defaulthead")
                 nameLabel.snp.remakeConstraints { make in
@@ -149,7 +149,7 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "登录/注册"
+        label.text = localizedString("loginOrRegister")
         label.font = systemFontSize(fontSize: 25)
         label.textColor = UIColor(hexString: "#424242")
         label.isUserInteractionEnabled = true
@@ -206,16 +206,16 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NormalCenterCell", for: indexPath) as? NormalCenterCell  {
             switch indexPath.row {
             case 0:
-                cell.title = "我的积分"
+                cell.title = localizedString("MyPoints")
                 cell.imageName = "my-integral"
             case 1:
-                cell.title = "我的奖品"
+                cell.title = localizedString("MyPrize")
                 cell.imageName = "my-Coupon"
             case 2:
-                cell.title = "设置"
+                cell.title = localizedString("setting")
                 cell.imageName = "my-Setup"
             case 3:
-                cell.title = "关于我们"
+                cell.title = localizedString("aboutUs")
                 cell.imageName = "my-about"
             default:
                 break

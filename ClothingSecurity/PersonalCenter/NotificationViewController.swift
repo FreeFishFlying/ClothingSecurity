@@ -14,7 +14,7 @@ class NotificationViewController: BaseViewController {
     var page: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "我的消息"
+        title = localizedString("MyMessage")
         view.backgroundColor = UIColor(red: 242.0 / 255.0, green: 242.0 / 255.0, blue: 242.0 / 255.0, alpha: 1.0)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
