@@ -238,7 +238,6 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
                     } else {
                         self?.onLogin()
                     }
-                    
                 } else if indexPath.row == 2 {
                     if LoginState.shared.hasLogin.value {
                         let controller = AccountSafeViewController()
