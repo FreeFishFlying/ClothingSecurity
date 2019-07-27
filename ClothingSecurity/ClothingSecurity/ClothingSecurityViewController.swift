@@ -16,7 +16,7 @@ import ActionSheet
 class ClothingSecurityViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "防伪检测"
+        title = localizedString("scan")
         configUI()
     }
     
@@ -52,7 +52,7 @@ class ClothingSecurityViewController: BaseViewController {
         let label = UILabel()
         label.font = systemFontSize(fontSize: 15)
         label.textColor = UIColor(red: 102.0 / 255.0, green: 102.0 / 255.0, blue: 102.0 / 255.0, alpha: 1.0)
-        label.text = "每个防伪码只能正确查询1次，请消费者注意查询结果\n如有疑问，可在关于我们中提交建议"
+//        label.text = "每个防伪码只能正确查询1次，请消费者注意查询结果\n如有疑问，可在关于我们中提交建议"
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -63,7 +63,7 @@ class ClothingSecurityViewController: BaseViewController {
         btn.setImage(imageNamed("scan"), for: .normal)
         btn.setBackgroundImage(imageNamed("Loginbutton"), for: .normal)
         btn.titleLabel?.font = UIFont(name: "PingFangSC-Medium", size: 17.0) ?? systemFontSize(fontSize: 17)
-        btn.setTitle("  开始检测", for: .normal)
+        btn.setTitle(localizedString("scan"), for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.layer.cornerRadius = 22
         btn.layer.masksToBounds = true
@@ -93,17 +93,17 @@ class ClothingSecurityViewController: BaseViewController {
         if LoginState.shared.hasLogin.value {
             if UserItem.current()?.role == "ADMIN" {
                 let actionsheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-                actionsheet.addButton(title: "防伪") {
+                actionsheet.addButton(title: localizedString("antiFake")) {
                     DispatchQueue.main.async {
                         self.scicode()
                     }
                 }
-                actionsheet.addButton(title: "溯源") {
+                actionsheet.addButton(title: localizedString("traceToSource")) {
                     DispatchQueue.main.async {
                         self.scan()
                     }
                 }
-                actionsheet.addButton(title: "取消") {
+                actionsheet.addButton(title: localizedString("cancel")) {
                 }
                 self.present(actionsheet, animated: true, completion: nil)
             } else {

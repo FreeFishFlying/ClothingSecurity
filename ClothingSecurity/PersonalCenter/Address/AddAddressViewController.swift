@@ -21,7 +21,7 @@ class AddAddressViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "填写地址"
+        title = localizedString("fillAddress")
         autoHideKeyboard = true
         configUI()
     }
@@ -137,7 +137,7 @@ class AddAddressViewController: BaseViewController {
     
     @objc private func chooseAddrss() {
         let controller = HDSelecterViewController.init(defualtProvince: "", city: "", districts: "")!
-        controller.title = "请选择地址"
+        controller.title = localizedString("pleaseSelect")
         controller.completeSelectBlock = { [weak self] provice, city, districts in
             guard let `self` = self else { return }
             if let provice = provice {
@@ -259,14 +259,14 @@ class AddAddressViewController: BaseViewController {
         tf.layer.borderColor = UIColor(red: 221.0 / 255.0, green: 221.0 / 255.0, blue: 221.0 / 255.0, alpha: 1.0).cgColor
         tf.leftView = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 40))
         tf.leftViewMode = UITextField.ViewMode.always
-        tf.placeholder = " 请输入详细地址"
+        tf.placeholder = localizedString("请输入详细地址")
         tf.tag = 999
         return tf
     }()
     
     private let addressLabel: UILabel = {
         let label = UILabel()
-        label.text = "详细地址"
+        label.text = localizedString("detailAddress")
         label.font = UIFont(name: "PingFangSC-Regular", size: 14.0)
         label.textColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         return label

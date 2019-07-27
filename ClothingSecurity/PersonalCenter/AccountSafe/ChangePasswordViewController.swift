@@ -15,7 +15,7 @@ class ChangePasswordViewController: GroupedFormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        title = "修改密码"
+        title = localizedString("changePD")
         tableView.separatorStyle = .none
         tableView.snp.remakeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)
@@ -24,25 +24,25 @@ class ChangePasswordViewController: GroupedFormViewController {
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalSafeAccountCellRow { row in
-                row.cell.title = "旧密码"
+                row.cell.title = localizedString("oldPD")
                 row.tag = "oldCell"
-                row.cell.placeHolder = "请输入旧密码"
+                row.cell.placeHolder = localizedString("inputOldPD")
                 row.cell.height =  { 67 }
                 row.cell.textField.isSecureTextEntry = true
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalSafeAccountCellRow { row in
-                row.cell.title = "新密码"
+                row.cell.title = localizedString("NewPD")
                 row.tag = "newCell"
-                row.cell.placeHolder = "请输入新密码"
+                row.cell.placeHolder = localizedString("inputNewPD")
                 row.cell.height =  { 67 }
                 row.cell.textField.isSecureTextEntry = true
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalSafeAccountCellRow { row in
-                row.cell.title = "确认密码"
+                row.cell.title = localizedString("makeSurePD")
                 row.tag = "newAgainCell"
-                row.cell.placeHolder = "请再次输入新密码"
+                row.cell.placeHolder = localizedString("inputAgain")
                 row.cell.height =  { 67 }
                 row.cell.textField.isSecureTextEntry = true
         }
@@ -66,23 +66,23 @@ class ChangePasswordViewController: GroupedFormViewController {
         if let old = oldRow.cell.content, !old.isEmpty {
             oldPD = old
         } else {
-            HUD.flashError(title: "请输入旧密码")
+            HUD.flashError(title: localizedString("inputOldPD"))
             return
         }
         if let new = newRow.cell.content, !new.isEmpty {
             newPD = new
         } else {
-            HUD.flashError(title: "请输入新密码")
+            HUD.flashError(title: localizedString("inputNewPD"))
             return
         }
         if let newAgain = newAgainRow.cell.content, !newAgain.isEmpty {
             newAgainPD = newAgain
         } else {
-            HUD.flashError(title: "请确认新密码")
+            HUD.flashError(title: localizedString("makeSurePD"))
             return
         }
         if newPD != newAgainPD {
-            HUD.flashError(title: "两次输入的密码不一致")
+            HUD.flashError(title: localizedString("errorPD"))
             return
         }
         HUD.show(.progress)
@@ -100,7 +100,7 @@ class ChangePasswordViewController: GroupedFormViewController {
         }
     }
     
-    private let button: DarkKeyButton = DarkKeyButton(title: "确定")
+    private let button: DarkKeyButton = DarkKeyButton(title: localizedString("sure"))
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.001

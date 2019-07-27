@@ -17,7 +17,7 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
     var type = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "我的礼物"
+        title = localizedString("MyPrize")
         view.backgroundColor = UIColor(red: 242.0 / 255.0, green: 242.0 / 255.0, blue: 242.0 / 255.0, alpha: 1.0)
         configTB()
     }
@@ -150,14 +150,14 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
     
     private let discountEmptyView: EmptyGiftView = {
         let view = EmptyGiftView()
-        view.content = "亲，你暂时还没有优惠券哦"
+        view.content = localizedString("亲，你暂时还没有优惠券哦")
         view.imageName = "Nocoupons"
         return view
     }()
     
     private let giftEmptyView: EmptyGiftView = {
         let view = EmptyGiftView()
-        view.content = "亲，你暂时还没有实物奖品哦"
+        view.content = localizedString("noPrize")
         view.imageName = "Noprizes"
         return view
     }()

@@ -11,7 +11,7 @@ import Foundation
 class ThirdRegisterViewController: RegisterViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextButton.setTitle("完成", for: .normal)
+        nextButton.setTitle(localizedString("done"), for: .normal)
     }
     
     override func complete(_ user: UserItem?) {

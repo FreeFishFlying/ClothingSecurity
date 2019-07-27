@@ -28,7 +28,7 @@ class ScanningViewController: BaseViewController{
     
     private func setupUI() {
         view.backgroundColor = .black
-        let albumItem = UIBarButtonItem.init(whiteTitle: "相册", target: self, action: #selector(showAlbum))
+        let albumItem = UIBarButtonItem.init(whiteTitle: localizedString("album"), target: self, action: #selector(showAlbum))
         albumItem.tintColor = .black
         navigationItem.rightBarButtonItem = albumItem;
         

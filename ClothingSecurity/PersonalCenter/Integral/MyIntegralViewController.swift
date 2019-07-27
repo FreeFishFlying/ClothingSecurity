@@ -16,7 +16,7 @@ class MyIntegralViewController: PersonalBaseViewController {
     var page: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        headerTitle = "我的积分"
+        headerTitle = localizedString("MyPoints")
         tableView.register(IntegralRecordCell.self, forCellReuseIdentifier: "IntegralRecordCell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -122,7 +122,7 @@ class MyIntegralViewController: PersonalBaseViewController {
     
     private let integarlLabel: UILabel = {
         let label = UILabel()
-        let attributedString = NSMutableAttributedString(string: "可用积分")
+        let attributedString = NSMutableAttributedString(string: localizedString("availablePoints"))
         attributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 13)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
@@ -138,7 +138,7 @@ class MyIntegralViewController: PersonalBaseViewController {
         return label
     }()
     
-    private let clickButton: DarkKeyButton = DarkKeyButton(title: "抽奖")
+    private let clickButton: DarkKeyButton = DarkKeyButton(title: localizedString("draw"))
     
     private let recordView: SwitchRecordView = SwitchRecordView()
 }

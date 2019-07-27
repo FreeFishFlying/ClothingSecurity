@@ -124,7 +124,7 @@ class SignleGiftCell: UITableViewCell {
         let label = UILabel()
         label.textColor = UIColor(red: 165.0 / 255.0, green: 165.0 / 255.0, blue: 165.0 / 255.0, alpha: 1.0)
         label.font = systemFontSize(fontSize: 10)
-        label.text = "提货期限"
+        label.text = localizedString("deliveryDeadline")
         return label
     }()
     
@@ -136,7 +136,7 @@ class SignleGiftCell: UITableViewCell {
     }()
     
     private let button: DarkKeyButton = {
-        let button = DarkKeyButton(title: "立即提货")
+        let button = DarkKeyButton(title: localizedString("pickGoods"))
         button.layer.cornerRadius = 12.5
         button.layer.masksToBounds = true
         button.titleLabel?.font = systemFontSize(fontSize: 12)

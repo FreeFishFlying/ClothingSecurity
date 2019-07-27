@@ -21,7 +21,7 @@ class DetailCouponViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "我的优惠券"
+        title = localizedString("Mycoupon")
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)

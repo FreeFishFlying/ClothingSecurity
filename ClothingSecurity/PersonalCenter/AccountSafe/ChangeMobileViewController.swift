@@ -13,13 +13,13 @@ import HUD
 
 class ChangeMobileViewController: GroupedFormViewController {
     var isEnable: Bool = true
-    var buttonTitle: String = "获取验证码"
+    var buttonTitle: String = localizedString("verification")
     var countDown: Int = 60
     var countdownTimer: TimerProxy?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        title = "更改手机号"
+        title = localizedString("changePhone")
         tableView.separatorStyle = .none
         tableView.snp.remakeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)
@@ -28,17 +28,17 @@ class ChangeMobileViewController: GroupedFormViewController {
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalSafeAccountCellRow { row in
-                row.cell.title = "新手机号"
+                row.cell.title = localizedString("phoneNumber")
                 row.tag = "phoneCell"
-                row.cell.placeHolder = "请输入新手机号"
+                row.cell.placeHolder = localizedString("inputphoneNumber")
                 row.cell.height =  { 67 }
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalSafeAccounbtVerifyCellRow { row in
                 row.cell.title = "验证码"
                 row.tag = "codeCell"
-                row.cell.buttonTitle = "获取验证码"
-                row.cell.placeHolder = "请输入手机验证码"
+                row.cell.buttonTitle = localizedString("verification")
+                row.cell.placeHolder = localizedString("inputVerifyCode")
                 row.cell.height = { 67 }
                 row.cellUpdate({ [weak self] cell, _ in
                     guard let `self` = self else { return }
@@ -67,7 +67,6 @@ class ChangeMobileViewController: GroupedFormViewController {
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
                 if value.isSuccess() {
-                    HUD.tip(text: "验证码已发出，请注意查收")
                     self.isEnable = false
                     self.countdownTimer = TimerProxy(withInterval: 1.0, repeats: true, timerHandler: { [weak self] in
                         self?.doCountDown()
@@ -77,7 +76,7 @@ class ChangeMobileViewController: GroupedFormViewController {
                 }
             }
         } else {
-            HUD.tip(text: "请输入手机号")
+            HUD.tip(text: localizedString("inputphoneNumber"))
         }
     }
     
@@ -87,7 +86,7 @@ class ChangeMobileViewController: GroupedFormViewController {
         if countDown == 0 {
             countdownTimer?.invalidate()
             countdownTimer = nil
-            buttonTitle = "获取验证码"
+            buttonTitle = localizedString("verification")
             isEnable = true
             countDown = 60
         }
@@ -116,7 +115,7 @@ class ChangeMobileViewController: GroupedFormViewController {
         }
     }
     
-    private let button: DarkKeyButton = DarkKeyButton(title: "确定")
+    private let button: DarkKeyButton = DarkKeyButton(title: localizedString("sure"))
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.001

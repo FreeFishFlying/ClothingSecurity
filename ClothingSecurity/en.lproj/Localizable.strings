@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  ClothingSecurity
-
-  Created by 宋昌鹏 on 2019/7/20.
-  Copyright © 2019 scpUpCloud. All rights reserved.
-*/
+/*
+ Localizable.strings
+ ClothingSecurity
+ 
+ Created by 宋昌鹏 on 2019/7/20.
+ Copyright © 2019 scpUpCloud. All rights reserved.
+ */
 
 "back" = "返回";
 "login" = "登录";
@@ -136,4 +136,5 @@
 "chinese" = "中文";
 "japanese" = "日语";
 "settingLanguage" = "设置后，会自动重启";
+"loading" = "正在加载";
 

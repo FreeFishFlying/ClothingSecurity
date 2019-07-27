@@ -17,7 +17,7 @@ class PopularWearViewController: BaseViewController, UITableViewDelegate, UITabl
     var imageModels = [ClothesPopularImageModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "人气穿搭"
+        title = localizedString("PopularWear")
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)

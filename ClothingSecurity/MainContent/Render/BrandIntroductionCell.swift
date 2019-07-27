@@ -82,7 +82,7 @@ class BrandIntroductionCell: UITableViewCell {
         layoutIfNeeded()
     }
     
-    private let button: HeaderCellButton = HeaderCellButton("品牌介绍")
+    private let button: HeaderCellButton = HeaderCellButton(localizedString("brandIntroduce"))
     
     private let backView: UIView = {
         let view = UIView()

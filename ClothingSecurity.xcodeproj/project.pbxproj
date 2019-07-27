@@ -48,7 +48,6 @@
 		B326124B2186B1F6002A2E51 /* LoginPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326124A2186B1F6002A2E51 /* LoginPacket.swift */; };
 		B326124D2186B5CE002A2E51 /* LoginAndRegisterFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326124C2186B5CE002A2E51 /* LoginAndRegisterFacade.swift */; };
 		B32612532186DFD1002A2E51 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32612522186DFD1002A2E51 /* UserItem.swift */; };
-		B326A01C218954590072E220 /* AccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326A01B218954590072E220 /* AccountSettingViewController.swift */; };
 		B32FD62121AE32EE007BE7DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD62021AE32EE007BE7DB /* SystemConfiguration.framework */; };
 		B32FD62321AE32FB007BE7DB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD62221AE32FB007BE7DB /* libz.tbd */; };
 		B32FD62521AE3305007BE7DB /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD62421AE3305007BE7DB /* libsqlite3.0.tbd */; };
@@ -183,6 +182,7 @@
 		B3E0D6A721986EAD00CF5B63 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */; };
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
 		B3F341072257968C00F64948 /* ScanNoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F341062257968C00F64948 /* ScanNoResultViewController.swift */; };
+		B3F5BFE022EC18A000DCCA6F /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F5BFDF22EC18A000DCCA6F /* LanguageViewController.swift */; };
 		B3F61788219688870051926E /* DetailPopularWearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F61787219688870051926E /* DetailPopularWearViewController.swift */; };
 		B3F6178A21968C1C0051926E /* DetailPopularWearPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */; };
 		B3F6178C21969D980051926E /* BaseFavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6178B21969D980051926E /* BaseFavouriteViewController.swift */; };
@@ -270,7 +270,6 @@
 		B326124A2186B1F6002A2E51 /* LoginPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPacket.swift; sourceTree = "<group>"; };
 		B326124C2186B5CE002A2E51 /* LoginAndRegisterFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAndRegisterFacade.swift; sourceTree = "<group>"; };
 		B32612522186DFD1002A2E51 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
-		B326A01B218954590072E220 /* AccountSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingViewController.swift; sourceTree = "<group>"; };
 		B32FD62021AE32EE007BE7DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B32FD62221AE32FB007BE7DB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B32FD62421AE3305007BE7DB /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -426,6 +425,7 @@
 		B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
 		B3F341062257968C00F64948 /* ScanNoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanNoResultViewController.swift; sourceTree = "<group>"; };
+		B3F5BFDF22EC18A000DCCA6F /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		B3F61787219688870051926E /* DetailPopularWearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearViewController.swift; sourceTree = "<group>"; };
 		B3F6178921968C1C0051926E /* DetailPopularWearPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPopularWearPacket.swift; sourceTree = "<group>"; };
 		B3F6178B21969D980051926E /* BaseFavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFavouriteViewController.swift; sourceTree = "<group>"; };
@@ -530,8 +530,8 @@
 				B3B1AD0821899944001BBB32 /* DetailMobileViewController.swift */,
 				B30FD8512186117C0004BABB /* ChangeMobileViewController.swift */,
 				B30FD84A21860B9E0004BABB /* AccountSafeViewController+Cell.swift */,
-				B326A01B218954590072E220 /* AccountSettingViewController.swift */,
 				B3B1AD0C2189AA50001BBB32 /* ChangePasswordViewController.swift */,
+				B3F5BFDF22EC18A000DCCA6F /* LanguageViewController.swift */,
 			);
 			path = AccountSafe;
 			sourceTree = "<group>";
@@ -1362,7 +1362,6 @@
 				B34638AE21835C0F002B1CF3 /* BaseLoginViewController.swift in Sources */,
 				B3C14F6F227C46F2006D088C /* MyAddressListViewController.swift in Sources */,
 				B39C99D021C149C8005605DA /* SLQRCodeConfig.swift in Sources */,
-				B326A01C218954590072E220 /* AccountSettingViewController.swift in Sources */,
 				B33E82E52279CCCA008342B3 /* DetailCouponViewController.swift in Sources */,
 				B3B1AD0921899944001BBB32 /* DetailMobileViewController.swift in Sources */,
 				B322EFE5216F1C8E0077EE02 /* CommonUtil.swift in Sources */,
@@ -1436,6 +1435,7 @@
 				B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */,
 				B31E7DE62191AEC0003653EC /* ClothesMakingVideoModel.swift in Sources */,
 				B3C14F75227C65F4006D088C /* AddressFacade.swift in Sources */,
+				B3F5BFE022EC18A000DCCA6F /* LanguageViewController.swift in Sources */,
 				B3C14F71227C4C59006D088C /* Address.swift in Sources */,
 				B3675E6A2273F992005E6F4D /* MyIntegralViewController.swift in Sources */,
 				B3B1AD072189969F001BBB32 /* LoginOutPacket.swift in Sources */,

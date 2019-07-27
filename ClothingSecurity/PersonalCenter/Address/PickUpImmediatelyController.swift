@@ -27,7 +27,7 @@ class PickUpImmediatelyController: BaseViewController, UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "立即提货"
+        title = localizedString("pickGoods")
         view.backgroundColor = UIColor(red: 242.0 / 255.0, green: 242.0 / 255.0, blue: 242.0 / 255.0, alpha: 1.0)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -59,7 +59,7 @@ class PickUpImmediatelyController: BaseViewController, UITableViewDelegate, UITa
                 }
             }
         } else {
-            HUD.flashError(title: "请填写地址")
+            HUD.flashError(title: localizedString("fillAddress"))
         }
     }
     
@@ -86,7 +86,7 @@ class PickUpImmediatelyController: BaseViewController, UITableViewDelegate, UITa
         return table
     }()
     
-    private let button: DarkKeyButton = DarkKeyButton(title: "立即领取")
+    private let button: DarkKeyButton = DarkKeyButton(title: localizedString("clickReceive"))
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2

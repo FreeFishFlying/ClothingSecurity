@@ -145,7 +145,7 @@ class AddressCell: UITableViewCell {
         button.titleLabel?.font = systemFontSize(fontSize: 13)
         button.setTitleColor(UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0), for: .normal)
         button.setImage(imageNamed("gender"), for: .normal)
-        button.setTitle("默认地址", for: .normal)
+        button.setTitle(localizedString("defaultAddress"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
         return button
@@ -156,7 +156,7 @@ class AddressCell: UITableViewCell {
         button.titleLabel?.font = systemFontSize(fontSize: 13)
         button.setTitleColor(UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0), for: .normal)
         button.setImage(imageNamed("edit"), for: .normal)
-        button.setTitle("编辑", for: .normal)
+        button.setTitle(localizedString("edit"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
         return button

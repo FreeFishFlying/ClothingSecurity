@@ -59,7 +59,7 @@ class PickUpSuccessController: BaseViewController {
     
     private let tipLabel: UILabel = {
         let label = UILabel()
-        let attributedString = NSMutableAttributedString(string: "提货成功")
+        let attributedString = NSMutableAttributedString(string: localizedString("pickSuccess"))
         attributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFangSC-Medium", size: 20.0)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
@@ -81,5 +81,5 @@ class PickUpSuccessController: BaseViewController {
         return label
     }()
     
-    private let button: DarkKeyButton = DarkKeyButton(title: "返回")
+    private let button: DarkKeyButton = DarkKeyButton(title: localizedString("back"))
 }

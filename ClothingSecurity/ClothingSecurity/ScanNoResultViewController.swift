@@ -11,7 +11,7 @@ import Foundation
 class ScanNoResultViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "检测结果"
+        title = localizedString("testResult")
         view.addSubview(backView)
         backView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()

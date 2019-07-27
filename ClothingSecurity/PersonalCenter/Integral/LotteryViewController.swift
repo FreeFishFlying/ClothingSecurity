@@ -14,7 +14,7 @@ class LotteryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "积分抽奖"
+        title = localizedString("integralDraw")
         automaticallyAdjustsScrollViewInsets = false
         configLottery()
     }
@@ -129,7 +129,7 @@ class LotteryViewController: BaseViewController {
     
     private let tipLabel: UILabel = {
         let label = UILabel()
-        let attributedString = NSMutableAttributedString(string: "100积分/次")
+        let attributedString = NSMutableAttributedString(string: localizedString("everyDraw"))
         attributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 14.0)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 116.0 / 255.0, green: 171.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)

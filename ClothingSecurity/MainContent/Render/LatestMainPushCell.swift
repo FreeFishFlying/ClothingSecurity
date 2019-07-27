@@ -51,7 +51,7 @@ class LatestMainPushCell: UITableViewCell, UICollectionViewDataSource, UICollect
         collectionView.reloadData()
     }
     
-    private let button: HeaderCellButton = HeaderCellButton("最新主推")
+    private let button: HeaderCellButton = HeaderCellButton(localizedString("latestHas"))
     
     private let backView: UIView = {
         let view = UIView()

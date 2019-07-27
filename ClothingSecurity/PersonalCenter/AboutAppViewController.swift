@@ -14,7 +14,7 @@ import Core
 class AboutAppViewController: GroupedFormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "关于我们"
+        title = localizedString("aboutUs")
         view.backgroundColor = UIColor(red: 247/255.0, green: 247/255.0, blue: 247/255.0, alpha: 1)
         configUI()
         configTB()
@@ -66,7 +66,7 @@ class AboutAppViewController: GroupedFormViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalTableViewCellRow { row in
                 row.cell.height = { 67 }
-                row.cell.name = "问题反馈"
+                row.cell.name = localizedString("feedback")
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
                     let controller = FeedbackViewController()

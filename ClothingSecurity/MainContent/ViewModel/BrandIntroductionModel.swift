@@ -18,7 +18,7 @@ class BrandIntroductionModel: NSObject {
     
     let title: String = "ANCILA"
     
-    let content: String = "林之野在《琥珀屋》中说过\n “一个女人只有二十年的生命，其余的时间都在衰老。”\nAANCILA品牌自2013年成立以来，\n一直遵从内心本真，与时间对抗，与美丽为伍。"
+    let content: String = localizedString("littleStory")
     
     private func getHeight() {
         let width = ScreenWidth - 35 - 114

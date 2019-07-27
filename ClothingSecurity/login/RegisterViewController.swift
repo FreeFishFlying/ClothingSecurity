@@ -12,7 +12,7 @@ import Eureka
 import HUD
 class RegisterViewController: BaseLoginViewController {
     var isEnable: Bool = true
-    var buttonTitle: String = "获取验证码"
+    var buttonTitle: String = localizedString("verification")
     var countDown: Int = 60
     var countdownTimer: TimerProxy?
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ class RegisterViewController: BaseLoginViewController {
         configTableViewCell()
         configAgreement()
         configNextButton()
-        headerTitle = "注册"
+        headerTitle = localizedString("register")
     }
     
     private func configTableView() {
@@ -40,7 +40,7 @@ class RegisterViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< TextfieldInputCellRow { row in
                 row.cell.imageName = "icon_phone"
-                row.cell.placeHolder = "请输入手机号"
+                row.cell.placeHolder = localizedString("inputphoneNumber")
                 row.tag = "phoneCell"
                 row.cell.height = { 56 }
                 row.cell.sectury = false
@@ -48,8 +48,8 @@ class RegisterViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< InputRenderCellRow { row in
                 row.cell.imageName = "icon_sectury"
-                row.cell.placeHolder = "请输入验证码"
-                row.cell.title = "获取验证码"
+                row.cell.placeHolder = localizedString("inputVerifyCode")
+                row.cell.title = localizedString("verification")
                 row.tag = "secturyCell"
                 row.cell.height = { 56 }
                 row.cell.onGetCode = { [weak self] in
@@ -111,7 +111,7 @@ class RegisterViewController: BaseLoginViewController {
                 }
             }
         } else {
-            HUD.tip(text: "请输入手机号")
+            HUD.tip(text: localizedString("inputphoneNumber"))
         }
     }
     
@@ -128,7 +128,7 @@ class RegisterViewController: BaseLoginViewController {
         if countDown == 0 {
             countdownTimer?.invalidate()
             countdownTimer = nil
-            buttonTitle = "获取验证码"
+            buttonTitle = localizedString(localizedString("verification"))
             isEnable = true
             countDown = 60
         }

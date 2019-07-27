@@ -5,6 +5,8 @@
   Created by 宋昌鹏 on 2019/7/20.
   Copyright © 2019 scpUpCloud. All rights reserved.
 */
+"nickname" = "ニックネーム";
+"avatar" = "プロフィール写真";
 "back" = "戻る";
 "login" = "登録";
 "register" = "ログイン";
@@ -21,7 +23,7 @@
 "album" = "アルバム";
 "sure" = "確定";
 "changeName" = "ニックネーム変更";
-"bindPhone" = "携帯電話をバインドする;
+"bindPhone" = "携帯電話をバインドする";
 "changePhone" = "携帯電話番号変更";
 "changePD" = "パスワード変更";
 "collection" = "ノート";
@@ -50,7 +52,7 @@
 "dysfunction" = "エラー";
 "existingFunction" = "正常な機能ができません";
 "useAdvice" = "ヘルプを使用";
-"someSuggestion" = "ご不満があれば反映してください";
+"someSuggestions" = "ご不満があれば反映してください";
 "demand" = "機能要件";
 "meetDemand" = "今の機能では満足出来ません";
 "phoneNumber" = "携帯番号";
@@ -68,7 +70,7 @@
 "congratulations" = "抽選に当りました、おめでとうございます！";
 "sorry" = "残念ながら抽選にハズレました。";
 "again" = "継続すればいつかラッキーが訪れます";
-"fillAddress" = "抽選に当たりました住所を記入して下さい";
+"fillAddressQuick" = "抽選に当たりました住所を記入して下さい";
 "useQuickly" = "クーポンを規定時間内にご使用下さい";
 "valid" = "期限切れのため使用できません";
 "save" = "アカウントにポイント反映済みです";
@@ -130,7 +132,7 @@
 "inputDetailAddress" = "住所詳細を記入して下さい";
 "detailAddress" = "住所詳細";
 "pleaseSelect" = "選択して下さい";
-"inputAddress" = "住所を入力して下さい;
+"inputAddress" = "住所を入力して下さい";
 "language" = "言語";
 "chinese" = "中国語";
 "japanese" = "日本語";

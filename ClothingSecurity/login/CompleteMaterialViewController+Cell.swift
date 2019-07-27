@@ -92,7 +92,7 @@ class ChooseSexCell: Cell<String>, CellType {
         let label = UILabel()
         label.font = systemFontSize(fontSize: 15)
         label.textColor = UIColor.black
-        label.text = "性别"
+        label.text = localizedString("sex")
         return label
     }()
     
@@ -101,8 +101,8 @@ class ChooseSexCell: Cell<String>, CellType {
         button.tag = 1
         button.setImage(imageNamed("gender_select"), for: .selected)
         button.setImage(imageNamed("gender"), for: .normal)
-        button.setTitle("男", for: .normal)
-        button.setTitle("男", for: .selected)
+        button.setTitle(localizedString("man"), for: .normal)
+        button.setTitle(localizedString("man"), for: .selected)
         button.setTitleColor(UIColor(hexString: "#bfbfbf"), for: .normal)
         button.setTitleColor(UIColor.black, for: .selected)
         return button
@@ -113,8 +113,8 @@ class ChooseSexCell: Cell<String>, CellType {
         button.tag = 0
         button.setImage(imageNamed("gender_select"), for: .selected)
         button.setImage(imageNamed("gender"), for: .normal)
-        button.setTitle("女", for: .normal)
-        button.setTitle("女", for: .selected)
+        button.setTitle(localizedString("woman"), for: .normal)
+        button.setTitle(localizedString("woman"), for: .selected)
         button.setTitleColor(UIColor(hexString: "#bfbfbf"), for: .normal)
         button.setTitleColor(UIColor.black, for: .selected)
         return button

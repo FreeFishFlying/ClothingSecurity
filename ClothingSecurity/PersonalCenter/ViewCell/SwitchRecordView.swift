@@ -15,8 +15,8 @@ class GiftRecordView: SwitchRecordView{
             make.top.equalToSuperview()
         }
         setTipView(true)
-        firstButton.setTitle("优惠券", for: .normal)
-        firstButton.setTitle("优惠券", for: .selected)
+        firstButton.setTitle(localizedString("coupon"), for: .normal)
+        firstButton.setTitle(localizedString("coupon"), for: .selected)
         secondButton.setTitle("实物奖品", for: .normal)
         secondButton.setTitle("实物奖品", for: .selected)
     }
@@ -118,8 +118,8 @@ class SwitchRecordView: UIView {
     
     let firstButton: UIButton = {
         let button = UIButton()
-        button.setTitle("积分获得记录", for: .normal)
-        button.setTitle("积分获得记录", for: .selected)
+        button.setTitle(localizedString("pointsRecord"), for: .normal)
+        button.setTitle(localizedString("pointsRecord"), for: .selected)
         button.setTitleColor(UIColor(red: 176/255.0, green: 205/255.0, blue: 232/255.0, alpha: 1), for: .selected)
         button.setTitleColor(UIColor(red: 34/255.0, green: 34/255.0, blue: 34/255.0, alpha: 1), for: .normal)
         button.titleLabel?.font = systemFontSize(fontSize: 18)
@@ -129,8 +129,8 @@ class SwitchRecordView: UIView {
     
     let secondButton: UIButton = {
         let button = UIButton()
-        button.setTitle("积分消费记录", for: .normal)
-        button.setTitle("积分消费记录", for: .selected)
+        button.setTitle(localizedString("pointsConsume"), for: .normal)
+        button.setTitle(localizedString("pointsConsume"), for: .selected)
         button.setTitleColor(UIColor(red: 176/255.0, green: 205/255.0, blue: 232/255.0, alpha: 1), for: .selected)
         button.setTitleColor(UIColor(red: 34/255.0, green: 34/255.0, blue: 34/255.0, alpha: 1), for: .normal)
         button.titleLabel?.font = systemFontSize(fontSize: 18)
@@ -149,7 +149,7 @@ class SwitchRecordView: UIView {
     
     private let tipLabel: UILabel = {
         let label = UILabel()
-        let title = "每日首次登陆+10积分"
+        let title = localizedString("firstLogin")
         let attributedString = NSMutableAttributedString(string: title)
          attributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 10.0)!,

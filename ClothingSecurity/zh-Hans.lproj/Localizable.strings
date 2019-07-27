@@ -6,6 +6,8 @@
   Copyright © 2019 scpUpCloud. All rights reserved.
 */
 
+"nickname" = "昵称";
+"avatar" = "头像";
 "back" = "返回";
 "login" = "登录";
 "register" = "注册";
@@ -51,7 +53,7 @@
 "dysfunction" = "功能异常";
 "existingFunction" = "不能正常使用现有功能";
 "useAdvice" = "使用建议";
-"someSuggestion" = "不满意的地方都踢过来吧";
+"someSuggestions" = "不满意的地方都踢过来吧";
 "demand" = "功能需求";
 "meetDemand" = "现有功能不能满足";
 "phoneNumber" = "手机号";
@@ -64,15 +66,15 @@
 "noCoupons" = "亲，你暂时还没有优惠券哦";
 "noPrize" = "亲，你暂时还没有实物奖品哦";
 "noRecords" = "你还没有消费记录哦";
-"noPoints" = "你还没有获取过几分哦";
+"noPoints" = "你还没有获取过积分哦";
 "pickGoods" = "立即提货";
 "congratulations" = "恭喜您，中奖啦！";
 "sorry" = "很遗憾，未中奖";
 "again" = "继续努力，总有可能成为那个幸运儿的";
-"fillAddress" = "中奖礼物请尽快填写地址哦";
-"useQuickly" = "q优惠券请在规定的时间内使用";
+"fillAddressQuick" = "中奖礼物请尽快填写地址哦";
+"useQuickly" = "优惠券请在规定的时间内使用";
 "valid" = "过期无效";
-"save" = "几分已存入您的账户";
+"save" = "积分已存入您的账户";
 "pickUpGoods" = "立即提货";
 "noAddress" = "你还没有添加地址哦";
 "fillGoodsMessage" = "添加收货信息";
@@ -81,10 +83,10 @@
 "sendSuccess" = "发送成功";
 "registerSuccess" = "注册成功";
 "loginSuccess" = "登录成功";
-"appIntroduce" = "为了净化市场,减少假冒产品给我们顾客及LABEAUTY带来的负面影响和损失,维护企业和ANCILA品牌的形象和声,增强消费者购正规商品的信心,我们亲历推出本款APP。";
-"trait" = "APP特点：";
-"firstTrait" = "1、扫描商品二维码,快速检验真伪。";
-"secondTrait" = "2、完整展示labeauty产品、加深顾客对正品印象。";
+"appIntroduce" = "为了净化市场,减少假冒产品给我们顾客及LABEAUTY带来的负面影响和损失,维护企业和ANCILA品牌的形象和声,增强消费者购正规商品的信心,我们亲历推出本款APP。\n\n\n";
+"trait" = "APP特点：\n\n";
+"firstTrait" = "1、扫描商品二维码,快速检验真伪。\n\n";
+"secondTrait" = "2、完整展示labeauty产品、加深顾客对正品印象。\n\n";
 "thirdTrait" = "3、专业的防伪溯源技术保障, 专业技术团队。";
 
 "mainPage" = "首页";

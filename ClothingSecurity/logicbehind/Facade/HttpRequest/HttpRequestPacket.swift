@@ -93,6 +93,8 @@ open class HttpRequestPacket<T: HttpResponseData> {
         var headers: [String: String] = ["X-App-Version": "LaBeauty/\(appVersion)" + " " + "iOS/\(sysVersion)"]
         if let authorization = authorization() {
             headers["authorization"] = authorization
+            let language = getFirstLanuage() ?? "zh"
+            headers["Accept-Language"] = language == "zh" ? "zh-CN" : "ja-JP"
         }
         print("url = \(requestUrl().absoluteString)")
         request = Mesh.request(URL(string: rootUrl + requestUrl().absoluteString)!,

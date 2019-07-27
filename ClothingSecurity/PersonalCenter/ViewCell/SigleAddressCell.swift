@@ -97,7 +97,7 @@ class SigleAddressCell: UITableViewCell {
     
     private let tipLabel: UILabel = {
         let label = UILabel()
-        let attributedString = NSMutableAttributedString(string: "添加收货信息")
+        let attributedString = NSMutableAttributedString(string: localizedString("fillGoodsMessage"))
         attributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 14.0)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)

@@ -81,31 +81,31 @@ class PrizeReminder: UIView {
         didSet {
             if let model = model {
                 if model.targetType == .empty {
-                    titleLabel.text = "很遗憾，未中奖！"
+                    titleLabel.text = localizedString("sorry")
                     prizeImage.image = imageNamed("Noprize")
-                    tipLabel.text = "继续努力，总能成为那个幸运儿的"
+                    tipLabel.text = localizedString("again")
                     button.setTitle("继续抽奖", for: .normal)
                 } else if model.targetType == .gift {
-                    titleLabel.text = "恭喜您，中奖了！"
+                    titleLabel.text = localizedString("congratulations")
                     if let url = URL(string: model.thumb) {
                         prizeImage.kf.setImage(with: url)
                     }
                     prizeTitle.text = model.name
-                    tipLabel.text = "中奖礼物请尽快填写地址哦"
-                    button.setTitle("立即提货", for: .normal)
+                    tipLabel.text = localizedString("fillAddressQuick")
+                    button.setTitle(localizedString("pickGoods"), for: .normal)
                 } else if model.targetType == .coupon {
-                    titleLabel.text = "恭喜您，中奖了！"
+                    titleLabel.text = localizedString("congratulations")
                     if let url = URL(string: model.thumb) {
                         prizeImage.kf.setImage(with: url)
                     }
-                    tipLabel.text = "优惠券请在规定的时间内使用，过期无效"
-                    button.setTitle("点击领取", for: .normal)
+                    tipLabel.text = localizedString("useQuickly")
+                    button.setTitle(localizedString("clickReceive"), for: .normal)
                 } else if model.targetType == .point {
-                    titleLabel.text = "恭喜您，中奖了！"
+                    titleLabel.text = localizedString("congratulations")
                     if let url = URL(string: model.thumb) {
                         prizeImage.kf.setImage(with: url)
                     }
-                    tipLabel.text = "积分已存入您的账户"
+                    tipLabel.text = localizedString("save")
                 }
                 configUIWithState(model.targetType)
             }

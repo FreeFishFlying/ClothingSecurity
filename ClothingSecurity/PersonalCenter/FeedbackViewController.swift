@@ -15,7 +15,7 @@ class FeedbackViewController: BaseViewController, UITextFieldDelegate {
     var dataSources: [FeedBack] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "投诉建议"
+        title = localizedString("suggestions")
         configData()
         configUI()
         autoHideKeyboard = true
@@ -37,7 +37,7 @@ class FeedbackViewController: BaseViewController, UITextFieldDelegate {
             make.left.right.equalToSuperview()
             make.height.equalTo(145)
         }
-        let attributedString = NSMutableAttributedString(string: "如果您对我们有什么建议、想法和期望，请告诉我们。")
+        let attributedString = NSMutableAttributedString(string: localizedString("someSuggestion"))
         attributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 14.135)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 139.0 / 255.0, green: 139.0 / 255.0, blue: 141.0 / 255.0, alpha: 1.0)
@@ -61,9 +61,9 @@ class FeedbackViewController: BaseViewController, UITextFieldDelegate {
     }
     
     private func configData() {
-        let first = FeedBack(category: "功能异常", content: "不能正常使用现有功能", isChoosed: false)
-        let second = FeedBack(category: "使用建议", content: "用的不满意的地方都踢过来吧", isChoosed: false)
-        let third = FeedBack(category: "功能需求", content: "现有功能不能满足", isChoosed: false)
+        let first = FeedBack(category: localizedString("dysfunction"), content: localizedString("existingFunction"), isChoosed: false)
+        let second = FeedBack(category: localizedString("useAdvice"), content: localizedString("someSuggestions"), isChoosed: false)
+        let third = FeedBack(category: localizedString("demand"), content: localizedString("meetDemand"), isChoosed: false)
         dataSources.append(first)
         dataSources.append(second)
         dataSources.append(third)
@@ -107,13 +107,13 @@ class FeedbackViewController: BaseViewController, UITextFieldDelegate {
     private let textView: GrowingTextView = {
         let textView = GrowingTextView()
         textView.backgroundColor = UIColor.white
-        textView.placeholder = "如果您对我们有什么建议、想法和期望，请告诉我们。"
+        textView.placeholder = localizedString("someSuggestion")
         return textView
     }()
     
     private let telephoneView: TelephoneView = TelephoneView()
     
-    private let sureButton = DarkKeyButton(title: "立即提交")
+    private let sureButton = DarkKeyButton(title: localizedString("submitImmediately"))
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         tableView.snp.updateConstraints { make in
@@ -150,7 +150,7 @@ extension FeedbackViewController: UITableViewDataSource, UITableViewDelegate {
         let label = UILabel()
         label.textColor = UIColor(red: 139.0 / 255.0, green: 139.0 / 255.0, blue: 141.0 / 255.0, alpha: 1.0)
         label.font = UIFont(name: "PingFangSC-Regular", size: 14.0)
-        label.text = "问题类型"
+        label.text = localizedString("problemType")
         view.addSubview(label)
         label.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -165,7 +165,7 @@ extension FeedbackViewController: UITableViewDataSource, UITableViewDelegate {
         let label = UILabel()
         label.textColor = UIColor(red: 139.0 / 255.0, green: 139.0 / 255.0, blue: 141.0 / 255.0, alpha: 1.0)
         label.font = UIFont(name: "PingFangSC-Regular", size: 14.0)
-        label.text = "详情描述"
+        label.text = localizedString("detailDescription")
         view.addSubview(label)
         label.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -255,7 +255,7 @@ class TelephoneView: UIView {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        let attributedString = NSMutableAttributedString(string: "手机号")
+        let attributedString = NSMutableAttributedString(string: localizedString("phoneNumber"))
         attributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Medium", size: 14.135)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 35.0 / 255.0, green: 24.0 / 255.0, blue: 21.0 / 255.0, alpha: 1.0)

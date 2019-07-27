@@ -172,7 +172,7 @@ class HeaderView: UIView {
         let button = UIButton()
         button.frame = CGRect(x: 0, y: 0, width: 55, height: 44)
         button.setImage(imageNamed("back_white"), for: .normal)
-        button.setTitle("返回", for: .normal)
+        button.setTitle(localizedString("back"), for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = systemFontSize(fontSize: 15)
         button.imageEdgeInsets = UIEdgeInsets(top: 6, left: -5, bottom: 6, right: 30)
@@ -247,7 +247,7 @@ class LoginHelpView: UIView {
         let button = UIButton()
         button.setTitleColor(UIColor(hexString: "#353535"), for: .normal)
         button.titleLabel?.font = UIFont(name: "PingFang-SC-Medium", size: 15.0) ?? systemFontSize(fontSize: 15)
-        button.setTitle("忘记密码？", for: .normal)
+        button.setTitle(localizedString("forgetPassWord"), for: .normal)
         return button
     }()
     
@@ -255,7 +255,7 @@ class LoginHelpView: UIView {
         let button = UIButton()
         button.setTitleColor(UIColor(hexString: "#353535"), for: .normal)
         button.titleLabel?.font = UIFont(name: "PingFang-SC-Medium", size: 15.0) ?? systemFontSize(fontSize: 15)
-        button.setTitle("新用户注册", for: .normal)
+        button.setTitle(localizedString("register"), for: .normal)
         return button
     }()
     

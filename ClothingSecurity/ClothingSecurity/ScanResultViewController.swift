@@ -20,7 +20,7 @@ class ScanResultViewController: BaseViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "检测结果"
+        title = localizedString("testResult")
         view.addSubview(inspectView)
         inspectView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)

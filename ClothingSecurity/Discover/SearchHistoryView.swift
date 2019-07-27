@@ -99,7 +99,7 @@ class SearchHistoryView: UIView {
         let label = UILabel()
         label.textColor = UIColor(hexString: "#000000")
         label.font = systemFontSize(fontSize: 14)
-        label.text = "历史搜索记录"
+        label.text = localizedString("historySesrch")
         return label
     }()
     

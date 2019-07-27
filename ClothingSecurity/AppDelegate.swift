@@ -60,10 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, TencentSes
     }
     
     private func regiesterOtherLink() {
-        WXApi.registerApp(ThirdLogin.WX.rawValue)
-        tencentAuth = TencentOAuth(appId: ThirdLogin.Tencent.rawValue, andDelegate: self)
-        WeiboSDK.registerApp(ThirdLogin.WB.rawValue)
-        WeiboSDK.enableDebugMode(true)
+        WXApi.registerApp("wx427a43532ca341f2", enableMTA: false)
     }
     
     func onResp(_ resp: BaseResp!) {

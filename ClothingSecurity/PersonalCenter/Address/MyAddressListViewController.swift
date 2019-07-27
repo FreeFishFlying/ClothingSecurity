@@ -15,7 +15,7 @@ class MyAddressListViewController: BaseViewController {
     var needClickBack: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "我的地址"
+        title = localizedString("myAddress")
         view.backgroundColor = UIColor(red: 242.0 / 255.0, green: 242.0 / 255.0, blue: 242.0 / 255.0, alpha: 1.0)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -110,7 +110,7 @@ class MyAddressListViewController: BaseViewController {
         let label = UILabel()
         label.font = UIFont(name: "PingFangSC-Regular", size: 12.99)
         label.textColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
-        label.text = "你还没有添加地址哦~"
+        label.text = localizedString("noAddress")
         return label
     }()
     

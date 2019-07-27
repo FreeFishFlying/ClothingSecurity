@@ -24,7 +24,7 @@ class ChangeUserNameViewController: GroupedFormViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "修改昵称"
+        title = localizedString("changeName")
         view.backgroundColor = UIColor.white
         configTableView()
     }
@@ -38,7 +38,7 @@ class ChangeUserNameViewController: GroupedFormViewController {
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalSafeAccountCellRow { row in
-                row.cell.title = "昵称"
+                row.cell.title = localizedString("nickname")
                 row.tag = "nicknameCell"
                 row.cell.model = .right
                 row.cell.content = nickName
@@ -77,5 +77,5 @@ class ChangeUserNameViewController: GroupedFormViewController {
     
     }
     
-    private let changeButton: DarkKeyButton = DarkKeyButton(title: "确定")
+    private let changeButton: DarkKeyButton = DarkKeyButton(title: localizedString("sure"))
 }

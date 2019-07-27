@@ -165,7 +165,7 @@ class CouponCell: UITableViewCell {
     }()
     
     private let button: DarkKeyButton = {
-        let button = DarkKeyButton(title: "立即使用")
+        let button = DarkKeyButton(title: localizedString("immediateUse"))
         button.layer.cornerRadius = 12.5
         button.layer.masksToBounds = true
         button.titleLabel?.font = systemFontSize(fontSize: 12)

@@ -14,7 +14,7 @@ class LatestMainPushViewController: BaseViewController, UICollectionViewDelegate
     private var dataSource = [Good]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "最新主推"
+        title = localizedString("latestHas")
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)

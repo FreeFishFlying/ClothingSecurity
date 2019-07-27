@@ -24,7 +24,7 @@ class LoginViewController: BaseLoginViewController {
         configFooter()
         configTableViewCell()
         configAnother()
-        headerTitle = "登录"
+        headerTitle = localizedString("login")
         onClickThridView()
     }
     
@@ -118,7 +118,7 @@ class LoginViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< TextfieldInputCellRow { row in
                 row.cell.imageName = "icon_phone"
-                row.cell.placeHolder = "请输入手机号"
+                row.cell.placeHolder = localizedString("inputphoneNumber")
                 row.tag = "phoneCell"
                 row.cell.height = { 56 }
                 row.cell.sectury = false
@@ -128,7 +128,7 @@ class LoginViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< TextfieldInputCellRow { row in
                 row.cell.imageName = "icon_password"
-                row.cell.placeHolder = "请输入密码"
+                row.cell.placeHolder = localizedString("inputPD")
                 row.tag = "passwordCell"
                 row.cell.height = { 56 }
                 row.cell.sectury = true
@@ -210,7 +210,7 @@ class LoginViewController: BaseLoginViewController {
         return label
     }()
     
-    private let loginButton: DarkKeyButton = DarkKeyButton(title: "登录")
+    private let loginButton: DarkKeyButton = DarkKeyButton(title: localizedString("login"))
     
     private let helpView: LoginHelpView = LoginHelpView()
 }

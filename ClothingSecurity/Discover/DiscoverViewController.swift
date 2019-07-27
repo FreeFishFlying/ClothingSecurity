@@ -56,7 +56,7 @@ class DiscoverViewController: BaseViewController {
     
     private func configUI() {
         if #available(iOS 9.0, *) {
-            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "取消"
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = localizedString("cancel")
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBar)
         view.addSubview(containerView)
@@ -130,7 +130,7 @@ class DiscoverViewController: BaseViewController {
             if !value.value.isEmpty {
                 self.searchBar.placeholder = value.value
             } else {
-                self.searchBar.placeholder = "搜索产品"
+                self.searchBar.placeholder = localizedString("searchGoods")
             }
         }
     }
@@ -200,7 +200,7 @@ class DiscoverViewController: BaseViewController {
     private let searchBar: UISearchBar = {
         let searchbar = UISearchBar(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 44))
         searchbar.showsCancelButton = false
-        searchbar.placeholder = "搜索产品"
+        searchbar.placeholder = localizedString("searchGoods")
         searchbar.subviews.first?.subviews.last?.backgroundColor = UIColor(hexString: "#f7f7f7")
         return searchbar
     }()

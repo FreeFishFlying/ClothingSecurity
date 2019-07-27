@@ -15,7 +15,7 @@ class BaseFavouriteViewController: BaseViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
         extendedLayoutIncludesOpaqueBars = true
-        title = "我的收藏"
+        title = localizedString("collection")
         view.addSubview(segmentView)
         segmentView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)

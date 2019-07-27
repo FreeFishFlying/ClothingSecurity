@@ -221,7 +221,7 @@ class AppAuthorizationUtil {
 
     public static func showAlert(title: String?, content: String) {
         let alert = AlertController(title: title, message: content)
-        alert.add(title: "取消")
+        alert.add(title: localizedString("cancel"))
         alert.add(title: "马上设置", style: .preferred) { () -> Void in
             jumpToAppSystemSettings()
         }

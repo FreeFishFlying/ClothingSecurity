@@ -22,7 +22,7 @@ class CompleteMaterialViewController: BaseLoginViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        headerTitle = "完善信息"
+        headerTitle = localizedString("perfectInformation")
         configTableView()
         configTableViewCell()
         configButton()
@@ -98,18 +98,18 @@ class CompleteMaterialViewController: BaseLoginViewController {
             if pd == pdAgain {
                 return (nickname: nickName, sexType: sexType, pd: pd)
             } else {
-                HUD.flashError(title: "两次密码输入不一致")
+                HUD.flashError(title: localizedString("errorPD"))
                 return nil
             }
         }
         if nickRow.cell.textFieldText == nil {
-            HUD.flashError(title: "请输入昵称")
+            HUD.flashError(title: localizedString("inputNickname"))
             return nil
         } else if passwordRow.cell.textFieldText == nil {
-            HUD.flashError(title: "请输入密码")
+            HUD.flashError(title:localizedString(localizedString("inputPD")))
             return nil
         } else {
-            HUD.flashError(title: "请确认密码")
+            HUD.flashError(title: localizedString("makeSurePD"))
             return nil
         }
     }
@@ -118,7 +118,7 @@ class CompleteMaterialViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< TextfieldInputCellRow { row in
                 row.cell.imageName = "icon_nickname"
-                row.cell.placeHolder = "请输入昵称"
+                row.cell.placeHolder = localizedString("inputNickname")
                 row.tag = "nicknameCell"
                 row.cell.height = { 56 }
                 row.cell.sectury = false
@@ -133,7 +133,7 @@ class CompleteMaterialViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< TextfieldInputCellRow { row in
                 row.cell.imageName = "icon_sectury"
-                row.cell.placeHolder = "请输入密码"
+                row.cell.placeHolder = localizedString("inputPD")
                 row.tag = "secturyCell"
                 row.cell.height = { 56 }
                 row.cell.sectury = true
@@ -141,7 +141,7 @@ class CompleteMaterialViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< TextfieldInputCellRow { row in
                 row.cell.imageName = "icon_sectury"
-                row.cell.placeHolder = "请确认密码"
+                row.cell.placeHolder = localizedString("makeSurePD")
                 row.tag = "secturyAgainCell"
                 row.cell.height = { 56 }
                 row.cell.sectury = true
@@ -153,5 +153,5 @@ class CompleteMaterialViewController: BaseLoginViewController {
         return 0.001
     }
     
-    private let sureButton: DarkKeyButton = DarkKeyButton(title: "完成")
+    private let sureButton: DarkKeyButton = DarkKeyButton(title: localizedString("done"))
 }

@@ -14,12 +14,12 @@ import HUD
 
 class ForgetPasswordViewController: BaseLoginViewController {
     var isEnable: Bool = true
-    var buttonTitle: String = "获取验证码"
+    var buttonTitle: String = localizedString("verification")
     var countDown: Int = 60
     var countdownTimer: TimerProxy?
     override func viewDidLoad() {
         super.viewDidLoad()
-        headerTitle = "忘记密码"
+        headerTitle = localizedString("forgetPassWord")
         configTableView()
         configTableViewCell()
         configButton()
@@ -37,7 +37,7 @@ class ForgetPasswordViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< TextfieldInputCellRow { row in
                 row.cell.imageName = "icon_phone"
-                row.cell.placeHolder = "请输入手机号"
+                row.cell.placeHolder = localizedString("inputphoneNumber")
                 row.tag = "phoneCell"
                 row.cell.height = { 56 }
                 row.cell.sectury = false
@@ -45,8 +45,8 @@ class ForgetPasswordViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< InputRenderCellRow { row in
                 row.cell.imageName = "icon_sectury"
-                row.cell.placeHolder = "请输入验证码"
-                row.cell.title = "获取验证码"
+                row.cell.placeHolder = localizedString("inputVerifyCode")
+                row.cell.title = localizedString("verification")
                 row.tag = "secturyCell"
                 row.cell.height = { 56 }
                 row.cellUpdate({ [weak self] (cell, _) in
@@ -62,7 +62,7 @@ class ForgetPasswordViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< TextfieldInputCellRow { row in
                 row.cell.imageName = "icon_password"
-                row.cell.placeHolder = "请设置新密码"
+                row.cell.placeHolder = localizedString("setNewPD")
                 row.tag = "passwordCell"
                 row.cell.height = { 56 }
                 row.cell.sectury = true
@@ -70,7 +70,7 @@ class ForgetPasswordViewController: BaseLoginViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< TextfieldInputCellRow { row in
                 row.cell.imageName = "icon_password"
-                row.cell.placeHolder = "请再次输入新密码"
+                row.cell.placeHolder = localizedString("newPDAgain")
                 row.tag = "passwordAgainCell"
                 row.cell.height = { 56 }
                 row.cell.sectury = true
@@ -109,7 +109,7 @@ class ForgetPasswordViewController: BaseLoginViewController {
                 }
             }
         } else {
-            HUD.tip(text: "请输入手机号")
+            HUD.tip(text: localizedString("inputphoneNumber"))
         }
     }
     
@@ -119,7 +119,7 @@ class ForgetPasswordViewController: BaseLoginViewController {
         if countDown == 0 {
             countdownTimer?.invalidate()
             countdownTimer = nil
-            buttonTitle = "获取验证码"
+            buttonTitle = localizedString("verification")
             isEnable = true
             countDown = 60
         }
@@ -144,21 +144,21 @@ class ForgetPasswordViewController: BaseLoginViewController {
         if let secturyCode = secturyRow.cell.code, !secturyCode.isEmpty {
             code = secturyCode
         } else {
-            HUD.flashError(title: "请输入验证码")
+            HUD.flashError(title: localizedString("inputVerifyCode"))
             return
         }
         var pd: String = ""
         if let password = pdRow.cell.textFieldText, !password.isEmpty {
             pd = password
         } else {
-            HUD.flashSuccess(title: "请输入密码")
+            HUD.flashSuccess(title: localizedString("inputPD"))
             return
         }
         var pdAgain: String = ""
         if let passAgain = pdAgainRow.cell.textFieldText, !passAgain.isEmpty {
             pdAgain = passAgain
         } else {
-            HUD.flashError(title: "请确认密码")
+            HUD.flashError(title: localizedString("makeSurePD"))
             return
         }
         if pd != pdAgain {
@@ -186,5 +186,5 @@ class ForgetPasswordViewController: BaseLoginViewController {
         return 0.001
     }
     
-    private let sureButton: DarkKeyButton = DarkKeyButton(title: "确定")
+    private let sureButton: DarkKeyButton = DarkKeyButton(title: localizedString("sure"))
 }

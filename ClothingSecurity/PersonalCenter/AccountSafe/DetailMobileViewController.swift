@@ -11,7 +11,7 @@ import UIKit
 class DetailMobileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "绑定手机号"
+        title = localizedString("bindPhone")
         view.addSubview(mobileLabel)
         mobileLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -51,10 +51,10 @@ class DetailMobileViewController: BaseViewController {
         let label = UILabel()
         label.font =  UIFont(name: "PingFangSC-Thin", size: 13.0)
         label.textColor = UIColor(red: 168.0 / 255.0, green: 168.0 / 255.0, blue: 168.0 / 255.0, alpha: 1.0)
-        label.text = "您当前绑定的手机号"
+        label.text = localizedString("currentBindNumber")
         label.textAlignment = .center
         return label
     }()
     
-    private let button: DarkKeyButton = DarkKeyButton(title: "更改手机号")
+    private let button: DarkKeyButton = DarkKeyButton(title: localizedString("changePhone"))
 }

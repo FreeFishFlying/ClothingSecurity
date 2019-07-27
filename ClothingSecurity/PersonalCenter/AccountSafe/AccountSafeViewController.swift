@@ -23,7 +23,7 @@ class AccountSafeViewController: GroupedFormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        title = "账户安全"
+        title = localizedString("accountSafe")
         configTableView()
         configTableViewCell()
         LoginAndRegisterFacade.shared.obserUserItemChange().observeValues { [weak self] item in
@@ -84,7 +84,7 @@ class AccountSafeViewController: GroupedFormViewController {
     private func configTableViewCell() {
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
-                row.cell.title = "头像"
+                row.cell.title = localizedString("avatar")
                 row.cell.showIcon = true
                 row.cell.showNext = true
                 row.cell.url = userItem?.avatar
@@ -99,7 +99,7 @@ class AccountSafeViewController: GroupedFormViewController {
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
-                row.cell.title = "昵称"
+                row.cell.title = localizedString("nickname")
                 row.cell.showIcon = false
                 row.cell.showNext = true
                 row.cell.content = userItem?.nickName
@@ -116,7 +116,7 @@ class AccountSafeViewController: GroupedFormViewController {
 
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
-                row.cell.title = "绑定手机号"
+                row.cell.title = localizedString("bindPhone")
                 row.cell.showIcon = false
                 row.cell.showNext = true
                 row.cell.content = userItem?.mobile
@@ -133,7 +133,7 @@ class AccountSafeViewController: GroupedFormViewController {
         if let hasPD = userItem?.hasPassword, hasPD {
             form +++ fixHeightHeaderSection(height: 0)
                 <<< SafeAccountCellRow { row in
-                    row.cell.title = "修改密码"
+                    row.cell.title = localizedString("changePD")
                     row.cell.showIcon = false
                     row.cell.showNext = true
                     row.onCellSelection({ [weak self] (_, _) in
@@ -146,7 +146,7 @@ class AccountSafeViewController: GroupedFormViewController {
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
-                row.cell.title = "填写地址"
+                row.cell.title = localizedString("fillAddress")
                 row.cell.showIcon = false
                 row.cell.showNext = true
                 row.onCellSelection({ [weak self] (_, _) in
@@ -158,13 +158,13 @@ class AccountSafeViewController: GroupedFormViewController {
 
         form +++ fixHeightHeaderSection(height: 0)
             <<< SafeAccountCellRow { row in
-                row.cell.title = "语言"
+                row.cell.title = localizedString("language")
                 row.cell.showIcon = false
                 row.cell.showNext = true
                 row.cell.content = currentLanguage()
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
-                    let controller = ChangeUserNameViewController(nickName: self.userItem?.nickName)
+                    let controller = LanguageViewController()
                     self.navigationController?.pushViewController(controller, animated: true)
                 })
                 row.cell.height = { 67 }
@@ -172,32 +172,22 @@ class AccountSafeViewController: GroupedFormViewController {
                     cell.content = self?.currentLanguage()
                 })
         }
-//        form +++ fixHeightHeaderSection(height: 0)
-//            <<< SafeAccountCellRow { row in
-//                row.cell.title = "检查更新"
-//                row.cell.showIcon = false
-//                row.cell.showNext = true
-//                row.onCellSelection({ [weak self] (_, _) in
-//                    
-//                })
-//                row.cell.height = { 67 }
-//        }
-//        form +++ fixHeightHeaderSection(height: 0)
-//            <<< SafeAccountCellRow { row in
-//                row.cell.title = "是否接收推送消息"
-//                row.cell.showIcon = false
-//                row.cell.showNext = false
-//                row.cell.onSwitchValueChanged = { [weak self] in
-//
-//                }
-//                row.cellUpdate({ [weak self] (cell, _) in
-//                    cell.open = self?.isUserNotificationEnable()
-//                })
-//        }
     }
 
     private func currentLanguage() -> String {
-        return "中文"
+        if let language = getFirstLanuage() {
+            if language == "zh-Hans" {
+                return  localizedString("chinese")
+            } else {
+                return localizedString("japanese")
+            }
+        }
+        return localizedString("chinese")
+    }
+    
+    
+    private func changeLanguage() {
+    
     }
     
     private func uploadImage() {
@@ -212,7 +202,7 @@ class AccountSafeViewController: GroupedFormViewController {
         })
     }
     
-    private let button: DarkKeyButton = DarkKeyButton(title: "退出当前账号")
+    private let button: DarkKeyButton = DarkKeyButton(title: localizedString("loginOutCurrent"))
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.001

@@ -26,14 +26,8 @@ class LocalizableHelper: NSObject {
 }
 
 func getLanguageBundle(language: String? = "zh-Hans") -> Bundle? {
-    var currentLanuage = "zh-Hans"
-    if let la = language {
-        currentLanuage = la
-    } else if let firstLanguage = getFirstLanuage() {
-        currentLanuage = firstLanguage
-    }
     let bundle = Bundle.main
-    guard let path = bundle.path(forResource: currentLanuage, ofType: "lproj") else {
+    guard let path = bundle.path(forResource: getFirstLanuage(), ofType: "lproj") else {
         return nil
     }
     return Bundle(path: path)
@@ -48,12 +42,12 @@ func setLanguageBundle() {
 func getFirstLanuage() -> String? {
     let key = "AppleLanguages"
     let languages = UserDefaults.standard.object(forKey: key) as? [String]
-    return languages?.first
+    return languages?.first ?? "zh-Hans"
 }
 
 func setFirstLanguage(language: String = "zh-Hans") {
     let key = "AppleLanguages"
-    UserDefaults.standard.set(language, forKey: key)
+    UserDefaults.standard.set([language], forKey: key)
     UserDefaults.standard.synchronize()
 
     setLanguageBundle()
