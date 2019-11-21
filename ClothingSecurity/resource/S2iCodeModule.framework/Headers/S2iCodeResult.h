@@ -28,5 +28,16 @@
  */
 @property (nonatomic) long timestamp;
 
+/**
+ * 产品名称
+ */
+@property (nonatomic,strong) NSString *productName;
+
+
+/**
+ * 公司名称
+ */
+@property (nonatomic,strong) NSString *companyName;
+
 
 @end

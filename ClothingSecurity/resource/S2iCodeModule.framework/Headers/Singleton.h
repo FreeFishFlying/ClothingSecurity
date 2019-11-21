@@ -53,3 +53,4 @@ typedef NS_ENUM(NSUInteger, S2iLanguage) {
     S2iLanguageZh,
     S2iLanguageEn,
 };
+#define S2iLog(...) NSLog(__VA_ARGS__)
