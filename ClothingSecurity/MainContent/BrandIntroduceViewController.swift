@@ -64,7 +64,7 @@ class BrandIntroduceViewController: BaseViewController {
     private let contentLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(hexString: "#666666")
-        label.font = systemFontSize(fontSize: 13)
+        label.font = systemFontSize(fontSize: 15)
         label.numberOfLines = 0
         return label
     }()

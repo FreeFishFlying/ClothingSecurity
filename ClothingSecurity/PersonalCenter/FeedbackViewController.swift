@@ -41,7 +41,7 @@ class FeedbackViewController: BaseViewController, UITextFieldDelegate {
         attributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 14.135)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 139.0 / 255.0, green: 139.0 / 255.0, blue: 141.0 / 255.0, alpha: 1.0)
-            ], range: NSRange(location: 0, length: 24))
+        ], range: NSRange(location: 0, length: attributedString.length))
         textView.attributedPlaceholder = attributedString
         view.addSubview(telephoneView)
         telephoneView.snp.makeConstraints { make in

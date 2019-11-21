@@ -29,8 +29,8 @@
 "collection" = "ノート";
 "changeSuccess" = "編集成功";
 "testResult" = "検査結果";
-"latestHas" = "最新オススメ";
-"PopularWear" = "人気コーデ";
+"latestHas" = "最新おすすめ";
+"PopularWear" = "素晴らしい動画";
 "cancel" = "取消";
 "setting" = "設置";
 "someSuggestion" = "ご意見、アドバイス、希望がありましたら教えてください。";
@@ -84,9 +84,11 @@
 "loginSuccess" = "登録成功";
 "appIntroduce" = "クリーンな市場を目指し、偽商品が我々又はお客様、LABEAUTYにもたらす影響や損失のため、企業とANACILAのブランドイメージと名誉のため、お客様の正規品購入強化のため、こちらのアプリケーションを開発しました。";
 "trait" = "アプリの特徴";
-"firstTrait" = "その１、バーコードスキャンによる素早い真偽判定が可能。";
-"secondTrait" = "その２、LaBeauty製品の完全展示によるお客様への正規品への印象を深めてもらう。";
-"thirdTrait" = "その３、専門的な偽造防止トレーサビリティー の技術保証、専門技術チーム。";
+"firstTrait" = "その１、バーコードスキャンによる素早い真偽判定が可能。\n\n";
+"secondTrait" = "その２、LaBeauty製品の完全展示によるお客様への正規品への印象を深めてもらう。\n\n";
+"thirdTrait" = "その３、専門的な偽造防止トレーサビリティー の技術保証、専門技術チーム。\n\n";
+"forthTrait" = "その４、日本語中国語両方使用可能。\n\n";
+"fifthTrait" = "その５、権威のある品質検査の公開。";
 
 "mainPage" = "トップページ";
 "discover" = "発見";
@@ -138,3 +140,10 @@
 "japanese" = "日本語";
 "settingLanguage" = "設定後，自動的に再起動されます";
 "loading" = "ロード中";
+"APPDescription" = "アプリ説明";
+"APPVersion" = "バージョン情報";
+"Version" = "バージョン";
+"TrueObject" = "実物景品";
+"knownMore" = "もっと詳しい情報";
+"Delete" = "削除";
+"AddAddress" = "お届け場所を追加";

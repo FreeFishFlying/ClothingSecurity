@@ -180,6 +180,7 @@
 		B3C95B152243C3DC0036C5D6 /* S2iCodeModule.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B3E0D6A32197CBAA00CF5B63 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */; };
 		B3E0D6A721986EAD00CF5B63 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */; };
+		B3E3AA3523843F0D00C43456 /* NewWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3AA3323843F0C00C43456 /* NewWebViewController.swift */; };
 		B3F2B3BA2180D9730055DC0E /* GroupedFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */; };
 		B3F341072257968C00F64948 /* ScanNoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F341062257968C00F64948 /* ScanNoResultViewController.swift */; };
 		B3F5BFE022EC18A000DCCA6F /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F5BFDF22EC18A000DCCA6F /* LanguageViewController.swift */; };
@@ -423,6 +424,7 @@
 		B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = S2iCodeModule.framework; sourceTree = "<group>"; };
 		B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		B3E3AA3323843F0C00C43456 /* NewWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWebViewController.swift; sourceTree = "<group>"; };
 		B3F2B3B92180D9730055DC0E /* GroupedFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedFormViewController.swift; sourceTree = "<group>"; };
 		B3F341062257968C00F64948 /* ScanNoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanNoResultViewController.swift; sourceTree = "<group>"; };
 		B3F5BFDF22EC18A000DCCA6F /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
@@ -836,6 +838,7 @@
 		B35DBB0C216C783A00CAFDAD /* ClothingSecurity */ = {
 			isa = PBXGroup;
 			children = (
+				B3E3AA3123843F0C00C43456 /* WebView */,
 				B3C95B0C2243BEAD0036C5D6 /* resource */,
 				B32FD61721AE3115007BE7DB /* Lib */,
 				B35DBB41216C9A6C00CAFDAD /* login */,
@@ -1052,6 +1055,14 @@
 				B3C95B0E2243BEAD0036C5D6 /* S2iCodeModule.framework */,
 			);
 			path = resource;
+			sourceTree = "<group>";
+		};
+		B3E3AA3123843F0C00C43456 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				B3E3AA3323843F0C00C43456 /* NewWebViewController.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		F1F1A134462388183135CDA8 /* Frameworks */ = {
@@ -1467,6 +1478,7 @@
 				B3248D2A21880A6A00BF7485 /* ZPageControl.swift in Sources */,
 				B3B62FC4216DCC1B0006A39E /* DiscoverViewController.swift in Sources */,
 				B3A80898227DB11400EE069E /* FeedBack.swift in Sources */,
+				B3E3AA3523843F0D00C43456 /* NewWebViewController.swift in Sources */,
 				B3A80896227D994700EE069E /* PickUpSuccessController.swift in Sources */,
 				B3C14F73227C5590006D088C /* AddressCell.swift in Sources */,
 				B3248D342188322000BF7485 /* ImageModel.swift in Sources */,
@@ -1667,6 +1679,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = YQ9TC8RR69;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1751,6 +1764,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = YQ9TC8RR69;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

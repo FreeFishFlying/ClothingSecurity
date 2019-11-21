@@ -106,6 +106,7 @@ class PrizeReminder: UIView {
                         prizeImage.kf.setImage(with: url)
                     }
                     tipLabel.text = localizedString("save")
+                    button.setTitle(localizedString("clickReceive"), for: .normal)
                 }
                 configUIWithState(model.targetType)
             }

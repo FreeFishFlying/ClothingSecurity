@@ -17,8 +17,8 @@ class GiftRecordView: SwitchRecordView{
         setTipView(true)
         firstButton.setTitle(localizedString("coupon"), for: .normal)
         firstButton.setTitle(localizedString("coupon"), for: .selected)
-        secondButton.setTitle("实物奖品", for: .normal)
-        secondButton.setTitle("实物奖品", for: .selected)
+        secondButton.setTitle(localizedString("TrueObject"), for: .normal)
+        secondButton.setTitle(localizedString("TrueObject"), for: .selected)
     }
     
     required init?(coder aDecoder: NSCoder) {

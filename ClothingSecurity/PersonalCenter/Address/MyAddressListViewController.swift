@@ -119,7 +119,7 @@ class MyAddressListViewController: BaseViewController {
         button.layer.borderColor = UIColor(red: 176.0 / 255.0, green: 205.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0).cgColor
         button.layer.borderWidth = 1
         button.backgroundColor = UIColor.white
-        button.setTitle("+ 添加收货地址", for: .normal)
+        button.setTitle("+ \(localizedString("AddAddress"))", for: .normal)
         button.setTitleColor(UIColor(red: 176.0 / 255.0, green: 205.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0), for: .normal)
         button.layer.cornerRadius = 22.5
         button.layer.masksToBounds = true
@@ -131,7 +131,7 @@ class MyAddressListViewController: BaseViewController {
         button.layer.borderColor = UIColor(red: 176.0 / 255.0, green: 205.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0).cgColor
         button.layer.borderWidth = 1
         button.backgroundColor = UIColor.white
-        button.setTitle("+ 添加收货地址", for: .normal)
+        button.setTitle("+ \(localizedString("AddAddress"))", for: .normal)
         button.setTitleColor(UIColor(red: 176.0 / 255.0, green: 205.0 / 255.0, blue: 232.0 / 255.0, alpha: 1.0), for: .normal)
         button.layer.cornerRadius = 22.5
         button.layer.masksToBounds = true
