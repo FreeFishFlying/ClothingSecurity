@@ -49,7 +49,7 @@
                 language = @"zh-Hant"; // 繁體中文
             }
         } else {
-            language = @"en";
+            language = @"ja";
         }
         
         // 从MJRefresh.bundle中查找资源

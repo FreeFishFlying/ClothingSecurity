@@ -19,10 +19,10 @@ class PersonalViewController: PersonalBaseViewController, UITableViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(NormalCenterCell.self, forCellReuseIdentifier: "NormalCenterCell")
+        configUI()
         headerTitle = localizedString("Mine")
         tableView.delegate = self
         tableView.dataSource = self
-        configUI()
         registerEvent()
         addTapClick()
         self.currentUser = UserItem.current()

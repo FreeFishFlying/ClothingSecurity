@@ -33,6 +33,10 @@
  * 经度
  */
 @property (nonatomic) float  longitude;
+/**
+ * 状态码
+ */
+@property (nonatomic) NSInteger statusCode;
 
 
 

@@ -11,6 +11,7 @@ import UIKit
 import SnapKit
 import S2iCodeModule
 import AlertController
+
 import Core
 import ActionSheet
 class ClothingSecurityViewController: BaseViewController {
@@ -63,7 +64,7 @@ class ClothingSecurityViewController: BaseViewController {
         btn.setImage(imageNamed("scan"), for: .normal)
         btn.setBackgroundImage(imageNamed("Loginbutton"), for: .normal)
         btn.titleLabel?.font = UIFont(name: "PingFangSC-Medium", size: 17.0) ?? systemFontSize(fontSize: 17)
-        btn.setTitle(localizedString("scan"), for: .normal)
+        btn.setTitle(" " + localizedString("scan"), for: .normal)
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.layer.cornerRadius = 22
         btn.layer.masksToBounds = true

@@ -52,7 +52,7 @@ class  PersonalBaseViewController: BaseViewController {
                 if safeAreaTop > 0 {
                     make.top.equalTo(173 + safeAreaTop)
                 } else {
-                    make.height.equalTo(173)
+                    make.top.equalTo(173)
                 }
             } else {
                 make.top.equalTo(173)

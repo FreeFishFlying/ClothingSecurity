@@ -12,7 +12,7 @@ import UIKit
 class AppDescriptionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "APP说明"
+        title = localizedString("APPDescription")
         configUI()
     }
     
@@ -49,44 +49,37 @@ class AppDescriptionViewController: BaseViewController {
             NSAttributedString.Key.font: UIFont(name: "PingFangSC-Semibold", size: 16.0)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
             ], range: NSRange(location: 0, length: secontAttributedString.length))
-        let thirdAttributedString = NSMutableAttributedString(string: "1、")
-        thirdAttributedString.addAttributes([
-            NSAttributedString.Key.font: UIFont(name: "PingFangSC-Semibold", size: 15.0)!,
-            NSAttributedString.Key.foregroundColor:UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
-            ], range: NSRange(location: 0, length: thirdAttributedString.length))
         let forthAttributedString = NSMutableAttributedString(string: localizedString("firstTrait"))
         forthAttributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFangSC-Regular", size: 14.0)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
             ], range: NSRange(location: 0, length: forthAttributedString.length))
-        let fifithAttributedString = NSMutableAttributedString(string: "2、")
-        fifithAttributedString.addAttributes([
-            NSAttributedString.Key.font: UIFont(name: "PingFangSC-Semibold", size: 15.0)!,
-            NSAttributedString.Key.foregroundColor:UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
-            ], range: NSRange(location: 0, length: fifithAttributedString.length))
         let sixAttributedString = NSMutableAttributedString(string: localizedString("secondTrait"))
         sixAttributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Regular", size: 14.0)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 41.0 / 255.0, green: 41.0 / 255.0, blue: 41.0 / 255.0, alpha: 1.0)
             ], range: NSRange(location: 0, length: sixAttributedString.length))
-        let sevenAttributedString = NSMutableAttributedString(string: "3‘")
-        sevenAttributedString.addAttributes([
-            NSAttributedString.Key.font: UIFont(name: "PingFangSC-Semibold", size: 15.0)!,
-            NSAttributedString.Key.foregroundColor:UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
-            ], range: NSRange(location: 0, length: sevenAttributedString.length))
         let eightAttributedString = NSMutableAttributedString(string: localizedString("thirdTrait"))
         eightAttributedString.addAttributes([
             NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Regular", size: 14.0)!,
             NSAttributedString.Key.foregroundColor:UIColor(red: 41.0 / 255.0, green: 41.0 / 255.0, blue: 41.0 / 255.0, alpha: 1.0)
             ], range: NSRange(location: 0, length: eightAttributedString.length))
-        
+        let nightAttributedString = NSMutableAttributedString(string: localizedString("forthTrait"))
+        nightAttributedString.addAttributes([
+            NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Regular", size: 14.0)!,
+            NSAttributedString.Key.foregroundColor:UIColor(red: 41.0 / 255.0, green: 41.0 / 255.0, blue: 41.0 / 255.0, alpha: 1.0)
+            ], range: NSRange(location: 0, length: nightAttributedString.length))
+        let tenAttributedString = NSMutableAttributedString(string: localizedString("fifthTrait"))
+        tenAttributedString.addAttributes([
+            NSAttributedString.Key.font: UIFont(name: "PingFang-SC-Regular", size: 14.0)!,
+            NSAttributedString.Key.foregroundColor:UIColor(red: 41.0 / 255.0, green: 41.0 / 255.0, blue: 41.0 / 255.0, alpha: 1.0)
+            ], range: NSRange(location: 0, length: tenAttributedString.length))
         firstAttributedString.append(secontAttributedString)
-        firstAttributedString.append(thirdAttributedString)
         firstAttributedString.append(forthAttributedString)
-        firstAttributedString.append(fifithAttributedString)
         firstAttributedString.append(sixAttributedString)
-        firstAttributedString.append(sevenAttributedString)
         firstAttributedString.append(eightAttributedString)
+        firstAttributedString.append(nightAttributedString)
+        firstAttributedString.append(tenAttributedString)
         contentLabel.attributedText = firstAttributedString
         view.layoutIfNeeded()
     }

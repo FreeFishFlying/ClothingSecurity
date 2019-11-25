@@ -8,7 +8,7 @@
 
 import UIKit
 import FDFullscreenPopGesture
-//import S2iCodeModule
+import S2iCodeModule
 import HUD
 
 @UIApplicationMain
@@ -35,13 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, TencentSes
         return true
     }
     
-//    func applicationDidEnterBackground(_ application: UIApplication) {
-//        S2iCodeModule.shared()?.applicationDidEnterBackground(application)
-//    }
-//    
-//    func applicationWillEnterForeground(_ application: UIApplication) {
-//        S2iCodeModule.shared()?.applicationWillEnterForeground(application)
-//    }
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        S2iCodeModule.shared()?.applicationDidEnterBackground(application)
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        S2iCodeModule.shared()?.applicationWillEnterForeground(application)
+    }
     
     private func login(code: String, type: ThirdType) {
         HUD.show(.progress)

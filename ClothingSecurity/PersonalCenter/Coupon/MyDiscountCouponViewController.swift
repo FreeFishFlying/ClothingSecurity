@@ -33,6 +33,8 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
             guard let `self` = self else { return }
             self.type = value
             self.page = 0
+            self.dataSources.removeAll()
+            self.list.removeAll()
             self.couponList(self.page, type: value)
         }
         view.addSubview(tableView)

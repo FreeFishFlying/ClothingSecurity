@@ -50,7 +50,7 @@ class AboutAppViewController: GroupedFormViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalTableViewCellRow { row in
                 row.cell.height = { 67 }
-                row.cell.name = "APP说明"
+                row.cell.name = localizedString("APPDescription")
                 row.onCellSelection({ [weak self] (_, _) in
                     guard let `self` = self else { return }
                     let controller = AppDescriptionViewController()
@@ -60,8 +60,8 @@ class AboutAppViewController: GroupedFormViewController {
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalTableViewCellRow { row in
                 row.cell.height = { 67 }
-                row.cell.name = "版本信息"
-                row.cell.subContent = "版本 V" + (Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
+                row.cell.name = localizedString("APPVersion")
+                row.cell.subContent = "\(localizedString("Version")) V" + (Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)
         }
         form +++ fixHeightHeaderSection(height: 0)
             <<< NormalTableViewCellRow { row in

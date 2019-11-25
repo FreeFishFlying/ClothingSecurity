@@ -16,7 +16,13 @@
     
     ],
     "privacy_zh":"http://s2i.cn/app/s2i2/privacy_policy_cn.html",
-    "privacy_en":"http://s2i.cn/app/s2i2/privacy_policy_en.html"
+    "privacy_en":"http://s2i.cn/app/s2i2/privacy_policy_en.html",
     
-    
+    "isAnimationScanBox": true,
+    "isAnimationBackground": true,
+    "isShowScanBoxBanner": false,
+    "isShowS2iMask": true,
+    "scanBoxScale": 1,
+    "percentLableOffset": 0,
+    "originalScanBoxAlpha": 1,
 }

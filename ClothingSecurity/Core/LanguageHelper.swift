@@ -42,7 +42,13 @@ func setLanguageBundle() {
 func getFirstLanuage() -> String? {
     let key = "AppleLanguages"
     let languages = UserDefaults.standard.object(forKey: key) as? [String]
-    return languages?.first ?? "zh-Hans"
+    if let language = languages?.first {
+        if language == "zh-Hans-CN" || language == "zh-hans" {
+            return "zh-Hans"
+        }
+        return language
+    }
+    return  "zh-Hans"
 }
 
 func setFirstLanguage(language: String = "zh-Hans") {

@@ -130,8 +130,9 @@ extension MainContentViewController: ZCycleViewProtocol {
             return
         } else {
             if let model = bannerList[safe: index]{
-                if model.type == .goods {
-                    searchById(model.goodId)
+                if !model.link.isEmpty {
+                    let controller = NewWebViewController.init(url: model.link)
+                    navigationController?.pushViewController(controller, animated: true)
                 }
             }
         }

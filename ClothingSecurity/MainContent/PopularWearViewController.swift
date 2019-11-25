@@ -152,7 +152,7 @@ class PopularWearViewController: BaseViewController, UITableViewDelegate, UITabl
             }
         } else {
             if !imageModels.isEmpty {
-                label.text = "搭配推荐"
+                label.text = "图片推荐"
             } else {
                 return nil
             }

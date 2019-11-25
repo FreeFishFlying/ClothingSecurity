@@ -1,0 +1,38 @@
+[
+    {
+        "name":"Restkit",
+        "license":"Apache 2.0",
+        "link":"license_apache2.0"
+    },
+    {
+        "name":"SDWebImage",
+        "license":"MIT",
+        "link":"https://github.com/SDWebImage/SDWebImage"
+    },
+    {
+        "name":"KSReachability",
+        "license":"KSReachability",
+        "link":"license_KSReachability"
+    },
+    {
+        "name":"TWRDownloadManager",
+        "license":"MIT",
+        "link":"https://github.com/chasseurmic/TWRDownloadManager"
+    },
+    {
+        "name":"AKPickerView",
+        "license":"MIT",
+        "link":"https://github.com/akkyie/AKPickerView"
+    },
+    {
+        "name":"Fabric",
+        "license":"BSD 2-Clause",
+        "link":"https://github.com/fabric/fabric"
+    },
+    {
+        "name":"OpenCV",
+        "license":"BSD",
+        "link":"https://www.opencv.org"
+    }
+]
+

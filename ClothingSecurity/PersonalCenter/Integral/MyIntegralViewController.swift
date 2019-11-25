@@ -64,6 +64,7 @@ class MyIntegralViewController: PersonalBaseViewController {
         }
         recordView.onClickRecordView = { [weak self] value in
             guard let `self` = self else { return }
+            self.dataSources.removeAll()
             self.direction = value == 0 ? .In : .Out
             self.page = 0
             self.getWalletLog(page: self.page)
