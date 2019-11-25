@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate, TencentSes
         applyStyle()
         updateAuthInfo()
         regiesterOtherLink()
-        //S2iCodeModule.shared()?.initS2iCodeModule()
+        S2iCodeModule.shared()?.initS2iCodeModule()
         return true
     }
     
