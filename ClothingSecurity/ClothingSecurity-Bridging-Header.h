@@ -13,4 +13,3 @@
 #endif /* ClothingSecurity_bridging_Header_h */
 
 #import <UINavigationController+FDFullscreenPopGesture.h>
-#import <S2iCodeModule/S2iCodeModule.h>

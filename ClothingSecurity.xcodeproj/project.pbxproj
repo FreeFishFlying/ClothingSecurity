@@ -48,6 +48,10 @@
 		B326124B2186B1F6002A2E51 /* LoginPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326124A2186B1F6002A2E51 /* LoginPacket.swift */; };
 		B326124D2186B5CE002A2E51 /* LoginAndRegisterFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326124C2186B5CE002A2E51 /* LoginAndRegisterFacade.swift */; };
 		B32612532186DFD1002A2E51 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32612522186DFD1002A2E51 /* UserItem.swift */; };
+		B32B3CC9238D74FF004EC047 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD64D21AE79A8007BE7DB /* QuartzCore.framework */; };
+		B32B3CCA238D74FF004EC047 /* QuartzCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD64D21AE79A8007BE7DB /* QuartzCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B32B3CCF238D75FB004EC047 /* S2iCodeModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B39D2B102386E87B00ADE2E7 /* S2iCodeModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B32B3CD0238D7660004EC047 /* S2iCodeModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B39D2B102386E87B00ADE2E7 /* S2iCodeModule.framework */; };
 		B32FD62121AE32EE007BE7DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD62021AE32EE007BE7DB /* SystemConfiguration.framework */; };
 		B32FD62321AE32FB007BE7DB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD62221AE32FB007BE7DB /* libz.tbd */; };
 		B32FD62521AE3305007BE7DB /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD62421AE3305007BE7DB /* libsqlite3.0.tbd */; };
@@ -63,7 +67,6 @@
 		B32FD64521AE6E21007BE7DB /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD64421AE6E21007BE7DB /* TencentOpenAPI.framework */; };
 		B32FD64B21AE795D007BE7DB /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B32FD64721AE795D007BE7DB /* WeiboSDK.bundle */; };
 		B32FD64C21AE795D007BE7DB /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD64821AE795D007BE7DB /* libWeiboSDK.a */; };
-		B32FD64E21AE79A8007BE7DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD64D21AE79A8007BE7DB /* QuartzCore.framework */; };
 		B32FD65021AE79AE007BE7DB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD64F21AE79AE007BE7DB /* ImageIO.framework */; };
 		B32FD65221AE79B8007BE7DB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD65121AE79B8007BE7DB /* CoreText.framework */; };
 		B32FD65421AE79C3007BE7DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD65321AE79C3007BE7DB /* CoreGraphics.framework */; };
@@ -125,7 +128,6 @@
 		B39C99CD21C1497B005605DA /* SLScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C99CB21C1497B005605DA /* SLScannerView.swift */; };
 		B39C99D021C149C8005605DA /* SLQRCodeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C99CE21C149C8005605DA /* SLQRCodeConfig.swift */; };
 		B39C99D121C149C8005605DA /* SLQRCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C99CF21C149C8005605DA /* SLQRCodeHelper.swift */; };
-		B39D2B112386E87B00ADE2E7 /* S2iCodeModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B39D2B102386E87B00ADE2E7 /* S2iCodeModule.framework */; };
 		B3A27501227F22BA002D3809 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A27500227F22BA002D3809 /* ScanResultViewController.swift */; };
 		B3A27503227F250E002D3809 /* Agency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A27502227F250E002D3809 /* Agency.swift */; };
 		B3A80886227D2ECC00EE069E /* HDSelecterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A8087C227D2ECC00EE069E /* HDSelecterView.m */; };
@@ -192,6 +194,7 @@
 		B3F617922196A1870051926E /* CollectListPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F617912196A1870051926E /* CollectListPacket.swift */; };
 		B3FCEEC62182091200DA52E2 /* LoginViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCEEC52182091200DA52E2 /* LoginViewController+Cell.swift */; };
 		B3FCEEC821821FFD00DA52E2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */; };
+		E1D2A16C1E5B8B5226A52113 /* Pods_ClothingSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32C989E32CC88034008E471 /* Pods_ClothingSecurity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,13 +215,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B3C95B132243C3940036C5D6 /* CopyFiles */ = {
+		B3C95B132243C3940036C5D6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B32B3CCF238D75FB004EC047 /* S2iCodeModule.framework in Embed Frameworks */,
+				B32B3CCA238D74FF004EC047 /* QuartzCore.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -434,6 +440,7 @@
 		B3F617912196A1870051926E /* CollectListPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectListPacket.swift; sourceTree = "<group>"; };
 		B3FCEEC52182091200DA52E2 /* LoginViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Cell.swift"; sourceTree = "<group>"; };
 		B3FCEEC721821FFD00DA52E2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C32C989E32CC88034008E471 /* Pods_ClothingSecurity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothingSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,21 +448,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B32B3CD0238D7660004EC047 /* S2iCodeModule.framework in Frameworks */,
+				B32B3CC9238D74FF004EC047 /* QuartzCore.framework in Frameworks */,
 				B32FD65421AE79C3007BE7DB /* CoreGraphics.framework in Frameworks */,
 				B32FD65221AE79B8007BE7DB /* CoreText.framework in Frameworks */,
 				B32FD65021AE79AE007BE7DB /* ImageIO.framework in Frameworks */,
-				B32FD64E21AE79A8007BE7DB /* QuartzCore.framework in Frameworks */,
 				B32FD62D21AE333E007BE7DB /* CFNetwork.framework in Frameworks */,
 				B32FD64C21AE795D007BE7DB /* libWeiboSDK.a in Frameworks */,
 				B32FD62B21AE332D007BE7DB /* CoreTelephony.framework in Frameworks */,
 				B32FD63521AE3535007BE7DB /* libWeChatSDK.a in Frameworks */,
 				B32FD62921AE331B007BE7DB /* Security.framework in Frameworks */,
 				B32FD62721AE3314007BE7DB /* libc++.tbd in Frameworks */,
-				B39D2B112386E87B00ADE2E7 /* S2iCodeModule.framework in Frameworks */,
 				B32FD64521AE6E21007BE7DB /* TencentOpenAPI.framework in Frameworks */,
 				B32FD62521AE3305007BE7DB /* libsqlite3.0.tbd in Frameworks */,
 				B32FD62321AE32FB007BE7DB /* libz.tbd in Frameworks */,
 				B32FD62121AE32EE007BE7DB /* SystemConfiguration.framework in Frameworks */,
+				E1D2A16C1E5B8B5226A52113 /* Pods_ClothingSecurity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1076,6 +1084,7 @@
 				B32FD62421AE3305007BE7DB /* libsqlite3.0.tbd */,
 				B32FD62221AE32FB007BE7DB /* libz.tbd */,
 				B32FD62021AE32EE007BE7DB /* SystemConfiguration.framework */,
+				C32C989E32CC88034008E471 /* Pods_ClothingSecurity.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1093,7 +1102,7 @@
 				B35DBB08216C783A00CAFDAD /* Resources */,
 				7E5E4583928CE2DF547DAE23 /* [CP] Embed Pods Frameworks */,
 				5296025A72796C8BCFCA78C0 /* [CP] Copy Pods Resources */,
-				B3C95B132243C3940036C5D6 /* CopyFiles */,
+				B3C95B132243C3940036C5D6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1670,7 +1679,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C96C59233EE40489AFE0B89 /* Pods-ClothingSecurity.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1679,11 +1687,11 @@
 				DEVELOPMENT_TEAM = YQ9TC8RR69;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)/**",
-					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ /**",
-					"$(SRCROOT)/**",
-					"$(PROJECT_DIR)/ClothingSecurity/resource/**",
+					"$(inherited)",
+					"$(PROJECT_DIR)/ClothingSecurity/Lib/QQ\\ ",
+					"$(SRCROOT)",
 					"$(PROJECT_DIR)/ClothingSecurity/resource",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ClothingSecurity/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1756,7 +1764,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E1F02F363D9AC4716C70A67 /* Pods-ClothingSecurity.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
