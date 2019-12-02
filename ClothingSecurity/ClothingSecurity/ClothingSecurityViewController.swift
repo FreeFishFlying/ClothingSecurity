@@ -72,7 +72,8 @@ class ClothingSecurityViewController: BaseViewController {
     }()
 
     func scicode() {
-        S2iCodeModule.shared()?.start(within: UIApplication.shared.keyWindow, uiNavigationController: self.navigationController!, showResult: true)
+        S2iCodeModule.shared().initS2iCodeModuleWtihDelegate(self)
+        S2iCodeModule.shared().start(within: nil, uiNavigationController: self.navigationController!, showResult: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             let controllers = self.navigationController?.viewControllers;
             if let controller = controllers?.last {
