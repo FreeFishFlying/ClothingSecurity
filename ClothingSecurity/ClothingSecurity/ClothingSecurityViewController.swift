@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
-import S2iCodeModule
+//import S2iCodeModule
 import AlertController
 
 import Core
@@ -72,7 +72,7 @@ class ClothingSecurityViewController: BaseViewController {
     }()
 
     func scicode() {
-        S2iCodeModule.shared()?.start(within: UIApplication.shared.keyWindow, uiNavigationController: self.navigationController)
+        S2iCodeModule.shared()?.start(within: UIApplication.shared.keyWindow, uiNavigationController: self.navigationController!, showResult: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             let controllers = self.navigationController?.viewControllers;
             if let controller = controllers?.last {

@@ -8,7 +8,7 @@
 
 import UIKit
 import FDFullscreenPopGesture
-import S2iCodeModule
+//import S2iCodeModule
 import HUD
 
 @UIApplicationMain

@@ -1,4 +1,11 @@
 {
+    "isAnimationScanBox": true,
+    "isAnimationBackground": true,
+    "isShowScanBoxBanner": false,
+    "isShowS2iMask": true,
+    "scanBoxScale": 1,
+    "percentLableOffset": 0,
+    "originalScanBoxAlpha": 1,
     "colorGreen":"28AF63",
     "colorGray":"494949",
     "themeColor":"28AF63",

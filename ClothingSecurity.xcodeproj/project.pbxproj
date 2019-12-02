@@ -49,7 +49,6 @@
 		B326124D2186B5CE002A2E51 /* LoginAndRegisterFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326124C2186B5CE002A2E51 /* LoginAndRegisterFacade.swift */; };
 		B32612532186DFD1002A2E51 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32612522186DFD1002A2E51 /* UserItem.swift */; };
 		B32B3CC9238D74FF004EC047 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD64D21AE79A8007BE7DB /* QuartzCore.framework */; };
-		B32B3CCA238D74FF004EC047 /* QuartzCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD64D21AE79A8007BE7DB /* QuartzCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B32B3CCF238D75FB004EC047 /* S2iCodeModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B39D2B102386E87B00ADE2E7 /* S2iCodeModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B32B3CD0238D7660004EC047 /* S2iCodeModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B39D2B102386E87B00ADE2E7 /* S2iCodeModule.framework */; };
 		B32FD62121AE32EE007BE7DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32FD62021AE32EE007BE7DB /* SystemConfiguration.framework */; };
@@ -222,7 +221,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B32B3CCF238D75FB004EC047 /* S2iCodeModule.framework in Embed Frameworks */,
-				B32B3CCA238D74FF004EC047 /* QuartzCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1683,7 +1681,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = YQ9TC8RR69;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1757,6 +1755,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
+				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
 			name = Debug;
 		};
@@ -1768,7 +1767,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = YQ9TC8RR69;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1841,6 +1840,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
+				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
 			name = Release;
 		};
