@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HUD
 
 let lotteryItemWidth: Int = 104
 
@@ -295,10 +296,15 @@ class LotteryContainer: UIView {
             IntegralFacade.shared.prizeDraw().startWithResult({ [weak self] result in
                 guard let `self` = self else { return }
                 guard let value = result.value else { return }
-                let prize = value.prizes[value.prizeIndex]
-                if let log = value.log {
-                    self.handleWithValue(prize, log)
+                if value.isSuccess() && !value.prizes.isEmpty{
+                    let prize = value.prizes[value.prizeIndex]
+                    if let log = value.log {
+                        self.handleWithValue(prize, log)
+                    }
+                } else {
+                    HUD.flashError(title: value.tipMesage())
                 }
+                
             })
         }
     }

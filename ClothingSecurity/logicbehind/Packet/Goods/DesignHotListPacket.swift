@@ -17,12 +17,12 @@ class DesignHotListResponse: HttpResponseData {
         super.init(json: json)
         if let json = json {
             if !json["data"].isEmpty {
-                let data = json["data"]
-                if let list = data["content"].array {
+                if let list = json["data"].array {
                     list.forEach { js in
                         content.append(VideoModel(json: js))
                     }
                 }
+                
             }
         }
     }
