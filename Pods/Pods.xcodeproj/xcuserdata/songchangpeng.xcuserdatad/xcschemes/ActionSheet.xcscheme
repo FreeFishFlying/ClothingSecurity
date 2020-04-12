@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1654A28587724B10B28C046D8667A2F8"
+               BlueprintIdentifier = "C04B4EEE8F207735257DDE9CEECD32B6"
+               BuildableName = "ActionSheet.framework"
                BlueprintName = "ActionSheet"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "ActionSheet.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

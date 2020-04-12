@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9967F956A82AB963EA6EA70B83C9F604"
+               BlueprintIdentifier = "ACEA7455D3D59B5BC7B2ED9361C49AC6"
+               BuildableName = "Mesh.framework"
                BlueprintName = "Mesh"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Mesh.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

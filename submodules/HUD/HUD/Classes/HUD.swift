@@ -63,23 +63,45 @@ public final class HUD {
         PKHUD.sharedHUD.show(onView: view, dimsBackground: dimsBackground)
     }
     
-    public static func tip(text: String?, onView view: UIView? = nil, textColor: UIColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), backgroundColor: UIColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.9)) {
+    public static func tip(text: String?, onView view: UIView? = nil, textColor: UIColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), backgroundColor: UIColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.9), duration: Double = 2.0) {
         var window = UIApplication.shared.keyWindow!
         for item in UIApplication.shared.windows {
-            if !item.isHidden && String(describing: item) != "UITextEffectsWindow" && item.windowLevel > window.windowLevel {
+            if !item.isHidden && !String(describing: item).hasPrefix("UITextEffectsWindow") && item.windowLevel >= window.windowLevel {
                 window = item
             }
         }
         let tipView = PKHUDTextView(text: text, offset: CGSize(width: 40, height: 20))
         tipView.titleLabel.textColor = textColor
         tipView.backgroundColor = backgroundColor
-        let hud = PKHUD()
+        let hud = PKHUD.sharedHUD
         hud.userInteractionOnUnderlyingViewsEnabled = true
         hud.contentView = tipView
         HUD.tipContainer.append(hud)
         hud.show(onView: view ?? window, dimsBackground: false)
-        hud.hide(afterDelay: 2) { [weak hud] (_) in
-            if let index = HUD.tipContainer.index(where: { (item) -> Bool in
+        hud.hide(afterDelay: duration) { [weak hud] (_) in
+            if let index = HUD.tipContainer.firstIndex(where: { (item) -> Bool in
+                return item == hud
+            }) {
+                HUD.tipContainer.remove(at: index)
+            }
+        }
+    }
+    
+    public static func showImageTip(image: UIImage?, text: String?, onView view: UIView? = nil, duration: Double = 2.0) {
+        var window = UIApplication.shared.keyWindow!
+        for item in UIApplication.shared.windows {
+            if !item.isHidden && !String(describing: item).hasPrefix("UITextEffectsWindow") && item.windowLevel >= window.windowLevel {
+                window = item
+            }
+        }
+        let tipView = PKHUDSquareBaseView(image: image, title: nil, subtitle: text)
+        let hud = PKHUD.sharedHUD
+        hud.userInteractionOnUnderlyingViewsEnabled = true
+        hud.contentView = tipView
+        HUD.tipContainer.append(hud)
+        hud.show(onView: view ?? window, dimsBackground: false)
+        hud.hide(afterDelay: duration) { [weak hud] (_) in
+            if let index = HUD.tipContainer.firstIndex(where: { (item) -> Bool in
                 return item == hud
             }) {
                 HUD.tipContainer.remove(at: index)

@@ -218,8 +218,12 @@ public class ImageAsset: MediaAsset {
 open class MediaAsset: NSObject, MediaSelectableItem {
 
     public let asset: PHAsset
-    private var cachedType: MediaAssetType?
-    private var fileSize: UInt64?
+    public var cachedType: MediaAssetType?
+    public var fileSize: UInt64?
+    public var hasEdited = false
+    public var editedImage: UIImage?
+    public var comment: String?
+    public var hasDownloadOriginalImage = false
 
     public let (eidtorChangeSignal, eidtorChangeObserver) = Signal<MediaEditorResult?, NoError>.pipe()
 
@@ -244,7 +248,7 @@ open class MediaAsset: NSObject, MediaSelectableItem {
     open func videoDuration() -> TimeInterval {
         return asset.duration
     }
-    
+
     public var creationDate: Date? {
         return asset.creationDate
     }
@@ -370,12 +374,12 @@ open class MediaAsset: NSObject, MediaSelectableItem {
             contentMode = .aspectFit
         }
         if editorResult?.hasChanges ?? false {
-            return SignalProducer<(UIImage?, Double?), RequestImageDataError>({ [weak self] (observer: Signal<(UIImage?, Double?), RequestImageDataError>.Observer, disposable) in
+            return SignalProducer<(UIImage?, Double?), RequestImageDataError>({ [weak self] (observer: Signal<(UIImage?, Double?), RequestImageDataError>.Observer, _) in
                 observer.send(value: (size.width < 200 ? self?.editorResult?.thumbnailImage : self?.editorResult?.editorImage, nil))
             })
         }
         if let editorImage = self.editorResult?.editorImage {
-            return SignalProducer<(UIImage?, Double?), RequestImageDataError>({ (observer: Signal<(UIImage?, Double?), RequestImageDataError>.Observer, disposable) in
+            return SignalProducer<(UIImage?, Double?), RequestImageDataError>({ (observer: Signal<(UIImage?, Double?), RequestImageDataError>.Observer, _) in
                 observer.send(value: (editorImage, nil))
             })
         }
@@ -492,7 +496,7 @@ open class MediaAsset: NSObject, MediaSelectableItem {
                 }
             }
             let token: PHImageRequestID = imageManager.requestImageData(for: self.asset, options: options, resultHandler: { (imageData: Data?, dataUTI: String?, _: UIImage.Orientation, info: Dictionary?) in
-                let inCloud: Bool = (info?[PHImageResultIsInCloudKey] as! NSNumber).boolValue
+                let inCloud: Bool = (info?[PHImageResultIsInCloudKey] as? NSNumber)?.boolValue ?? false
                 if inCloud && imageData?.count == 0 && !allowNetworkAccess {
                     observer.send(error: RequestImageDataError.inCloud)
                 }

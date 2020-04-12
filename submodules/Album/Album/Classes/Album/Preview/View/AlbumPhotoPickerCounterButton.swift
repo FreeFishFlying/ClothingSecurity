@@ -180,23 +180,22 @@ class AlbumPhotoPickerCounterButton: UIButton {
                 crossIconView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
                 countLabel.transform = CGAffineTransform.identity
             }
-            let crossStartRotation: CGFloat = crossIconView.layer.value(forKeyPath: "transform.rotation.z") as! CGFloat
-            let labelStartRotation: CGFloat = countLabel.layer.value(forKeyPath: "transform.rotation.z") as! CGFloat
+            if let crossStartRotation = crossIconView.layer.value(forKeyPath: "transform.rotation.z") as? CGFloat,
+                let labelStartRotation = countLabel.layer.value(forKeyPath: "transform.rotation.z") as? CGFloat {
+                let crossAnimation = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
+                crossAnimation?.springSpeed = 12
+                crossAnimation?.springBounciness = 7
+                crossAnimation?.fromValue = crossStartRotation
+                crossAnimation?.toValue = isSelected ? 0 : CGFloat.pi / 4
+                crossIconView.layer.pop_add(crossAnimation, forKey: "crossRotation")
 
-            let crossAnimation = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-            crossAnimation?.springSpeed = 12
-            crossAnimation?.springBounciness = 7
-            crossAnimation?.fromValue = crossStartRotation
-            crossAnimation?.toValue = isSelected ? 0 : CGFloat.pi / 4
-            crossIconView.layer.pop_add(crossAnimation, forKey: "crossRotation")
-
-            let labelAnimation = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
-            labelAnimation?.springSpeed = 12
-            labelAnimation?.springBounciness = 7
-            labelAnimation?.fromValue = labelStartRotation
-            labelAnimation?.toValue = isSelected ? -CGFloat.pi / 4 : 0
-            countLabel.layer.pop_add(labelAnimation, forKey: "labelRotation")
-
+                let labelAnimation = POPSpringAnimation(propertyNamed: kPOPLayerRotation)
+                labelAnimation?.springSpeed = 12
+                labelAnimation?.springBounciness = 7
+                labelAnimation?.fromValue = labelStartRotation
+                labelAnimation?.toValue = isSelected ? -CGFloat.pi / 4 : 0
+                countLabel.layer.pop_add(labelAnimation, forKey: "labelRotation")
+            }
             UIView.animate(withDuration: 0.2, animations: {
                 self.wrapperView.transform = CGAffineTransform.identity
                 self.crossIconView.alpha = self.isSelected ? 1.0 : 0.0
@@ -207,6 +206,7 @@ class AlbumPhotoPickerCounterButton: UIButton {
                 self.crossIconView.alpha = 1
                 self.countLabel.alpha = 1
             })
+
         } else {
             crossIconView.pop_removeAllAnimations()
             countLabel.pop_removeAllAnimations()

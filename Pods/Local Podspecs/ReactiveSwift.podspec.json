@@ -29,5 +29,6 @@
     "OTHER_SWIFT_FLAGS[config=Release]": "$(inherited) -suppress-warnings"
   },
   "cocoapods_version": ">= 1.4.0",
+  "swift_versions": "4.1.2",
   "swift_version": "4.1.2"
 }

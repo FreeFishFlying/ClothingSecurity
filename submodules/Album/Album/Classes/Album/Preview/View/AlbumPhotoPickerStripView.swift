@@ -156,12 +156,9 @@ extension AlbumPhotoPickerStripView {
             dataSource = change.assetItems
             insertItem(at: indexPath)
         } else if change.assetItems.count == 0 {
-            setHidden(hidden: true, animation: true) { [weak self] _ in
-                if let strongSelf = self {
-                    strongSelf.dataSource = change.assetItems
-                    strongSelf.collectionView.reloadData()
-                }
-            }
+            dataSource = change.assetItems
+            collectionView.reloadData()
+            setHidden(hidden: true, animation: true)
         } else {
             dataSource = change.assetItems
             deleteItem(indexPath: indexPath)

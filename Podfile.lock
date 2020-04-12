@@ -22,15 +22,13 @@ PODS:
     - ReactiveSwift
     - SnapKit
   - ESTabBarController (2.6.2)
-  - Eureka (4.2.0)
+  - Eureka (5.0.1)
   - FDFullscreenPopGesture (1.1)
   - HUD (0.1.0)
-  - Kingfisher (4.8.1)
   - Masonry (1.1.0)
   - MediaEditorKit (0.1.0):
     - pop
   - Mesh (0.0.1):
-    - Kingfisher
     - ReactiveSwift
     - XCGLogger
   - MJRefresh (3.1.15.5)
@@ -46,7 +44,7 @@ PODS:
     - Core
     - PinLayout
     - ReactiveSwift
-  - ReactiveCocoa (8.0.0):
+  - ReactiveCocoa (8.0.2):
     - ReactiveSwift (~> 4.0)
   - ReactiveObjC (3.1.0)
   - ReactiveSwift (4.0.0):
@@ -79,7 +77,6 @@ DEPENDENCIES:
   - MJRefresh (from `submodules/MJRefresh/`)
   - PinLayout (from `submodules/PinLayout/`)
   - PopoverImagePicker (from `submodules/PopoverImagePicker/`)
-  - ReactiveCocoa (from `submodules/ReactiveCocoa/`)
   - ReactiveObjC (from `submodules/ReactiveObjC/`)
   - ReactiveSwift (from `submodules/ReactiveSwift/`)
   - Result (from `submodules/Result/`)
@@ -90,13 +87,14 @@ DEPENDENCIES:
   - ZXingObjC (from `submodules/ZXingObjC/`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - BaiduMobStatCodeless
-    - Kingfisher
     - Masonry
     - ObjcExceptionBridging
     - pop
     - WechatOpenSDK
+  trunk:
+    - ReactiveCocoa
 
 EXTERNAL SOURCES:
   ActionSheet:
@@ -125,8 +123,6 @@ EXTERNAL SOURCES:
     :path: submodules/PinLayout/
   PopoverImagePicker:
     :path: submodules/PopoverImagePicker/
-  ReactiveCocoa:
-    :path: submodules/ReactiveCocoa/
   ReactiveObjC:
     :path: submodules/ReactiveObjC/
   ReactiveSwift:
@@ -143,34 +139,33 @@ EXTERNAL SOURCES:
     :path: submodules/ZXingObjC/
 
 SPEC CHECKSUMS:
-  ActionSheet: 481c7b0b90691c4882cdc915b3c144df3e93ef5b
-  Album: 49b56b2a29b28222668384e02a77e406d8fa0547
-  AlertController: 428d46ec2c9496d92151ab7a0cb66989ddce624f
+  ActionSheet: 9bf6ceddb7e1cb7c96c84deb7ac2dc0756a274f3
+  Album: 83ce0bdfb12ef0b94f1638533ac85074f51b6c5f
+  AlertController: ac20b05302a08cb777608dbb7576fc580cdf30a3
   BaiduMobStatCodeless: fc98daffd6d08f1c9644737864b61d2c806965d1
-  Core: 2fbd9d0be76ed231f520bd2db4a45a75b07b8c51
-  ESTabBarController: 8db71cb7f648747a11f25ede0f91195cb0394c27
-  Eureka: 246b17918da454e3b38cc64aea23af2d3463fd81
-  FDFullscreenPopGesture: 7e81964528cd8f9419b2ea07189b4d05929b9f22
-  HUD: a0622060114bf7b9d75896184789ee16551d8a1e
-  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  Core: 68605573ed73624a2abc2ba01be44caf371d1aa8
+  ESTabBarController: 28beb4236bc13503a88081379df7f50de5b83682
+  Eureka: da9d2294da234eae40b22e7273b9fc2335502fc1
+  FDFullscreenPopGesture: f927e70d2b3f7ea91211d44213c2489db1228f64
+  HUD: 4f07dc0ffb9ecf7f766cde2c4bb978f63c25bc38
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MediaEditorKit: 90ef5430b2eb065b783cccceef6f787eec1ea081
-  Mesh: d7dca107b41d6636aa334f2e475f9d0881dad70e
-  MJRefresh: 0baede3bc35739e7c57d2ed678545897ce96681a
+  MediaEditorKit: 4caa4c82ca17d6453f5b7e822702fd7dc3198f4e
+  Mesh: b0cad3d962321a665475403e3f5ec291f0299fee
+  MJRefresh: 8bbee75fa689404fb94010d67c2c27b7333ae692
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  PinLayout: c1476693fc284c78b297d8319b727ed2e237fcb5
+  PinLayout: b2ebf8622b28e82b6e1216ab4e4a0a8d082214fe
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
-  PopoverImagePicker: 39ebd94fed622f2a939eec1374a2453c3feb0aed
-  ReactiveCocoa: bec7898df69c7d2b2b2f26ed1677a87cb599c147
-  ReactiveObjC: d136aca40062171b3c550a772b154f9f5e9bdfd0
-  ReactiveSwift: 3f8af1faebcc4492726abb5fdfd9197e5566e006
-  Result: 9fb2387ec0702a13f0d56353815635aa431eaf81
-  SnapKit: feb331006d7f8c05828bf5ecda16611ed144a947
-  SwiftyJSON: e58a312a0274068d4444ee06dc73202a516754fc
+  PopoverImagePicker: 537aa0414345534ef1e03132855b955124dfe7e8
+  ReactiveCocoa: fbd26e9ba60e98417ee47433e59465a98ed9da0f
+  ReactiveObjC: fc763b49ef71b5124ccd0c761acc3fc41106a8b7
+  ReactiveSwift: 454d1acd4a0825b544ceea34fada9a199c22e638
+  Result: c287d70c041eeadf414a930901fab39e9dbf7f22
+  SnapKit: 4b1c20a79bc7655f2bdefba4f008630681f63fe5
+  SwiftyJSON: 7c0eef8c329a12a2ec73000ac9aa7d3107b485d9
   WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
-  XCGLogger: 5a21c8be020a21d0b798937f85c1cdb61a288422
-  ZXingObjC: df03d998b10bd2879fed52d1967cc8bb8b575671
+  XCGLogger: 4fc1bc0bdd5828cb8dc8da7a843536cda1bea8f3
+  ZXingObjC: ec0306e7c8dac717f653e165f1c4fd0e69fde99f
 
-PODFILE CHECKSUM: 135a8a18d30597b01173a9e09b6b681a55352ead
+PODFILE CHECKSUM: b967fa404cb8b0b68bb25e464ffe06140f768c77
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.9.1

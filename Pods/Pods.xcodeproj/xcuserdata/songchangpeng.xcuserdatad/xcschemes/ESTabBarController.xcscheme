@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "263FB9241B88963C7DE5FE484B630269"
+               BlueprintIdentifier = "5D3CE2EBB6B866F67E8B580DB6B4D94D"
+               BuildableName = "ESTabBarController.framework"
                BlueprintName = "ESTabBarController"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "ESTabBarController.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

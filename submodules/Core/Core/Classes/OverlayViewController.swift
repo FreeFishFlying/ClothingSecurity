@@ -21,6 +21,7 @@ open class OverlayViewController: UIViewController {
     private var dismissTranslationInitFrame = CGRect.zero
 
     public private(set) var panToDismissGestureRecognizer: UIPanGestureRecognizer?
+    public var willDissmiss: (() -> Void)?
 
     open var backViewMaxAlpha: CGFloat = 1 {
         didSet {
@@ -29,6 +30,7 @@ open class OverlayViewController: UIViewController {
     }
 
     open func dismiss() {
+        willDissmiss?()
         overlayWindow?.dismiss()
     }
 

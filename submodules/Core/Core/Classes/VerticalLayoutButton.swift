@@ -15,7 +15,6 @@ open class VerticalLayoutButton: UIButton {
 
     open override func layoutSubviews() {
         super.layoutSubviews()
-
         var titleLabelFrame: CGRect = titleLabel?.frame ?? CGRect.zero
         let labelSize: CGRect = titleLabel?.text?.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: bounds.height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: titleLabel!.font], context: nil) ?? CGRect.zero
         var imageFrame: CGRect = imageView?.frame ?? CGRect.zero

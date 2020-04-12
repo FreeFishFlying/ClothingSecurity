@@ -28,8 +28,7 @@ public class AlbumFolderViewController: UIViewController, UITableViewDelegate, U
         selectionContext = config.selectionContext ?? MediaSelectionContext()
         super.init(nibName: nil, bundle: nil)
         navigationItem.title = SLLocalized("Album.title")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: SLLocalized("MediaAssetsPicker.Cancel"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(dismissMyself))
-        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: SLLocalized("MediaAssetsPicker.Cancel"), style: .plain, target: self, action: #selector(dismissMyself))
     }
 
     public required init?(coder _: NSCoder) {

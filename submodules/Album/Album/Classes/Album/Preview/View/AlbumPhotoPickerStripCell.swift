@@ -19,11 +19,12 @@ class AlbumPhotoPickerStripCell: UICollectionViewCell {
     public var asset: MediaAsset?
     private var disposable: Disposable?
 
-    private lazy var checkButton: CheckButtonView = {
-        let checkButton = CheckButtonView()
-        checkButton.addTarget(self, action: #selector(self.checkButtonClick), for: UIControl.Event.touchUpInside)
-        return checkButton
-    }()
+//    private lazy var checkButton: CheckButtonView = {
+//        let checkButton = CheckButtonView()
+//        checkButton.fillColor = UIColorRGB(0xF8E71C)
+//        checkButton.addTarget(self, action: #selector(self.checkButtonClick), for: UIControl.Event.touchUpInside)
+//        return checkButton
+//    }()
 
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -36,28 +37,28 @@ class AlbumPhotoPickerStripCell: UICollectionViewCell {
         super.init(frame: frame)
 
         contentView.addSubview(imageView)
-        contentView.addSubview(checkButton)
+//        contentView.addSubview(checkButton)
 
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        checkButton.snp.makeConstraints { make in
-            make.right.equalTo(-2)
-            make.top.equalTo(2)
-            make.width.height.equalTo(32)
-        }
+//        checkButton.snp.makeConstraints { make in
+//            make.right.equalTo(-2)
+//            make.top.equalTo(2)
+//            make.width.height.equalTo(32)
+//        }
     }
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc private func checkButtonClick() {
-        guard let selectionContext = selectionContext, let asset = asset else {
-            return
-        }
-        selectionContext.setItem(asset, selected: !checkButton.isSelected)
-    }
+//    @objc private func checkButtonClick() {
+//        guard let selectionContext = selectionContext, let asset = asset else {
+//            return
+//        }
+//        selectionContext.setItem(asset, selected: !checkButton.isSelected)
+//    }
 
     func fillData(asset: MediaAsset?) {
         self.asset = asset
@@ -68,19 +69,19 @@ class AlbumPhotoPickerStripCell: UICollectionViewCell {
         }
 
         refreshEidtorImage()
-        let editorDisposable = asset.eidtorChangeSignal.take(during: reactive.lifetime).observeValues { [weak self] _ in
+        disposable = asset.eidtorChangeSignal.take(during: reactive.lifetime).observeValues { [weak self] _ in
             if let strongSelf = self {
                 strongSelf.refreshEidtorImage()
             }
         }
 
-        checkButton.setChecked(selectionContext.isItemSelected(asset), animated: false)
-        let selectedDisposable = selectionContext.itemInformativeSelectedSignal(item: asset).take(during: reactive.lifetime).startWithValues({ [weak self] (change: SelectionChange) in
-            if let strongSelf = self {
-                strongSelf.checkButton.setChecked(change.selected, animated: change.animated)
-            }
-        })
-        disposable = CompositeDisposable([editorDisposable, selectedDisposable])
+//        checkButton.setChecked(selectionContext.isItemSelected(asset), animated: false)
+//        let selectedDisposable = selectionContext.itemInformativeSelectedSignal(item: asset).take(during: reactive.lifetime).startWithValues({ [weak self] (change: SelectionChange) in
+//            if let strongSelf = self {
+//                strongSelf.checkButton.setChecked(change.selected, animated: change.animated)
+//            }
+//        })
+//        disposable = CompositeDisposable([editorDisposable, selectedDisposable])
     }
 
     private func refreshEidtorImage() {

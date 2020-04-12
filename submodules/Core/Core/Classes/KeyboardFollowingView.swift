@@ -11,6 +11,10 @@ import UIKit
 
 open class KeyboardFollowingView: UIView {
 
+    public var willShow: (() -> Void)?
+    public var willHide: (() -> Void)?
+    public var didFinishShow: (() -> Void)?
+    public var didFinishHide: (() -> Void)?
     public var offset: CGFloat = 0
     public private(set) var keyboardVisibleHeight: CGFloat = 0
 
@@ -36,7 +40,7 @@ open class KeyboardFollowingView: UIView {
                 let frame = frameValue.cgRectValue
                 keyboardVisibleHeight = frame.size.height
             }
-
+            willShow?()
             updateConstant()
             switch (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber, userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber) {
             case let (.some(duration), .some(curve)):
@@ -51,9 +55,9 @@ open class KeyboardFollowingView: UIView {
                         self.superview?.layoutIfNeeded()
                         return
                     }, completion: { _ in
+                        self.didFinishShow?()
                 })
             default:
-
                 break
             }
         }
@@ -62,14 +66,11 @@ open class KeyboardFollowingView: UIView {
     @objc open func keyboardWillHideNotification(_ notification: NSNotification) {
         keyboardVisibleHeight = 0
         updateConstant()
-
         if let userInfo = notification.userInfo {
-
+            willHide?()
             switch (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber, userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber) {
             case let (.some(duration), .some(curve)):
-
                 let options = UIView.AnimationOptions(rawValue: curve.uintValue)
-
                 UIView.animate(
                     withDuration: TimeInterval(duration.doubleValue),
                     delay: 0,
@@ -78,6 +79,7 @@ open class KeyboardFollowingView: UIView {
                         self.superview?.layoutIfNeeded()
                         return
                     }, completion: { _ in
+                        self.didFinishHide?()
                 })
             default:
                 break

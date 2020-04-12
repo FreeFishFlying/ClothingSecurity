@@ -36,7 +36,7 @@ public class MediaTextView: UITextView {
         }
         super.paste(sender)
     }
-    
+
     public override func copy(_ sender: Any?) {
         UIPasteboard.general.string = willCopyData?()
     }
@@ -93,7 +93,7 @@ open class GrowingTextView: UIView {
                 let placeholderPrefixWidth = (placeholderPrefix! as NSString).size(withAttributes: [NSAttributedString.Key.font: font]).width
                 placeholderLabel.snp.updateConstraints { make in
                     make.left.equalTo(6 + placeholderPrefixWidth)
-                    make.top.equalTo(5)
+                    make.top.equalTo(0)
                     make.width.lessThanOrEqualTo(self).offset(-12 - placeholderPrefixWidth)
                 }
             } else {
@@ -137,10 +137,10 @@ open class GrowingTextView: UIView {
         get {
             return textView.text
         }
-
         set {
             textView.text = newValue
-            textView.delegate?.textViewDidChange?(textView)
+            textViewDidChange(textView)
+            shouldChangeTextInRange?(NSRange(location: 0, length: newValue.length), newValue)
         }
     }
 
@@ -166,9 +166,9 @@ open class GrowingTextView: UIView {
 
     public var maxHeight: CGFloat = CGFloat.greatestFiniteMagnitude
     // MARK: text view
-    fileprivate let layoutManager: NSLayoutManager
+    public let layoutManager: NSLayoutManager
     @objc public let textStorage: NSTextStorage
-    fileprivate let textContainer: NSTextContainer
+    public let textContainer: NSTextContainer
     fileprivate let textView: MediaTextView
     public let placeholderLabel: UILabel
 
@@ -185,10 +185,10 @@ open class GrowingTextView: UIView {
         textStorage = NSTextStorage()
         textStorage.addLayoutManager(layoutManager)
         layoutManager.addTextContainer(textContainer)
-        layoutManager.allowsNonContiguousLayout = true
+        layoutManager.allowsNonContiguousLayout = false
         textContainer.widthTracksTextView = true
         textView = MediaTextView(frame: CGRect.zero, textContainer: textContainer)
-        
+
         font = UIFont.systemFont(ofSize: 16)
         returnKeyType = UIReturnKeyType.send
         placeholderLabel = UILabel()
@@ -211,10 +211,6 @@ open class GrowingTextView: UIView {
         textView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        let tap = UITapGestureRecognizer(target: self, action: #selector(fieldBackgroundDidTap))
-        tap.numberOfTapsRequired = 1
-        tap.delegate = self
-        addGestureRecognizer(tap)
 
         placeholderLabel.numberOfLines = 0
         placeholderLabel.backgroundColor = .clear
@@ -222,11 +218,11 @@ open class GrowingTextView: UIView {
         addSubview(placeholderLabel)
         placeholderLabel.snp.makeConstraints { make in
             make.left.equalTo(6)
-            make.top.equalTo(4)
+            make.top.equalTo(6)
             make.width.lessThanOrEqualTo(self).offset(-12)
         }
         textView.willCopyData = { [weak self] in
-            return self?.getTextAndSegmentContext().0
+            return self?.getCopyText()
         }
     }
 
@@ -258,17 +254,19 @@ open class GrowingTextView: UIView {
         return textView
     }
 
-    public var fieldBackgroundDidTapClosure: (() -> Void)?
+    public var fieldBackgroundDidTapClosure: ((GrowingTextView) -> Void)?
 
     @objc private func fieldBackgroundDidTap() {
-        fieldBackgroundDidTapClosure?()
+        fieldBackgroundDidTapClosure?(self)
         if textView.inputView != nil {
             textView.inputView = nil
             textView.reloadInputViews()
         }
-        if !textView.isFirstResponder {
-            textView.becomeFirstResponder()
-        }
+    }
+
+    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        fieldBackgroundDidTap()
+        return super.hitTest(point, with: event)
     }
 
     open override func layoutSubviews() {
@@ -294,7 +292,7 @@ open class GrowingTextView: UIView {
             placeholderLabel.isHidden = true
         }
     }
-    
+
     fileprivate func showAttributPlaceholderIfNeed() {
         if let attributedPlaceholder = attributedPlaceholder {
             if textView.hasText {
@@ -314,7 +312,7 @@ open class GrowingTextView: UIView {
     }
 }
 
-extension GrowingTextView: UITextViewDelegate, UIGestureRecognizerDelegate {
+extension GrowingTextView: UITextViewDelegate {
 
     public func textViewDidBeginEditing(_: UITextView) {
         editingStatusObserver.send(value: (self, true))
@@ -352,7 +350,7 @@ extension GrowingTextView: UITextViewDelegate, UIGestureRecognizerDelegate {
             if #available(iOS 9.0, *) {
                 let line = textView.caretRect(for: selectedTextRange.start)
                 let overflow = line.origin.y + line.size.height - (textView.contentOffset.y + textView.bounds.size.height - textView.contentInset.bottom - textView.contentInset.top)
-                
+
                 if overflow > 0 && overflow != .infinity {
                     textView.scrollRangeToVisible(textView.selectedRange)
                     textView.isScrollEnabled = false
@@ -365,10 +363,7 @@ extension GrowingTextView: UITextViewDelegate, UIGestureRecognizerDelegate {
 
         textChangeObserver.send(value: (self, textView.text))
         showPlaceholderIfNeed()
-    }
-
-    public func gestureRecognizer(_: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith _: UIGestureRecognizer) -> Bool {
-        return true
+        showAttributPlaceholderIfNeed()
     }
 
     public func textView(_: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -404,7 +399,6 @@ public extension GrowingTextView {
             self.textStorage.addAttribute(NSAttributedString.Key.foregroundColor, value: self.textView.textColor ?? UIColor.black, range: range)
             self.textStorage.endEditing()
         }
-        
         self.textView.selectedRange = NSRange(location: self.textView.selectedRange.location + 1, length: 0)
         self.textViewDidChange(self.textView)
     }
@@ -421,24 +415,26 @@ public extension GrowingTextView {
     }
 
     @objc public func append(_ text: String) {
+        shouldChangeTextInRange?(NSRange(location: textStorage.length, length: 0), text)
         textStorage.beginEditing()
-
         textStorage.append(NSAttributedString(string: text))
         if let font = textView.font {
-            let range = NSMakeRange(0, textStorage.length)
+            let range = NSRange(location: 0, length: textStorage.length)
             textStorage.addAttribute(NSAttributedString.Key.font, value: font, range: range)
+            textStorage.addAttribute(NSAttributedString.Key.foregroundColor, value: textView.textColor ?? UIColor.black, range: range)
         }
         textStorage.endEditing()
         textView.selectedRange = NSRange(location: textStorage.length, length: 0)
         textViewDidChange(textView)
     }
-    
+
     @objc public func insert(text: String, range: NSRange) {
         textStorage.beginEditing()
         textStorage.insert(NSAttributedString(string: text), at: range.location)
         if let font = textView.font {
-            let range = NSMakeRange(0, textStorage.length)
+            let range = NSRange(location: 0, length: textStorage.length)
             textStorage.addAttribute(NSAttributedString.Key.font, value: font, range: range)
+            textStorage.addAttribute(NSAttributedString.Key.foregroundColor, value: textView.textColor ?? UIColor.black, range: range)
         }
         textStorage.endEditing()
         let newRange = NSRange(location: range.location + text.length, length: range.length)
@@ -463,11 +459,28 @@ public extension GrowingTextView {
         UIGraphicsEndImageContext()
         return image
     }
+    
+    private func getCopyText() -> String {
+        var result = String()
+        textStorage.enumerateAttributes(in: textView.selectedRange) { attrs, range, _ in
+            if let attachment = attrs[NSAttributedString.Key.attachment] {
+                if let textAttachment = attachment as? SegmentTextAttachment {
+                    result += textAttachment.alt ?? ""
+                } else if let imageAttachment = attachment as? ImageTextAttachment {
+                    result += imageAttachment.alt ?? ""
+                }
+            } else {
+                let item = textView.attributedText.attributedSubstring(from: range).string
+                result += item
+            }
+        }
+        return result
+    }
 
     public func getTextAndSegmentContext() -> (String, [[String: Any]]) {
         var result = String()
         var context = [[String: Any]]()
-        textStorage.enumerateAttributes(in: NSMakeRange(0, textStorage.length)) { attrs, range, _ in
+        textStorage.enumerateAttributes(in: NSRange(location: 0, length: textStorage.length)) { attrs, range, _ in
             if let attachment = attrs[NSAttributedString.Key.attachment] {
                 if let textAttachment = attachment as? SegmentTextAttachment {
                     result += textAttachment.alt ?? ""
@@ -497,7 +510,26 @@ public extension GrowingTextView {
         textStorage.replaceCharacters(in: range, with: text)
         textStorage.endEditing()
         textView.selectedRange = NSRange(location: range.location + text.length, length: 0)
-        textView.delegate?.textViewDidChange?(textView)
+        textViewDidChange(textView)
+    }
+    
+    @objc public func replace(range: NSRange, image: UIImage, imageSize size: CGSize, altName alt: String?) {
+        if range.length + range.location > textStorage.length {
+            return
+        }
+        let imageAttachment = ImageTextAttachment()
+        imageAttachment.alt = alt
+        imageAttachment.image = image
+        imageAttachment.bounds = CGRect(x: 0, y: -(size.height - font.pointSize) / 2 - 2, width: size.width, height: size.height)
+        textStorage.beginEditing()
+        textStorage.addAttribute(NSAttributedString.Key.font, value: self.font, range: NSRange(location: 0, length: textStorage.length))
+        textStorage.addAttribute(NSAttributedString.Key.foregroundColor, value: self.textView.textColor ?? UIColor.black,
+                                 range: NSRange(location: 0, length: textStorage.length))
+        let imageAttributeString = NSAttributedString(attachment: imageAttachment)
+        textStorage.replaceCharacters(in: range, with: imageAttributeString)
+        textStorage.endEditing()
+        textView.selectedRange = NSRange(location: textStorage.length, length: 0)
+        textViewDidChange(textView)
     }
 }
 
@@ -521,13 +553,18 @@ public extension GrowingTextView {
 }
 
 public extension GrowingTextView {
+
     override open func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        let menuController = UIMenuController.shared
-        let wrapItem = UIMenuItem(title: "换行", action: #selector(wrap(_:)))
-        menuController.menuItems = [wrapItem]
-        return (action == #selector(wrap(_:)))
+        if #available(iOS 9.0, *) {
+            let menuController = UIMenuController.shared
+            let wrapItem = UIMenuItem(title: "换行", action: #selector(wrap(_:)))
+            menuController.menuItems = [wrapItem]
+            return (action == #selector(wrap(_:)))
+        } else {
+            return false
+        }
     }
-    
+
     @objc func wrap(_ sender: Any?) {
         insert(text: "\n", range: textView.selectedRange)
     }

@@ -23,10 +23,11 @@
 // THE SOFTWARE.
 
 import Foundation
+import UIKit
 
 // MARK: CheckCell
 
-public final class CheckCell: Cell<Bool>, CellType {
+open class CheckCell: Cell<Bool>, CellType {
 
     required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

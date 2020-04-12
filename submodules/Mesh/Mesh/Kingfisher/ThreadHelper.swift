@@ -4,7 +4,7 @@
 //
 //  Created by Wei Wang on 15/10/9.
 //
-//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2018 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@ extension DispatchQueue {
     // This method will dispatch the `block` to self.
     // If `self` is the main queue, and current thread is main thread, the block
     // will be invoked immediately instead of being dispatched.
-    func safeAsync(_ block: @escaping ()->()) {
+    func safeAsync(_ block: @escaping () -> Void) {
         if self === DispatchQueue.main && Thread.isMainThread {
             block()
         } else {

@@ -12,17 +12,16 @@ import ReactiveSwift
 public typealias FileDownloadChange = (url: URL, percent: Double?, destination: URL?, completed: Bool)
 
 public class FileDownloader {
-    
+
     public static let `default` = FileDownloader()
-    
-    public let barrierQueue = DispatchQueue(label: "com.liao.FileDownloadChange.Barrier", attributes: .concurrent)
-    
+
+    public let barrierQueue = DispatchQueue(label: "com.xhb.FileDownloadChange.Barrier", attributes: .concurrent)
+
     private let downloader = MeshDownloader(name: "FileDownloader")
-    
-    private var downloadChangePresent: [URL : FileDownloadChange] = [:]
-    private var downloadTaskPresent: [URL : MeshDownloadTask] = [:]
-    
-    
+
+    private var downloadChangePresent: [URL: FileDownloadChange] = [:]
+    private var downloadTaskPresent: [URL: MeshDownloadTask] = [:]
+
     /// Download a url to destination
     ///
     /// - Parameters:
@@ -38,16 +37,16 @@ public class FileDownloader {
                             options: MeshLoaderOptionsInfo? = nil,
                             progressBlock: MeshDownloaderProgressBlock? = nil,
                             completionHandler: MeshDownloaderCompletionHandler? = nil) -> MeshDownloadTask? {
-        var existTask: MeshDownloadTask? = nil
+        var existTask: MeshDownloadTask?
         barrierQueue.sync(flags: .barrier) {
             existTask = downloadTaskPresent[url]
         }
         if existTask != nil {
             return existTask
         }
-        
+
         self.watcher.input.send(value: (url: url, percent: 0.01, destination: nil, completed: false))
-        let task = downloader.requestUrl(with: url, destination: destination, options: options, progressBlock: { (receivedSize: Int64,  totalSize: Int64) in
+        let task = downloader.requestUrl(with: url, destination: destination, options: options, progressBlock: { (receivedSize: Int64, totalSize: Int64) in
             progressBlock?(receivedSize, totalSize)
             self.updateLatestChange((url: url, percent: Double(receivedSize)/Double(totalSize), destination: nil, completed: false))
         }) { (data: Data?, destUrl: URL?, error: NSError?) in
@@ -59,7 +58,7 @@ public class FileDownloader {
         }
         return task
     }
-    
+
     private func updateLatestChange(_ change: FileDownloadChange) {
         barrierQueue.sync(flags: .barrier) {
             if change.completed {
@@ -71,7 +70,7 @@ public class FileDownloader {
         }
         watcher.input.send(value: change)
     }
-    
+
     /// Watch a file download
     ///
     /// - Parameter url: download url
@@ -89,11 +88,11 @@ public class FileDownloader {
             lifetime += task
         }
     }
-    
+
     public func isDownloading(url: URL) -> Bool {
         return downloadTaskPresent[url] != nil
     }
-    
+
     public func cancelDownloading(url: URL) {
         barrierQueue.sync(flags: .barrier) {
             if let task = downloadTaskPresent[url] {
@@ -103,7 +102,7 @@ public class FileDownloader {
             downloadChangePresent.removeValue(forKey: url)
         }
     }
-    
+
     private lazy var watcher: (output: Signal<FileDownloadChange, NSError>, input: Signal<FileDownloadChange, NSError>.Observer) = {
         return Signal<FileDownloadChange, NSError>.pipe()
     }()

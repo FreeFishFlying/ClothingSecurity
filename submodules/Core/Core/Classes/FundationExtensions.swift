@@ -15,15 +15,25 @@ extension String {
     }
 
     public func substring(with range: NSRange) -> String {
+        guard range.location + range.length <= length else {
+            return self
+        }
         if self.unicodeScalars.contains(where: { $0.isEmoji }) {
             let start = self.utf16.index(startIndex, offsetBy: range.location)
             let end = self.utf16.index(start, offsetBy: range.length)
+            guard end <=  self.utf16.endIndex else {
+                return self
+            }
             return String(self[start ..< end])
         } else {
             let start = index(startIndex, offsetBy: range.location)
             let end = index(start, offsetBy: range.length)
+            guard end <= endIndex else {
+                return self
+            }
             return String(self[start ..< end])
         }
+
     }
 }
 
@@ -44,7 +54,7 @@ public extension Array where Element: Equatable {
 
     // Remove first collection element that is equal to the given `object`:
     public mutating func remove(object: Element) {
-        if let index = index(of: object) {
+        if let index = firstIndex(of: object) {
             remove(at: index)
         }
     }

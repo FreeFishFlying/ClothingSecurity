@@ -26,8 +26,8 @@ public class ForceTouchPreviewController: UIViewController {
         return livePhotoView
     }()
 
-    private lazy var imageView: AcceleratedAnimationImageView = {
-        let imageView = AcceleratedAnimationImageView(frame: self.view.bounds)
+    private lazy var imageView: AnimatedImageView = {
+        let imageView = AnimatedImageView(frame: self.view.bounds)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -51,10 +51,11 @@ public class ForceTouchPreviewController: UIViewController {
         let fallbackAction = { () -> Void in
             self.imageView.setSignal(self.asset.imageSignal(imageType: .fastScreen, size: CGSize(width: size.width * scale, height: size.height * scale), allowNetworkAccess: true))
             if self.asset.isGif() {
-                self.asset.mediaAssetImageDataSignal(allowNetworkAccess: false).take(first: 1).startWithResult({ result in
+                self.asset.mediaAssetImageDataSignal(allowNetworkAccess: false).take(first: 1).startWithResult({ [weak self] result in
+                    guard let self = self else { return }
                     if let value = result.value, let gifData = value.0?.imageData {
                         let path = ImageCache.default.cachePath(forKey: self.asset.uniqueIdentifier()) + ".mp4"
-                        self.imageView.play(path: path, data: gifData)
+                        self.imageView.image = Kingfisher<Image>.animated(with: gifData, preloadAll: false)
                     }
                 })
             }

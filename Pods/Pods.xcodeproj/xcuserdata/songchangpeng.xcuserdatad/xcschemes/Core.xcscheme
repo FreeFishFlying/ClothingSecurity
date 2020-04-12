@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2E1DB51B7BDF37EAD3D43723A05033A4"
+               BlueprintIdentifier = "045EA0CC8B1D13A2E99A2219A6EAFB1A"
+               BuildableName = "Core.framework"
                BlueprintName = "Core"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Core.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

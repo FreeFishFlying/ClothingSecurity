@@ -42,13 +42,13 @@ class AlbumPreviewInterfaceView: UIView {
         self.config = config
         self.selectionContext = selectionContext
         super.init(frame: CGRect.zero)
-        
+
         addSubview(bottomToolbar)
 
         if canInputCaption {
             addSubview(captionInputView)
         }
-        
+
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         bottomToolbar.addSubview(backgroundView)
@@ -62,8 +62,7 @@ class AlbumPreviewInterfaceView: UIView {
             }
             make.height.equalTo(46)
         }
-        
-        
+
         backgroundView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(bottomToolbar)
             make.height.equalTo(200)
@@ -80,7 +79,7 @@ class AlbumPreviewInterfaceView: UIView {
             make.centerY.equalTo(self.bottomToolbar)
             make.left.equalTo(self).offset(10)
         }
-        
+
         bottomToolbar.addSubview(stackView)
         stackView.snp.makeConstraints { (make) in
             make.left.equalTo(50)
@@ -88,7 +87,7 @@ class AlbumPreviewInterfaceView: UIView {
             make.bottom.equalToSuperview()
             make.top.equalToSuperview().offset(1)
         }
-        
+
         addSubview(checkButton)
         checkButton.snp.makeConstraints { make in
             make.right.equalTo(-10)
@@ -97,7 +96,7 @@ class AlbumPreviewInterfaceView: UIView {
             make.height.equalTo(self.checkButton.frame.size.height)
         }
         checkButton.isHidden = !self.config.style.contains(.multiChoose)
-        
+
         if displayCounter {
             addSubview(counterButton)
             counterButton.snp.makeConstraints { make in
@@ -132,11 +131,11 @@ class AlbumPreviewInterfaceView: UIView {
 
     func action(asset: MediaAsset) {
         if actionAsset == nil || actionAsset! !== asset {
-            checkButton.setChecked(selectionContext.isItemSelected(asset), animated: false)
+            checkButton.setChecked(selectionContext.itemIndex(asset), animated: false)
             disposable?.dispose()
             disposable = selectionContext.itemInformativeSelectedSignal(item: asset).startWithValues({ [weak self] (change: SelectionChange) in
                 if let strongSelf = self {
-                    strongSelf.checkButton.setChecked(change.selected, animated: change.animated)
+                    strongSelf.checkButton.setChecked(change.index ?? 0, animated: change.animated)
                 }
             })
             actionAsset = asset
@@ -168,7 +167,7 @@ class AlbumPreviewInterfaceView: UIView {
                 stackView.addArrangedSubview(cropButton)
                 stackView.addArrangedSubview(paintButton)
             }
-            if config.style.contains(.originalImage) && !asset.isGif(){
+            if config.style.contains(.originalImage) && !asset.isGif() {
                 let view = UIView(frame: CGRect.zero)
                 view.addSubview(originalButton)
                 originalButton.snp.makeConstraints({ (make) in
@@ -182,7 +181,7 @@ class AlbumPreviewInterfaceView: UIView {
             }
         }
     }
-    
+
     private let stackView: StackView = {
         let stackView = StackView()
         stackView.alignment = .fill
@@ -254,7 +253,7 @@ class AlbumPreviewInterfaceView: UIView {
         }
         confirmAction()
     }
-    
+
     func selectionContextStatus() {
         if selectionContext.selectedCount == 0 {
             if let asset = self.actionAsset {
@@ -273,7 +272,7 @@ class AlbumPreviewInterfaceView: UIView {
     @objc fileprivate func cropAsset() {
         cropAction?()
     }
-    
+
     @objc fileprivate func paintAsset() {
         paintAction?()
     }
@@ -329,13 +328,13 @@ class AlbumPreviewInterfaceView: UIView {
         let button = UIButton()
         button.hitTestEdgeInsets = UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10)
         button.addTarget(self, action: #selector(cropAsset), for: .touchUpInside)
-        button.setTitle(SLLocalized("剪裁"), for: .normal)
+        button.setTitle(SLLocalized("剪裁/旋转"), for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.setTitleColor(.white, for: .normal)
         button.autoHighlight = true
         return button
     }()
-    
+
     private lazy var sendButton: UIButton = {
         let sendButton = UIButton()
         sendButton.setTitle(self.config.confirmTitle, for: .normal)
@@ -346,7 +345,7 @@ class AlbumPreviewInterfaceView: UIView {
         sendButton.autoHighlight = true
         return sendButton
     }()
-    
+
     private lazy var paintButton: UIButton = {
         let button = UIButton()
         button.hitTestEdgeInsets = UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10)
@@ -369,8 +368,8 @@ class AlbumPreviewInterfaceView: UIView {
         return cancelButton
     }()
 
-    private lazy var checkButton: CheckButtonView = {
-        let checkButton = CheckButtonView(buttonSize: CGSize(width: 45, height: 45))
+    private lazy var checkButton: UIButton = {
+        let checkButton = CheckBadgeButton(buttonSize: CGSize(width: 28, height: 28), fontSize: 17)
         checkButton.addTarget(self, action: #selector(self.checkButtonPressed), for: .touchUpInside)
         return checkButton
     }()

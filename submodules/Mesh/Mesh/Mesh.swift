@@ -8,19 +8,17 @@
 
 import Foundation
 
-
 @objc public protocol MeshLogger {
     func log(info: String)
 }
 
 public var meshLogger: MeshLogger = MeshFileLogger(fileName: "http.traffic.log")
-public var meshDownloadModify: RequestModifier = NoModifier.default
 public var meshRetryTimes: Int = 3
-public var meshImageCacheName: String = "chaoxin.images"
+public var meshImageCacheName: String = "data.images"
 public var meshUploadBaseUrl: String = ""
 
-public let MeshHttpMetricNotificationName = "com.liao.mesh.http.metric"
-public let MeshHttpMetric = "com.liao.mesh.http.metric"
+public let MeshHttpMetricNotificationName = "com.xhb.mesh.http.metric"
+public let MeshHttpMetric = "com.xhb.mesh.http.metric"
 
 public struct HttpMetric {
     public let url: String
@@ -29,7 +27,7 @@ public struct HttpMetric {
     public let bytesExpectedToSend: Int64
     public let bytesExpectedToReceive: Int64
     public let task: URLSessionTask?
-    
+
     public init(url: String, statusCode: Int, requestDuration: TimeInterval, bytesExpectedToSend: Int64, bytesExpectedToReceive: Int64, task: URLSessionTask?) {
         self.url = url
         self.statusCode = statusCode
@@ -71,13 +69,6 @@ func logResponse(url: URL?, timeline: Timeline, metrics: AnyObject?, statusCode:
                 userInfo: [MeshHttpMetric: metric]
             )
         }
-    }
-}
-
-// MARK: - Convenience for Objective-c
-@objc public class MeshObjcBridge: NSObject {
-    @objc public class func downloadImage(url: URL, progress: @escaping DownloadProgressBlock, completionHandler: @escaping CompletionHandler) -> RetrieveImageTask {
-        return KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: progress, completionHandler: completionHandler)
     }
 }
 

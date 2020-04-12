@@ -15,7 +15,7 @@ import Mesh
 import Core
 
 extension UIImage {
-    
+
     public func isLongImage(targetFrame: CGRect) -> Bool {
         let scale = targetFrame.size.width / (targetFrame.size.height + 10)
         if size.width / size.height < scale {
@@ -37,8 +37,8 @@ class AlbumPhotoPreviewController: UIViewController, AlbumPreviewItem {
         return zoomableItemView
     }()
 
-    private lazy var imageView: AcceleratedAnimationImageView = {
-        let imageView = AcceleratedAnimationImageView(frame: self.view.bounds)
+    private lazy var imageView: AnimatedImageView = {
+        let imageView = AnimatedImageView(frame: self.view.bounds)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -96,19 +96,13 @@ class AlbumPhotoPreviewController: UIViewController, AlbumPreviewItem {
                     if strongSelf.asset.isGif() {
                         if let data = strongSelf.imageView.image?.kf.gifRepresentation() {
                             strongSelf.overlayView.setNone()
-                            if let acceleratedGifPlayPath = strongSelf.imageView.image?.kf.acceleratedGifPlayPath {
-                                strongSelf.imageView.play(path: acceleratedGifPlayPath, data: data)
-                            } else {
-                                let path = ImageCache.default.cachePath(forKey: strongSelf.asset.uniqueIdentifier()) + ".mp4"
-                                strongSelf.imageView.play(path: path, data: data)
-                            }
+                            strongSelf.imageView.image = Kingfisher<Image>.animated(with: data, preloadAll: false)
                         } else {
                             strongSelf.asset.mediaAssetImageDataSignal(allowNetworkAccess: true).startWithResult({ result in
                                 if let value = result.value {
                                     if let gifData = value.0?.imageData {
                                         strongSelf.overlayView.setNone()
-                                        let path = ImageCache.default.cachePath(forKey: strongSelf.asset.uniqueIdentifier()) + ".mp4"
-                                        strongSelf.imageView.play(path: path, data: gifData)
+                                        strongSelf.imageView.image = Kingfisher<Image>.animated(with: gifData, preloadAll: false)
                                     }
                                 }
                             })
@@ -134,7 +128,7 @@ class AlbumPhotoPreviewController: UIViewController, AlbumPreviewItem {
             action()
         }
     }
-    
+
     func loadFullImageIfNeed() {
         if imageView.image?.isLongImage(targetFrame: view.frame) ?? false {
             asset.imageSignal(imageType: .largeThumbnail, size: view.frame.size, allowNetworkAccess: true, applyEditorPresentation: true).observe(on: UIScheduler()).startWithResult { [weak self] result in
@@ -148,7 +142,7 @@ class AlbumPhotoPreviewController: UIViewController, AlbumPreviewItem {
             }
         }
     }
-    
+
     private func setUpImageViewSize(image: UIImage) {
         if image.isLongImage(targetFrame: view.bounds) {
             let imageHeight = image.size.height / image.size.width * view.frame.size.width

@@ -115,7 +115,12 @@ public enum FileVisitSource {
     public func trueValue() -> String {
         switch self {
         case .imageCache(let key), .fileCache(let key), .photos(let key):
-            return String(key[key.index(key.startIndex, offsetBy: tag().length)...])
+            if tag().length <= key.count {
+                let index = key.index(key.startIndex, offsetBy: tag().length)
+                let subString = key[index...]
+                return String(subString)
+            }
+            return String(key)
         case .filePath(let key), .remotePath(let key), .unknown(let key):
             return key
         }
@@ -123,8 +128,8 @@ public enum FileVisitSource {
     
     public static func random(type: FileVisitSourceType, fileType: String? = nil) -> FileVisitSource {
         var key = type.tag() + UUID().uuidString
-        if fileType != nil {
-            key += "." + fileType!
+        if let fileType = fileType {
+            key += "." + fileType
         }
         switch type {
         case .imageCache:

@@ -13,6 +13,7 @@ import Photos
 import ReactiveSwift
 import Core
 import Result
+import HUD
 
 public struct AlbumAppearance {
     public let tintColor: UIColor
@@ -41,8 +42,10 @@ public struct AlbumConfig {
     let selectionContext: MediaSelectionContext?
     let lockAspectRatio: CGFloat?
     let compressVideo: Bool
+    let maxVideoSize: UInt64?
+    let maxDuration: TimeInterval
 
-    public init(style: MediaAssetsPickerController.Style, confirmTitle: String, defautEnterCameraAlbum: Bool = true, assetType: MediaAssetType = .any, selectionContext: MediaSelectionContext? = nil, selectItemOnConfirm: Bool = true, lockAspectRatio: CGFloat? = nil, compressVideo: Bool = true, confirmCallback: @escaping ([MediaSelectableItem], Bool) -> Void, cancelCallback: @escaping () -> Void) {
+    public init(style: MediaAssetsPickerController.Style, confirmTitle: String, defautEnterCameraAlbum: Bool = true, assetType: MediaAssetType = .any, selectionContext: MediaSelectionContext? = nil, selectItemOnConfirm: Bool = true, lockAspectRatio: CGFloat? = nil, compressVideo: Bool = true, maxVideoSize: UInt64? = nil, maxDuration: TimeInterval = 300, confirmCallback: @escaping ([MediaSelectableItem], Bool) -> Void, cancelCallback: @escaping () -> Void) {
         self.style = style
         self.confirmCallback = confirmCallback
         self.cancelCallback = cancelCallback
@@ -53,6 +56,8 @@ public struct AlbumConfig {
         self.selectItemOnConfirm = selectItemOnConfirm
         self.lockAspectRatio = lockAspectRatio
         self.compressVideo = compressVideo
+        self.maxVideoSize = maxVideoSize
+        self.maxDuration = maxDuration
     }
 }
 
@@ -284,30 +289,46 @@ extension MediaAssetsPickerController: UICollectionViewDelegate, UICollectionVie
             }
             return
         }
-        if config.lockAspectRatio != nil || config.style.contains(.onlyCrop) {
-            enterEdit(indexPath: indexPath)
-        } else if config.style.contains(.editEnabled) {
-            let albumPreviewController = AlbumPreviewController(assetGroup: assetGroup, position: indexPath.item, config: config, selectionContext: selectionContext)
-            albumPreviewController.animationTarget = { [weak self] (position: Int) in
-                guard let `self` = self else {
-                    return nil
+        func enterDetail() {
+            if config.lockAspectRatio != nil || config.style.contains(.onlyCrop) {
+                enterEdit(indexPath: indexPath)
+            } else if config.style.contains(.editEnabled) {
+                let albumPreviewController = AlbumPreviewController(assetGroup: assetGroup, position: indexPath.item, config: config, selectionContext: selectionContext)
+                albumPreviewController.animationTarget = { [weak self] (position: Int) in
+                    guard let `self` = self else {
+                        return nil
+                    }
+                    guard let cell = self.collectionView.cellForItem(at: IndexPath(item: position, section: 0)) else {
+                        return nil
+                    }
+                    return cell
                 }
-                guard let cell = self.collectionView.cellForItem(at: IndexPath(item: position, section: 0)) else {
-                    return nil
+                albumPreviewController.dismissAnimationInset = { [weak self] () -> UIEdgeInsets in
+                    guard let `self` = self else {
+                        return UIEdgeInsets.zero
+                    }
+                    return UIEdgeInsets(top: 64, left: 0, bottom: self.view.frame.size.height - self.collectionView.frame.maxY, right: 0)
                 }
-                return cell
+                albumPreviewController.show()
+            } else if config.style.contains(.multiChoose) {
+                selectionContext.setItem(asset, selected: true)
+            } else {
+                config.confirmCallback([asset], false)
             }
-            albumPreviewController.dismissAnimationInset = { [weak self] () -> UIEdgeInsets in
-                guard let `self` = self else {
-                    return UIEdgeInsets.zero
+        }
+        if let maxSize = config.maxVideoSize, asset.type() == .video {
+            asset.fileSizeSignal().observe(on: UIScheduler()).startWithResult { [weak self] (result) in
+                guard let `self` = self else { return }
+                if let size = result.value {
+                    if size <= maxSize || asset.videoDuration() <= self.config.maxDuration {
+                        enterDetail()
+                    } else {
+                        HUD.tip(text: "该视频超出最大限制", onView: self.view)
+                    }
                 }
-                return UIEdgeInsets(top: 64, left: 0, bottom: self.view.frame.size.height - self.collectionView.frame.maxY, right: 0)
             }
-            albumPreviewController.show()
-        } else if config.style.contains(.multiChoose) {
-            selectionContext.setItem(asset, selected: true)
         } else {
-            config.confirmCallback([asset], false)
+            enterDetail()
         }
     }
 

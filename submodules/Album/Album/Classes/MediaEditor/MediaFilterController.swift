@@ -122,7 +122,7 @@ public class MediaFilterController: UIViewController, MediaEditor {
         self.animationContext = animationContext
         filterSnapshortImages = [UIImage?](repeating: nil, count: filterNameList.count)
         if let name = editorContext.editorResult.filterResult?.filterName {
-            selectedIndex = filterNameList.index(of: name) ?? 0
+            selectedIndex = filterNameList.firstIndex(of: name) ?? 0
         }
         super.init(nibName: nil, bundle: nil)
     }

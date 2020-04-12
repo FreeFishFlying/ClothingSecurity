@@ -11,6 +11,7 @@ import ReactiveSwift
 import Result
 import Photos
 import Core
+import XCGLogger
 
 private var latestPHAuthorizationStatus: PHAuthorizationStatus?
 
@@ -98,58 +99,23 @@ public class MediaAssetsLibrary: NSObject {
             self.requestAuthorization().startWithResult({ (statues: Result<PHAuthorizationStatus, NoError>) in
                 if statues.value != PHAuthorizationStatus.authorized {
                     observer.send(error: MediaAssetsLibrary.MediaAssetsLibraryError.noPriority)
+                    XCGLogger.default.info("没有相册权限...")
                     return
                 }
-
+                
                 let assetResults = PHAsset.fetchAssets(with: .video, options: nil)
-
+                XCGLogger.default.info("videoAssetResultsCount:\(assetResults.count)")
                 var result = [PHAsset]()
-                if duration != nil || sizeLimit != nil {
-                    var producers = [SignalProducer<PHAsset, NoError>]()
-                    func fileSizeSignal(asset: PHAsset) -> SignalProducer<PHAsset, NoError> {
-                        return SignalProducer<PHAsset, NoError>({ (observer, lifetime) in
-                            PHImageManager.default().requestAVAsset(forVideo: asset, options: nil, resultHandler: { (avAsset, _, _) in
-                                if let urlAsset = avAsset as? AVURLAsset {
-                                    if let duration = duration {
-                                        if CMTimeGetSeconds(urlAsset.duration) <= duration {
-                                            observer.send(value: asset)
-                                        } else if let sizeLimit = sizeLimit {
-                                            if urlAsset.url.fileSize <= sizeLimit {
-                                                observer.send(value: asset)
-                                            }
-                                        }
-                                    }
-                                }
-                                observer.sendCompleted()
-                            })
-                        })
-                    }
-                    for i in 0..<assetResults.count {
-                        let asset = assetResults[i]
-                        producers.append(fileSizeSignal(asset: asset))
-                    }
-                    let fsp = SignalProducer<SignalProducer<PHAsset, NoError>, NoError>(producers)
-                    fsp.flatten(.merge).collect().startWithValues({ (result) in
-                        observer.send(value: MediaAssetGroup(assets: result.sorted(by: { (left, right) -> Bool in
-                            if left.creationDate == nil || right.creationDate == nil {
-                                return true
-                            }
-                            return left.creationDate! < right.creationDate!
-                        })))
-                        observer.sendCompleted()
-                    })
-                } else {
-                    for i in 0..<assetResults.count {
-                        result.append(assetResults[i])
-                    }
-                    observer.send(value: MediaAssetGroup(assets: result.sorted(by: { (left, right) -> Bool in
-                        if left.creationDate == nil || right.creationDate == nil {
-                            return true
-                        }
-                        return left.creationDate! < right.creationDate!
-                    })))
-                    observer.sendCompleted()
+                for i in 0..<assetResults.count {
+                    result.append(assetResults[i])
                 }
+                observer.send(value: MediaAssetGroup(assets: result.sorted(by: { (left, right) -> Bool in
+                    guard let leftDate = left.creationDate, let rightDate = right.creationDate else {
+                        return true
+                    }
+                    return leftDate < rightDate
+                })))
+                observer.sendCompleted()
             })
         }
     }

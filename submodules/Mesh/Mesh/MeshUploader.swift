@@ -12,7 +12,7 @@ import ReactiveSwift
 import Result
 import enum Result.Result
 
-public enum MeshUploadType : Int {
+public enum MeshUploadType: Int {
     case image
     case audio
     case video
@@ -38,19 +38,19 @@ public protocol CachedResponseValidator {
 struct UploadDataDefaultCompressor: UploadDataCompressor {
     static let `default` = UploadDataDefaultCompressor()
     private init() {}
-    
+
     func compress(data: Data, type: MeshUploadType) -> Data? {
         return data
     }
-    
+
     func compress(image: UIImage) -> Data? {
         return image.jpegData(compressionQuality: 0.8)
     }
-    
+
     func compress(url: URL) -> URL? {
         return url
     }
-    
+
     func toString() -> String {
         return "UploadDataDefaultCompressor"
     }
@@ -63,41 +63,38 @@ public typealias MeshUploaderOptionsInfo = [MeshUploaderOptionsInfoItem]
 public let MeshUpLoaderEmptyOptionsInfo = [MeshUploaderOptionsInfoItem]()
 
 public enum MeshUploaderOptionsInfoItem {
-    
-    case requestModifier(RequestModifier)
-    
+
     /// Compress the system library data if need
     case compressor(UploadDataCompressor)
-    
+
     /// When down load error from server, It will retry download specific times
     /// Associated `Int` first args present the retry times
     /// Associated `TimeInterval` second args present the retry seconds interval
     case retryTimes(Int)
-    
+
     /// The image size retrieve from system photo library
     case imageSize(CGSize)
-    
+
     /// Wherer upload system photo library original data
     case uploadOriginalData
-    
+
     /// value between 0.0 and 1.0 (inclusive), where 0.0 is considered the lowest
     /// priority and 1.0 is considered the highest.
     case uploadPriority(Float)
-    
+
     case cachedResponseValidator(CachedResponseValidator)
-    
+
     case uploader(Uploader)
 }
 
 func <== (lhs: MeshUploaderOptionsInfoItem, rhs: MeshUploaderOptionsInfoItem) -> Bool {
     switch (lhs, rhs) {
-    case (.requestModifier(_), .requestModifier(_)): return true
-    case (.compressor(_), .compressor(_)): return true
-    case (.retryTimes(_), .retryTimes(_)): return true
-    case (.imageSize(_), .imageSize(_)): return true
+    case (.compressor, .compressor): return true
+    case (.retryTimes, .retryTimes): return true
+    case (.imageSize, .imageSize): return true
     case (.uploadOriginalData, .uploadOriginalData): return true
-    case (.uploadPriority(_), .uploadPriority(_)): return true
-    case (.cachedResponseValidator(_), .cachedResponseValidator(_)): return true
+    case (.uploadPriority, .uploadPriority): return true
+    case (.cachedResponseValidator, .cachedResponseValidator): return true
     default: return false
     }
 }
@@ -111,30 +108,19 @@ extension Collection where Iterator.Element == MeshUploaderOptionsInfoItem {
             default: break
             }
         }
-        return DefaultUploader()
+        fatalError("must set uploader implements")
     }
-    
-    /// The `MeshRequestModifier` will be used before sending a download request.
-    public var modifier: RequestModifier {
-        if let item = lastMatchIgnoringAssociatedValue(.requestModifier(NoModifier.default)),
-            case .requestModifier(let modifier) = item
-        {
-            return modifier
-        }
-        return meshDownloadModify
-    }
-    
+
     public var compressor: UploadDataCompressor {
         if let item = lastMatchIgnoringAssociatedValue(.compressor(UploadDataDefaultCompressor.default)),
-            case .compressor(let value) = item
-        {
+            case .compressor(let value) = item {
             return value
         }
         return UploadDataDefaultCompressor.default
     }
-    
+
     public var cachedResponseValidator: CachedResponseValidator? {
-        var validator: CachedResponseValidator? = nil
+        var validator: CachedResponseValidator?
         self.forEach { (item) in
             switch item {
             case .cachedResponseValidator(let value):
@@ -144,38 +130,35 @@ extension Collection where Iterator.Element == MeshUploaderOptionsInfoItem {
         }
         return validator
     }
-    
+
     public var retryTimes: Int {
         if let item = lastMatchIgnoringAssociatedValue(.retryTimes(0)),
-            case .retryTimes(let times) = item
-        {
+            case .retryTimes(let times) = item {
             return times
         }
         return meshRetryTimes
     }
-    
+
     public var uploadPriority: Float {
         if let item = lastMatchIgnoringAssociatedValue(.uploadPriority(0)),
-            case .uploadPriority(let value) = item
-        {
+            case .uploadPriority(let value) = item {
             return value
         }
         return 0.5
     }
-    
+
     public var imageSize: CGSize {
         if let item = lastMatchIgnoringAssociatedValue(.imageSize(CGSize.zero)),
-            case .imageSize(let size) = item
-        {
+            case .imageSize(let size) = item {
             return size
         }
         return CGSize(width: 960, height: 1920)
     }
-    
+
     public var uploadOriginalData: Bool {
-        return contains{ $0 <== .uploadOriginalData }
+        return contains { $0 <== .uploadOriginalData }
     }
-    
+
     func lastMatchIgnoringAssociatedValue(_ target: Iterator.Element) -> Iterator.Element? {
         return reversed().first { $0 <== target }
     }
@@ -187,28 +170,27 @@ public enum UploadError: Error {
 }
 
 public enum MeshUploadErrorCode: Int {
-    
+
     /// badData: The update data is not an exist
     case badData = 10000
     case uploadTrunkError = 100001
 }
 
-
 public struct FileUploadChange {
     public let sessionId: String
     public let status: MeshUploader.Status
-    
+
     public init(sessionId: String, status: MeshUploader.Status) {
         self.sessionId = sessionId
         self.status = status
     }
 }
 
-public let MeshUploaderErrorDomain = "com.liao.upload.error"
+public let MeshUploaderErrorDomain = "com.xhb.upload.error"
 
 extension URL {
     func sliceData(fileOffset: UInt64, count: Int) -> SignalProducer<(Data, UInt64), UploadError> {
-        return SignalProducer<(Data, UInt64), UploadError>{ (observer, disposable) in
+        return SignalProducer<(Data, UInt64), UploadError> { (observer, _) in
             var count: UInt64 = UInt64(count)
             do {
                 let fileAttr = try FileManager.default.attributesOfItem(atPath: self.path)
@@ -238,24 +220,24 @@ extension URL {
 }
 
 public class MeshUploader {
-    
+
     public enum Status: Equatable {
         case pending
         case uploading(fractionCompleted: Double)
         case failed
         case succeeded(responseData: Data, uploadLocalUrl: URL)
-        
+
         public static func ==(lhs: Status, rhs: Status) -> Bool {
             switch (lhs, rhs) {
             case (.pending, .pending): return true
-            case (.uploading(_), .uploading(_)): return true
+            case (.uploading, .uploading): return true
             case (.failed, .failed): return true
-            case (.succeeded(_, _), .succeeded(_, _)): return true
+            case (.succeeded, .succeeded): return true
             default: return false
             }
         }
     }
-    
+
     public let mediaType: MeshUploadType
     public let sessionId: String
     public private(set) var fileURL: URL?
@@ -263,14 +245,14 @@ public class MeshUploader {
     public private(set) var status: Status = .pending
     public private(set) var tempUploadFileURL: URL?
     public let options: MeshUploaderOptionsInfo
-    
+
     private var uploaderDisposable: Disposable?
     private var uploadFileMD5: String?
-    
+
     private let (uploadSignal, uploadObserver) = Signal<FileUploadChange, UploadError>.pipe()
-    
+
     fileprivate let queue: DispatchQueue
-    
+
     /// Upload a local file to
     ///
     /// - Parameters:
@@ -281,10 +263,9 @@ public class MeshUploader {
         self.sessionId = sessionId
         self.mediaType = mediaType
         self.options = options
-        self.queue = DispatchQueue(label: "com.liao.meshupload." + sessionId)
+        self.queue = DispatchQueue(label: "com.xhb.meshupload." + sessionId)
     }
-    
-    
+
     /// Upload a system PHAsset with its identifer
     ///
     /// - Parameters:
@@ -295,9 +276,9 @@ public class MeshUploader {
         self.sessionId = sessionId
         self.mediaType = mediaType
         self.options = options
-        self.queue = DispatchQueue(label: "com.liao.meshupload." + sessionId)
+        self.queue = DispatchQueue(label: "com.xhb.meshupload." + sessionId)
     }
-    
+
     public func resume() {
         if status == .pending || status == .failed {
             self.status = .uploading(fractionCompleted: 0)
@@ -306,27 +287,7 @@ public class MeshUploader {
                     if let url = result.value {
                         self.tempUploadFileURL = url
                         self.queue.async {
-                            let validator = self.options.cachedResponseValidator
-                            if validator == nil {
-                                self.upload(url: url)
-                            } else if let updloadData = try? Data(contentsOf: URL(fileURLWithPath: url.path)) {
-                                self.uploadFileMD5 = updloadData.md5
-                                if let cachedResponse = MeshUploaderResponseCache.shared.cachedResponse(id: self.uploadFileMD5!) {
-                                    if validator!.validate(data: cachedResponse) {
-                                        self.status = .succeeded(responseData: cachedResponse, uploadLocalUrl: url)
-                                        self.uploadObserver.send(value: FileUploadChange(sessionId: self.sessionId, status: self.status))
-                                        self.uploadObserver.sendCompleted()
-                                    } else {
-                                        MeshUploaderResponseCache.shared.feedbackInvalid(id: self.uploadFileMD5!)
-                                        self.upload(url: url)
-                                    }
-                                } else {
-                                    self.upload(url: url)
-                                }
-                            } else {
-                                self.status = .failed
-                                self.uploadObserver.send(error: result.error ?? .uploadDataToServerError(message: "no data to upload"))
-                            }
+                            self.upload(url: url)
                         }
                     } else {
                         self.status = .failed
@@ -336,19 +297,19 @@ public class MeshUploader {
             }
         }
     }
-    
+
     public func cancel() {
         uploaderDisposable?.dispose()
     }
-    
+
     public var currentUploadChange: FileUploadChange {
         return FileUploadChange(sessionId: self.sessionId, status: status)
     }
-    
+
     public func watchDog() -> Signal<FileUploadChange, UploadError> {
         return uploadSignal.observe(on: UIScheduler())
     }
-    
+
     private func upload(url: URL) {
         uploaderDisposable = options.uploader.upload(fileUrl: url, options: options, mediaType: mediaType, sessionId: sessionId, queue: queue).on(value: { [weak self] (change) in
             guard let `self` = self else {
@@ -365,7 +326,7 @@ public class MeshUploader {
                 default: break
                 }
             }
-            
+
         }).observe(uploadObserver)
     }
 }
@@ -398,7 +359,7 @@ extension MeshUploader {
             }
         }
     }
-    
+
     private func retrievePHAssetUploadFileURL(phAssetLocalIdentifier: String) -> SignalProducer<URL, UploadError> {
         return SignalProducer<URL, UploadError> { (observer, disposable) in
             self.fetchAsset(phAssetLocalIdentifier: phAssetLocalIdentifier).startWithResult { (result) in
@@ -419,8 +380,8 @@ extension MeshUploader {
             }
         }
     }
-    
-    private func degratedOrCancelled(info: [AnyHashable : Any]?) -> Bool {
+
+    private func degratedOrCancelled(info: [AnyHashable: Any]?) -> Bool {
         if let cancelled = info?[PHImageCancelledKey] as? NSNumber {
             if cancelled.boolValue {
                 return true
@@ -431,7 +392,7 @@ extension MeshUploader {
         }
         return false
     }
-    
+
     private func retrieveImageUploadFileURL(asset: PHAsset) -> SignalProducer<URL, UploadError> {
         return SignalProducer<URL, UploadError> { (observer, lifetime) in
             let options = PHImageRequestOptions()
@@ -439,15 +400,16 @@ extension MeshUploader {
             options.resizeMode = .exact
             options.isNetworkAccessAllowed = true
             if self.options.uploadOriginalData {
-                let token = PHImageManager.default().requestImageData(for: asset, options: options, resultHandler: { (data, dataUTI, orientation, info: [AnyHashable: Any]?) in
+                let token = PHImageManager.default().requestImageData(for: asset, options: options, resultHandler: { (data, _, _, info: [AnyHashable: Any]?) in
                     if self.degratedOrCancelled(info: info) {
                         return
                     }
                     if var data = data {
                         var url = self.randomTemporaryURL()
                         let fileUrl: URL? = info?["PHImageFileURLKey"] as? URL
-                        var pathExtension: String = fileUrl?.pathExtension ?? "tmp"
-                        if fileUrl?.pathExtension == "HEIC" {
+                        let fileKey: NSString? = info?["PHImageFileUTIKey"] as? NSString
+                        var pathExtension: String = (fileUrl?.pathExtension ?? fileKey?.pathExtension) ?? "tmp"
+                        if pathExtension.lowercased() == "heic" {
                             if let image = UIImage(data: data) {
                                 pathExtension = "jpg"
                                 data = image.jpegData(compressionQuality: 1) ?? data
@@ -488,14 +450,14 @@ extension MeshUploader {
                         }
                     }
                 })
-                
+
                 lifetime.observeEnded {
                     PHImageManager.default().cancelImageRequest(token)
                 }
             }
         }
     }
-    
+
     private func retrieveVideoUploadFileURL(asset: PHAsset) -> SignalProducer<URL, UploadError> {
         return SignalProducer<URL, UploadError> { (observer, lifetime) in
             let task = self.avAssetSignal(asset: asset).startWithResult({ (result) in
@@ -532,7 +494,7 @@ extension MeshUploader {
             lifetime += task
         }
     }
-    
+
     public func avAssetSignal(asset: PHAsset) -> SignalProducer<AVAsset, UploadError> {
         return SignalProducer<AVAsset, UploadError> { (observer, lifetime) in
             let requestOptions = PHVideoRequestOptions()
@@ -548,15 +510,15 @@ extension MeshUploader {
                     observer.send(error: .retrieveUploadDataError(message: "retrieve AVAsset error"))
                 }
             })
-            
+
             lifetime.observeEnded {
                 PHImageManager.default().cancelImageRequest(token)
             }
         }
     }
-    
+
     private func fetchAsset(phAssetLocalIdentifier: String) -> SignalProducer<PHAsset?, UploadError> {
-        return SignalProducer<PHAsset?, UploadError> { (observer, disposable) in
+        return SignalProducer<PHAsset?, UploadError> { (observer, _) in
             self.requestAuthorization().startWithValues { (statues) in
                 if statues != PHAuthorizationStatus.authorized {
                     observer.send(error: .retrieveUploadDataError(message: "no priority to access system"))
@@ -568,9 +530,9 @@ extension MeshUploader {
             }
         }
     }
-    
+
     public func requestAuthorization() -> SignalProducer<PHAuthorizationStatus, NoError> {
-        return SignalProducer<PHAuthorizationStatus, NoError>{ (observer, _) in
+        return SignalProducer<PHAuthorizationStatus, NoError> { (observer, _) in
             if let latestPHAuthorizationStatus = latestPHAuthorizationStatus {
                 observer.send(value: latestPHAuthorizationStatus)
                 observer.sendCompleted()
@@ -582,185 +544,8 @@ extension MeshUploader {
             })
         }
     }
-    
+
     private func randomTemporaryURL() -> URL {
         return URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(UUID().uuidString).tmp")
-    }
-}
-
-
-// MARK: Upload one trunk
-
-fileprivate class DefaultUploader: Uploader {
-    
-    private var url: URL!
-    private var options: MeshUploaderOptionsInfo!
-    private let originalRequest: URLRequest = URLRequest(url: URL(string: meshUploadBaseUrl)!)
-    private var tryStep = 0
-    private var data: Data?
-    private var mediaType: MeshUploadType = .file
-    private var sessionId: String!
-    private var totalRetryTimes: Int = 0
-    private let disposible: CompositeDisposable = CompositeDisposable()
-    private var queue: DispatchQueue = DispatchQueue.main
-    private var fileOffset: UInt64 = 0
-    private var fileSize: UInt64 = 0
-    public let bytesPerTrunkUpload: Int = 256 * 1024
-    private let (uploadSignal, uploadObserver) = Signal<FileUploadChange, UploadError>.pipe()
-    
-    func upload(fileUrl: URL, options: MeshUploaderOptionsInfo, mediaType: MeshUploadType, sessionId: String, queue: DispatchQueue) -> Signal<FileUploadChange, UploadError> {
-        self.url = fileUrl
-        self.options = options
-        self.mediaType = mediaType
-        self.sessionId = sessionId
-        self.queue = queue
-        self.totalRetryTimes = options.retryTimes
-        
-        let signal = Signal<FileUploadChange, UploadError>({ (observer, lifetime) in
-            uploadSignal.observeResult({ [weak self] (result) in
-                guard let `self` = self else {
-                    return
-                }
-                if let value = result.value {
-                    guard let data = self.data else {
-                        observer.send(error: .retrieveUploadDataError(message: "upload to server error"))
-                        return
-                    }
-                    switch value.status {
-                    case let .uploading(fractionCompleted):
-                        let dataLength = self.data?.count ?? 0
-                        let percent = Double(fractionCompleted * Double(dataLength) + Double(self.fileOffset))/Double(self.fileSize)
-                        observer.send(value: FileUploadChange(sessionId: self.sessionId, status: .uploading(fractionCompleted: percent)))
-                    case let .succeeded(responseData, _):
-                        if self.fileOffset + UInt64(data.count) == self.fileSize {
-                            observer.send(value: FileUploadChange(sessionId: self.sessionId, status: .succeeded(responseData: responseData, uploadLocalUrl: fileUrl)))
-                            observer.sendCompleted()
-                        } else {
-                            self.tryStep = 0
-                            self.fileOffset = self.fileOffset + UInt64(data.count)
-                            self.uploadTrunk()
-                        }
-                    default: break
-                    }
-                } else {
-                    observer.send(error: result.error ?? .uploadDataToServerError(message: "upload to server error"))
-                }
-            })
-            lifetime.observeEnded {
-                self.disposible.dispose()
-            }
-        })
-        uploadTrunk()
-        return signal
-    }
-    
-    func uploadTrunk() {
-        url.sliceData(fileOffset: fileOffset, count: bytesPerTrunkUpload).startWithResult { (result) in
-            if let (data, fileSize) = result.value {
-                if fileSize == 0 {
-                    self.uploadObserver.send(error: result.error ?? .uploadDataToServerError(message: "no data to upload"))
-                    return
-                }
-                self.fileSize = fileSize
-                self.data = data
-                self.tryRequest()
-            } else {
-                self.uploadObserver.send(error: result.error ?? .uploadDataToServerError(message: "no data to upload"))
-            }
-        }
-    }
-    
-    private func modifyRequest() -> (URLRequest, TimeInterval)? {
-        guard let data = self.data else {
-            self.uploadObserver.send(error: .retrieveUploadDataError(message: "no data to update"))
-            return nil
-        }
-        if let (request, interval) = options.modifier.modified(for: originalRequest, tryStep: tryStep) {
-            var request = request
-            request.httpMethod = "POST"
-            request.allHTTPHeaderFields = originalRequest.allHTTPHeaderFields
-            
-            let lastIndex = fileSize - 1
-            let endIndex: UInt64 = min(fileOffset + UInt64(data.count - 1), lastIndex)
-            request.setValue("UTF-8", forHTTPHeaderField: "Charset")
-            request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
-            request.setValue(sessionId, forHTTPHeaderField: "X-Session-ID")
-            request.setValue("bytes \(fileOffset)-\(endIndex)/\(fileSize)", forHTTPHeaderField: "X-Content-Range")
-            
-            switch mediaType {
-            case .audio:
-                request.setValue("attachment; name=\"payload\" filename=\"sound\"", forHTTPHeaderField: "Content-Disposition")
-            case .video:
-                request.setValue("attachment; name=\"payload\" filename=\"video\"", forHTTPHeaderField: "Content-Disposition")
-            case .file:
-                request.setValue("attachment; name=\"payload\" filename=\"normal\"", forHTTPHeaderField: "Content-Disposition")
-            case .image, .gif:
-                request.setValue("attachment; name=\"payload\" filename=\"photo\"", forHTTPHeaderField: "Content-Disposition")
-            }
-            return (request, interval)
-        }
-        return nil
-    }
-    
-    private func performUpload(reqeust: URLRequest) {
-        guard let data = self.data else {
-            self.uploadObserver.send(error: .retrieveUploadDataError(message: "no data to update"))
-            return
-        }
-        let task = Mesh.upload(data, with: reqeust).uploadProgress(queue: .main, closure: { (progress) in
-            self.uploadObserver.send(value: FileUploadChange(sessionId: self.sessionId, status: .uploading(fractionCompleted: progress.fractionCompleted)))
-        }).responseData(queue: queue, completionHandler: { (response) in
-            func callbackError() {
-                meshLogger.log(info: self.sessionId + " " + response.description)
-                if self.tryStep < self.totalRetryTimes {
-                    self.tryStep += 1
-                    self.tryRequest()
-                } else {
-                    self.uploadObserver.send(error: .uploadDataToServerError(message: "http response header not set range"))
-                }
-            }
-            if let value = response.response {
-                var responseHeader: [AnyHashable: Any] = value.allHeaderFields
-                if let rangeString = responseHeader["Range"] as? String {
-                    let comp1 = rangeString.components(separatedBy: "/")
-                    if comp1.count == 2 {
-                        if let data = response.data {
-                            self.uploadObserver.send(value: FileUploadChange(sessionId: self.sessionId, status: .succeeded(responseData: data, uploadLocalUrl: self.url)))
-                        } else {
-                            self.uploadObserver.send(value: FileUploadChange(sessionId: self.sessionId, status: .succeeded(responseData: Data(), uploadLocalUrl: self.url)))
-                        }
-                    } else {
-                        callbackError()
-                    }
-                } else {
-                    callbackError()
-                }
-            } else {
-                callbackError()
-            }
-        })
-        task.task?.priority = options.uploadPriority
-        disposible.add {
-            task.cancel()
-        }
-    }
-    
-    private func tryRequest() {
-        if let (request, interval) = modifyRequest() {
-            meshLogger.log(info: "try to upload \(request.url?.absoluteString ?? ""), \(interval) later")
-            if interval > 0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + interval) {
-                    self.queue.async {
-                        if !self.disposible.isDisposed {
-                            self.performUpload(reqeust: request)
-                        }
-                    }
-                }
-            } else {
-                performUpload(reqeust: request)
-            }
-        } else {
-            uploadObserver.send(error: .uploadDataToServerError(message: "modify request return nil and cancelled"))
-        }
     }
 }

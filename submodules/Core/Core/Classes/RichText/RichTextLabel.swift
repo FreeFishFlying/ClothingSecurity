@@ -45,7 +45,7 @@ private class TextRunDelegate {
 
 private func getCTRunDelegate(delegate: TextRunDelegate) -> CTRunDelegate {
     var imageCallback = CTRunDelegateCallbacks(version: kCTRunDelegateVersion1, dealloc: { (refCon) -> Void in
-        refCon.assumingMemoryBound(to: TextRunDelegate.self).deinitialize()
+        refCon.assumingMemoryBound(to: TextRunDelegate.self).deinitialize(count: 1)
     }, getAscent: { (refCon) -> CGFloat in
         refCon.load(as: TextRunDelegate.self).ascent
     }, getDescent: { (refCon) -> CGFloat in
@@ -54,7 +54,7 @@ private func getCTRunDelegate(delegate: TextRunDelegate) -> CTRunDelegate {
         refCon.load(as: TextRunDelegate.self).width
     })
     let delegatePtr = UnsafeMutablePointer<TextRunDelegate>.allocate(capacity: 1)
-    delegatePtr.initialize(to: delegate)
+    delegatePtr.initialize(repeating: delegate, count: 1)
     return CTRunDelegateCreate(&imageCallback, delegatePtr)!
 }
 
@@ -186,7 +186,8 @@ open class RichTextLabelLayout {
     public private(set) var lineOrigins: [LinePosition] = []
     public private(set) var originalStringLineCount = 0
 
-    fileprivate var attributeString: NSMutableAttributedString
+    public var attributeString: NSMutableAttributedString
+    public var originalString: String
 
     private var setAttributeOnLayout = false
 
@@ -196,6 +197,7 @@ open class RichTextLabelLayout {
     }
 
     public init(attributeString: NSAttributedString) {
+        self.originalString = attributeString.string
         self.attributeString = NSMutableAttributedString(attributedString: attributeString)
     }
 
@@ -206,7 +208,7 @@ open class RichTextLabelLayout {
             } else {
                 let dataDetector = try NSDataDetector(types: NSTextCheckingTypes(detectTypes.rawValue))
                 let string = attributeString.string
-                let result = dataDetector.matches(in: string, options: [.reportProgress], range: NSRange(location: 0, length: string.characters.count))
+                let result = dataDetector.matches(in: string, options: [.reportProgress], range: NSRange(location: 0, length: string.count))
                 for item in result {
                     detectCheckingResult.append(item)
                 }
@@ -238,9 +240,11 @@ open class RichTextLabelLayout {
             objc_sync_exit(self)
         }
         clean()
+        parseImageIfNeed()
+        addCustomLink()
         allCheckingResults.append(contentsOf: customCheckingResult)
         hasLayoutDataBefore = true
-
+        
         if setAttributeOnLayout {
             attributeString.withForegroundColor(textColor).withFont(font)
             if let lineSpacing = lineSpacing {
@@ -255,13 +259,12 @@ open class RichTextLabelLayout {
                 attributeString.withFont(font)
             }
         }
-
+        
         if autoDetectLinks {
             detectLinks()
             allCheckingResults.append(contentsOf: detectCheckingResult)
         }
         styleLinks()
-        parseImageIfNeed()
 
         let typesetter: CTFramesetter = CTFramesetterCreateWithAttributedString(attributeString)
         let ctfont: CTFont = CTFontCreateWithName(font.fontName as CFString, font.pointSize, nil)
@@ -289,13 +292,28 @@ open class RichTextLabelLayout {
         for (index, line) in lines.enumerated() {
             if maxNumberOfLines != 0 && maxNumberOfLines - 1 == textLines.count {
                 if needTruncation {
+                    let range = CTLineGetStringRange(line)
                     let truncationTokenAttributes: [NSAttributedString.Key : Any] = [
                         NSAttributedString.Key.font : self.font,
                         NSAttributedString.Key.foregroundColor : self.textColor.cgColor,
                     ]
 
                     let tokenString = NSAttributedString(string: ellipsisString == nil ? truncationTokenString : ellipsisString!, attributes: truncationTokenAttributes)
-                    let truncationToken: CTLine = CTLineCreateWithAttributedString(tokenString)
+                    // 计算截断字符串的长度
+                    let tokenSize = tokenString.boundingRect(with: CGSize(width: 100, height: 100), options: .usesLineFragmentOrigin, context: nil).size
+                    let tokenWidth = tokenSize.width
+                    let truncationTokenLine = CTLineCreateWithAttributedString(tokenString)
+                    // 根据【截断标识字符串(...)】的长度，计算【需要截断字符串】的最后一个字符的位置，把该位置之后的字符从【需要截断字符串】中移除，留出【截断标识字符串(...)】的位置
+                    let truncationEndIndex = CTLineGetStringIndexForPosition(line, CGPoint(x: maxWidth - tokenWidth, y: 0))
+                    let length = range.location + range.length - truncationEndIndex
+
+                    var truncationString = NSMutableAttributedString(attributedString: attributeString.attributedSubstring(from: NSRange(location: range.location, length: range.length)))
+                    if length < truncationString.length, length > 0 {
+                        truncationString.deleteCharacters(in: NSRange(location: truncationString.length - length, length: length))
+                        truncationString.append(tokenString)
+                    }
+
+                    let truncationLine0: CTLine = CTLineCreateWithAttributedString(truncationString)
                     var truncationType: CTLineTruncationType = .end
                     switch lineBreakMode {
                     case .byTruncatingHead:
@@ -307,7 +325,9 @@ open class RichTextLabelLayout {
                     default:
                         truncationType = .end
                     }
-                    truncatedLine = CTLineCreateTruncatedLine(line, CTLineGetTypographicBounds(line, nil, nil, nil) - CTLineGetTrailingWhitespaceWidth(line) - 0.1, truncationType, truncationToken)
+                    truncatedLine = CTLineCreateTruncatedLine(truncationLine0,
+                                                              CTLineGetTypographicBounds(truncationLine0, nil, nil, nil) - CTLineGetTrailingWhitespaceWidth(truncationLine0) - 0.1,
+                                                              truncationType, truncationTokenLine)
                 }
             }
             if truncatedLine != nil {
@@ -356,7 +376,7 @@ open class RichTextLabelLayout {
                 location = range.location + range.length
                 var tagName = (string as NSString).substring(with: range)
                 if tagName.length > 2 {
-                    tagName = tagName.substring(with: NSRange(location: 1, length: range.length - 2))
+                    tagName = tagName.substring(with: NSRange(location: 1, length: tagName.length - 2))
                 }
                 if tagName.length > 0 {
                     if let image = imageParserProvider.map(match: tagName) {
@@ -420,6 +440,9 @@ open class RichTextLabelLayout {
                 }
             }
         }
+    }
+    
+    open func addCustomLink() {
     }
 
     private func calculateRegion(fontLineHeight: CGFloat, fontLineSpacing: CGFloat) {
@@ -686,6 +709,8 @@ open class RichTextLabel: UIView {
             }
             clearHighlight()
         case .stationary:
+            fallthrough
+        default:
             break
         }
 

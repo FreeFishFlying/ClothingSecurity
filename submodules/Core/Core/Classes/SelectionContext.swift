@@ -22,6 +22,7 @@ public struct SelectionChange {
     public var sender: SelectableItem
     public var selected: Bool = false
     public var animated: Bool = false
+    public var index: Int? //Starting from 1
 }
 
 open class SelectionContext {
@@ -31,7 +32,7 @@ open class SelectionContext {
 
     private var contextChangePipe: (output: Signal<SelectionChange, NoError>, input: Signal<SelectionChange, NoError>.Observer)
     private var setItemNoEffectPipe: (output: Signal<SelectableItem, NoError>, input: Signal<SelectableItem, NoError>.Observer)
-    
+
     private lazy var hotPort = Signal<Int, NoError>.pipe()
     private let limitCount: Int
 
@@ -46,14 +47,20 @@ open class SelectionContext {
     }
 
     public func selectedItems() -> [SelectableItem] {
-        return Array(selectionMap.values)
+        var selecteds = [SelectableItem]()
+        for identifer in selectionIdentifier {
+            if let item = selectionMap[identifer] {
+                selecteds.append(item)
+            }
+        }
+        return selecteds
     }
 
     public func selectedValues<T>() -> [T] {
         var result = [T]()
         for id in selectionIdentifier {
-            if let value = selectionMap[id] {
-                result.append(value as! T)
+            if let value = selectionMap[id] as? T {
+                result.append(value)
             }
         }
         return result
@@ -61,7 +68,7 @@ open class SelectionContext {
 
     public func clear() {
         for item in selectionMap.values {
-            contextChangePipe.input.send(value: SelectionChange(sender: item, selected: false, animated: false))
+            contextChangePipe.input.send(value: SelectionChange(sender: item, selected: false, animated: false, index: nil))
         }
         selectionMap.removeAll()
         selectionIdentifier.removeAll()
@@ -75,22 +82,32 @@ open class SelectionContext {
         return SignalProducer(changeSignal)
     }
 
-    @discardableResult public func setItem(_ item: SelectableItem, selected: Bool, animated: Bool = true) -> Bool {
+    @discardableResult open func setItem(_ item: SelectableItem, selected: Bool, animated: Bool = true) -> Bool {
         if selected {
-            if selectionIdentifier.count == limitCount {
+            if !selectionIdentifier.contains(item.uniqueIdentifier()), selectionIdentifier.count == limitCount {
                 setItemNoEffectPipe.input.send(value: item)
                 return false
             }
             if selectionIdentifier.contains(item.uniqueIdentifier()) {
+                selectionMap[item.uniqueIdentifier()] = item
                 return false
             }
             selectionIdentifier.append(item.uniqueIdentifier())
             selectionMap[item.uniqueIdentifier()] = item
+            contextChangePipe.input.send(value: SelectionChange(sender: item, selected: selected, animated: animated, index: selectionIdentifier.count))
         } else {
-            selectionIdentifier.remove(object: item.uniqueIdentifier())
-            selectionMap.removeValue(forKey: item.uniqueIdentifier())
+            let oldIndex = selectionIdentifier.firstIndex(of: item.uniqueIdentifier())
+            if let oldIndex = oldIndex {
+                selectionIdentifier.remove(object: item.uniqueIdentifier())
+                selectionMap.removeValue(forKey: item.uniqueIdentifier())
+                contextChangePipe.input.send(value: SelectionChange(sender: item, selected: selected, animated: animated, index: nil))
+                for (index, id) in selectionIdentifier.enumerated() {
+                    if index >= oldIndex, let new = selectionMap[id] {
+                        contextChangePipe.input.send(value: SelectionChange(sender: new, selected: true, animated: false, index: index + 1))
+                    }
+                }
+            }
         }
-        contextChangePipe.input.send(value: SelectionChange(sender: item, selected: selected, animated: animated))
         return true
     }
 
@@ -114,12 +131,19 @@ open class SelectionContext {
     public func selectionContextChangeSignal() -> Signal<SelectionChange, NoError> {
         return contextChangePipe.output
     }
-    
+
     public func setItemNoEffectSignl() -> Signal<SelectableItem, NoError> {
         return setItemNoEffectPipe.output
     }
 
     public func isItemSelected(_ item: SelectableItem) -> Bool {
         return selectionMap[item.uniqueIdentifier()] != nil
+    }
+
+    public func itemIndex(_ item: SelectableItem) -> Int {
+        if let index = selectionIdentifier.firstIndex(of: item.uniqueIdentifier()) {
+            return index + 1
+        }
+        return 0
     }
 }

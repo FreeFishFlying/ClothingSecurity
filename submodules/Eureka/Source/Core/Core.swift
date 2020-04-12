@@ -299,10 +299,12 @@ extension Condition : ExpressibleByStringLiteral {
 /**
 Errors thrown by Eureka
 
-- DuplicatedTag: When a section or row is inserted whose tag dows already exist
+ - duplicatedTag: When a section or row is inserted whose tag dows already exist
+ - rowNotInSection: When a row was expected to be in a Section, but is not.
 */
 public enum EurekaError: Error {
     case duplicatedTag(tag: String)
+    case rowNotInSection(row: BaseRow)
 }
 
 //Mark: FormViewController
@@ -421,7 +423,12 @@ open class FormViewController: UIViewController, FormViewControllerProtocol, For
     open var animateScroll = false
 
     /// Accessory view that is responsible for the navigation between rows
-    open var navigationAccessoryView: NavigationAccessoryView!
+    private var navigationAccessoryView: (UIView & NavigationAccessory)!
+
+    /// Custom Accesory View to be used as a replacement
+    open var customNavigationAccessoryView: (UIView & NavigationAccessory)? {
+        return nil
+    }
 
     /// Defines the behaviour of the navigation between rows
     public var navigationOptions: RowNavigationOptions?
@@ -442,14 +449,16 @@ open class FormViewController: UIViewController, FormViewControllerProtocol, For
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        navigationAccessoryView = NavigationAccessoryView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44.0))
+        navigationAccessoryView = customNavigationAccessoryView ?? NavigationAccessoryView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44.0))
         navigationAccessoryView.autoresizingMask = .flexibleWidth
 
         if tableView == nil {
             tableView = UITableView(frame: view.bounds, style: tableViewStyle)
-            tableView.autoresizingMask = UIView.AutoresizingMask.flexibleWidth.union(.flexibleHeight)
+            tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             if #available(iOS 9.0, *) {
                 tableView.cellLayoutMarginsFollowReadableWidth = false
+            } else {
+                // Fallback on earlier versions
             }
         }
         if tableView.superview == nil {
@@ -526,14 +535,17 @@ open class FormViewController: UIViewController, FormViewControllerProtocol, For
         let options = navigationOptions ?? Form.defaultNavigationOptions
         guard options.contains(.Enabled) else { return nil }
         guard row.baseCell.cellCanBecomeFirstResponder() else { return nil}
-        navigationAccessoryView.previousButton.isEnabled = nextRow(for: row, withDirection: .up) != nil
-        navigationAccessoryView.doneButton.target = self
-        navigationAccessoryView.doneButton.action = #selector(FormViewController.navigationDone(_:))
-        navigationAccessoryView.previousButton.target = self
-        navigationAccessoryView.previousButton.action = #selector(FormViewController.navigationAction(_:))
-        navigationAccessoryView.nextButton.target = self
-        navigationAccessoryView.nextButton.action = #selector(FormViewController.navigationAction(_:))
-        navigationAccessoryView.nextButton.isEnabled = nextRow(for: row, withDirection: .down) != nil
+        navigationAccessoryView.previousEnabled = nextRow(for: row, withDirection: .up) != nil
+        navigationAccessoryView.doneClosure = { [weak self] in
+            self?.navigationDone()
+        }
+        navigationAccessoryView.previousClosure = { [weak self] in
+            self?.navigationPrevious()
+        }
+        navigationAccessoryView.nextClosure = { [weak self] in
+            self?.navigationNext()
+        }
+        navigationAccessoryView.nextEnabled = nextRow(for: row, withDirection: .down) != nil
         return navigationAccessoryView
     }
 
@@ -757,6 +769,16 @@ open class FormViewController: UIViewController, FormViewControllerProtocol, For
 
         return UITableView.automaticDimension
     }
+
+    open func selectHandler(indexPath: IndexPath) {
+        guard tableView == self.tableView else { return }
+        let row = form[indexPath]
+        // row.baseCell.cellBecomeFirstResponder() may be cause InlineRow collapsed then section count will be changed. Use orignal indexPath will out of  section's bounds.
+        if !row.baseCell.cellCanBecomeFirstResponder() || !row.baseCell.cellBecomeFirstResponder() {
+            self.tableView?.endEditing(true)
+        }
+        row.didSelect()
+    }
 }
 
 extension FormViewController : UITableViewDelegate {
@@ -768,13 +790,7 @@ extension FormViewController : UITableViewDelegate {
     }
 
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard tableView == self.tableView else { return }
-        let row = form[indexPath]
-        // row.baseCell.cellBecomeFirstResponder() may be cause InlineRow collapsed then section count will be changed. Use orignal indexPath will out of  section's bounds.
-        if !row.baseCell.cellCanBecomeFirstResponder() || !row.baseCell.cellBecomeFirstResponder() {
-            self.tableView?.endEditing(true)
-        }
-        row.didSelect()
+        selectHandler(indexPath: indexPath)
     }
 
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -832,10 +848,6 @@ extension FormViewController : UITableViewDelegate {
                 tableView.endEditing(true)
             }
             section.remove(at: indexPath.row)
-            DispatchQueue.main.async {
-                tableView.isEditing = !tableView.isEditing
-                tableView.isEditing = !tableView.isEditing
-            }
         } else if editingStyle == .insert {
             guard var section = form[indexPath.section] as? MultivaluedSection else { return }
             guard let multivaluedRowToInsertAt = section.multivaluedRowToInsertAt else {
@@ -927,11 +939,17 @@ extension FormViewController : UITableViewDelegate {
 
 	@available(iOS 11,*)
 	open func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard !form[indexPath].leadingSwipe.actions.isEmpty else {
+            return nil
+        }
 		return form[indexPath].leadingSwipe.contextualConfiguration
 	}
 
 	@available(iOS 11,*)
 	open func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard !form[indexPath].trailingSwipe.actions.isEmpty else {
+            return nil
+        }
 		return form[indexPath].trailingSwipe.contextualConfiguration
 	}
 
@@ -1015,7 +1033,12 @@ extension FormViewController {
             table.contentInset = tableInsets
             table.scrollIndicatorInsets = scrollIndicatorInsets
             if let selectedRow = table.indexPath(for: cell) {
-                table.scrollToRow(at: selectedRow, at: .none, animated: animateScroll)
+                if ProcessInfo.processInfo.operatingSystemVersion.majorVersion == 11 {
+                    let rect = table.rectForRow(at: selectedRow)
+                    table.scrollRectToVisible(rect, animated: animateScroll)
+                } else {
+                    table.scrollToRow(at: selectedRow, at: .none, animated: animateScroll)
+                }
             }
             UIView.commitAnimations()
         }
@@ -1047,12 +1070,16 @@ extension FormViewController {
 
     // MARK: Navigation Methods
 
-    @objc func navigationDone(_ sender: UIBarButtonItem) {
+    @objc func navigationDone() {
         tableView?.endEditing(true)
     }
 
-    @objc func navigationAction(_ sender: UIBarButtonItem) {
-        navigateTo(direction: sender == navigationAccessoryView.previousButton ? .up : .down)
+    @objc func navigationPrevious() {
+        navigateTo(direction: .up)
+    }
+
+    @objc func navigationNext() {
+        navigateTo(direction: .down)
     }
 
     public func navigateTo(direction: Direction) {
@@ -1087,7 +1114,8 @@ extension FormViewControllerProtocol {
 
     // MARK: Helpers
 
-    func makeRowVisible(_ row: BaseRow, destinationScrollPosition: UITableView.ScrollPosition) {
+    func makeRowVisible(_ row: BaseRow, destinationScrollPosition: UITableView.ScrollPosition? = .bottom) {
+	guard let destinationScrollPosition = destinationScrollPosition else { return }
         guard let cell = row.baseCell, let indexPath = row.indexPath, let tableView = tableView else { return }
         if cell.window == nil || (tableView.contentOffset.y + tableView.frame.size.height <= cell.frame.origin.y + cell.frame.size.height) {
             tableView.scrollToRow(at: indexPath, at: destinationScrollPosition, animated: true)

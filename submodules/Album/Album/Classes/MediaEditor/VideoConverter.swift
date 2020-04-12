@@ -243,8 +243,8 @@ public class MediaVideoEditAdjustments {
 }
 
 public class VideoConverter {
-    
-    static let error: NSError = NSError(domain: "compress.video.error", code:-1, userInfo: nil)
+
+    static let error: NSError = NSError(domain: "compress.video.error", code: -1, userInfo: nil)
 
     public init() {
     }
@@ -345,7 +345,7 @@ public class VideoConverter {
     }
 
     public func convert(avAsset: AVAsset, adjustments: MediaVideoEditAdjustments) -> SignalProducer<ConverterResult, NSError> {
-        let queue = DispatchQueue(label: "com.liao.videoconverter")
+        let queue = DispatchQueue(label: "com.xhb.videoconverter")
         return SignalProducer<ConverterResult, NSError>.init({ (observer: Signal<VideoConverter.ConverterResult, NSError>.Observer, disposable) in
             let context: Atomic = Atomic(MediaVideoConversionContext(queue: queue))
             let outputUrl: URL = randomTemporaryURL(extension: "mp4")
@@ -436,7 +436,7 @@ public class VideoConverter {
 
         if let audioProcessor = contextValue.audioProcessor, let timeRange = contextValue.timeRange {
             dispatchGroup.enter()
-            audioProcessor.start(timeRange: timeRange, progressBlock: nil, completionBlock: { (successful) -> Void in
+            audioProcessor.start(timeRange: timeRange, progressBlock: nil, completionBlock: { (_) -> Void in
                 dispatchGroup.leave()
             })
         }
@@ -445,7 +445,7 @@ public class VideoConverter {
             dispatchGroup.enter()
             videoProcessor.start(timeRange: timeRange, progressBlock: { (_ progress: CGFloat) -> Void in
                 observer.send(value: VideoConverter.ConverterResult(progress: progress))
-            }, completionBlock: { (successful) -> Void in
+            }, completionBlock: { (_) -> Void in
                 dispatchGroup.leave()
             })
         }
@@ -588,7 +588,8 @@ public class VideoConverter {
 
         // setup video composition
         let videoComposition = AVMutableVideoComposition()
-        videoComposition.frameDuration = CMTimeMake(value: 1, timescale: Int32(videoTrack.nominalFrameRate))
+        let timescale = Int32(videoTrack.nominalFrameRate) > 0 ? Int32(videoTrack.nominalFrameRate) : 30
+        videoComposition.frameDuration = CMTimeMake(value: 1, timescale: timescale)
         guard let trimVideoTrack: AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaType.video, preferredTrackID: kCMPersistentTrackID_Invalid) else {
             return nil
         }
@@ -657,7 +658,7 @@ public class VideoConverter {
 
         let output = AVAssetReaderVideoCompositionOutput(videoTracks: composition.tracks(withMediaType: AVMediaType.video), videoSettings: [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange])
         output.videoComposition = videoComposition
-        
+
         let outputSettings = MediaVideoSettings.videoSettings(preset: preset, dimensions: outputDimensions)
 
         return (output, outputSettings, outputDimensions)

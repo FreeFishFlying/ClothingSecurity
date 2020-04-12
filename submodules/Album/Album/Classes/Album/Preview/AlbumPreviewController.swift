@@ -60,8 +60,8 @@ public struct MediaGroupDefault: MediaGroup {
 
     public func getAssetDirection(from: MediaAsset, to: MediaAsset) -> (orderd: MediaAssetOrder, toIndex: Int) {
         var order: MediaAssetOrder
-        let fromIndex = data.index(of: from) ?? 0
-        let toIndex = data.index(of: to) ?? 0
+        let fromIndex = data.firstIndex(of: from) ?? 0
+        let toIndex = data.firstIndex(of: to) ?? 0
         if fromIndex > toIndex {
             order = .descending
         } else if fromIndex < toIndex {
@@ -97,7 +97,7 @@ public class AlbumPreviewController: OverlayViewController, UIScrollViewDelegate
         self.position = position
         self.config = config
         self.selectionContext = selectionContext
-        
+
         super.init(nibName: nil, bundle: nil)
 
         guard let viewController = self.viewControllerAtIndex(position) else {
@@ -118,7 +118,7 @@ public class AlbumPreviewController: OverlayViewController, UIScrollViewDelegate
             }
         }
     }
-    
+
     public override func show() {
         super.show()
         if !isIpad() {
@@ -168,13 +168,14 @@ public class AlbumPreviewController: OverlayViewController, UIScrollViewDelegate
     }
 
     private func setStatusBarStatusAlpha(_ alpha: CGFloat) {
-        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-        if statusBar.isHidden {
-            return
-        }
-        UIView.animate(withDuration: 0.2) {
-            statusBar.alpha = alpha
-        }
+        UIApplication.shared.isStatusBarHidden = !(alpha > 0.0)
+//        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+//        if statusBar.isHidden {
+//            return
+//        }
+//        UIView.animate(withDuration: 0.2) {
+//            statusBar.alpha = alpha
+//        }
     }
 
     private func animationTranslationIn() {
@@ -249,7 +250,7 @@ public class AlbumPreviewController: OverlayViewController, UIScrollViewDelegate
             }
         }
     }
-    
+
     private func longImageViewFrame(from image: UIImage) -> CGRect {
         let imageHeight = image.size.height / image.size.width * view.frame.size.width
         return CGRect(x: 0, y: 0, width: view.frame.size.width, height: imageHeight)
@@ -388,7 +389,7 @@ public class AlbumPreviewController: OverlayViewController, UIScrollViewDelegate
         }
         return nil
     }
-    
+
     func editAsset2(type: MediaEditorBridge.EditorType) {
         guard let mediaAsset = currentVisiableItem()?.displayAsset() else {
             return
@@ -549,7 +550,9 @@ public class AlbumPreviewController: OverlayViewController, UIScrollViewDelegate
                     }
                 }
                 if strongSelf.selectionContext.isSelectOriginalImage.value || !strongSelf.config.compressVideo {
-                    action(output: result)
+                    handleVideo(assets: result) { (items) in
+                        action(output: items)
+                    }
                 } else {
                     compressVideo(assets: result, cancelHandler: { () in
                         if self?.config.style.contains(.single) ?? false {

@@ -4,7 +4,7 @@
 //
 //  Created by Wei Wang on 15/4/23.
 //
-//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2018 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,6 @@ import AppKit
 #else
 import UIKit
 #endif
-    
 
 /**
 *	KingfisherOptionsInfo is a typealias for [KingfisherOptionsInfoItem]. You can use the enum of option item with value to control some behaviors of Kingfisher.
@@ -45,41 +44,54 @@ public enum KingfisherOptionsInfoItem {
     /// cache object when handling related operations, including trying to retrieve the cached images and store
     /// the downloaded image to it.
     case targetCache(ImageCache)
-    
+
+    /// Cache for storing and retrieving original image.
+    /// Preferred prior to targetCache for storing and retrieving original images if specified.
+    /// Only used if a non-default image processor is involved.
+    case originalCache(ImageCache)
+
     /// The associated value of this member should be an ImageDownloader object. Kingfisher will use this
     /// downloader to download the images.
     case downloader(ImageDownloader)
-    
+
     /// Member for animation transition when using UIImageView. Kingfisher will use the `ImageTransition` of
     /// this enum to animate the image in if it is downloaded from web. The transition will not happen when the
     /// image is retrieved from either memory or disk cache by default. If you need to do the transition even when
     /// the image being retrieved from cache, set `ForceTransition` as well.
     case transition(ImageTransition)
-    
+
     /// Associated `Float` value will be set as the priority of image download task. The value for it should be
     /// between 0.0~1.0. If this option not set, the default value (`NSURLSessionTaskPriorityDefault`) will be used.
     case downloadPriority(Float)
-    
+
     /// If set, `Kingfisher` will ignore the cache and try to fire a download task for the resource.
     case forceRefresh
-    
+
+    /// If set, `Kingfisher` will try to retrieve the image from memory cache first. If the image is not in memory
+    /// cache, then it will ignore the disk cache but download the image again from network. This is useful when
+    /// you want to display a changeable image behind the same url, while avoiding download it again and again.
+    case fromMemoryCacheOrRefresh
+
     /// If set, setting the image to an image view will happen with transition even when retrieved from cache.
     /// See `Transition` option for more.
     case forceTransition
-    
+
     ///  If set, `Kingfisher` will only cache the value in memory but not in disk.
     case cacheMemoryOnly
-    
+
+    ///  If set, `Kingfisher` will wait for caching operation to be completed before calling the completion block.
+    case waitForCache
+
     /// If set, `Kingfisher` will only try to retrieve the image from cache not from network.
     case onlyFromCache
-    
+
     /// Decode the image in background thread before using.
     case backgroundDecode
-    
+
     /// The associated value of this member will be used as the target queue of dispatch callbacks when
-    /// retrieving images from cache. If not set, `Kingfisher` will use main quese for callbacks.
+    /// retrieving images from cache. If not set, `Kingfisher` will use main queue for callbacks.
     case callbackDispatchQueue(DispatchQueue?)
-    
+
     /// The associated value of this member will be used as the scale factor when converting retrieved data to an image.
     /// It is the image scale, instead of your screen scale. You may need to specify the correct scale when you dealing 
     /// with 2x or 3x retina images.
@@ -91,46 +103,49 @@ public enum KingfisherOptionsInfoItem {
     /// all data, while a normal image view (`UIImageView` or `NSImageView`) will load all data. Choose to use
     /// corresponding image view type instead of setting this option.
     case preloadAllAnimationData
-    
-    /// The `ImageRequestModifier` contained will be used to change the request before it being sent.
+
+    /// The `ImageDownloadRequestModifier` contained will be used to change the request before it being sent.
     /// This is the last chance you can modify the request. You can modify the request for some customizing purpose,
     /// such as adding auth token to the header, do basic HTTP auth or something like url mapping. The original request
     /// will be sent without any modification by default.
-    case requestModifier(RequestModifier)
-    
+    case requestModifier(ImageDownloadRequestModifier)
+
     /// Processor for processing when the downloading finishes, a processor will convert the downloaded data to an image
-    /// and/or apply some filter on it. If a cache is connected to the downloader (it happenes when you are using
+    /// and/or apply some filter on it. If a cache is connected to the downloader (it happens when you are using
     /// KingfisherManager or the image extension methods), the converted image will also be sent to cache as well as the
     /// image view. `DefaultImageProcessor.default` will be used by default.
     case processor(ImageProcessor)
-    
+
     /// Supply an `CacheSerializer` to convert some data to an image object for
     /// retrieving from disk cache or vice versa for storing to disk cache.
     /// `DefaultCacheSerializer.default` will be used by default.
     case cacheSerializer(CacheSerializer)
-    
+
+    /// Modifier for modifying an image right before it is used.
+    /// If the image was fetched directly from the downloader, the modifier will
+    /// run directly after the processor.
+    /// If the image is being fetched from a cache, the modifier will run after
+    /// the cacheSerializer.
+    /// Use `ImageModifier` when you need to set properties on a concrete type
+    /// of `Image`, such as a `UIImage`, that do not persist when caching the image.
+    case imageModifier(ImageModifier)
+
     /// Keep the existing image while setting another image to an image view.
     /// By setting this option, the placeholder image parameter of imageview extension method
     /// will be ignored and the current image will be kept while loading or downloading the new image.
     case keepCurrentImageWhileLoading
-    
+
     /// If set, Kingfisher will only load the first frame from a animated image data file as a single image.
     /// Loading a lot of animated images may take too much memory. It will be useful when you want to display a
     /// static preview of the first frame from a animated image.
     /// This option will be ignored if the target image is not animated image data.
     case onlyLoadFirstFrame
-    
+
     /// If set and an `ImageProcessor` is used, Kingfisher will try to cache both 
     /// the final result and original image. Kingfisher will have a chance to use 
-    /// the original image when another processor is applied to the same resouce, 
+    /// the original image when another processor is applied to the same resource,
     /// instead of downloading it again.
     case cacheOriginalImage
-    
-    /// Retry request image times if previous load failure
-    case retryTimes(Int)
-    
-    /// Enhanced gif play with mp4
-    case acceleratedGifPlay(Bool)
 }
 
 precedencegroup ItemComparisonPrecedence {
@@ -143,36 +158,37 @@ infix operator <== : ItemComparisonPrecedence
 // This operator returns true if two `KingfisherOptionsInfoItem` enum is the same, without considering the associated values.
 func <== (lhs: KingfisherOptionsInfoItem, rhs: KingfisherOptionsInfoItem) -> Bool {
     switch (lhs, rhs) {
-    case (.targetCache(_), .targetCache(_)): return true
-    case (.downloader(_), .downloader(_)): return true
-    case (.transition(_), .transition(_)): return true
-    case (.downloadPriority(_), .downloadPriority(_)): return true
+    case (.targetCache, .targetCache): return true
+    case (.originalCache, .originalCache): return true
+    case (.downloader, .downloader): return true
+    case (.transition, .transition): return true
+    case (.downloadPriority, .downloadPriority): return true
     case (.forceRefresh, .forceRefresh): return true
+    case (.fromMemoryCacheOrRefresh, .fromMemoryCacheOrRefresh): return true
     case (.forceTransition, .forceTransition): return true
     case (.cacheMemoryOnly, .cacheMemoryOnly): return true
+    case (.waitForCache, .waitForCache): return true
     case (.onlyFromCache, .onlyFromCache): return true
     case (.backgroundDecode, .backgroundDecode): return true
-    case (.callbackDispatchQueue(_), .callbackDispatchQueue(_)): return true
-    case (.scaleFactor(_), .scaleFactor(_)): return true
+    case (.callbackDispatchQueue, .callbackDispatchQueue): return true
+    case (.scaleFactor, .scaleFactor): return true
     case (.preloadAllAnimationData, .preloadAllAnimationData): return true
-    case (.requestModifier(_), .requestModifier(_)): return true
-    case (.processor(_), .processor(_)): return true
-    case (.cacheSerializer(_), .cacheSerializer(_)): return true
+    case (.requestModifier, .requestModifier): return true
+    case (.processor, .processor): return true
+    case (.cacheSerializer, .cacheSerializer): return true
+    case (.imageModifier, .imageModifier): return true
     case (.keepCurrentImageWhileLoading, .keepCurrentImageWhileLoading): return true
     case (.onlyLoadFirstFrame, .onlyLoadFirstFrame): return true
     case (.cacheOriginalImage, .cacheOriginalImage): return true
-    case (.retryTimes(_), .retryTimes(_)): return true
-    case (.acceleratedGifPlay(_), .acceleratedGifPlay(_)): return true
     default: return false
     }
 }
-
 
 extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
     func lastMatchIgnoringAssociatedValue(_ target: Iterator.Element) -> Iterator.Element? {
         return reversed().first { $0 <== target }
     }
-    
+
     func removeAllMatchesIgnoringAssociatedValue(_ target: Iterator.Element) -> [Iterator.Element] {
         return filter { !($0 <== target) }
     }
@@ -180,172 +196,156 @@ extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
 
 public extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
     /// The target `ImageCache` which is used.
-    public var targetCache: ImageCache {
+    public var targetCache: ImageCache? {
         if let item = lastMatchIgnoringAssociatedValue(.targetCache(.default)),
-            case .targetCache(let cache) = item
-        {
+            case .targetCache(let cache) = item {
             return cache
         }
-        return ImageCache.default
+        return nil
     }
-    
+
+    /// The original `ImageCache` which is used.
+    public var originalCache: ImageCache? {
+        if let item = lastMatchIgnoringAssociatedValue(.originalCache(.default)),
+            case .originalCache(let cache) = item {
+            return cache
+        }
+        return targetCache
+    }
+
     /// The `ImageDownloader` which is specified.
-    public var downloader: ImageDownloader {
+    public var downloader: ImageDownloader? {
         if let item = lastMatchIgnoringAssociatedValue(.downloader(.default)),
-            case .downloader(let downloader) = item
-        {
+            case .downloader(let downloader) = item {
             return downloader
         }
-        return ImageDownloader.default
+        return nil
     }
-    
+
     /// Member for animation transition when using UIImageView.
     public var transition: ImageTransition {
         if let item = lastMatchIgnoringAssociatedValue(.transition(.none)),
-            case .transition(let transition) = item
-        {
+            case .transition(let transition) = item {
             return transition
         }
         return ImageTransition.none
     }
-    
+
     /// A `Float` value set as the priority of image download task. The value for it should be
     /// between 0.0~1.0.
     public var downloadPriority: Float {
         if let item = lastMatchIgnoringAssociatedValue(.downloadPriority(0)),
-            case .downloadPriority(let priority) = item
-        {
+            case .downloadPriority(let priority) = item {
             return priority
         }
         return URLSessionTask.defaultPriority
     }
-    
+
     /// Whether an image will be always downloaded again or not.
     public var forceRefresh: Bool {
-        return contains{ $0 <== .forceRefresh }
+        return contains { $0 <== .forceRefresh }
     }
-    
+
+    /// Whether an image should be got only from memory cache or download.
+    public var fromMemoryCacheOrRefresh: Bool {
+        return contains { $0 <== .fromMemoryCacheOrRefresh }
+    }
+
     /// Whether the transition should always happen or not.
     public var forceTransition: Bool {
-        return contains{ $0 <== .forceTransition }
+        return contains { $0 <== .forceTransition }
     }
-    
+
     /// Whether cache the image only in memory or not.
     public var cacheMemoryOnly: Bool {
-        return contains{ $0 <== .cacheMemoryOnly }
+        return contains { $0 <== .cacheMemoryOnly }
     }
-    
+
+    /// Whether the caching operation will be waited or not.
+    public var waitForCache: Bool {
+        return contains { $0 <== .waitForCache }
+    }
+
     /// Whether only load the images from cache or not.
     public var onlyFromCache: Bool {
-        return contains{ $0 <== .onlyFromCache }
+        return contains { $0 <== .onlyFromCache }
     }
-    
+
     /// Whether the image should be decoded in background or not.
     public var backgroundDecode: Bool {
-        return contains{ $0 <== .backgroundDecode }
+        return contains { $0 <== .backgroundDecode }
     }
 
     /// Whether the image data should be all loaded at once if it is an animated image.
     public var preloadAllAnimationData: Bool {
         return contains { $0 <== .preloadAllAnimationData }
     }
-    
+
     /// The queue of callbacks should happen from Kingfisher.
     public var callbackDispatchQueue: DispatchQueue {
         if let item = lastMatchIgnoringAssociatedValue(.callbackDispatchQueue(nil)),
-            case .callbackDispatchQueue(let queue) = item
-        {
+            case .callbackDispatchQueue(let queue) = item {
             return queue ?? DispatchQueue.main
         }
         return DispatchQueue.main
     }
-    
+
     /// The scale factor which should be used for the image.
     public var scaleFactor: CGFloat {
         if let item = lastMatchIgnoringAssociatedValue(.scaleFactor(0)),
-            case .scaleFactor(let scale) = item
-        {
+            case .scaleFactor(let scale) = item {
             return scale
         }
         return 1.0
     }
-    
-    // The retry times load image default is zero
-    public var retryTimes: Int {
-        if let item = lastMatchIgnoringAssociatedValue(.retryTimes(0)),
-            case .retryTimes(let times) = item
-        {
-            return times
-        }
-        return 0
-    }
-    
-    /// The `ImageRequestModifier` will be used before sending a download request.
-    public var modifier: RequestModifier {
+
+    /// The `ImageDownloadRequestModifier` will be used before sending a download request.
+    public var modifier: ImageDownloadRequestModifier {
         if let item = lastMatchIgnoringAssociatedValue(.requestModifier(NoModifier.default)),
-            case .requestModifier(let modifier) = item
-        {
+            case .requestModifier(let modifier) = item {
             return modifier
         }
         return NoModifier.default
     }
-    
+
     /// `ImageProcessor` for processing when the downloading finishes.
     public var processor: ImageProcessor {
         if let item = lastMatchIgnoringAssociatedValue(.processor(DefaultImageProcessor.default)),
-            case .processor(let processor) = item
-        {
+            case .processor(let processor) = item {
             return processor
         }
         return DefaultImageProcessor.default
     }
-    
+
+    /// `ImageModifier` for modifying right before the image is displayed.
+    public var imageModifier: ImageModifier {
+        if let item = lastMatchIgnoringAssociatedValue(.imageModifier(DefaultImageModifier.default)),
+            case .imageModifier(let imageModifier) = item {
+            return imageModifier
+        }
+        return DefaultImageModifier.default
+    }
+
     /// `CacheSerializer` to convert image to data for storing in cache.
     public var cacheSerializer: CacheSerializer {
         if let item = lastMatchIgnoringAssociatedValue(.cacheSerializer(DefaultCacheSerializer.default)),
-            case .cacheSerializer(let cacheSerializer) = item
-        {
+            case .cacheSerializer(let cacheSerializer) = item {
             return cacheSerializer
         }
         return DefaultCacheSerializer.default
     }
-    
+
     /// Keep the existing image while setting another image to an image view. 
     /// Or the placeholder will be used while downloading.
     public var keepCurrentImageWhileLoading: Bool {
         return contains { $0 <== .keepCurrentImageWhileLoading }
     }
-    
+
     public var onlyLoadFirstFrame: Bool {
         return contains { $0 <== .onlyLoadFirstFrame }
     }
-    
+
     public var cacheOriginalImage: Bool {
         return contains { $0 <== .cacheOriginalImage }
     }
-    
-    // The retry times load image default is zero
-    public var acceleratedGifPlay: Bool {
-        if let item = lastMatchIgnoringAssociatedValue(.acceleratedGifPlay(true)),
-            case .acceleratedGifPlay(let value) = item
-        {
-            return value
-        }
-        return false
-    }
-}
-
-// MARK: - Deprecated. Only for back compatibility.
-public extension Collection where Iterator.Element == KingfisherOptionsInfoItem {
-
-    /// Whether the image data should be all loaded at once if it is a GIF.
-    @available(*, deprecated, renamed: "preloadAllAnimationData")
-    public var preloadAllGIFData: Bool {
-        return preloadAllAnimationData
-    }
-}
-
-public extension KingfisherOptionsInfoItem {
-    @available(*, deprecated, renamed: "preloadAllAnimationData")
-    static let preloadAllGIFData = KingfisherOptionsInfoItem.preloadAllAnimationData
 }

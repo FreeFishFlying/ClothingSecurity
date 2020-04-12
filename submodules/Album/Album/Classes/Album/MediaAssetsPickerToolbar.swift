@@ -152,7 +152,9 @@ class MediaAssetsPickerToolbar: UIView {
     @objc fileprivate func confirmClick() {
         let result: [MediaAsset] = selectionContext.selectedValues()
         if selectionContext.isSelectOriginalImage.value || !config.compressVideo {
-            config.confirmCallback(result, selectionContext.isSelectOriginalImage.value)
+            handleVideo(assets: result) { (items) in
+                self.config.confirmCallback(items, self.selectionContext.isSelectOriginalImage.value)
+            }
         } else {
             compressVideo(assets: result) { (item: [MediaSelectableItem]) in
                 self.config.confirmCallback(item, self.selectionContext.isSelectOriginalImage.value)

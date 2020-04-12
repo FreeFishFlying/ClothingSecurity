@@ -86,7 +86,7 @@ class MediaEditorToolbar: UIView {
         if button.isSelected {
             return
         }
-        selectedIndex.value = editorButtons.index(of: button) ?? 0
+        selectedIndex.value = editorButtons.firstIndex(of: button) ?? 0
         for button in editorButtons {
             button.isSelected = false
         }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public struct Tuple3<A: Equatable, B: Equatable, C: Equatable> {
     public let a: A
@@ -43,9 +44,9 @@ open class TriplePickerCell<A, B, C> : _PickerCell<Tuple3<A, B, C>> where A: Equ
 
     open override func update() {
         super.update()
-        if let selectedValue = pickerRow?.value, let indexA = pickerRow?.firstOptions().index(of: selectedValue.a),
-            let indexB = pickerRow?.secondOptions(selectedValue.a).index(of: selectedValue.b),
-            let indexC = pickerRow?.thirdOptions(selectedValue.a, selectedValue.b).index(of: selectedValue.c) {
+        if let selectedValue = pickerRow?.value, let indexA = pickerRow?.firstOptions().firstIndex(of: selectedValue.a),
+            let indexB = pickerRow?.secondOptions(selectedValue.a).firstIndex(of: selectedValue.b),
+            let indexC = pickerRow?.thirdOptions(selectedValue.a, selectedValue.b).firstIndex(of: selectedValue.c) {
             picker.selectRow(indexA, inComponent: 0, animated: true)
             picker.selectRow(indexB, inComponent: 1, animated: true)
             picker.selectRow(indexC, inComponent: 2, animated: true)
@@ -89,9 +90,9 @@ open class TriplePickerCell<A, B, C> : _PickerCell<Tuple3<A, B, C>> where A: Equ
 
                 let b: B = pickerRow.secondOptions(a).contains(value.b) ? value.b : pickerRow.secondOptions(a)[0]
                 let c: C = pickerRow.thirdOptions(a, b).contains(value.c) ? value.c : pickerRow.thirdOptions(a, b)[0]
+                pickerRow.value = Tuple3(a: a, b: b, c: c)
                 pickerView.reloadComponent(1)
                 pickerView.reloadComponent(2)
-                pickerRow.value = Tuple3(a: a, b: b, c: c)
                 if b != value.b {
                     pickerView.selectRow(0, inComponent: 1, animated: true)
                 }

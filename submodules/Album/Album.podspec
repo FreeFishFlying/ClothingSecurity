@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'http://180.166.126.162:9000/components/Album.git' }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'Album/Classes/**/*.swift'
 

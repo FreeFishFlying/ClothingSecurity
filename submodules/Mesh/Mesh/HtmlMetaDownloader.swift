@@ -11,26 +11,26 @@ import UIKit
 private let HtmlMetaFileLengthLimit: Int64 = 300 * 1024
 private var FiledUrlCached: [URL] = [URL]()
 
-public typealias HtmlMetaDownloaderCompletionHandler = ((_ result: String?, _ dest: URL?, _ error: Error?) -> ())
+public typealias HtmlMetaDownloaderCompletionHandler = ((_ result: String?, _ dest: URL?, _ error: Error?) -> Void)
 
 public class HtmlMetaDownloader {
 
     public static let `default` = HtmlMetaDownloader()
-    
-    public let barrierQueue = DispatchQueue(label: "com.liao.HtmlMetaDownloader.Barrier", attributes: .concurrent)
-    
+
+    public let barrierQueue = DispatchQueue(label: "com.xhb.HtmlMetaDownloader.Barrier", attributes: .concurrent)
+
     public var maxConcurrentOperationCount: Int = 2 {
         didSet {
             queue.maxConcurrentOperationCount = maxConcurrentOperationCount
         }
     }
-    
+
     private let queue: OperationQueue = {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 2
         return queue
     }()
-    
+
     @discardableResult
     public func download(with url: URL, completionHandler: @escaping HtmlMetaDownloaderCompletionHandler) -> Operation {
         for operation in queue.operations {
@@ -51,28 +51,28 @@ public class HtmlMetaDownloader {
 }
 
 private class HtmlMetaDownloaderOperation: AsynchronousOperation {
-    
+
     fileprivate let url: URL
-    
+
     private var downloadTask: DataRequest?
     private var completionHandlers: [HtmlMetaDownloaderCompletionHandler] = [HtmlMetaDownloaderCompletionHandler]()
-    
+
     init(url: URL) {
         self.url = url
     }
-    
+
     public func append(completionHandler: @escaping HtmlMetaDownloaderCompletionHandler) {
         HtmlMetaDownloader.default.barrierQueue.sync(flags: .barrier) {
             self.completionHandlers.append(completionHandler)
         }
     }
-    
+
     override func execute() {
         if isCancelled {
             finish()
             return
         }
-        
+
         var filedUrlCached = false
         HtmlMetaDownloader.default.barrierQueue.sync(flags: .barrier) {
             filedUrlCached = FiledUrlCached.contains(url)
@@ -103,13 +103,13 @@ private class HtmlMetaDownloaderOperation: AsynchronousOperation {
             }
         })
     }
-    
+
     override func cancel() {
         super.cancel()
         downloadTask?.cancel()
         downloadTask = nil
     }
-    
+
     private func handleProcess(received: Int64, total: Int64) {
         if total > HtmlMetaFileLengthLimit {
             downloadTask?.cancel()
@@ -124,12 +124,12 @@ private class HtmlMetaDownloaderOperation: AsynchronousOperation {
             }
         }
     }
-    
+
     private func handleCompletion(response: DataResponse<String>) {
         finish()
         downloadTask?.cancel()
         downloadTask = nil
-        
+
         var items: [HtmlMetaDownloaderCompletionHandler] = []
         HtmlMetaDownloader.default.barrierQueue.sync(flags: .barrier) {
             items.append(contentsOf: completionHandlers)

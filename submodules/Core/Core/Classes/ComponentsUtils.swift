@@ -207,17 +207,20 @@ private func getApplicationKeyboardWindow_Remote() -> UIWindow? {
     return nil
 }
 
-public func videoMetadata(url: URL) -> (image: UIImage?, duration: TimeInterval) {
+public func videoMetadata(url: URL) -> (image: UIImage?, duration: TimeInterval, size: Int) {
     let asset = AVURLAsset(url: url)
     let duration = TimeInterval(CMTimeGetSeconds(asset.duration))
     let imgGenerator = AVAssetImageGenerator(asset: asset)
     imgGenerator.appliesPreferredTrackTransform = true
-    let cgImage = try? imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil)
-    if cgImage != nil {
-        let thumbnail = UIImage(cgImage: cgImage!)
-        return (thumbnail, duration)
+    do {
+        let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil)
+        let thumbnail = UIImage(cgImage: cgImage)
+        let fileAttr = try FileManager.default.attributesOfItem(atPath: url.path)
+        let fileSize = fileAttr[FileAttributeKey.size] as! Int
+        return (thumbnail, duration, fileSize / 1024)
+    } catch {
+        return (nil, duration, 0)
     }
-    return (nil, duration)
 }
 
 public func applicationKeyboardWindow() -> UIWindow? {
@@ -236,7 +239,7 @@ public func applicationKeyboardWindow() -> UIWindow? {
 public func formatTimeInterval(_ duration: TimeInterval) -> String {
     let duration = Int(ceil(duration))
     if duration >= 3600 {
-        return String(format: "%02d:%02d:%02d", duration / 3600, duration / 60, duration % 60)
+        return String(format: "%02d:%02d:%02d", duration / 3600, (duration % 3600) / 60, duration % 60)
     } else {
         return String(format: "%02d:%02d", duration / 60, duration % 60)
     }
@@ -244,14 +247,14 @@ public func formatTimeInterval(_ duration: TimeInterval) -> String {
 
 public func formatFileSize(_ byte: Int64) -> String {
     if byte <= 0 {
-        return "--"
+        return ""
     }
     if byte < 1024 {
         return "\(Int(byte))B"
     } else if byte < 1024 * 1024 {
-        return String(format: "%.1fKb", Double(byte) / 1024)
+        return  "\(Int(byte / 1024))Kb"
     }
-    return String(format: "%.1fM", Double(byte) / (1024 * 1024))
+    return String(format: "%.2fM", Double(byte) / (1024 * 1024))
 }
 
 public let operatingSystem: OperatingSystemVersion = ProcessInfo.processInfo.operatingSystemVersion

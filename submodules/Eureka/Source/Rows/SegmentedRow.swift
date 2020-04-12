@@ -23,6 +23,7 @@
 // THE SOFTWARE.
 
 import Foundation
+import UIKit
 
 // MARK: SegmentedCell
 
@@ -46,6 +47,7 @@ open class SegmentedCell<T: Equatable> : Cell<T>, CellType {
         self.titleLabel = self.textLabel
         self.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
         self.titleLabel?.setContentHuggingPriority(UILayoutPriority(rawValue: 500), for: .horizontal)
+        self.titleLabel?.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
         NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: nil) { [weak self] _ in
             guard let me = self else { return }
@@ -56,7 +58,7 @@ open class SegmentedCell<T: Equatable> : Cell<T>, CellType {
         NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
             guard let me = self else { return }
             guard !me.observingTitleText else { return }
-            me.titleLabel?.addObserver(me, forKeyPath: "text", options: NSKeyValueObservingOptions.old.union(.new), context: nil)
+            me.titleLabel?.addObserver(me, forKeyPath: "text", options: [.new, .old], context: nil)
             me.observingTitleText = true
         }
 
@@ -113,7 +115,7 @@ open class SegmentedCell<T: Equatable> : Cell<T>, CellType {
     }
 
     @objc func valueChanged() {
-        row.value =  (row as! SegmentedRow<T>).options?[segmentedControl.selectedSegmentIndex]
+        row.value = (row as! SegmentedRow<T>).options?[segmentedControl.selectedSegmentIndex]
     }
 
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -161,7 +163,7 @@ open class SegmentedCell<T: Equatable> : Cell<T>, CellType {
             dynamicConstraints.append(NSLayoutConstraint(item: titleLabel, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0))
         }
 
-        dynamicConstraints.append(NSLayoutConstraint(item: segmentedControl, attribute: .width, relatedBy: .greaterThanOrEqual, toItem: contentView, attribute: .width, multiplier: 0.3, constant: 0.0))
+        dynamicConstraints.append(NSLayoutConstraint(item: segmentedControl!, attribute: .width, relatedBy: .greaterThanOrEqual, toItem: contentView, attribute: .width, multiplier: 0.3, constant: 0.0))
 
         if hasImageView && hasTitleLabel {
             dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:[imageView]-(15)-[titleLabel]-[segmentedControl]-|", options: [], metrics: nil, views: views)
@@ -178,7 +180,7 @@ open class SegmentedCell<T: Equatable> : Cell<T>, CellType {
 
     func selectedIndex() -> Int? {
         guard let value = row.value else { return nil }
-        return (row as! SegmentedRow<T>).options?.index(of: value)
+        return (row as! SegmentedRow<T>).options?.firstIndex(of: value)
     }
 }
 

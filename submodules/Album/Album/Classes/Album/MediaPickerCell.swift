@@ -20,10 +20,8 @@ class MediaPickerCell: UICollectionViewCell {
     private var disposable: Disposable?
     private var asset: MediaAsset?
 
-    private lazy var checkButton: CheckButtonView = {
-        let button = CheckButtonView()
-        button.fillColor = defaultAppearance.checkBoxColor
-        button.onCheckColor = defaultAppearance.checkBoxCheckColor
+    private lazy var checkButton: UIButton = {
+        let button = CheckBadgeButton(buttonSize: CGSize(width: 25, height: 25))
         button.addTarget(self, action: #selector(self.checkButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -85,11 +83,11 @@ class MediaPickerCell: UICollectionViewCell {
                     }
                 }
             })
-            checkButton.setChecked(selectionContext.isItemSelected(asset), animated: false)
+            checkButton.setChecked(selectionContext.itemIndex(asset), animated: false)
             isSelected = checkButton.isSelected
             let selectedDisposable = selectionContext.itemInformativeSelectedSignal(item: asset).take(during: reactive.lifetime).startWithValues({ [weak self] (change: SelectionChange) in
                 if let strongSelf = self {
-                    strongSelf.checkButton.setChecked(change.selected, animated: change.animated)
+                    strongSelf.checkButton.setChecked(change.index ?? 0, animated: change.animated)
                     strongSelf.isSelected = change.selected
                 }
             })

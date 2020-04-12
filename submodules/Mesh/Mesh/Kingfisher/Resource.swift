@@ -4,7 +4,7 @@
 //
 //  Created by Wei Wang on 15/4/6.
 //
-//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2018 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,12 +26,11 @@
 
 import Foundation
 
-
 /// `Resource` protocol defines how to download and cache a resource from network.
 public protocol Resource {
     /// The key used in cache.
     var cacheKey: String { get }
-    
+
     /// The target image URL.
     var downloadURL: URL { get }
 }
@@ -45,10 +44,10 @@ public protocol Resource {
 public struct ImageResource: Resource {
     /// The key used in cache.
     public let cacheKey: String
-    
+
     /// The target image URL.
     public let downloadURL: URL
-    
+
     /**
      Create a resource.
      

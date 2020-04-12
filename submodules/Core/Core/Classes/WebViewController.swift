@@ -400,6 +400,7 @@ extension WebViewController: WKUIDelegate {
             completionHandler()
         }
         alertController.addAction(action)
+        alertController.popoverPresentationController?.sourceView = webView
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
         }
@@ -415,6 +416,7 @@ extension WebViewController: WKUIDelegate {
         }
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
+        alertController.popoverPresentationController?.sourceView = webView
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
         }
@@ -429,6 +431,7 @@ extension WebViewController: WKUIDelegate {
             completionHandler(alertController.textFields?[0].text ?? "")
         }
         alertController.addAction(okAction)
+        alertController.popoverPresentationController?.sourceView = webView
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
         }

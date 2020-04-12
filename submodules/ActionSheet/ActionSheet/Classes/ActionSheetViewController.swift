@@ -134,6 +134,7 @@ private class ActionSheetView: UIView {
     fileprivate let containerView: ActionSheetEventThroughView = {
         let containerView = ActionSheetEventThroughView()
         containerView.backgroundColor = UIColor.clear
+        containerView.hasRadius = true
         return containerView
     }()
     
@@ -362,6 +363,7 @@ private class ActionSheetView: UIView {
         containerView.snp.updateConstraints { make in
             make.bottom.equalToSuperview().offset(preferredHeight)
         }
+
         layoutIfNeeded()
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseInOut, animations: {
             self.containerView.snp.updateConstraints { make in

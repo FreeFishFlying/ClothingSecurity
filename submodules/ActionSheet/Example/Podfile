@@ -1,0 +1,12 @@
+source 'http://180.166.126.162:9000/ios/SpecsSwift4.git'
+use_frameworks!
+
+target 'ActionSheet_Example' do
+  pod 'ActionSheet', :path => '../'
+
+  target 'ActionSheet_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

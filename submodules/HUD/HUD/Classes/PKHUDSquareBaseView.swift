@@ -38,18 +38,22 @@ open class PKHUDSquareBaseView: UIView {
         titleLabel.frame = CGRect(origin: CGPoint.zero, size: titleSize)
         let subtitleSize = subtitleLabel.sizeThatFits(CGSize(width: 200, height: CGFloat.greatestFiniteMagnitude))
         subtitleLabel.frame = CGRect(origin: CGPoint.zero, size: subtitleSize)
-        let width: CGFloat = max(titleSize.width, subtitleSize.width) + 2 * padding
-        var height: CGFloat = titleSize.height + subtitleSize.height + (image?.size.height ?? 0)
+        var width: CGFloat = max(titleSize.width, subtitleSize.width) + 2 * padding
+        var height: CGFloat = titleSize.height + subtitleSize.height + (image?.size.height ?? 0) + padding
         if title != nil {
+            height += padding
+        }
+        if image != nil {
             height += padding
         }
         if subtitle != nil {
             height += padding
         }
-        frame = CGRect(origin: CGPoint.zero, size: CGSize(width: max(width, 120), height: height))
+        width = max(max(width, height), 120)
+        frame = CGRect(origin: CGPoint.zero, size: CGSize(width: width, height: height))
     }
 
-    open let imageView: UIImageView = {
+    public let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.alpha = 0.85
         imageView.clipsToBounds = true
@@ -57,7 +61,7 @@ open class PKHUDSquareBaseView: UIView {
         return imageView
     }()
 
-    open let titleLabel: UILabel = {
+    public let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 17.0)
@@ -66,7 +70,7 @@ open class PKHUDSquareBaseView: UIView {
         return label
     }()
 
-    open let subtitleLabel: UILabel = {
+    public let subtitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 14.0)
@@ -77,9 +81,15 @@ open class PKHUDSquareBaseView: UIView {
 
     open override func layoutSubviews() {
         super.layoutSubviews()
-
         titleLabel.center = CGPoint(x: frame.size.width / 2, y: padding + titleLabel.frame.size.height / 2)
-        imageView.center = CGPoint(x: frame.size.width / 2, y: titleLabel.frame.maxY + (imageView.image?.size.height ?? 0) / 2 + padding)
+        imageView.frame = CGRect(x: 0, y: 0, width: imageView.image?.size.width ?? 0, height: imageView.image?.size.height ?? 0)
+        let y: CGFloat
+        if titleLabel.text != nil {
+            y = titleLabel.frame.maxY + (imageView.image?.size.height ?? 0) / 2 + padding
+        } else {
+            y = (imageView.image?.size.height ?? 0) / 2 + padding
+        }
+        imageView.center = CGPoint(x: frame.size.width / 2, y: y)
         subtitleLabel.center = CGPoint(x: frame.size.width / 2, y: frame.size.height - padding - subtitleLabel.frame.size.height / 2)
     }
 }

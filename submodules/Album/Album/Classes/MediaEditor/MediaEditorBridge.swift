@@ -62,7 +62,18 @@ public class MediaEditorBridge {
                 } else if let imageAsset = PHAsset.fetchAssets(withLocalIdentifiers: [asset.uniqueIdentifier()], options: nil).firstObject {
                     mediaAsset = TGMediaAsset(phAsset: imageAsset)
                 }
-                break
+            case .filePath:
+                if let ast = asset as? MediaAsset {
+                    if let editorResult = ast.editorResult, editorResult.hasChanges {
+                        if let image = editorResult.editorImage {
+                            mediaAsset = TGMediaAsset(image: image)
+                        }
+                    } else if FileManager.default.fileExists(atPath: ast.uniqueIdentifier()) {
+                        if let url = URL(string: ast.uniqueIdentifier()) {
+                            mediaAsset = TGMediaAsset(image: UIImage(contentsOfFile: url.path))
+                        }
+                    }
+                }
             default:
                 mediaAsset = TGMediaAsset(phAsset: asset.asset)
             }
@@ -108,6 +119,8 @@ public class MediaEditorBridge {
             }
             controller.finishedTransitionOut = { _ in
                 fromView?.alpha = 1
+                maskView?.alpha = 0
+                maskView?.removeFromSuperview()
                 observer.send(value: .finishedTransitionOut)
                 observer.sendCompleted()
             }
@@ -117,6 +130,14 @@ public class MediaEditorBridge {
                     imageView.image = image
                 }
             }
+
+            controller.didCancelEditing = {
+                fromView?.alpha = 1
+                maskView?.alpha = 0
+                maskView?.removeFromSuperview()
+                observer.sendCompleted()
+            }
+
             controller.didFinishEditing = { adjustments, resultImage, thumbnailImage, hasChanges in
                 if hasChanges {
                     if adjustments == nil {
@@ -141,6 +162,7 @@ public class MediaEditorBridge {
                 onViewController.view.addSubview(controller.view)
             } else {
                 controller.skipInitialTransition = true
+                controller.modalPresentationStyle = .fullScreen
                 onViewController.present(controller, animated: true, completion: nil)
             }
         })

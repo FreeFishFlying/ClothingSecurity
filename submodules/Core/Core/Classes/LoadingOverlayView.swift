@@ -266,7 +266,7 @@ class LoadingOverlayViewLayer: CALayer {
                             pL.progress = values![0]
                         }
                         prop?.threshold = 0.01
-                    }) as! POPAnimatableProperty!
+                    }) as! POPAnimatableProperty?
                     animation?.fromValue = (self.progress)
                     animation?.toValue = progress
                     animation?.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
@@ -301,11 +301,11 @@ class LoadingOverlayViewLayer: CALayer {
             context.setLineWidth(2)
 
             let mainLine: [CGPoint] = [CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter - height) / 2.0 + lineWidth / 2.0), CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter + height) / 2.0 - lineWidth / 2.0)]
-            let firstPoint = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0 - width / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0 - width / 2.0)
-            let secondPoint = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0)
-            let thirdPoint = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0)
-            let forthPoint = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0 + width / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0 - width / 2.0)
-            let arrowLine: [CGPoint] = [firstPoint, secondPoint, thirdPoint, forthPoint]
+            let line01 = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0 - width / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0 - width / 2.0)
+            let line02 = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0)
+            let line03 = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0)
+            let line04 = CGPoint(x: (diameter - lineWidth) / 2.0 + lineWidth / 2.0 + width / 2.0, y: (diameter + height) / 2.0 + lineWidth / 2.0 - width / 2.0)
+            let arrowLine: [CGPoint] = [line01, line02, line03, line04]
 
             context.setStrokeColor(UIColor.clear.cgColor)
             context.strokeLineSegments(between: mainLine)
@@ -337,19 +337,12 @@ class LoadingOverlayViewLayer: CALayer {
             context.fillEllipse(in: CGRect(x: inset, y: inset, width: diameter - inset * 2.0, height: diameter - inset * 2.0))
             context.setLineCap(CGLineCap.round)
             context.setLineWidth(lineWidth)
-            let crossLine: [CGPoint] = [CGPoint(x: CGFloat((diameter - crossSize) / 2.0), y: CGFloat((diameter - crossSize) / 2.0)), CGPoint(x: CGFloat((diameter + crossSize) / 2.0), y: CGFloat((diameter + crossSize) / 2.0)), CGPoint(x: CGFloat((diameter + crossSize) / 2.0), y: CGFloat((diameter - crossSize) / 2.0)), CGPoint(x: CGFloat((diameter - crossSize) / 2.0), y: CGFloat((diameter + crossSize) / 2.0))]
             context.setStrokeColor(UIColor.clear.cgColor)
-            if type == .progressCancel {
-                context.strokeLineSegments(between: crossLine)
-            }
             context.setBlendMode(CGBlendMode.normal)
             if let cancelLineColor = overlayCancelLineColor {
                 context.setStrokeColor(cancelLineColor.cgColor)
             } else {
                 context.setStrokeColor(ImageUtils.colorFromRGBA(rgbValue: 0xFFFFFF, alpha: 1.0).cgColor)
-            }
-            if type == .progressCancel {
-                context.strokeLineSegments(between: crossLine)
             }
         case .progress:
             let diameter: CGFloat = radius

@@ -135,6 +135,10 @@ open class OverlayControllerWindow: UIWindow {
         }
         rootViewController?.present(controller, animated: animated, completion: completion)
     }
+
+    public static func topWindow() -> OverlayControllerWindow? {
+        return associatedTopWindowStack.last ?? associatedWindowStack.last
+    }
 }
 
 private var associatedWindowStack = [OverlayControllerWindow]()

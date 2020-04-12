@@ -14,7 +14,7 @@ target 'ClothingSecurity' do
     pod 'Eureka', :path =>'submodules/Eureka/'
     pod 'Core', :path => 'submodules/Core/'
     pod 'ReactiveObjC', :path =>'submodules/ReactiveObjC/'
-    pod 'ReactiveCocoa', :path =>'submodules/ReactiveCocoa/'
+#    pod 'ReactiveCocoa', :path =>'submodules/ReactiveCocoa/'
     pod 'Result', :path =>'submodules/Result/'
     pod 'FDFullscreenPopGesture', :path =>'submodules/FDFullscreenPopGesture/'
     pod 'AlertController', :path =>'submodules/AlertController/'
