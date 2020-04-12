@@ -424,6 +424,7 @@
 		B3C14F76227C7346006D088C /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 		B3C2C1732271DF2C00F22817 /* FeedbackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCell.swift; sourceTree = "<group>"; };
 		B3C95B0D2243BEAD0036C5D6 /* FrameWorkLocal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FrameWorkLocal.json; sourceTree = "<group>"; };
+		B3C9A9462441FFB30099FFA0 /* ClothingSecurityRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClothingSecurityRelease.entitlements; sourceTree = "<group>"; };
 		B3E0D6A22197CBAA00CF5B63 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		B3E0D6A621986EAD00CF5B63 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		B3E3AA3323843F0C00C43456 /* NewWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWebViewController.swift; sourceTree = "<group>"; };
@@ -841,6 +842,7 @@
 		B35DBB0C216C783A00CAFDAD /* ClothingSecurity */ = {
 			isa = PBXGroup;
 			children = (
+				B3C9A9462441FFB30099FFA0 /* ClothingSecurityRelease.entitlements */,
 				B3E3AA3123843F0C00C43456 /* WebView */,
 				B3C95B0C2243BEAD0036C5D6 /* resource */,
 				B32FD61721AE3115007BE7DB /* Lib */,
@@ -1680,9 +1682,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
-				DEVELOPMENT_TEAM = YQ9TC8RR69;
+				CURRENT_PROJECT_VERSION = 26;
+				DEVELOPMENT_TEAM = Y87RG52PS6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1747,12 +1750,13 @@
 					"-fobjc-arc",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.labeauty.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "labeauty-com.labeauty";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ClothingSecurity/Lib/ClothingSecurity-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				VALID_ARCHS = "arm64 arm64e armv7s";
@@ -1766,9 +1770,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ClothingSecurity/ClothingSecurityRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
-				DEVELOPMENT_TEAM = YQ9TC8RR69;
+				CURRENT_PROJECT_VERSION = 26;
+				DEVELOPMENT_TEAM = Y87RG52PS6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)/**",
@@ -1833,11 +1839,12 @@
 					"-fobjc-arc",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
-				PRODUCT_BUNDLE_IDENTIFIER = com.labeauty.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "labeauty-com.labeauty";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ClothingSecurity/Lib/ClothingSecurity-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				VALID_ARCHS = "arm64 arm64e armv7s";

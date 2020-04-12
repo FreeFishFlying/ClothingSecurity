@@ -192,7 +192,7 @@ extension ScanningViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 // MARK: - 识别选择图片
 extension ScanningViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true) {
             if !self.handlePickInfo(info) {
                 self.didReadFromAlbumFailed()

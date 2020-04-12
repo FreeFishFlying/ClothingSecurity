@@ -45,7 +45,7 @@ class SignleGiftCell: UITableViewCell {
         container.addSubview(tipLabel)
         tipLabel.snp.makeConstraints { make in
             make.left.equalTo(icon.snp.right).offset(10)
-            make.top.equalTo(nameLabel.snp.bottom).offset(15)
+            make.top.equalTo(nameLabel.snp.bottom).offset(10)
         }
         container.addSubview(timeLabel)
         timeLabel.snp.makeConstraints { make in

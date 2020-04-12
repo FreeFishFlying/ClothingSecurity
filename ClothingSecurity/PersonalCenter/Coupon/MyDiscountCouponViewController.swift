@@ -70,17 +70,14 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
                     self.tableView.mj_footer.resetNoMoreData()
                 }
                 self.dataSources.append(contentsOf: value.data)
-                if !value.data.isEmpty {
-                    self.tableView.reloadData()
-                }
-                if self.dataSources.isEmpty {
+                 self.tableView.reloadData()
+                self.removeEmptyState()
+                if self.dataSources.isEmpty  {
                     if type == 0 {
                         self.configDiscountEmptyView()
                     } else {
                         self.configGiftEmptyView()
                     }
-                } else {
-                    self.removeEmptyState()
                 }
             }
         } else {
@@ -97,17 +94,14 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
                     self.tableView.mj_footer.resetNoMoreData()
                 }
                 self.list.append(contentsOf: value.data)
-                if !value.data.isEmpty {
-                    self.tableView.reloadData()
-                }
-                if self.dataSources.isEmpty {
+                self.tableView.reloadData()
+                self.removeEmptyState()
+                if  self.list.isEmpty {
                     if type == 0 {
                         self.configDiscountEmptyView()
                     } else {
                         self.configGiftEmptyView()
                     }
-                } else {
-                    self.removeEmptyState()
                 }
             }
         }
@@ -167,7 +161,11 @@ class MyDiscountCouponViewController: BaseViewController, UITableViewDelegate, U
 
 extension MyDiscountCouponViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSources.count
+        if type == 0 {
+            return dataSources.count
+        }
+        return list.count
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -27,11 +27,13 @@ class LotteryViewController: BaseViewController {
         scroolView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaTopLayoutGuide)
             make.left.right.bottom.equalToSuperview()
+            make.width.equalTo(ScreenWidth)
         }
         scroolView.addSubview(bgView)
         bgView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
             make.height.equalTo(517)
+            make.width.equalTo(ScreenWidth)
         }
         scroolView.addSubview(titleImage)
         titleImage.snp.makeConstraints { make in
@@ -69,7 +71,7 @@ class LotteryViewController: BaseViewController {
         scroolView.addSubview(firstTipLabel)
         firstTipLabel.snp.makeConstraints { make in
             make.left.equalTo(firstTip.snp.right).offset(10)
-            make.right.equalToSuperview().offset(-10)
+            make.right.lessThanOrEqualToSuperview().offset(-10)
             make.top.equalTo(firstTip).offset(-3)
         }
         scroolView.addSubview(secondTip)
@@ -82,7 +84,7 @@ class LotteryViewController: BaseViewController {
         secondTipLabel.snp.makeConstraints { make in
             make.top.equalTo(secondTip.snp.top).offset(-3)
             make.left.equalTo(secondTip.snp.right).offset(10)
-            make.right.equalToSuperview().offset(-10)
+            make.right.greaterThanOrEqualToSuperview().offset(-10)
         }
         scroolView.addSubview(thirdTip)
         thirdTip.snp.makeConstraints { make in
@@ -94,7 +96,7 @@ class LotteryViewController: BaseViewController {
         thirdTipLabel.snp.makeConstraints { make in
             make.top.equalTo(thirdTip.snp.top).offset(-3)
             make.left.equalTo(thirdTip.snp.right).offset(10)
-            make.right.equalToSuperview().offset(-10)
+            make.right.lessThanOrEqualToSuperview().offset(-10)
         }
         view.layoutIfNeeded()
         scroolView.contentSize = CGSize(width: 0, height: 772)
@@ -163,6 +165,7 @@ class LotteryViewController: BaseViewController {
     private let firstTipLabel: UILabel = {
         let label = UILabel()
         label.text = "如果您获得的积分将自动存入您的账户内；"
+        label.numberOfLines = 0
         label.font = systemFontSize(fontSize: 14)
         label.textColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         return label
@@ -176,7 +179,7 @@ class LotteryViewController: BaseViewController {
     
     private let secondTipLabel: UILabel = {
         let label = UILabel()
-        label.text = "如果您获得的是实物奖品，请您及时填写地址我们将送到您的手上；"
+        label.text = "如果您获得的是实物奖品，请您及时填写地址\n我们将送到您的手上；"
         label.font = systemFontSize(fontSize: 14)
         label.numberOfLines = 0
         label.textColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
@@ -193,6 +196,7 @@ class LotteryViewController: BaseViewController {
         let label = UILabel()
         label.text = "本次活动最终解释权归我公司所有。"
         label.font = systemFontSize(fontSize: 14)
+        label.numberOfLines = 0
         label.textColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 1.0)
         return label
     }()
