@@ -1,0 +1,20 @@
+${PODS_ROOT}/Target Support Files/Pods-ClothingSecurity/Pods-ClothingSecurity-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ActionSheet/ActionSheet.framework
+${BUILT_PRODUCTS_DIR}/Album/Album.framework
+${BUILT_PRODUCTS_DIR}/AlertController/AlertController.framework
+${BUILT_PRODUCTS_DIR}/Core/Core.framework
+${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework
+${BUILT_PRODUCTS_DIR}/HUD/HUD.framework
+${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/MediaEditorKit/MediaEditorKit.framework
+${BUILT_PRODUCTS_DIR}/Mesh/Mesh.framework
+${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework
+${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework
+${BUILT_PRODUCTS_DIR}/PopoverImagePicker/PopoverImagePicker.framework
+${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework
+${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework
+${BUILT_PRODUCTS_DIR}/Result/Result.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
+${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework
+${BUILT_PRODUCTS_DIR}/ZXingObjC/ZXingObjC.framework
+${BUILT_PRODUCTS_DIR}/pop/pop.framework

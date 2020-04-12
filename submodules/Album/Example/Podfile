@@ -1,0 +1,8 @@
+source 'http://gitlab.xiaoheiban.cn/ios/SpecsSwift4.git'
+
+use_frameworks!
+
+target 'Album_Example' do
+  pod 'Album', :path => '../'
+
+end

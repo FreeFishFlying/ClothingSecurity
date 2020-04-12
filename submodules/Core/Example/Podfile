@@ -1,0 +1,12 @@
+source 'http://gitlab.xiaoheiban.cn/ios/SpecsSwift4.git'
+use_frameworks!
+
+target 'Core_Example' do
+  pod 'Core', :path => '../'
+
+  target 'Core_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
