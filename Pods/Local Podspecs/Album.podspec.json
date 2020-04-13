@@ -15,7 +15,7 @@
     "git": "http://180.166.126.162:9000/components/Album.git"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "source_files": "Album/Classes/**/*.swift",
   "resource_bundles": {

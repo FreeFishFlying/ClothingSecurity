@@ -131,12 +131,12 @@ public class MediaEditorBridge {
                 }
             }
 
-            controller.didCancelEditing = {
-                fromView?.alpha = 1
-                maskView?.alpha = 0
-                maskView?.removeFromSuperview()
-                observer.sendCompleted()
-            }
+//            controller.didCancelEditing = {
+//                fromView?.alpha = 1
+//                maskView?.alpha = 0
+//                maskView?.removeFromSuperview()
+//                observer.sendCompleted()
+//            }
 
             controller.didFinishEditing = { adjustments, resultImage, thumbnailImage, hasChanges in
                 if hasChanges {

@@ -20,7 +20,7 @@ class MediaPickerCell: UICollectionViewCell {
     private var disposable: Disposable?
     private var asset: MediaAsset?
 
-    private lazy var checkButton: UIButton = {
+    private lazy var checkButton: CheckBadgeButton = {
         let button = CheckBadgeButton(buttonSize: CGSize(width: 25, height: 25))
         button.addTarget(self, action: #selector(self.checkButtonPressed), for: .touchUpInside)
         return button

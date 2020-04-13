@@ -11,10 +11,10 @@ target 'ClothingSecurity' do
     pod 'SwiftyJSON', :path => 'submodules/SwiftyJSON/'
     pod 'XCGLogger', :path => 'submodules/XCGLogger/'
     pod 'ESTabBarController', :path =>'submodules/ESTabBarController/'
-    pod 'Eureka', :path =>'submodules/Eureka/'
+    pod 'Eureka'
     pod 'Core', :path => 'submodules/Core/'
     pod 'ReactiveObjC', :path =>'submodules/ReactiveObjC/'
-#    pod 'ReactiveCocoa', :path =>'submodules/ReactiveCocoa/'
+    pod 'ReactiveCocoa', :path =>'submodules/ReactiveCocoa/'
     pod 'Result', :path =>'submodules/Result/'
     pod 'FDFullscreenPopGesture', :path =>'submodules/FDFullscreenPopGesture/'
     pod 'AlertController', :path =>'submodules/AlertController/'
@@ -26,4 +26,5 @@ target 'ClothingSecurity' do
     pod 'WechatOpenSDK'
     pod 'Masonry'
     pod 'BaiduMobStatCodeless'
+    pod 'Kingfisher'
 end

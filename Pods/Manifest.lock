@@ -25,6 +25,7 @@ PODS:
   - Eureka (5.0.1)
   - FDFullscreenPopGesture (1.1)
   - HUD (0.1.0)
+  - Kingfisher (4.10.1)
   - Masonry (1.1.0)
   - MediaEditorKit (0.1.0):
     - pop
@@ -44,7 +45,7 @@ PODS:
     - Core
     - PinLayout
     - ReactiveSwift
-  - ReactiveCocoa (8.0.2):
+  - ReactiveCocoa (8.0.0):
     - ReactiveSwift (~> 4.0)
   - ReactiveObjC (3.1.0)
   - ReactiveSwift (4.0.0):
@@ -71,12 +72,14 @@ DEPENDENCIES:
   - Eureka (from `submodules/Eureka/`)
   - FDFullscreenPopGesture (from `submodules/FDFullscreenPopGesture/`)
   - HUD (from `submodules/HUD/`)
+  - Kingfisher
   - Masonry
   - MediaEditorKit (from `submodules/MediaEditorKit/`)
   - Mesh (from `submodules/Mesh/`)
   - MJRefresh (from `submodules/MJRefresh/`)
   - PinLayout (from `submodules/PinLayout/`)
   - PopoverImagePicker (from `submodules/PopoverImagePicker/`)
+  - ReactiveCocoa (from `submodules/ReactiveCocoa/`)
   - ReactiveObjC (from `submodules/ReactiveObjC/`)
   - ReactiveSwift (from `submodules/ReactiveSwift/`)
   - Result (from `submodules/Result/`)
@@ -94,7 +97,7 @@ SPEC REPOS:
     - pop
     - WechatOpenSDK
   trunk:
-    - ReactiveCocoa
+    - Kingfisher
 
 EXTERNAL SOURCES:
   ActionSheet:
@@ -123,6 +126,8 @@ EXTERNAL SOURCES:
     :path: submodules/PinLayout/
   PopoverImagePicker:
     :path: submodules/PopoverImagePicker/
+  ReactiveCocoa:
+    :path: submodules/ReactiveCocoa/
   ReactiveObjC:
     :path: submodules/ReactiveObjC/
   ReactiveSwift:
@@ -140,7 +145,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ActionSheet: 9bf6ceddb7e1cb7c96c84deb7ac2dc0756a274f3
-  Album: 83ce0bdfb12ef0b94f1638533ac85074f51b6c5f
+  Album: fecc292d87f3ed4e2570a94d4f2e10512e8af6b3
   AlertController: ac20b05302a08cb777608dbb7576fc580cdf30a3
   BaiduMobStatCodeless: fc98daffd6d08f1c9644737864b61d2c806965d1
   Core: 68605573ed73624a2abc2ba01be44caf371d1aa8
@@ -148,6 +153,7 @@ SPEC CHECKSUMS:
   Eureka: da9d2294da234eae40b22e7273b9fc2335502fc1
   FDFullscreenPopGesture: f927e70d2b3f7ea91211d44213c2489db1228f64
   HUD: 4f07dc0ffb9ecf7f766cde2c4bb978f63c25bc38
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MediaEditorKit: 4caa4c82ca17d6453f5b7e822702fd7dc3198f4e
   Mesh: b0cad3d962321a665475403e3f5ec291f0299fee
@@ -156,7 +162,7 @@ SPEC CHECKSUMS:
   PinLayout: b2ebf8622b28e82b6e1216ab4e4a0a8d082214fe
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   PopoverImagePicker: 537aa0414345534ef1e03132855b955124dfe7e8
-  ReactiveCocoa: fbd26e9ba60e98417ee47433e59465a98ed9da0f
+  ReactiveCocoa: 87cb64d78424d749a0bbfd9b07e4825e8d834066
   ReactiveObjC: fc763b49ef71b5124ccd0c761acc3fc41106a8b7
   ReactiveSwift: 454d1acd4a0825b544ceea34fada9a199c22e638
   Result: c287d70c041eeadf414a930901fab39e9dbf7f22
@@ -166,6 +172,6 @@ SPEC CHECKSUMS:
   XCGLogger: 4fc1bc0bdd5828cb8dc8da7a843536cda1bea8f3
   ZXingObjC: ec0306e7c8dac717f653e165f1c4fd0e69fde99f
 
-PODFILE CHECKSUM: b967fa404cb8b0b68bb25e464ffe06140f768c77
+PODFILE CHECKSUM: 9d06df6caee6169bc74ba65491cec286c6dbb73c
 
 COCOAPODS: 1.9.1

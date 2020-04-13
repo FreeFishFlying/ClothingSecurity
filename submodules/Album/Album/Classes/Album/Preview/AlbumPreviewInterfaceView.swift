@@ -368,7 +368,7 @@ class AlbumPreviewInterfaceView: UIView {
         return cancelButton
     }()
 
-    private lazy var checkButton: UIButton = {
+    private lazy var checkButton: CheckBadgeButton = {
         let checkButton = CheckBadgeButton(buttonSize: CGSize(width: 28, height: 28), fontSize: 17)
         checkButton.addTarget(self, action: #selector(self.checkButtonPressed), for: .touchUpInside)
         return checkButton
