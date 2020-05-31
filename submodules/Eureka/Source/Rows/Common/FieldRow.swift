@@ -229,12 +229,20 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
         } else {
             textLabel?.text = nil
             titleLabel?.text = row.title
-            titleLabel?.textColor = row.isDisabled ? .gray : .black
+            if #available(iOS 13.0, *) {
+                titleLabel?.textColor = row.isDisabled ? .tertiaryLabel : .label
+            } else {
+                titleLabel?.textColor = row.isDisabled ? .gray : .black
+            }
         }
         textField.delegate = self
         textField.text = row.displayValueFor?(row.value)
         textField.isEnabled = !row.isDisabled
-        textField.textColor = row.isDisabled ? .gray : .black
+        if #available(iOS 13.0, *) {
+            textField.textColor = row.isDisabled ? .tertiaryLabel : .label
+        } else {
+            textField.textColor = row.isDisabled ? .gray : .black
+        }
         textField.font = .preferredFont(forTextStyle: .body)
         if let placeholder = (row as? FieldRowConformance)?.placeholder {
             if let color = (row as? FieldRowConformance)?.placeholderColor {
@@ -468,12 +476,8 @@ open class _FieldCell<T> : Cell<T>, UITextFieldDelegate, TextFieldCell where T: 
 		var targetTitleWidth = bounds.size.width * titlePercentage
 		if let imageView = imageView, let _ = imageView.image, let titleLabel = titleLabel {
 			var extraWidthToSubtract = titleLabel.frame.minX - imageView.frame.minX // Left-to-right interface layout
-            if #available(iOS 9.0, *) {
-                if UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft {
-                    extraWidthToSubtract = imageView.frame.maxX - titleLabel.frame.maxX
-                }
-            } else {
-                // Fallback on earlier versions
+            if UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft {
+                extraWidthToSubtract = imageView.frame.maxX - titleLabel.frame.maxX
             }
 			targetTitleWidth -= extraWidthToSubtract
 		}
